@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JsonLd, breadcrumbSchema } from "@/components/seo/JsonLd";
+import { JsonLd, breadcrumbSchema, organizationSchema } from "@/components/seo/JsonLd";
 import { AboutContent } from "@/components/pages/AboutContent";
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export default function AboutPage() {
           { name: "About", href: "/about" },
         ])}
       />
+      <JsonLd data={organizationSchema()} />
       <AboutContent />
     </>
   );

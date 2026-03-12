@@ -1,54 +1,65 @@
 "use client";
 
+import { ArrowRight, Phone, Check } from "lucide-react";
 import { motion } from "framer-motion";
-import { Phone, ArrowRight } from "lucide-react";
-import { business } from "@/data/business";
+import { ShimmerButton } from "@/components/ui/ShimmerButton";
 
-interface CTASectionProps {
+const trustItems = [
+  "ESA Licensed",
+  "Same-Day Available",
+  "No Fix No Fee Guarantee",
+];
+
+interface CTAProps {
   title?: string;
   subtitle?: string;
   description?: string;
 }
 
 export function CTASection({
-  title = "Ready to Get Started?",
-  subtitle = "Call Today",
-  description = "Get a free estimate for your electrical project. Licensed, insured, and ready to help.",
-}: CTASectionProps) {
+  title = "Ready to Fix It Right?",
+  description = "Book your $49 whole-home electrical assessment. We find the issues - you decide what to fix.",
+}: CTAProps = {}) {
   return (
-    <section className="py-20 bg-[#E31837]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <motion.div
+    <section className="bg-[#1C1C1E] py-20 md:py-28">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="font-heading text-white font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
-            {title}
-            <br />
-            <span className="font-playfair font-normal italic">{subtitle}</span>
-          </h2>
-          <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto">
-            {description}
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`tel:${business.phoneFull}`}
-              className="inline-flex items-center gap-2 bg-white text-[#E31837] px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              {business.phone}
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors"
-            >
-              Request a Quote
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </motion.div>
+          {title}
+        </motion.h2>
+
+        <p className="font-body text-[#94a3b8] text-lg mt-6 max-w-2xl mx-auto">
+          {description}
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+          <ShimmerButton href="/contact">
+            Book Your $49 Assessment
+            <ArrowRight className="w-4 h-4" />
+          </ShimmerButton>
+
+          <a
+            href="tel:+19054528439"
+            className="border-2 border-white/40 text-white rounded-lg px-8 py-4 font-heading font-bold text-sm uppercase tracking-wide hover:border-white/70 hover:bg-white/5 transition-all min-h-[52px] inline-flex items-center justify-center gap-2"
+          >
+            <Phone className="w-4 h-4" />
+            (905) 452-8439
+          </a>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#94a3b8] font-body">
+          {trustItems.map((item) => (
+            <span key={item} className="inline-flex items-center gap-1.5">
+              <Check className="w-3.5 h-3.5 text-green-400" />
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -47,7 +47,7 @@ export function AboutContent() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
               ABOUT
               <br />
-              <span className="font-playfair font-normal italic text-[#E31837]">
+              <span className="font-heading font-normal italic text-[#E31837]">
                 Superior Power
               </span>
             </h1>
@@ -63,11 +63,11 @@ export function AboutContent() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm text-white">
-                <Shield className="w-4 h-4 text-[#E31837]" />
+                <Shield className="w-4 h-4 text-[#1B4FE4]" />
                 ESA {business.esaLicense}
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm text-white">
-                <Clock className="w-4 h-4 text-[#E31837]" />
+                <Clock className="w-4 h-4 text-[#1B4FE4]" />
                 {business.yearsInBusiness} Years Experience
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm text-white">
@@ -90,14 +90,14 @@ export function AboutContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#E31837]/10 text-[#E31837]">
+              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#1B4FE4]/10 text-[#1B4FE4]">
                 Our Story
               </span>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1C1C1E]">
                 BUILT ON
                 <br />
-                <span className="font-playfair font-normal italic text-[#E31837]">
+                <span className="font-heading font-normal italic text-[#E31837]">
                   Hard Work
                 </span>
               </h2>
@@ -162,8 +162,8 @@ export function AboutContent() {
                   },
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
-                    <div className="w-8 h-8 rounded-lg bg-[#E31837]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Award className="w-4 h-4 text-[#E31837]" />
+                    <div className="w-8 h-8 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Award className="w-4 h-4 text-[#1B4FE4]" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#1C1C1E] text-sm">
@@ -181,6 +181,22 @@ export function AboutContent() {
         </div>
       </section>
 
+      {/* Response Time Promise */}
+      <section className="py-8 bg-[#1B4FE4]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
+            className="text-white text-lg font-bold flex items-center justify-center gap-3"
+          >
+            <Clock className="w-5 h-5" />
+            Response time promise: We respond within 2 hours
+          </motion.p>
+        </div>
+      </section>
+
       {/* By the Numbers */}
       <section className="py-20 bg-[#F5F5F5]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -191,13 +207,13 @@ export function AboutContent() {
             transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
             className="text-center mb-12"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#E31837]/10 text-[#E31837]">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#1B4FE4]/10 text-[#1B4FE4]">
               By the Numbers
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1C1C1E]">
               PROVEN
               <br />
-              <span className="font-playfair font-normal italic text-[#E31837]">
+              <span className="font-heading font-normal italic text-[#E31837]">
                 Track Record
               </span>
             </h2>
@@ -236,8 +252,8 @@ export function AboutContent() {
                 }}
                 className="bg-white rounded-xl p-6 text-center border border-[#E5E5E5]"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#E31837]/10 flex items-center justify-center mx-auto mb-3">
-                  <stat.icon className="w-5 h-5 text-[#E31837]" />
+                <div className="w-10 h-10 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center mx-auto mb-3">
+                  <stat.icon className="w-5 h-5 text-[#1B4FE4]" />
                 </div>
                 <div className="text-2xl font-black text-[#1C1C1E]">
                   {stat.value}
@@ -261,13 +277,13 @@ export function AboutContent() {
             transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
             className="text-center mb-12"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#E31837]/10 text-[#E31837]">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#1B4FE4]/10 text-[#1B4FE4]">
               What We Do
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1C1C1E]">
               OUR
               <br />
-              <span className="font-playfair font-normal italic text-[#E31837]">
+              <span className="font-heading font-normal italic text-[#E31837]">
                 Services
               </span>
             </h2>
@@ -312,10 +328,10 @@ export function AboutContent() {
                   delay: index * 0.08,
                   ease: [0.625, 0.05, 0, 1],
                 }}
-                className="group bg-[#F5F5F5] rounded-xl p-8 border border-[#E5E5E5] hover:border-[#E31837]/30 transition-all hover:-translate-y-0.5"
+                className="group bg-[#F5F5F5] rounded-xl p-8 border border-[#E5E5E5] hover:border-[#1B4FE4]/30 transition-all hover:-translate-y-0.5"
               >
-                <div className="w-12 h-12 rounded-lg bg-[#E31837]/10 flex items-center justify-center mb-5">
-                  <service.icon className="w-6 h-6 text-[#E31837]" />
+                <div className="w-12 h-12 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center mb-5">
+                  <service.icon className="w-6 h-6 text-[#1B4FE4]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#1C1C1E] mb-2">
                   {service.title}
@@ -323,7 +339,7 @@ export function AboutContent() {
                 <p className="text-[#9CA3AF] text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <span className="inline-flex items-center gap-1 text-[#E31837] text-sm font-semibold group-hover:gap-2 transition-all">
+                <span className="inline-flex items-center gap-1 text-[#1B4FE4] text-sm font-semibold group-hover:gap-2 transition-all">
                   Learn More
                   <ArrowRight className="w-4 h-4" />
                 </span>

@@ -1,150 +1,199 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, Shield } from "lucide-react";
+import { Facebook, Instagram, Globe, Phone, Mail, MapPin } from "lucide-react";
 import { business } from "@/data/business";
-import { footerLinks } from "@/data/navigation";
+
+const services = [
+  { name: "Panel Upgrades", slug: "panel-upgrades" },
+  { name: "Pot Lights", slug: "pot-lights" },
+  { name: "EV Charger", slug: "ev-charger" },
+  { name: "Residential", slug: "residential" },
+  { name: "Commercial", slug: "commercial" },
+  { name: "Rewiring", slug: "rewiring" },
+  { name: "Hot Tub", slug: "hot-tub" },
+  { name: "Lighting", slug: "lighting" },
+  { name: "Knob & Tube", slug: "knob-and-tube" },
+];
+
+const locations = [
+  { name: "Brampton", slug: "brampton" },
+  { name: "Mississauga", slug: "mississauga" },
+  { name: "Vaughan", slug: "vaughan" },
+  { name: "Caledon", slug: "caledon" },
+  { name: "Georgetown", slug: "georgetown" },
+  { name: "Oakville", slug: "oakville" },
+];
+
+const socialLinks = [
+  { icon: Facebook, href: business.social.facebook, label: "Facebook" },
+  { icon: Instagram, href: business.social.instagram, label: "Instagram" },
+  { icon: Globe, href: business.domain, label: "Google" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-[#1C1C1E] text-gray-300">
-      {/* Main footer */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Column 1: About */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-4">
-              Superior <span className="text-[#E31837]">Power</span>
-            </h3>
-            <p className="text-sm text-gray-400 leading-relaxed mb-4">
-              Licensed electricians serving Brampton, Mississauga, and the Greater
-              Toronto Area for over 15 years. ESA certified, fully insured, and
-              committed to quality workmanship.
-            </p>
-            <div className="flex items-center gap-2 text-sm">
-              <Shield className="w-4 h-4 text-[#E31837]" />
-              <span>ESA License {business.esaLicense}</span>
+    <footer className="bg-[#1C1C1E] border-t border-white/10">
+      {/* Top section */}
+      <div className="py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+            {/* Column 1 - Brand */}
+            <div>
+              <Image
+                src="https://spe-brand-kit.vercel.app/logo-light.svg"
+                alt="Superior Power Electric"
+                width={160}
+                height={45}
+              />
+              <p className="font-body text-[#94a3b8] text-sm mt-4">
+                {business.tagline}
+              </p>
+              <div className="mt-6 flex gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-[#1B4FE4] hover:text-white transition-all"
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 2: Services */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Services
-            </h4>
-            <ul className="space-y-2.5">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
+            {/* Column 2 - Services */}
+            <div>
+              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
+                Services
+              </h3>
+              <nav>
+                {services.map((service) => (
                   <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    key={service.slug}
+                    href={`/services/${service.slug}`}
+                    className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
                   >
-                    {link.label}
+                    {service.name}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </nav>
+            </div>
 
-          {/* Column 3: Company */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
+            {/* Column 3 - Locations */}
+            <div>
+              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
+                Areas We Serve
+              </h3>
+              <nav>
+                {locations.map((location) => (
                   <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    key={location.slug}
+                    href={`/locations/${location.slug}`}
+                    className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
                   >
-                    {link.label}
+                    {location.name}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </nav>
+            </div>
 
-          {/* Column 4: Contact */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Contact Us
-            </h4>
-            <ul className="space-y-3">
-              <li>
+            {/* Column 4 - Resources */}
+            <div>
+              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
+                Resources
+              </h3>
+              <nav>
+                <Link
+                  href="/blog"
+                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/blog/electrical-panel-upgrade-cost-ontario"
+                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
+                >
+                  Panel Upgrade Costs
+                </Link>
+                <Link
+                  href="/blog/pot-light-installation-cost-brampton"
+                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
+                >
+                  Pot Light Pricing
+                </Link>
+                <Link
+                  href="/blog/ev-charger-installation-ontario-rebate"
+                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
+                >
+                  EV Charger Guide
+                </Link>
+                <Link
+                  href="/blog/knob-and-tube-wiring-ontario"
+                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
+                >
+                  Knob & Tube Guide
+                </Link>
+              </nav>
+            </div>
+
+            {/* Column 5 - Contact */}
+            <div
+              itemScope
+              itemType="https://schema.org/ElectricalContractor"
+            >
+              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
+                Contact
+              </h3>
+              <div className="space-y-3 text-[#94a3b8] text-sm font-body">
                 <a
                   href={`tel:${business.phoneFull}`}
-                  className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-white font-bold hover:text-[#E31837] transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#E31837] flex-shrink-0" />
-                  {business.phone}
+                  <Phone className="w-4 h-4" />
+                  <span itemProp="telephone">{business.phone}</span>
                 </a>
-              </li>
-              <li>
                 <a
                   href={`mailto:${business.email}`}
-                  className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 hover:text-white transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#E31837] flex-shrink-0" />
-                  {business.email}
+                  <Mail className="w-4 h-4" />
+                  <span itemProp="email">{business.email}</span>
                 </a>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-400">
-                <MapPin className="w-4 h-4 text-[#E31837] flex-shrink-0 mt-0.5" />
-                {business.address.full}
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-400">
-                <Clock className="w-4 h-4 text-[#E31837] flex-shrink-0 mt-0.5" />
-                <div>
-                  <div>{business.hours.weekday}</div>
-                  <div>{business.hours.saturday}</div>
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                  <span itemProp="address">{business.address.full}</span>
                 </div>
-              </li>
-            </ul>
+
+                <div className="pt-2 space-y-1">
+                  <p>{business.hours.weekday}</p>
+                  <p>{business.hours.saturday}</p>
+                  <p>Sun: {business.hours.sunday}</p>
+                </div>
+
+                <p className="text-[#E31837] font-bold text-sm pt-1">
+                  24/7 Emergency Available
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Google Maps embed */}
-      <div className="w-full h-64">
-        <iframe
-          src={business.googleMapsEmbed}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title={`${business.name} location on Google Maps`}
-        />
-      </div>
-
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} {business.name}. All rights reserved.
+      <div className="border-t border-white/10 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[#94a3b8] text-xs">
+            &copy; 2026 {business.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            {business.social.facebook && (
-              <a
-                href={business.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-white transition-colors text-sm"
-              >
-                Facebook
-              </a>
-            )}
-            {business.social.instagram && (
-              <a
-                href={business.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-white transition-colors text-sm"
-              >
-                Instagram
-              </a>
-            )}
-          </div>
+          <p className="text-[#94a3b8] text-xs">
+            ESA/ECRA License {business.esaLicense} | Licensed Electrical
+            Contractor
+          </p>
         </div>
       </div>
     </footer>

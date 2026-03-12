@@ -25,9 +25,9 @@ const reasons = [
   },
   {
     icon: ThumbsUp,
-    title: "Free Estimates",
+    title: "$49 Assessments",
     description:
-      "Transparent pricing with no hidden fees. We provide detailed written estimates before starting any work.",
+      "Transparent pricing with no hidden fees. Book a $49 on-site assessment (credited toward your project) or request a free remote estimate.",
   },
   {
     icon: Award,

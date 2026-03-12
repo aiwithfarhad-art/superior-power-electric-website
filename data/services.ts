@@ -28,10 +28,10 @@ export const services: Service[] = [
     title: "Residential Electrical Services",
     shortTitle: "Residential",
     metaTitle:
-      "Residential Electrician Brampton | Home Electrical Services - Superior Power",
+      "Residential Electrician Brampton | Superior Power Electric",
     metaDescription:
-      "Full residential electrical services in Brampton & GTA. Panel upgrades, pot lights, rewiring, hot tub electrical & more. ESA licensed. Call 647-872-9954.",
-    h1: "Residential Electrical Services in Brampton",
+      "Trusted residential electrician in Brampton. ESA licensed, fully insured. All home electrical work. Call (905) 452-8439.",
+    h1: "Residential Electrician in Brampton, ON",
     heroDescription:
       "Complete residential electrical services across the Greater Toronto Area. From panel upgrades to pot light installation, we handle projects of all sizes with ESA-certified quality.",
     icon: "Zap",
@@ -49,7 +49,7 @@ export const services: Service[] = [
       {
         heading: "Our Residential Services",
         content:
-          "We offer a full range of home electrical services including electrical panel upgrades (100A to 200A), pot light and recessed lighting installation, hot tub and spa electrical hookups, complete home rewiring, LED lighting upgrades, dimmer and smart switch installation, ceiling fan installation, smoke detector and carbon monoxide alarm installation, surge protection, and electrical safety inspections. Every service includes a free estimate and ESA inspection upon completion.",
+          "We offer a full range of home electrical services including electrical panel upgrades (100A to 200A), pot light and recessed lighting installation, hot tub and spa electrical hookups, complete home rewiring, LED lighting upgrades, dimmer and smart switch installation, ceiling fan installation, smoke detector and carbon monoxide alarm installation, surge protection, and electrical safety inspections. Every service includes an ESA inspection upon completion. Book a $49 on-site assessment (credited toward your project) or request a free remote estimate with photos.",
       },
       {
         heading: "Why Brampton Homeowners Choose Us",
@@ -61,7 +61,7 @@ export const services: Service[] = [
       {
         question: "What residential electrical services do you offer?",
         answer:
-          "We offer panel upgrades, pot light installation, hot tub electrical, rewiring, lighting installation, ceiling fans, surge protection, smoke detectors, and more. Every job includes a free estimate.",
+          "We offer panel upgrades, pot light installation, hot tub electrical, rewiring, lighting installation, ceiling fans, surge protection, smoke detectors, and more. Every job starts with a clear quote before work begins.",
       },
       {
         question: "Are you licensed for residential work in Ontario?",
@@ -76,19 +76,17 @@ export const services: Service[] = [
       {
         question: "How quickly can you start a residential project?",
         answer:
-          "Most residential projects can be scheduled within 1-2 business days. Emergency services are available 24/7. Call 647-872-9954 for availability.",
+          "Most residential projects can be scheduled within 1-2 business days. Emergency services are available 24/7. Call (905) 452-8439 for availability.",
       },
       {
-        question: "Do you provide free estimates?",
+        question: "How do your estimates work?",
         answer:
-          "Yes. All residential estimates are free with no obligation. We provide upfront pricing before any work begins.",
+          "We offer two options: a $49 on-site project assessment where a licensed electrician visits your home (credited toward your project if you proceed), or a free remote estimate if you send us photos and project details. Either way, you get upfront pricing before any work begins.",
       },
     ],
     relatedServices: [
       "panel-upgrades",
       "pot-lights",
-      "hot-tub-electrical",
-      "lighting",
       "rewiring",
     ],
   },
@@ -97,10 +95,10 @@ export const services: Service[] = [
     title: "Commercial Electrical Services",
     shortTitle: "Commercial",
     metaTitle:
-      "Commercial Electrician Brampton | Business Electrical Services - Superior Power",
+      "Commercial Electrician Brampton | Superior Power Electric",
     metaDescription:
-      "Commercial electrical services in Brampton, Mississauga & GTA. Installations, repairs, LED upgrades, safety inspections. ESA licensed. Call 647-872-9954.",
-    h1: "Commercial Electrical Services in Brampton & GTA",
+      "Commercial electrical services in Brampton. Licensed, insured, reliable. Office, retail & industrial. Call (905) 452-8439.",
+    h1: "Commercial Electrician in Brampton, ON",
     heroDescription:
       "Professional commercial electrical services for businesses across the Greater Toronto Area. From retail stores to warehouses, we deliver safe, code-compliant electrical solutions.",
     icon: "Building2",
@@ -162,10 +160,10 @@ export const services: Service[] = [
     title: "Electrical Panel Upgrades",
     shortTitle: "Panel Upgrades",
     metaTitle:
-      "Electrical Panel Upgrade Brampton | 100-200 Amp Upgrades - Superior Power",
+      "Electrical Panel Upgrade Brampton | Superior Power Electric",
     metaDescription:
-      "Need a panel upgrade in Brampton? Superior Power Electric handles 100 to 200 amp upgrades, fuse box replacements & more. ESA licensed. Free estimates.",
-    h1: "Electrical Panel Upgrades in Brampton",
+      "Need an electrical panel upgrade in Brampton? ESA-licensed electricians. Same-day quotes. Serving Brampton & GTA. Call (905) 452-8439.",
+    h1: "Electrical Panel Upgrade in Brampton, ON",
     heroDescription:
       "Upgrade your outdated or overloaded electrical panel to meet modern safety standards and power demands. From 100 to 200 amp upgrades to fuse box replacements, we handle it all with ESA certification.",
     icon: "Zap",
@@ -184,24 +182,24 @@ export const services: Service[] = [
       {
         heading: "Signs Your Panel Needs Upgrading",
         content:
-          "Watch for these warning signs: breakers tripping frequently, flickering or dimming lights when appliances turn on, a burning smell near your electrical panel, rust or corrosion on the panel box, your home still has a fuse box instead of circuit breakers, you are planning to add a hot tub, EV charger, or major renovation, or your insurance company is requiring an upgrade. If you notice any of these, call us for a free panel assessment.",
+          "Watch for these warning signs: breakers tripping frequently, flickering or dimming lights when appliances turn on, a burning smell near your electrical panel, rust or corrosion on the panel box, your home still has a fuse box instead of circuit breakers, you are planning to add a hot tub, EV charger, or major renovation, or your insurance company is requiring an upgrade. If you notice any of these, call us to book a $49 panel assessment.",
       },
       {
         heading: "100 Amp vs 200 Amp - Which Do You Need?",
         content:
-          "Most older Brampton homes have 100-amp panels. A 200-amp upgrade is recommended if you are adding high-demand equipment like an EV charger, hot tub, or central air conditioning. For homes with electric heating, workshops, or multiple high-draw appliances, 200 amps provides the headroom you need. During your free assessment, we evaluate your current and future electrical needs and recommend the right panel size for your home.",
+          "Most older Brampton homes have 100-amp panels. A 200-amp upgrade is recommended if you are adding high-demand equipment like an EV charger, hot tub, or central air conditioning. For homes with electric heating, workshops, or multiple high-draw appliances, 200 amps provides the headroom you need. During your $49 assessment, we evaluate your current and future electrical needs and recommend the right panel size for your home. The $49 is credited toward your project if you proceed.",
       },
       {
         heading: "Our Panel Upgrade Process",
         content:
-          "Step 1: Free on-site assessment. We inspect your current panel and discuss your electrical needs. Step 2: Detailed written quote with no hidden fees. Step 3: Professional installation by our ESA-licensed electricians. Step 4: ESA inspection to certify the work meets Ontario code. Step 5: You receive your ESA certificate of inspection. Most panel upgrades are completed in one day.",
+          "Step 1: $49 on-site assessment. A licensed electrician inspects your current panel and discusses your electrical needs (credited toward your project). Step 2: Detailed written quote with no hidden fees. Step 3: Professional installation by our ESA-licensed electricians. Step 4: ESA inspection to certify the work meets Ontario code. Step 5: You receive your ESA certificate of inspection. Most panel upgrades are completed in one day.",
       },
     ],
     faqs: [
       {
         question: "How much does an electrical panel upgrade cost in Brampton?",
         answer:
-          "Panel upgrades in Brampton typically range from $2,000 to $4,500 depending on the amperage (100A to 200A), complexity of the installation, and whether additional circuits are needed. We provide free, detailed quotes.",
+          "Panel upgrades in Brampton typically range from $2,000 to $4,500 depending on the amperage (100A to 200A), complexity of the installation, and whether additional circuits are needed. Book a $49 on-site assessment for exact pricing, or request a free remote estimate with photos.",
       },
       {
         question: "How long does a panel upgrade take?",
@@ -221,20 +219,20 @@ export const services: Service[] = [
       {
         question: "Do I need a 200 amp panel for an EV charger?",
         answer:
-          "In many cases, yes. A Level 2 EV charger draws 30-50 amps. If your current 100A panel is already near capacity, upgrading to 200A is the safest option. We assess this during your free estimate.",
+          "In many cases, yes. A Level 2 EV charger draws 30-50 amps. If your current 100A panel is already near capacity, upgrading to 200A is the safest option. We assess this during your $49 on-site assessment.",
       },
     ],
-    relatedServices: ["residential", "rewiring", "ev-charger"],
+    relatedServices: ["rewiring", "knob-and-tube", "ev-charger"],
   },
   {
     slug: "pot-lights",
     title: "Pot Light Installation",
     shortTitle: "Pot Lights",
     metaTitle:
-      "Pot Light Installation Brampton | Recessed Lighting - Superior Power Electric",
+      "Pot Light Installation Brampton | Superior Power Electric",
     metaDescription:
-      "Professional pot light installation in Brampton & GTA. LED recessed lighting for kitchens, living rooms & basements. ESA licensed. Call 647-872-9954.",
-    h1: "Pot Light Installation in Brampton",
+      "Professional pot light installation in Brampton. LED recessed lighting experts. $49 assessment credited toward your project. ESA licensed. Call (905) 452-8439.",
+    h1: "Pot Light Installation in Brampton, ON",
     heroDescription:
       "Transform any room with modern, energy-efficient pot lights. Professional installation in kitchens, living rooms, basements, and bathrooms across Brampton and the GTA.",
     icon: "Lightbulb",
@@ -270,7 +268,7 @@ export const services: Service[] = [
       {
         question: "How much does pot light installation cost in Brampton?",
         answer:
-          "Pot light installation typically costs $150-$250 per light installed, depending on ceiling type and accessibility. A standard 6-light kitchen installation runs $900-$1,500. We provide free estimates.",
+          "Pot light installation typically costs $150-$250 per light installed, depending on ceiling type and accessibility. A standard 6-light kitchen installation runs $900-$1,500. Book a $49 assessment for exact pricing, or send photos for a free remote estimate.",
       },
       {
         question: "How many pot lights do I need for my kitchen?",
@@ -293,17 +291,17 @@ export const services: Service[] = [
           "A typical 6-light installation takes 3-4 hours. Larger projects (10+ lights across multiple rooms) may take a full day. We minimize mess and clean up completely after installation.",
       },
     ],
-    relatedServices: ["residential", "lighting", "panel-upgrades"],
+    relatedServices: ["lighting", "residential", "panel-upgrades"],
   },
   {
     slug: "hot-tub-electrical",
     title: "Hot Tub & Spa Electrical Installation",
     shortTitle: "Hot Tub Electrical",
     metaTitle:
-      "Hot Tub Electrical Installation Brampton | Spa Wiring - Superior Power Electric",
+      "Hot Tub Electrician Brampton | Superior Power Electric",
     metaDescription:
-      "Hot tub and spa electrical installation in Brampton & GTA. Dedicated circuits, GFCI protection, code-compliant. ESA licensed. Free estimates.",
-    h1: "Hot Tub & Spa Electrical Installation in Brampton",
+      "Hot tub electrical hookup in Brampton. 240V dedicated circuit, ESA permit included. Same-day quotes. Call (905) 452-8439.",
+    h1: "Hot Tub Electrical Installation in Brampton, ON",
     heroDescription:
       "Safe, code-compliant electrical installation for your hot tub or spa. Dedicated circuits, GFCI protection, and ESA inspection included.",
     icon: "Waves",
@@ -339,12 +337,12 @@ export const services: Service[] = [
       {
         question: "How much does hot tub electrical installation cost?",
         answer:
-          "Hot tub electrical installation typically costs $800-$2,500 depending on the distance from your panel, whether you need a panel upgrade, and indoor vs outdoor placement. We provide free estimates.",
+          "Hot tub electrical installation typically costs $800-$2,500 depending on the distance from your panel, whether you need a panel upgrade, and indoor vs outdoor placement. Book a $49 on-site assessment for exact pricing.",
       },
       {
         question: "Do I need a panel upgrade for a hot tub?",
         answer:
-          "It depends on your current panel capacity. A 50-amp hot tub circuit requires significant capacity. If your panel is already near full load, you may need a 200-amp upgrade. We assess this during the estimate.",
+          "It depends on your current panel capacity. A 50-amp hot tub circuit requires significant capacity. If your panel is already near full load, you may need a 200-amp upgrade. We assess this during your $49 on-site assessment.",
       },
       {
         question: "What size breaker does a hot tub need?",
@@ -362,17 +360,17 @@ export const services: Service[] = [
           "Yes. All hot tub electrical installations in Ontario require an ESA permit and inspection. We handle the full permit process as part of our service.",
       },
     ],
-    relatedServices: ["residential", "panel-upgrades", "rewiring"],
+    relatedServices: ["panel-upgrades", "residential", "lighting"],
   },
   {
     slug: "lighting",
     title: "Lighting Installation",
     shortTitle: "Lighting",
     metaTitle:
-      "Lighting Installation Brampton | LED, Smart & Dimmer - Superior Power Electric",
+      "Lighting Installation Brampton | Superior Power Electric",
     metaDescription:
-      "Professional lighting installation in Brampton & GTA. LED upgrades, smart lighting, dimmer switches, motion sensors. ESA licensed. Call 647-872-9954.",
-    h1: "Lighting Installation in Brampton",
+      "Indoor and outdoor lighting installation in Brampton. LED upgrades, fixtures, smart lighting. ESA licensed. Call (905) 452-8439.",
+    h1: "Lighting Installation in Brampton, ON",
     heroDescription:
       "Professional lighting installation for homes and businesses across the GTA. LED upgrades, smart lighting, dimmer switches, outdoor lighting, and more.",
     icon: "Sun",
@@ -408,7 +406,7 @@ export const services: Service[] = [
       {
         question: "How much does lighting installation cost?",
         answer:
-          "Costs vary by project: a dimmer switch installation runs $100-$200, a ceiling fixture replacement $150-$300, and a full LED retrofit for a home runs $500-$1,500 depending on the number of fixtures. Free estimates available.",
+          "Costs vary by project: a dimmer switch installation runs $100-$200, a ceiling fixture replacement $150-$300, and a full LED retrofit for a home runs $500-$1,500 depending on the number of fixtures. Book a $49 assessment or request a free remote estimate with photos.",
       },
       {
         question: "Can you install smart lighting in an older home?",
@@ -431,17 +429,17 @@ export const services: Service[] = [
           "Yes. We install chandeliers, pendant lights, and heavy ceiling fixtures. This includes verifying the electrical box can support the weight and upgrading it if necessary.",
       },
     ],
-    relatedServices: ["residential", "pot-lights", "panel-upgrades"],
+    relatedServices: ["pot-lights", "residential", "panel-upgrades"],
   },
   {
     slug: "rewiring",
     title: "Electrical Rewiring & Upgrades",
     shortTitle: "Rewiring",
     metaTitle:
-      "Electrical Rewiring Brampton | Home Rewiring & Upgrades - Superior Power Electric",
+      "Electrical Rewiring Brampton | Superior Power Electric",
     metaDescription:
-      "Electrical rewiring services in Brampton & GTA. Knob and tube removal, aluminum wiring replacement, circuit upgrades. ESA licensed. Free estimates.",
-    h1: "Electrical Rewiring & Upgrades in Brampton",
+      "Home electrical rewiring in Brampton. Old wiring? Safety hazard? ESA licensed rewiring experts. Call (905) 452-8439.",
+    h1: "Electrical Rewiring in Brampton, ON",
     heroDescription:
       "Complete electrical rewiring for homes with outdated or unsafe wiring. Knob and tube removal, aluminum wiring replacement, and full home rewires with ESA certification.",
     icon: "Cable",
@@ -477,7 +475,7 @@ export const services: Service[] = [
       {
         question: "How much does it cost to rewire a house in Brampton?",
         answer:
-          "Rewiring costs vary significantly: partial rewiring runs $3,000-$8,000, while a full home rewire ranges from $8,000-$20,000 depending on home size and complexity. We provide free assessments and quotes.",
+          "Rewiring costs vary significantly: partial rewiring runs $3,000-$8,000, while a full home rewire ranges from $8,000-$20,000 depending on home size and complexity. Book a $49 on-site assessment for an accurate scope and quote.",
       },
       {
         question: "Is knob and tube wiring dangerous?",
@@ -501,17 +499,17 @@ export const services: Service[] = [
           "In most cases, yes. Removing knob-and-tube or aluminum wiring and providing ESA certification often qualifies you for lower insurance premiums. We provide all documentation your insurer needs.",
       },
     ],
-    relatedServices: ["residential", "panel-upgrades", "knob-and-tube"],
+    relatedServices: ["panel-upgrades", "knob-and-tube", "residential"],
   },
   {
     slug: "ev-charger",
     title: "EV Charger Installation",
     shortTitle: "EV Chargers",
     metaTitle:
-      "EV Charger Installation Brampton | Level 2 Home Charging - Superior Power Electric",
+      "EV Charger Installation Brampton | Superior Power Electric",
     metaDescription:
-      "Level 2 EV charger installation in Brampton & GTA. Tesla Wall Connector, ChargePoint, all brands. Panel assessment included. ESA licensed. Call 647-872-9954.",
-    h1: "EV Charger Installation in Brampton",
+      "Level 2 EV charger installation in Brampton. Ontario rebates available. ESA licensed. Same-day quotes. Call (905) 452-8439.",
+    h1: "EV Charger Installation in Brampton, ON",
     heroDescription:
       "Fast, safe Level 2 EV charger installation for your home or business. All brands including Tesla Wall Connector, ChargePoint, and more. ESA-certified with panel assessment included.",
     icon: "PlugZap",
@@ -547,12 +545,12 @@ export const services: Service[] = [
       {
         question: "How much does EV charger installation cost in Brampton?",
         answer:
-          "EV charger installation typically costs $1,500-$3,000 without a panel upgrade. If a panel upgrade is needed, the total ranges from $3,500-$7,000. We provide free assessments to determine your exact needs.",
+          "EV charger installation typically costs $1,500-$3,000 without a panel upgrade. If a panel upgrade is needed, the total ranges from $3,500-$7,000. Book a $49 assessment and we will determine your exact needs. The $49 is credited toward your project.",
       },
       {
         question: "Can I install a Tesla Wall Connector with a 100-amp panel?",
         answer:
-          "It depends on your current panel load. A Tesla Wall Connector draws up to 48 amps. If your 100A panel is lightly loaded, it may work. If near capacity, a 200A upgrade is recommended. We assess this for free.",
+          "It depends on your current panel load. A Tesla Wall Connector draws up to 48 amps. If your 100A panel is lightly loaded, it may work. If near capacity, a 200A upgrade is recommended. We assess this during your $49 on-site visit.",
       },
       {
         question: "How long does EV charger installation take?",
@@ -578,10 +576,10 @@ export const services: Service[] = [
     title: "Knob & Tube Replacement",
     shortTitle: "Knob & Tube",
     metaTitle:
-      "Knob & Tube Replacement Brampton | Safe Wiring Upgrades - Superior Power Electric",
+      "Knob and Tube Removal Brampton | Superior Power Electric",
     metaDescription:
-      "Knob and tube wiring replacement in Brampton & GTA. Insurance-required upgrades, ESA certified. Protect your home and your coverage. Call 647-872-9954.",
-    h1: "Knob & Tube Replacement in Brampton",
+      "Knob and tube wiring removal in Brampton. Insurance issues? Safety risk? ESA licensed. $49 assessment credited toward your project. Call (905) 452-8439.",
+    h1: "Knob and Tube Wiring Removal in Brampton, ON",
     heroDescription:
       "Remove dangerous knob-and-tube wiring and upgrade to modern, safe electrical. Protect your home, meet insurance requirements, and increase your property value.",
     icon: "ShieldAlert",
@@ -617,7 +615,7 @@ export const services: Service[] = [
       {
         question: "How much does knob and tube replacement cost?",
         answer:
-          "Knob and tube replacement typically costs $5,000-$15,000 depending on the size of the home, amount of K&T wiring, and accessibility. A typical Brampton bungalow runs $5,000-$8,000. We provide free assessments.",
+          "Knob and tube replacement typically costs $5,000-$15,000 depending on the size of the home, amount of K&T wiring, and accessibility. A typical Brampton bungalow runs $5,000-$8,000. Book a $49 assessment for an accurate quote. The fee is credited toward your project.",
       },
       {
         question: "Is knob and tube wiring dangerous?",

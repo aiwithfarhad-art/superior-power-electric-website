@@ -66,10 +66,10 @@ export function QuoteForm() {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
       <h3 className="text-xl font-bold text-[#1C1C1E] mb-1">
-        Get a Free Quote
+        Get Your Project Quote
       </h3>
       <p className="text-sm text-[#9CA3AF] mb-6">
-        Tell us about your project and we will provide a detailed estimate.
+        Tell us about your project. Book a $49 on-site assessment or request a free remote estimate.
       </p>
 
       {/* Step indicators */}
@@ -184,7 +184,7 @@ export function QuoteForm() {
               disabled={submitting}
               className="flex-1 inline-flex items-center justify-center gap-2 bg-[#E31837] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#C21430] transition-colors disabled:opacity-50 cursor-pointer"
             >
-              {submitting ? "Sending..." : "Get My Free Quote"}
+              {submitting ? "Sending..." : "Request My Quote"}
               {!submitting && <ArrowRight className="w-4 h-4" />}
             </button>
           </div>

@@ -12,6 +12,7 @@ export function ContactForm() {
     phone: "",
     email: "",
     service: "",
+    estimateType: "",
     message: "",
   });
 
@@ -131,6 +132,23 @@ export function ContactForm() {
           <option value="EV Charger Installation">EV Charger Installation</option>
           <option value="Knob & Tube Replacement">Knob & Tube Replacement</option>
           <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="contact-estimate-type" className="block text-sm font-medium text-[#1C1C1E] mb-1">
+          How would you like your estimate?
+        </label>
+        <select
+          id="contact-estimate-type"
+          name="estimateType"
+          value={formData.estimateType}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors bg-white"
+        >
+          <option value="">Select an option</option>
+          <option value="$49 On-Site Assessment">$49 On-Site Assessment (credited toward project)</option>
+          <option value="Free Remote Estimate">Free Remote Estimate (send photos)</option>
         </select>
       </div>
 

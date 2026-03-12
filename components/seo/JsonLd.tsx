@@ -54,6 +54,7 @@ export function electricianSchema() {
       reviewCount: business.googleReviews.count,
       bestRating: 5,
     },
+    paymentAccepted: "Cash, Credit Card, Debit, E-Transfer",
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -67,6 +68,13 @@ export function electricianSchema() {
         opens: "09:00",
         closes: "15:00",
       },
+      {
+        // Sunday: Emergency 24/7
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "00:00",
+        closes: "23:59",
+      },
     ],
     sameAs: [business.social.facebook, business.social.instagram],
     founder: {
@@ -75,6 +83,28 @@ export function electricianSchema() {
     },
     foundingDate: String(business.foundedYear),
     priceRange: "$$",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Electrical Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          name: "On-Site Project Assessment",
+          price: "49",
+          priceCurrency: "CAD",
+          description:
+            "Licensed electrician visits your home for a detailed assessment. $49 credited toward your project if you proceed.",
+        },
+        {
+          "@type": "Offer",
+          name: "Free Remote Estimate",
+          price: "0",
+          priceCurrency: "CAD",
+          description:
+            "Send photos and project details for a free ballpark estimate by phone.",
+        },
+      ],
+    },
   };
 }
 
@@ -114,6 +144,33 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
         text: faq.answer,
       },
     })),
+  };
+}
+
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: business.name,
+    url: business.domain,
+    logo: `${business.domain}/logo.svg`,
+    image: `${business.domain}/logo.svg`,
+    telephone: business.phoneFull,
+    email: business.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: business.address.street,
+      addressLocality: business.address.city,
+      addressRegion: business.address.province,
+      postalCode: business.address.postalCode,
+      addressCountry: business.address.country,
+    },
+    founder: {
+      "@type": "Person",
+      name: business.owner,
+    },
+    foundingDate: String(business.foundedYear),
+    sameAs: [business.social.facebook, business.social.instagram],
   };
 }
 

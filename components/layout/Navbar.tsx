@@ -1,143 +1,125 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
-import { business } from "@/data/business";
-import { navigation } from "@/data/navigation";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Phone, Menu, X, Star } from "lucide-react";
+import { siteConfig } from "@/data/config";
+
+const navLinks = [
+  { label: "Services", href: "/services/residential" },
+  { label: "About", href: "/about" },
+  { label: "Locations", href: "/locations/brampton" },
+  { label: "Contact", href: "/contact" },
+];
 
 export function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#1C1C1E] border-b border-white/10">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        scrolled
+          ? "bg-surface-dark/95 backdrop-blur-xl shadow-2xl border-b border-silver/5 py-0"
+          : "bg-transparent py-1"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className={`flex items-center justify-between transition-all duration-500 ${
+            scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+          }`}
+        >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-white">
-              Superior <span className="text-[#E31837]">Power</span>
-            </span>
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="https://spe-brand-kit.vercel.app/logo-dark.svg"
+              alt="Superior Power Electric"
+              width={200}
+              height={60}
+              className={`transition-all duration-500 w-auto ${
+                scrolled ? "h-10 md:h-12" : "h-12 md:h-16"
+              }`}
+              priority
+            />
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navigation.map((item) =>
-              item.children ? (
-                <div key={item.label} className="relative group">
-                  <button className="flex items-center gap-1 text-sm text-gray-300 hover:text-white transition-colors cursor-pointer">
-                    {item.label}
-                    <ChevronDown className="w-3.5 h-3.5" />
-                  </button>
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-[#2A2A2E] border border-white/10 rounded-xl p-2 min-w-[240px] shadow-xl">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-heading text-xs font-semibold uppercase tracking-[0.12em] text-silver hover:text-text-primary transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            {/* Star Rating */}
+            <div className="flex items-center gap-1 text-yellow-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={10} className="fill-yellow-400" />
+              ))}
+              <span className="text-silver text-[10px] ml-1">
+                {siteConfig.googleRating}
+              </span>
+            </div>
+
+            {/* Desktop Phone CTA */}
+            <a
+              href={`tel:${siteConfig.phoneFormatted}`}
+              className="btn-primary phone-pulse text-xs !px-5 !py-3"
+            >
+              <Phone size={16} />
+              {siteConfig.phone}
+            </a>
           </div>
 
-          {/* CTA + mobile toggle */}
-          <div className="flex items-center gap-3">
+          {/* Mobile: Phone CTA + Hamburger */}
+          <div className="flex lg:hidden items-center gap-3">
             <a
-              href={`tel:${business.phoneFull}`}
-              className="hidden sm:inline-flex items-center gap-2 bg-[#E31837] text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#C21430] transition-colors"
+              href={`tel:${siteConfig.phoneFormatted}`}
+              className="btn-primary phone-pulse text-sm md:text-base !px-5 !py-3 font-bold"
             >
-              <Phone className="w-4 h-4" />
-              {business.phone}
-            </a>
-            <a
-              href={`tel:${business.phoneFull}`}
-              className="sm:hidden inline-flex items-center justify-center w-10 h-10 bg-[#E31837] text-white rounded-lg"
-              aria-label="Call us"
-            >
-              <Phone className="w-5 h-5" />
+              <Phone size={18} />
+              Call Now
             </a>
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 text-gray-300 hover:text-white cursor-pointer"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-text-primary p-2"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile menu */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-200",
-            mobileOpen ? "max-h-[500px] pb-4" : "max-h-0"
-          )}
-        >
-          <div className="space-y-1 pt-2">
-            {navigation.map((item) =>
-              item.children ? (
-                <div key={item.label}>
-                  <button
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className="w-full flex items-center justify-between px-3 py-3 text-gray-300 hover:text-white transition-colors cursor-pointer"
-                  >
-                    <span>{item.label}</span>
-                    <ChevronDown
-                      className={cn(
-                        "w-4 h-4 transition-transform",
-                        servicesOpen && "rotate-180"
-                      )}
-                    />
-                  </button>
-                  <div
-                    className={cn(
-                      "overflow-hidden transition-all duration-200",
-                      servicesOpen ? "max-h-[400px]" : "max-h-0"
-                    )}
-                  >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block pl-6 pr-3 py-2.5 text-sm text-gray-400 hover:text-white transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-3 text-gray-300 hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="lg:hidden bg-surface-dark/98 backdrop-blur-xl border-t border-silver/5">
+          <div className="px-4 py-6 space-y-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="block font-heading text-sm font-semibold uppercase tracking-[0.12em] text-silver hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
-      </nav>
-    </header>
+      )}
+    </nav>
   );
 }

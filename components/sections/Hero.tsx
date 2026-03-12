@@ -43,7 +43,7 @@ export function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
               Brampton&apos;s Trusted
               <br />
-              <span className="font-playfair font-normal italic text-[#E31837]">
+              <span className="font-heading font-normal italic text-[#E31837]">
                 Electrical Experts
               </span>
             </h1>
@@ -51,7 +51,7 @@ export function Hero() {
             <p className="mt-5 text-gray-400 text-lg max-w-lg">
               Licensed electricians serving Brampton, Mississauga, and the GTA.{" "}
               {business.yearsInBusiness} years of experience. Residential and commercial.
-              Free estimates.
+              $49 assessments credited toward your project.
             </p>
 
             {/* CTA buttons */}
@@ -67,7 +67,7 @@ export function Hero() {
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-colors"
               >
-                Get a Free Estimate
+                Book Your $49 Assessment
               </a>
             </div>
 

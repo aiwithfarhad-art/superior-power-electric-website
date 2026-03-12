@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Oswald, DM_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd, electricianSchema } from "@/components/seo/JsonLd";
+import { PageViewTracker } from "@/components/shared/PageViewTracker";
+import ScrollAnimator from "@/components/shared/ScrollAnimator";
+import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { business } from "@/data/business";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     url: business.domain,
     siteName: business.name,
     title: `${business.name} | Licensed Electricians in Brampton & GTA`,
-    description: `Licensed electricians serving Brampton, Mississauga, and the GTA. ESA ${business.esaLicense}. Free estimates. Call ${business.phone}.`,
+    description: `Licensed electricians serving Brampton, Mississauga, and the GTA. ESA ${business.esaLicense}. $49 assessment credited toward your project. Call ${business.phone}.`,
   },
   robots: {
     index: true,
@@ -49,12 +51,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={`${oswald.variable} ${dmSans.variable}`}>
+      <body className="font-body antialiased">
         <JsonLd data={electricianSchema()} />
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <ScrollAnimator />
+        <StickyMobileCTA />
+        <PageViewTracker />
       </body>
     </html>
   );

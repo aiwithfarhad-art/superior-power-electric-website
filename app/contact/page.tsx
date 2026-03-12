@@ -4,9 +4,9 @@ import { business } from "@/data/business";
 import { ContactContent } from "@/components/pages/ContactContent";
 
 export const metadata: Metadata = {
-  title: "Contact Superior Power Electric | Free Estimates | 647-872-9954",
+  title: "Contact Superior Power Electric | $49 Assessment | (905) 452-8439",
   description:
-    "Contact Superior Power Electric for free electrical estimates in Brampton & GTA. Call 647-872-9954 or fill out our form. ESA #7014710. Same-day emergency service.",
+    "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 on-site assessment credited toward your project. Call (905) 452-8439. ESA #7014710. Same-day emergency service.",
 };
 
 function contactPointSchema() {

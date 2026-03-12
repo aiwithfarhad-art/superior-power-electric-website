@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod/v4";
+import { createServerClient } from "@/lib/supabase";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -9,6 +10,12 @@ const contactSchema = z.object({
   message: z.string().optional(),
   source: z.string().optional(),
 });
+
+function parseName(fullName: string): { firstName: string; lastName: string } {
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length === 1) return { firstName: parts[0], lastName: "" };
+  return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
+}
 
 export async function POST(request: Request) {
   try {
@@ -29,17 +36,38 @@ export async function POST(request: Request) {
     }
 
     const data = result.data;
+    const { firstName, lastName } = parseName(data.name);
 
-    // Log the submission for now - email integration comes later
-    console.log("[Contact Form Submission]", {
-      name: data.name,
+    // Insert lead into Supabase
+    const supabase = createServerClient();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: "Failed to save your message. Please try again or call us directly." },
+        { status: 503 }
+      );
+    }
+    const { error } = await supabase.from("spe_leads").insert({
+      first_name: firstName,
+      last_name: lastName,
+      email: data.email || null,
       phone: data.phone,
-      email: data.email || "not provided",
-      service: data.service || "not specified",
-      message: data.message || "no message",
-      source: data.source || "unknown",
-      timestamp: new Date().toISOString(),
+      message: data.message || null,
+      service: data.service || null,
+      source_page: data.source || "website",
+      status: "new",
     });
+
+    if (error) {
+      console.error("[Supabase Insert Error]", {
+        code: error.code,
+        message: error.message,
+        timestamp: new Date().toISOString(),
+      });
+      return NextResponse.json(
+        { error: "Failed to save your message. Please try again or call us directly." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { success: true, message: "Message received. We will be in touch within 24 hours." },

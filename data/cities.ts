@@ -1,34 +1,56 @@
 export interface CityPage {
   slug: string;
   name: string;
+  province: string;
   metaTitle: string;
   metaDescription: string;
   h1: string;
-  heroDescription: string;
+  heroSubhead: string;
+  heroImage: string;
+  responseTime: string;
+  responseMinutes: number;
+  jobsCompleted: number;
   primaryKeyword: string;
   secondaryKeywords: string[];
   neighborhoods: string[];
-  description: string;
-  sections: {
+  postalCodes: string[];
+  introCopy: string[];
+  whyChoose: { icon: string; title: string; description: string }[];
+  uniqueSection: {
+    type:
+      | "home-city"
+      | "diverse-communities"
+      | "estate-specialists"
+      | "premium-work"
+      | "small-town"
+      | "rural-estate";
     title: string;
-    content: string;
-  }[];
-  faqs: {
-    question: string;
-    answer: string;
-  }[];
+    subtitle?: string;
+    content?: string;
+    ownerQuote?: string;
+    features?: string[];
+    communities?: { area: string; neighborhoods: string[] }[];
+  };
+  faqs: { question: string; answer: string }[];
+  relatedCities: string[];
+  serviceLinks: boolean;
 }
 
 export const cities: CityPage[] = [
   {
     slug: "brampton",
     name: "Brampton",
-    metaTitle: "Electrician in Brampton | ESA Licensed | Superior Power Electric",
+    province: "ON",
+    metaTitle: "Electrician in Brampton, ON | Superior Power Electric",
     metaDescription:
-      "Licensed electrician in Brampton serving residential and commercial properties. ESA #7014710. Panel upgrades, pot lights, rewiring, EV chargers. Call 647-872-9954.",
-    h1: "Licensed Electrician in Brampton",
-    heroDescription:
-      "Superior Power Electric has been Brampton's trusted electrical contractor for over 15 years. ESA licensed, fully insured, and backed by 47 five-star Google reviews.",
+      "Licensed electrician in Brampton. Same-day service, ESA certified, 4.9\u2605 Google rated. Panel upgrades, pot lights, EV chargers & more. Call (905) 452-8439.",
+    h1: "Electrician in Brampton, ON",
+    heroSubhead:
+      "ESA Licensed \u00B7 Fully Insured \u00B7 Same-Day Service \u00B7 4.9\u2605 Google Rated",
+    heroImage: "/images/cities/brampton-aerial.jpg",
+    responseTime: "Same-Day",
+    responseMinutes: 47,
+    jobsCompleted: 500,
     primaryKeyword: "electrician brampton",
     secondaryKeywords: [
       "electrician in brampton",
@@ -52,68 +74,98 @@ export const cities: CityPage[] = [
       "Snelgrove",
       "Churchville",
     ],
-    description:
-      "As Brampton's locally owned electrical contractor, Superior Power Electric understands the unique needs of homes and businesses across the city. From older homes in Bramalea needing panel upgrades to new builds in Castlemore requiring modern electrical systems, we deliver reliable, code-compliant work every time.",
-    sections: [
+    postalCodes: [
+      "L6P",
+      "L6R",
+      "L6S",
+      "L6T",
+      "L6V",
+      "L6W",
+      "L6X",
+      "L6Y",
+      "L6Z",
+      "L7A",
+    ],
+    introCopy: [
+      "Superior Power Electric is locally based right here in Brampton. From Mount Pleasant and Bramalea to Heart Lake, Credit Valley, and Castlemore, we know every neighbourhood in this city because we live and work in them every day. When you call us, you are calling a local team that takes pride in the community we serve.",
+      "Bramalea's 1960s and 1970s housing stock is reaching the age where electrical panels need upgrading and outdated wiring needs replacing. Meanwhile, new developments in Mount Pleasant are driving demand for EV charger installations, smart home wiring, and modern pot light layouts. Whether your home is 50 years old or brand new, we have the right solution.",
+      "Shaun Pennant, our owner and lead electrician, is based in Brampton. That means faster response times, no long drives from across the GTA, and a genuine investment in getting the job done right. This is our home base, and our reputation here matters more than anywhere else.",
+    ],
+    whyChoose: [
       {
-        title: "Brampton's Trusted Electrical Experts",
-        content:
-          "For over 15 years, Superior Power Electric has served Brampton homeowners and business owners with professional electrical services. Our ESA license (#7014710) means every job meets or exceeds the Ontario Electrical Safety Code. We live and work in Brampton, so our reputation matters to us.\n\nWhether you need pot lights in your Springdale home, a panel upgrade in Heart Lake, or commercial wiring for your Bramalea business, we bring the same level of care and expertise to every project.",
+        icon: "Clock",
+        title: "Fast Response to Brampton",
+        description:
+          "47-minute average response time to Brampton. We know every neighbourhood because we live here.",
       },
       {
-        title: "Residential Electrical Services in Brampton",
-        content:
-          "Brampton homes range from newer builds in Gore Meadows to established properties in Bramalea and Sandalwood. Each comes with different electrical needs. Older homes may have outdated 100-amp panels that struggle with modern demands. Newer homes might need additions like pot lights, EV charger installations, or hot tub wiring.\n\nWe handle it all. Our residential services include electrical panel upgrades, pot light installation, complete home rewiring, knob and tube replacement, EV charger installation, hot tub wiring, indoor and outdoor lighting, and general electrical repairs. Every job includes proper permits and ESA inspection.",
+        icon: "Shield",
+        title: "Licensed for Brampton Work",
+        description:
+          "Every job ESA permitted and inspected. Your insurance stays protected.",
       },
       {
-        title: "Commercial Electrical Services in Brampton",
-        content:
-          "Brampton is home to thousands of commercial properties along Queen Street, Steeles Avenue, and throughout the industrial areas near Highway 410. Superior Power Electric provides full commercial electrical services including office fit-outs, retail lighting, warehouse wiring, code compliance upgrades, and emergency electrical repairs.\n\nWe understand that downtime costs money. That is why we work efficiently to minimize disruption to your business operations while maintaining the highest safety standards.",
-      },
-      {
-        title: "Why Brampton Homeowners Choose Us",
-        content:
-          "We are not a franchise or a large corporation. Superior Power Electric is locally owned and operated by Shaun Pennant, right here in Brampton. That means when you call, you talk to someone who lives in your community and takes personal pride in every job.\n\nWith 47 five-star Google reviews, ESA licensing, and over 15 years of experience, we have built our reputation one satisfied customer at a time. We offer free estimates, transparent pricing, and stand behind our work with a satisfaction guarantee.",
+        icon: "Star",
+        title: "5-Star Service Guaranteed",
+        description:
+          "47 Google reviews. 100% satisfaction guarantee. If you're not happy, we make it right.",
       },
     ],
+    uniqueSection: {
+      type: "home-city",
+      title: "Our Home City",
+      content:
+        "Brampton is where we live, work, and raise our families. When you call us, you're calling a neighbour - not a call centre.",
+      ownerQuote: "Shaun Pennant, Owner, ESA Licensed Electrician",
+      features: ["\u26A1 Average response: 47 min"],
+    },
     faqs: [
       {
         question: "How much does an electrician cost in Brampton?",
         answer:
-          "Electrician rates in Brampton typically range from $100 to $150 per hour for a licensed contractor. The total cost depends on the scope of work. Simple repairs may be $150 to $300, while panel upgrades range from $1,500 to $3,500. We provide free, detailed estimates before starting any work.",
+          "Electrician rates in Brampton typically range from $100 to $150 per hour for a licensed contractor. The total cost depends on the scope of work. Simple repairs may be $150 to $300, while panel upgrades range from $1,500 to $3,500. We offer a $49 on-site assessment (credited toward your project) or a free remote estimate with photos.",
       },
       {
-        question: "Do you need a permit for electrical work in Brampton?",
+        question:
+          "Do you offer same-day electrical service in Brampton?",
         answer:
-          "Yes. In Brampton, most electrical work requires a permit from the Electrical Safety Authority (ESA). This includes panel upgrades, new circuit installations, rewiring, and EV charger installations. As an ESA-licensed contractor (#7014710), we handle all permit applications and inspections for you.",
+          "Yes. Brampton is our home base, so same-day service is standard for most calls. We are already in the area and can typically reach any Brampton neighbourhood within 47 minutes. For emergencies, call (905) 452-8439 and we will prioritize your job.",
       },
       {
-        question: "What areas of Brampton do you serve?",
+        question: "What areas of Brampton do you service?",
         answer:
           "We serve all of Brampton including Springdale, Mount Pleasant, Castlemore, Heart Lake, Bramalea, Sandalwood, Gore Meadows, Bram West, Fletcher's Meadow, Credit Valley, Snelgrove, and Churchville. We also serve surrounding areas like Mississauga, Vaughan, and Caledon.",
       },
       {
-        question: "Do you offer emergency electrical services in Brampton?",
+        question:
+          "Do I need an ESA permit for electrical work in Brampton?",
         answer:
-          "Yes. We understand that electrical emergencies cannot wait. If you are experiencing a power outage, sparking outlets, burning smells, or other urgent electrical issues, call us at 647-872-9954. We prioritize emergency calls and will do our best to respond the same day.",
+          "Yes. Most electrical work in Brampton requires a permit from the Electrical Safety Authority (ESA). This covers panel upgrades, new circuit installations, rewiring, and EV charger hookups. As an ESA-licensed contractor, we handle all permit applications and inspections so you do not have to deal with the paperwork.",
       },
       {
-        question: "Are you a licensed electrician in Brampton?",
+        question:
+          "How do I know if my Brampton home needs rewiring?",
         answer:
-          "Yes. Superior Power Electric holds ESA license #7014710 and is fully insured. Shaun Pennant has over 15 years of experience as a licensed electrician serving Brampton and the Greater Toronto Area. Every job we complete meets or exceeds the Ontario Electrical Safety Code.",
+          "Common signs include flickering lights, warm or discoloured outlets, breakers that trip frequently, a burning smell near outlets or your panel, and an older fuse box instead of a modern breaker panel. If your Brampton home was built before 1980 and still has the original wiring, a professional inspection is a smart investment. Call us to book a $49 assessment (credited toward your project).",
       },
     ],
+    relatedCities: ["mississauga", "caledon", "vaughan"],
+    serviceLinks: true,
   },
   {
     slug: "mississauga",
     name: "Mississauga",
-    metaTitle:
-      "Electrician in Mississauga | ESA Licensed | Superior Power Electric",
+    province: "ON",
+    metaTitle: "Electrician in Mississauga, ON | Superior Power Electric",
     metaDescription:
-      "Licensed electrician in Mississauga. ESA #7014710. Residential and commercial electrical services. Panel upgrades, pot lights, EV chargers. Call 647-872-9954.",
-    h1: "Licensed Electrician in Mississauga",
-    heroDescription:
-      "Professional electrical services for Mississauga homes and businesses. ESA licensed (#7014710), fully insured, and trusted by homeowners across the GTA with 47 five-star reviews.",
+      "Trusted electrician in Mississauga. ESA licensed, fully insured, same-day available. Serving Erin Mills, Port Credit, Streetsville & more. Call (905) 452-8439.",
+    h1: "Electrician in Mississauga, ON",
+    heroSubhead:
+      "ESA Licensed \u00B7 Fully Insured \u00B7 Same-Day Service \u00B7 4.9\u2605 Google Rated",
+    heroImage: "/images/cities/mississauga-aerial.jpg",
+    responseTime: "Same-Day",
+    responseMinutes: 35,
+    jobsCompleted: 350,
     primaryKeyword: "electrician mississauga",
     secondaryKeywords: [
       "electrician in mississauga",
@@ -136,58 +188,572 @@ export const cities: CityPage[] = [
       "Churchill Meadows",
       "Lisgar",
       "Hurontario",
+      "City Centre",
+      "Applewood",
+      "Dixie",
+      "Creditview",
+      "Erindale",
+      "Central Erin Mills",
+      "Lakeview",
+      "Mineola",
     ],
-    description:
-      "Superior Power Electric brings over 15 years of professional electrical experience to Mississauga. From heritage homes in Port Credit to modern builds in Churchill Meadows, we deliver reliable, ESA-certified electrical work for residential and commercial properties across the city.",
-    sections: [
+    postalCodes: [
+      "L4T",
+      "L4W",
+      "L4X",
+      "L4Y",
+      "L4Z",
+      "L5A",
+      "L5B",
+      "L5C",
+      "L5E",
+      "L5G",
+      "L5H",
+      "L5J",
+      "L5K",
+      "L5L",
+      "L5M",
+      "L5N",
+      "L5R",
+      "L5S",
+      "L5T",
+      "L5V",
+      "L5W",
+    ],
+    introCopy: [
+      "Superior Power Electric serves homeowners and businesses across Mississauga, from the lakeside streets of Port Credit and Streetsville's historic village to the family neighbourhoods of Erin Mills, Meadowvale, and City Centre. Wherever you are in Mississauga, we are just minutes away.",
+      "Erin Mills and Meadowvale have large pockets of 1980s housing where electrical panels are reaching the end of their lifespan. Malton has older pre-1970 homes that sometimes still have knob-and-tube wiring. EV charger demand is high across the city as more Mississauga homeowners switch to electric vehicles. We handle all of it.",
+      "The Hurontario LRT corridor is bringing a wave of new condo and mixed-use development to Mississauga, creating fresh demand for electrical work in both residential and commercial spaces. Superior Power Electric serves all of Mississauga, from the waterfront to the northern border.",
+    ],
+    whyChoose: [
       {
-        title: "Professional Electricians Serving Mississauga",
-        content:
-          "Mississauga homeowners and business owners deserve electrical contractors they can trust. Superior Power Electric has served the Mississauga community with professional, ESA-licensed electrical services for over 15 years. Our team handles everything from small repairs to full home rewiring projects.\n\nWith 47 five-star Google reviews and ESA license #7014710, we bring the expertise and reliability that Mississauga residents expect. We serve all neighborhoods from Port Credit to Meadowvale and everywhere in between.",
+        icon: "Clock",
+        title: "Fast Response to Mississauga",
+        description:
+          "35-minute average response time. Just minutes from any Mississauga neighbourhood.",
       },
       {
-        title: "Residential Electrical Services in Mississauga",
-        content:
-          "Mississauga has one of the most diverse housing stocks in the GTA. Port Credit and Lorne Park feature established homes that often need electrical upgrades. Erin Mills and Churchill Meadows have newer developments that may need additions like pot lights, smart home wiring, or EV charger installations.\n\nOur residential services cover the full spectrum: electrical panel upgrades from 100 to 200 amps, pot light installation, complete home rewiring, knob and tube replacement, EV charger installation, hot tub electrical, indoor and outdoor lighting design, and all general electrical repairs. We pull proper permits and schedule ESA inspections on every job.",
+        icon: "Shield",
+        title: "Licensed for Mississauga Work",
+        description:
+          "Every job ESA permitted and inspected. Your insurance stays protected.",
       },
       {
-        title: "Commercial Electrical in Mississauga",
-        content:
-          "Mississauga is a major business hub with thousands of commercial and industrial properties along Hurontario, Dundas, and throughout the Meadowvale Business Park area. Superior Power Electric provides comprehensive commercial electrical services.\n\nWe handle office renovations, retail build-outs, warehouse lighting, code compliance upgrades, parking lot lighting, and emergency electrical repairs. Our commercial clients trust us because we work clean, finish on time, and keep their operations running with minimal disruption.",
-      },
-      {
-        title: "Why Mississauga Residents Trust Superior Power",
-        content:
-          "Based in nearby Brampton, we are a short drive from any Mississauga neighborhood. Unlike large franchises that send whoever is available, you get Shaun Pennant's experienced team on every job. We have built our business on referrals and repeat customers.\n\nFree estimates. Transparent pricing. No hidden fees. Every project backed by our ESA license and workmanship guarantee. That is why 47 customers have left us five-star reviews on Google.",
+        icon: "Star",
+        title: "5-Star Service Guaranteed",
+        description:
+          "47 Google reviews. 100% satisfaction guarantee. If you're not happy, we make it right.",
       },
     ],
+    uniqueSection: {
+      type: "diverse-communities",
+      title: "Serving Mississauga's Diverse Communities",
+      communities: [
+        {
+          area: "North",
+          neighborhoods: [
+            "Meadowvale",
+            "Lisgar",
+            "Streetsville",
+            "Churchill Meadows",
+          ],
+        },
+        {
+          area: "Central",
+          neighborhoods: [
+            "Erin Mills",
+            "Creditview",
+            "Erindale",
+            "Central Erin Mills",
+          ],
+        },
+        {
+          area: "East",
+          neighborhoods: [
+            "Cooksville",
+            "City Centre",
+            "Applewood",
+            "Dixie",
+          ],
+        },
+        {
+          area: "South",
+          neighborhoods: [
+            "Port Credit",
+            "Clarkson",
+            "Lakeview",
+            "Mineola",
+          ],
+        },
+      ],
+    },
     faqs: [
       {
-        question: "How much does an electrician charge in Mississauga?",
+        question:
+          "Do you service all areas of Mississauga including Port Credit and Streetsville?",
         answer:
-          "Licensed electricians in Mississauga typically charge $100 to $150 per hour. Project costs vary based on scope. A pot light installation might cost $150 to $250 per light, while an electrical panel upgrade ranges from $1,500 to $3,500. We provide free estimates so you know the full cost before we start.",
+          "Yes. We serve every neighbourhood in Mississauga from Port Credit on the lakefront to Meadowvale in the north, and from Clarkson in the west to Malton and Dixie in the east. No part of Mississauga is outside our service area.",
       },
       {
-        question: "What areas of Mississauga do you serve?",
+        question:
+          "Can you install EV chargers in Mississauga condos?",
         answer:
-          "We serve all of Mississauga including Port Credit, Streetsville, Erin Mills, Meadowvale, Clarkson, Lorne Park, Cooksville, Malton, Mississauga Valleys, Churchill Meadows, Lisgar, and Hurontario. We also serve Brampton, Vaughan, Oakville, and the surrounding GTA.",
+          "Yes. We install Level 2 EV chargers in condos, townhomes, and detached homes across Mississauga. For condo installations, we coordinate with your property management to ensure proper access and approvals. We handle the dedicated 240V circuit, breaker installation, and ESA inspection.",
       },
       {
-        question: "Do you do electrical work for condos in Mississauga?",
+        question:
+          "How soon can you respond to an electrical emergency in Mississauga?",
         answer:
-          "Yes. We work on condos, townhomes, semi-detached, and detached homes throughout Mississauga. For condo work, we coordinate with property management as needed for access and permits. Common condo electrical work includes lighting upgrades, outlet additions, and panel inspections.",
+          "We offer same-day priority service for electrical emergencies in Mississauga. Our average response time is 35 minutes. For sparking outlets, burning smells, or power failures, call (905) 452-8439 and we will get to you as fast as possible.",
       },
       {
-        question: "Can you install EV chargers in Mississauga?",
+        question:
+          "Do you do work in Erin Mills and Meadowvale?",
         answer:
-          "Yes. We install Level 2 EV chargers for homes and businesses across Mississauga. This includes a dedicated 240V circuit, proper breaker installation, and ESA inspection. We work with all major EV charger brands and can advise on the best option for your vehicle and electrical setup.",
+          "Yes. Erin Mills and Meadowvale are two of our most frequently serviced areas in Mississauga. Many homes in these neighbourhoods were built in the 1980s and are due for panel upgrades, updated wiring, and modern lighting. We know these communities well.",
       },
       {
-        question: "How quickly can you get to Mississauga for an emergency?",
+        question:
+          "What's the cost of a panel upgrade in Mississauga?",
         answer:
-          "We are based in Brampton, just minutes from most Mississauga neighborhoods. For electrical emergencies like power outages, sparking outlets, or burning smells, call us at 647-872-9954. We prioritize emergency calls and aim to respond the same day whenever possible.",
+          "A panel upgrade in Mississauga typically costs between $1,500 and $3,500 depending on the scope. This includes the new panel, breakers, meter base upgrade if needed, ESA permit, and inspection. We provide a written quote before starting any work so there are no surprises. Book a $49 on-site assessment (credited toward your project) or request a free remote estimate.",
       },
     ],
+    relatedCities: ["brampton", "oakville"],
+    serviceLinks: true,
+  },
+  {
+    slug: "vaughan",
+    name: "Vaughan",
+    province: "ON",
+    metaTitle: "Electrician in Vaughan, ON | Superior Power Electric",
+    metaDescription:
+      "Licensed electrician in Vaughan. Serving Woodbridge, Kleinburg, Maple & VMC. Panel upgrades, EV chargers, estate electrical. Call (905) 452-8439.",
+    h1: "Electrician in Vaughan, ON",
+    heroSubhead:
+      "ESA Licensed \u00B7 Fully Insured \u00B7 Next-Day Service \u00B7 4.9\u2605 Google Rated",
+    heroImage: "/images/cities/vaughan-aerial.jpg",
+    responseTime: "Next Day",
+    responseMinutes: 55,
+    jobsCompleted: 200,
+    primaryKeyword: "electrician vaughan",
+    secondaryKeywords: [
+      "electrician in vaughan",
+      "vaughan electrician",
+      "licensed electrician vaughan",
+      "electrical contractor vaughan",
+      "residential electrician vaughan",
+      "electrician woodbridge",
+    ],
+    neighborhoods: [
+      "Woodbridge",
+      "Maple",
+      "Kleinburg",
+      "Thornhill West",
+      "Concord",
+      "Vellore",
+      "Sonoma Heights",
+      "Elder Mills",
+      "Nashville",
+      "Patterson",
+      "Brownridge",
+      "Rutherford",
+    ],
+    postalCodes: ["L4H", "L4J", "L4K", "L4L", "L6A"],
+    introCopy: [
+      "Superior Power Electric provides professional electrical services across all of Vaughan, from the established streets of Woodbridge and Maple to the luxury estates of Kleinburg, the growing Vaughan Metropolitan Centre, and the family neighbourhoods of Thornhill West. We know this city and the work it demands.",
+      "Woodbridge's 1970s and 1980s housing stock is reaching the age where panel upgrades and rewiring become necessary. Kleinburg's estate homes represent some of the highest-value electrical projects in the GTA, from whole-home surge protection to landscape lighting and dedicated workshop circuits.",
+      "The Vaughan Metropolitan Centre condo corridor continues to grow, bringing new commercial and residential electrical demand. Woodbridge's Italian-Canadian community has long valued quality craftsmanship, and that is exactly what we deliver on every job.",
+    ],
+    whyChoose: [
+      {
+        icon: "Clock",
+        title: "Fast Response to Vaughan",
+        description:
+          "55-minute average response time to Vaughan. We know every neighbourhood from Woodbridge to Kleinburg.",
+      },
+      {
+        icon: "Shield",
+        title: "Licensed for Vaughan Work",
+        description:
+          "Every job ESA permitted and inspected. Your insurance stays protected.",
+      },
+      {
+        icon: "Star",
+        title: "5-Star Service Guaranteed",
+        description:
+          "47 Google reviews. 100% satisfaction guarantee. If you're not happy, we make it right.",
+      },
+    ],
+    uniqueSection: {
+      type: "estate-specialists",
+      title: "Estate Home Specialists",
+      content:
+        "Vaughan's luxury homes in Kleinburg, Patterson, and Sonoma Heights demand a higher standard of electrical work.",
+      features: [
+        "Whole-home surge protection",
+        "Landscape and architectural lighting",
+        "EV charger installation (all brands)",
+        "Hot tub and pool electrical",
+        "Smart home wiring",
+      ],
+    },
+    faqs: [
+      {
+        question: "Do you service Woodbridge and Kleinburg?",
+        answer:
+          "Yes. We serve all Vaughan communities including Woodbridge, Kleinburg, Maple, Thornhill West, Concord, Vellore, Sonoma Heights, Patterson, and Rutherford. Whether it is a townhome in Maple or an estate in Kleinburg, we handle it all.",
+      },
+      {
+        question:
+          "Can you install EV chargers at Vaughan estate homes?",
+        answer:
+          "Yes. We install Level 2 EV chargers at homes of all sizes across Vaughan, including estate properties with long driveway runs and detached garages. We handle the dedicated 240V circuit, proper breaker sizing, and ESA inspection. We work with all major charger brands.",
+      },
+      {
+        question:
+          "How much does electrical work cost in Vaughan?",
+        answer:
+          "Licensed electricians in Vaughan typically charge $100 to $150 per hour. Panel upgrades range from $1,500 to $3,500. EV charger installations run $1,000 to $2,500. Estate projects with landscape lighting or workshop wiring are quoted individually. We always provide a written quote before starting. Book a $49 on-site assessment (credited toward your project) or request a free remote estimate.",
+      },
+      {
+        question:
+          "Do you do commercial electrical work in Vaughan?",
+        answer:
+          "Yes. We handle commercial electrical work along the Highway 7 corridor, in the Vaughan Metropolitan Centre, and throughout Vaughan's industrial and retail areas. Services include office fit-outs, retail lighting, warehouse wiring, and code compliance upgrades.",
+      },
+      {
+        question: "How quickly can you respond to Vaughan?",
+        answer:
+          "Our standard service for Vaughan is next-day. For electrical emergencies like sparking outlets, burning smells, or power failures, we offer same-day priority response. Call (905) 452-8439 and we will get to you as fast as possible.",
+      },
+    ],
+    relatedCities: ["brampton", "mississauga"],
+    serviceLinks: true,
+  },
+  {
+    slug: "oakville",
+    name: "Oakville",
+    province: "ON",
+    metaTitle: "Electrician in Oakville, ON | Superior Power Electric",
+    metaDescription:
+      "Premium electrician in Oakville. Heritage homes, Glen Abbey, Old Oakville. ESA certified. Panel upgrades & more. Call (905) 452-8439.",
+    h1: "Electrician in Oakville, ON",
+    heroSubhead:
+      "ESA Licensed \u00B7 Fully Insured \u00B7 Next-Day Service \u00B7 4.9\u2605 Google Rated",
+    heroImage: "/images/cities/oakville-aerial.jpg",
+    responseTime: "Next Day",
+    responseMinutes: 45,
+    jobsCompleted: 150,
+    primaryKeyword: "electrician oakville",
+    secondaryKeywords: [
+      "electrician in oakville",
+      "oakville electrician",
+      "licensed electrician oakville",
+      "electrical contractor oakville",
+      "residential electrician oakville",
+      "commercial electrician oakville",
+    ],
+    neighborhoods: [
+      "Bronte",
+      "Old Oakville",
+      "Glen Abbey",
+      "River Oaks",
+      "Clearview",
+      "Falgarwood",
+      "Iroquois Ridge",
+      "Joshua Creek",
+      "College Park",
+      "Palermo",
+      "Eastlake",
+      "West Oak Trails",
+    ],
+    postalCodes: ["L6H", "L6J", "L6K", "L6L", "L6M"],
+    introCopy: [
+      "Superior Power Electric serves Oakville homeowners who invest in their properties and expect premium results. From the tree-lined streets of Old Oakville and the waterfront homes of Bronte to the executive properties of Glen Abbey and Iroquois Ridge, we deliver electrical work that meets the standard this town is known for.",
+      "Heritage homes in Old Oakville require careful electrical upgrades that respect the original construction while bringing everything up to modern code. Glen Abbey's large lots create demand for landscape lighting, hot tub wiring, and dedicated workshop circuits. We have the experience to handle both.",
+      "The southeast Ford plant redevelopment is bringing new construction demand to Oakville. Combined with steady renovation activity across town, there is no shortage of electrical work. Oakville homeowners are less price-sensitive and more quality-focused, and that is exactly how we operate.",
+    ],
+    whyChoose: [
+      {
+        icon: "Clock",
+        title: "Fast Response to Oakville",
+        description:
+          "45-minute average response time to Oakville. Reliable scheduling for premium work.",
+      },
+      {
+        icon: "Shield",
+        title: "Licensed for Oakville Work",
+        description:
+          "Every job ESA permitted and inspected. Your insurance stays protected.",
+      },
+      {
+        icon: "Star",
+        title: "5-Star Service Guaranteed",
+        description:
+          "47 Google reviews. 100% satisfaction guarantee. If you're not happy, we make it right.",
+      },
+    ],
+    uniqueSection: {
+      type: "premium-work",
+      title: "Quality Without Compromise",
+      content:
+        "Oakville homeowners choose Superior Power for the same reason they choose premium finishes in their homes. When the job has to be done right the first time, they call us.",
+      features: [
+        "Landscape & architectural lighting",
+        "EV charger installation",
+        "Whole-home panel upgrade",
+        "Hot tub & pool electrical",
+      ],
+    },
+    faqs: [
+      {
+        question:
+          "Do you serve Old Oakville and Glen Abbey?",
+        answer:
+          "Yes. We serve all of Oakville including Old Oakville, Glen Abbey, Bronte, River Oaks, Iroquois Ridge, Joshua Creek, Palermo, and every other neighbourhood in town. We also serve nearby Mississauga, Burlington, and the wider GTA.",
+      },
+      {
+        question:
+          "Can you upgrade the electrical panel in a heritage home in Oakville?",
+        answer:
+          "Yes. We have extensive experience upgrading panels and wiring in older Oakville homes, including heritage properties in Old Oakville and Bronte. We work carefully with older construction, ensuring everything meets current ESA codes while preserving the character of your home.",
+      },
+      {
+        question:
+          "Do you install landscape lighting in Oakville?",
+        answer:
+          "Yes. We install a full range of outdoor and landscape lighting for Oakville properties. This includes path lighting, accent and uplighting for trees and architectural features, security lighting, and deck or patio lighting. All installations use weather-rated fixtures and proper GFCI protection.",
+      },
+      {
+        question:
+          "What's the typical cost for electrical work in Oakville?",
+        answer:
+          "Licensed electricians in Oakville typically charge $100 to $150 per hour. Total project costs vary depending on scope. Panel upgrades range from $1,500 to $3,500. Landscape lighting projects and larger renovations are quoted individually. We provide a detailed written quote before starting any work. Book a $49 on-site assessment (credited toward your project) or request a free remote estimate with photos.",
+      },
+      {
+        question:
+          "How far in advance do I need to book in Oakville?",
+        answer:
+          "For urgent work, we offer next-day service. For scheduled projects like panel upgrades, lighting installations, or renovation electrical, we recommend booking 1 to 2 weeks in advance. Call (905) 452-8439 and we will find a time that works for you.",
+      },
+    ],
+    relatedCities: ["mississauga", "brampton"],
+    serviceLinks: true,
+  },
+  {
+    slug: "georgetown",
+    name: "Georgetown",
+    province: "ON",
+    metaTitle: "Electrician in Georgetown, ON | Superior Power Electric",
+    metaDescription:
+      "Local electrician in Georgetown, Halton Hills. Heritage homes, rural properties, same-day quotes. ESA licensed. Call (905) 452-8439.",
+    h1: "Electrician in Georgetown, ON",
+    heroSubhead:
+      "ESA Licensed \u00B7 Fully Insured \u00B7 Next-Day Service \u00B7 4.9\u2605 Google Rated",
+    heroImage: "/images/cities/georgetown-aerial.jpg",
+    responseTime: "Next Day",
+    responseMinutes: 40,
+    jobsCompleted: 100,
+    primaryKeyword: "electrician georgetown ontario",
+    secondaryKeywords: [
+      "electrician in georgetown",
+      "georgetown electrician",
+      "electrician halton hills",
+      "licensed electrician georgetown",
+      "electrical contractor georgetown ontario",
+      "residential electrician georgetown",
+    ],
+    neighborhoods: [
+      "Georgetown South",
+      "Georgetown North",
+      "Glen Williams",
+      "Limehouse",
+      "Norval",
+      "Stewarttown",
+      "Silver Creek",
+      "Hungry Hollow",
+      "Georgetown Heights",
+      "Cedarvale",
+    ],
+    postalCodes: ["L7G"],
+    introCopy: [
+      "Georgetown is a community that values its small-town roots. Nestled along the Credit River with the trails of Hungry Hollow and the charm of downtown and Glen Williams, it is one of the most distinctive places in the GTA. Superior Power Electric is proud to serve Georgetown and all of Halton Hills with professional, ESA-licensed electrical work.",
+      "Heritage homes along the Credit River and throughout downtown Georgetown require specialized electrical attention. These older properties often need panel upgrades, rewiring, and careful work that respects the original construction. The GO station has made Georgetown a popular commuter town, bringing young families who want their homes modernized.",
+      "Rural properties around Glen Williams, Limehouse, and Norval have their own unique electrical needs, from long-run circuits to outbuilding feeds and service upgrades. In Georgetown, word-of-mouth and Google reviews carry real weight. That is why we treat every job here like our reputation depends on it.",
+    ],
+    whyChoose: [
+      {
+        icon: "Clock",
+        title: "Fast Response to Georgetown",
+        description:
+          "40-minute average response from Brampton. We serve all of Halton Hills.",
+      },
+      {
+        icon: "Shield",
+        title: "Licensed for Georgetown Work",
+        description:
+          "Every job ESA permitted and inspected. Your insurance stays protected.",
+      },
+      {
+        icon: "Star",
+        title: "5-Star Service Guaranteed",
+        description:
+          "47 Google reviews. 100% satisfaction guarantee. If you're not happy, we make it right.",
+      },
+    ],
+    uniqueSection: {
+      type: "small-town",
+      title: "Small Town. Big Reputation.",
+      content:
+        "Georgetown runs on reputation. When one homeowner recommends a tradesperson, everyone hears about it. That's why we treat every job in Georgetown like it's the one that defines us - because it might be.",
+    },
+    faqs: [
+      {
+        question:
+          "Do you service Georgetown and Glen Williams?",
+        answer:
+          "Yes. We serve all of Halton Hills including Georgetown, Glen Williams, Limehouse, Norval, Stewarttown, Silver Creek, and the surrounding rural areas. We are based in Brampton, about 25 minutes away, and service Georgetown regularly.",
+      },
+      {
+        question:
+          "Can you work on heritage homes near the Credit River?",
+        answer:
+          "Yes. We have experience with older construction including heritage homes along the Credit River and in downtown Georgetown. We handle panel upgrades, rewiring, and knob-and-tube replacement while working carefully with the existing structure. All work meets current ESA codes.",
+      },
+      {
+        question:
+          "How quickly can you get to Georgetown from Brampton?",
+        answer:
+          "Georgetown is about 25 minutes from our Brampton base. We offer next-day service as standard, and for electrical emergencies we do our best to respond the same day. Call (905) 452-8439 for urgent situations.",
+      },
+      {
+        question:
+          "Do you service rural properties around Georgetown?",
+        answer:
+          "Yes. We regularly work on rural properties around Glen Williams, Limehouse, and the surrounding Halton Hills countryside. This includes long-run circuits, outbuilding electrical feeds, service upgrades from 100 to 200 amps, and generator hookups. We understand rural property needs.",
+      },
+      {
+        question:
+          "What electrical services do you offer in Halton Hills?",
+        answer:
+          "We offer the full range of residential and commercial electrical services in Halton Hills. This includes panel upgrades, pot light installation, EV charger hookups, complete rewiring, hot tub wiring, landscape lighting, smoke detector upgrades, and general repairs. Every job is ESA permitted and inspected.",
+      },
+    ],
+    relatedCities: ["brampton", "oakville", "caledon"],
+    serviceLinks: true,
+  },
+  {
+    slug: "caledon",
+    name: "Caledon",
+    province: "ON",
+    metaTitle: "Electrician in Caledon, ON | Superior Power Electric",
+    metaDescription:
+      "Electrician in Caledon & Bolton. Rural service upgrades, barn wiring, estate electrical. ESA licensed. Call (905) 452-8439.",
+    h1: "Electrician in Caledon, ON",
+    heroSubhead:
+      "ESA Licensed \u00B7 Fully Insured \u00B7 Next-Day Service \u00B7 4.9\u2605 Google Rated",
+    heroImage: "/images/cities/caledon-aerial.jpg",
+    responseTime: "Next Day",
+    responseMinutes: 30,
+    jobsCompleted: 120,
+    primaryKeyword: "electrician caledon",
+    secondaryKeywords: [
+      "electrician in caledon",
+      "caledon electrician",
+      "licensed electrician caledon",
+      "electrical contractor caledon",
+      "electrician bolton ontario",
+      "residential electrician caledon",
+    ],
+    neighborhoods: [
+      "Bolton",
+      "Caledon East",
+      "Caledon Village",
+      "Inglewood",
+      "Palgrave",
+      "Mono Mills",
+      "Alton",
+      "Terra Cotta",
+      "Cheltenham",
+      "Belfountain",
+      "Cataract",
+      "Valleywood",
+      "SouthFields Village",
+    ],
+    postalCodes: ["L7C", "L7E", "L7K"],
+    introCopy: [
+      "Superior Power Electric serves all of Caledon, from the busy streets of Bolton and Caledon East to the rolling countryside of Palgrave, SouthFields Village, and the heritage hamlets of Belfountain and Inglewood. This is not cookie-cutter suburban electrical work. Caledon properties have real character, and we treat them accordingly.",
+      "Many rural Caledon properties still run on 100-amp service, which cannot handle modern loads from EV chargers, workshops, and home offices. Upgrading to 200-amp service is one of our most common Caledon projects. Estate homes in Palgrave often need barn wiring, landscape lighting, and backup generator hookups.",
+      "Bolton is Caledon's commercial hub with a growing residential base. SouthFields Village is the fastest-growing neighbourhood in the municipality. Horse properties throughout Caledon need specialized barn and arena wiring. Whatever the project, we have the experience and the ESA credentials to handle it right.",
+    ],
+    whyChoose: [
+      {
+        icon: "Clock",
+        title: "Fast Response to Caledon",
+        description:
+          "30-minute average response time to Bolton. We serve all of Caledon including rural properties.",
+      },
+      {
+        icon: "Shield",
+        title: "Licensed for Caledon Work",
+        description:
+          "Every job ESA permitted and inspected. Your insurance stays protected.",
+      },
+      {
+        icon: "Star",
+        title: "5-Star Service Guaranteed",
+        description:
+          "47 Google reviews. 100% satisfaction guarantee. If you're not happy, we make it right.",
+      },
+    ],
+    uniqueSection: {
+      type: "rural-estate",
+      title: "Rural & Estate Electrical Specialists",
+      content:
+        "Caledon properties have unique electrical demands you won't find in the city. We've worked on everything from heritage village homes in Belfountain to modern estate properties in Palgrave.",
+      features: [
+        "200-amp service upgrades (rural)",
+        "Barn and workshop wiring",
+        "Backup generator hookup",
+        "Estate landscape lighting",
+        "Horse arena electrical",
+      ],
+    },
+    faqs: [
+      {
+        question:
+          "Do you service Bolton and Caledon East?",
+        answer:
+          "Yes. We serve all Caledon communities including Bolton, Caledon East, Caledon Village, Palgrave, Inglewood, SouthFields Village, Valleywood, and all the smaller hamlets. Bolton is about 20 minutes from our Brampton base, making it one of our closest service areas.",
+      },
+      {
+        question:
+          "Can you upgrade from 100-amp to 200-amp service in a rural Caledon property?",
+        answer:
+          "Yes. This is one of our most common projects in Caledon. Many rural homes were built with 100-amp panels that cannot handle today's electrical demands. We handle the full upgrade including new panel, meter base, and coordination with your local utility. All work is ESA inspected.",
+      },
+      {
+        question:
+          "Do you wire barns and agricultural buildings in Caledon?",
+        answer:
+          "Yes. We install dedicated electrical feeds, sub-panels, lighting, and outlets for barns, workshops, and agricultural buildings across Caledon. This includes proper weatherproof fixtures, GFCI protection, and code-compliant wiring. Every project is ESA permitted and inspected.",
+      },
+      {
+        question:
+          "How quickly can you respond to Caledon from Brampton?",
+        answer:
+          "Bolton is about 20 to 30 minutes from our Brampton base, making Caledon one of our fastest response areas outside of Brampton itself. We offer next-day service as standard and same-day priority for emergencies. Call (905) 452-8439 for urgent situations.",
+      },
+      {
+        question:
+          "Do you service Palgrave and Kleinburg-area estates?",
+        answer:
+          "Yes. We regularly work on large estate properties in Palgrave, the Kleinburg border area, and throughout rural Caledon. Services include landscape lighting, barn and workshop wiring, backup generator hookups, pool and hot tub electrical, and whole-home surge protection.",
+      },
+    ],
+    relatedCities: ["brampton", "georgetown", "vaughan"],
+    serviceLinks: true,
   },
 ];
 

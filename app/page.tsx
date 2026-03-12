@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/sections/Hero";
-import { ServiceGrid } from "@/components/sections/ServiceGrid";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { ReviewsSection } from "@/components/sections/ReviewsSection";
-import { ServiceArea } from "@/components/sections/ServiceArea";
+import HeroSection from "@/components/sections/HeroSection";
+import MarqueeTicker from "@/components/sections/MarqueeTicker";
+import TrustLogosBar from "@/components/sections/TrustLogosBar";
+import ServicesSection from "@/components/sections/ServicesSection";
+import ProcessSection from "@/components/sections/ProcessSection";
+import WhyUsSection from "@/components/sections/WhyUsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
+import EmergencyBanner from "@/components/sections/EmergencyBanner";
+import { ServiceAreaSection } from "@/components/sections/ServiceAreaSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { HomeFAQ } from "@/components/sections/HomeFAQ";
-import { homeFaqs } from "@/data/homepage-faqs";
-import { JsonLd, faqSchema } from "@/components/seo/JsonLd";
+import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 
 export const metadata: Metadata = {
   title: "Licensed Electrician in Brampton | Superior Power Electric",
   description:
-    "Licensed electricians in Brampton & GTA. ESA #7014710. Residential & commercial. Panel upgrades, pot lights, rewiring, EV chargers. Free estimates. Call 647-872-9954.",
+    "Licensed electricians in Brampton & GTA. ESA #7014710. Residential & commercial. Panel upgrades, pot lights, rewiring, EV chargers. $49 assessment credited toward your project. Call (905) 452-8439.",
   alternates: {
     canonical: "https://superiorpowerelectric.ca",
   },
@@ -21,21 +24,18 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <JsonLd
-        data={faqSchema(
-          homeFaqs.map((faq) => ({
-            question: faq.question,
-            answer: faq.answer,
-          }))
-        )}
-      />
-      <Hero />
-      <ServiceGrid />
-      <WhyChooseUs />
-      <ReviewsSection />
-      <ServiceArea />
-      <HomeFAQ />
+      <HeroSection />
+      <MarqueeTicker />
+      <TrustLogosBar />
+      <ServicesSection />
+      <ProcessSection />
+      <WhyUsSection />
+      <TestimonialsSection />
+      <BeforeAfterSection />
+      <EmergencyBanner />
+      <ServiceAreaSection />
       <CTASection />
+      <StickyMobileCTA />
     </>
   );
 }
