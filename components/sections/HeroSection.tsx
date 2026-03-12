@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -9,10 +9,10 @@ import {
   Phone,
   Star,
   Shield,
-  CheckCircle,
 } from "lucide-react";
 import { business } from "@/data/business";
 import { ShimmerButton } from "@/components/ui/ShimmerButton";
+import QuoteForm from "@/components/sections/QuoteForm";
 
 function ElectricalParticles() {
   const particles = useMemo(
@@ -58,47 +58,9 @@ const trustItems = [
   { text: "Same-Day Service" },
 ];
 
-const serviceOptions = [
-  "Panel Upgrade",
-  "Pot Lights",
-  "EV Charger",
-  "Rewiring",
-  "Hot Tub / Pool",
-  "Knob & Tube Removal",
-  "Lighting",
-  "Commercial",
-  "Other",
-];
-
 export default function HeroSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, source: "hero-form" }),
-      });
-      if (res.ok) setSubmitted(true);
-    } catch {
-      // silent fail
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#1C1C1E]">
+    <section className="relative flex flex-col overflow-hidden bg-[#1C1C1E]">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -132,7 +94,7 @@ export default function HeroSection() {
       </div>
 
       {/* 2-Column Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-16 lg:pt-32 lg:pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-12 lg:pt-32 lg:pb-14">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
           {/* Left column - 60% */}
           <div className="lg:w-[60%]">
@@ -165,6 +127,14 @@ export default function HeroSection() {
               <br />
               Trusted Electrician
             </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+              className="font-accent italic text-2xl md:text-3xl lg:text-[40px] tracking-[0.05em] text-[#E31837] uppercase mt-2 leading-[1.1]"
+            >
+              Superior Power Electric
+            </motion.p>
 
             {/* Subhead */}
             <motion.p
@@ -235,102 +205,70 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right column - 40% - Floating form card */}
+          {/* Right column - 40% - Quote Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
-            className="lg:w-[40%] quote-form-section"
-            id="quote-form"
+            className="lg:w-[40%]"
           >
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-              {/* Red header */}
-              <div className="bg-[#E31837] px-6 py-4">
-                <h2 className="font-heading text-xl font-bold uppercase text-white text-center tracking-wide">
-                  Get Your Free Quote
-                </h2>
-              </div>
+            <QuoteForm />
+          </motion.div>
+        </div>
+      </div>
 
-              {/* Form body */}
-              <div className="p-6">
-                {submitted ? (
-                  <div className="text-center py-8">
-                    <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3" />
-                    <p className="font-heading text-xl font-bold text-[#1a2975]">
-                      We&apos;ll Call You Shortly
-                    </p>
-                    <p className="font-body text-sm text-[#64748b] mt-2">
-                      Average response time: 47 minutes
-                    </p>
+      {/* Hero Bottom - Stats + Testimonial */}
+      <div className="relative z-10 border-t border-white/10 bg-black/40 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+            {/* Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8 shrink-0">
+              {[
+                { value: "500+", label: "Jobs Completed" },
+                { value: "47", label: "5-Star Reviews" },
+                { value: "15+", label: "Years Experience" },
+                { value: "100%", label: "Licensed & Insured" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center lg:text-left">
+                  <div className="font-heading text-2xl lg:text-3xl font-black text-white leading-none">
+                    {stat.value}
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Your Name"
-                        required
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#1B4FE4] focus:border-transparent"
-                      />
+                  <div className="font-body text-xs text-gray-400 uppercase tracking-wider mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px h-16 bg-white/15 shrink-0" />
+
+            {/* Testimonial */}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start gap-3">
+                <span className="shrink-0 text-[#E31837] text-2xl font-serif leading-none mt-0.5">&ldquo;</span>
+                <div>
+                  <p className="font-body text-sm text-gray-300 leading-relaxed line-clamp-3">
+                    We had Superior Power Electric upgrade our service to 200 amps and our experience was great. Throughout the process, from the initial quote to completion of the job, Shaun and his crew were courteous and professional.
+                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                      ))}
                     </div>
-                    <div>
-                      <input
-                        type="tel"
-                        placeholder="Phone Number"
-                        required
-                        value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#1B4FE4] focus:border-transparent"
-                      />
-                    </div>
-                    <div>
-                      <select
-                        value={formData.service}
-                        onChange={(e) =>
-                          setFormData({ ...formData, service: e.target.value })
-                        }
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#1B4FE4] focus:border-transparent text-gray-500"
-                      >
-                        <option value="">Select a Service</option>
-                        {serviceOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <textarea
-                        placeholder="Tell us about your project (optional)"
-                        rows={3}
-                        value={formData.message}
-                        onChange={(e) =>
-                          setFormData({ ...formData, message: e.target.value })
-                        }
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#1B4FE4] focus:border-transparent resize-none"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="w-full py-4 bg-[#E31837] text-white font-heading text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-300 hover:bg-[#c8152f] hover:shadow-lg disabled:opacity-50"
-                    >
-                      {submitting ? "Sending..." : "Get My Free Quote"}
-                    </button>
-                    <p className="text-center font-body text-xs text-[#94a3b8]">
-                      No spam. We&apos;ll call you within the hour.
-                    </p>
-                  </form>
-                )}
+                    <span className="font-body text-xs text-gray-400">
+                      Daniel Lebar
+                    </span>
+                    <span className="text-gray-600 text-xs">&middot;</span>
+                    <span className="font-body text-xs text-gray-500">
+                      via Google
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
