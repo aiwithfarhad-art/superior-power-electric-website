@@ -59,17 +59,22 @@ export default function BeforeAfterSection() {
   }, []);
 
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-[#F8F9FA] py-20 md:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05] text-center mb-12"
+          className="text-center mb-12"
         >
-          The Difference is Clear
-        </motion.h2>
+          <span className="inline-block px-5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase mb-4 bg-[#E31837]/10 text-[#E31837] font-heading">
+            Our Work
+          </span>
+          <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+            The Difference is Clear
+          </h2>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

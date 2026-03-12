@@ -597,6 +597,30 @@ html {
   pointer-events: none;
 }
 
+/* SHIMMER CARD - Diagonal light sweep on premium cards */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, hsl(var(--silver-light) / 0.06), transparent);
+  animation: shimmerSweep 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%) rotate(15deg); }
+  50% { transform: translateX(300%) rotate(15deg); }
+  100% { transform: translateX(300%) rotate(15deg); }
+}
+
 /* ============================================
    MARQUEE / TICKER
    ============================================ */

@@ -156,9 +156,9 @@ export default function HeroSection() {
 
             {/* H1 */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="font-heading text-5xl md:text-6xl lg:text-[80px] font-black uppercase leading-[1.05] tracking-tight text-white"
             >
               Brampton&apos;s Most

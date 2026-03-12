@@ -50,6 +50,9 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <span className="inline-block px-5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase mb-4 bg-[#E31837]/10 text-[#E31837] font-heading">
+            Testimonials
+          </span>
           <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
             What Brampton Homeowners Say
           </h2>

@@ -27,9 +27,14 @@ export function ServiceAreaSection() {
       <div className="absolute inset-0 bg-black/70" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center mb-12 font-heading text-white font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
-          Serving Brampton &amp; The GTA
-        </h2>
+        <div className="text-center mb-12">
+          <span className="inline-block px-5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase mb-4 bg-white/10 text-white font-heading">
+            Service Area
+          </span>
+          <h2 className="font-heading text-white font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+            Serving Brampton &amp; The GTA
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {cities.map((city, index) => (

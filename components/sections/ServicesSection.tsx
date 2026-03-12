@@ -103,6 +103,9 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.625, 0.05, 0, 1] }}
         >
+          <span className="inline-block px-5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase mb-4 bg-[#E31837]/10 text-[#E31837] font-heading">
+            Our Services
+          </span>
           <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
             Everything Electrical. One Trusted Team.
           </h2>

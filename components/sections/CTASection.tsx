@@ -23,15 +23,19 @@ export function CTASection({
   return (
     <section className="bg-[#1C1C1E] py-20 md:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
-          className="font-heading text-white font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]"
         >
-          {title}
-        </motion.h2>
+          <span className="inline-block px-5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase mb-4 bg-white/10 text-white font-heading">
+            Get Started
+          </span>
+          <h2 className="font-heading text-white font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+            {title}
+          </h2>
+        </motion.div>
 
         <p className="font-body text-[#94a3b8] text-lg mt-6 max-w-2xl mx-auto">
           {description}
