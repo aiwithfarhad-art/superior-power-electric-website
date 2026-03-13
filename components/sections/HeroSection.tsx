@@ -1,17 +1,13 @@
 "use client";
 
 import { useMemo } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  Zap,
-  ArrowRight,
   Phone,
+  MessageCircle,
   Star,
-  Shield,
 } from "lucide-react";
 import { business } from "@/data/business";
-import { ShimmerButton } from "@/components/ui/ShimmerButton";
 import QuoteForm from "@/components/sections/QuoteForm";
 
 function ElectricalParticles() {
@@ -49,33 +45,60 @@ function ElectricalParticles() {
   );
 }
 
-const trustItems = [
-  { text: `${business.googleReviews.rating} Stars`, hasIcon: true },
-  { text: `${business.googleReviews.count} Reviews` },
-  { text: "500+ Jobs" },
-  { text: `${business.yearsInBusiness} Years` },
-  { text: "ESA Licensed" },
-  { text: "Same-Day Service" },
+/* ─── Marquee Ticker (lives inside hero, right above the fold) ─── */
+
+const marqueeItems = [
+  "500+ Jobs Completed",
+  "47 Five-Star Reviews",
+  "Same-Day Service",
+  "ESA #7014710",
+  "15+ Years Experience",
+  "100% Licensed & Insured",
+  "Brampton's Most Trusted",
+  "Free Remote Estimates",
 ];
+
+function HeroMarquee() {
+  const repeated = [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems];
+
+  return (
+    <div className="relative z-10 bg-[#1B4FE4] py-3 overflow-hidden">
+      <div
+        className="flex gap-8 whitespace-nowrap"
+        style={{ animation: "marquee 30s linear infinite" }}
+      >
+        {repeated.map((text, i) => (
+          <span
+            key={i}
+            className="font-heading text-xs uppercase tracking-[0.2em] font-bold text-white/90 flex items-center gap-8"
+          >
+            {text}
+            <span className="text-white/40">&#9670;</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function HeroSection() {
   return (
     <section className="relative flex flex-col overflow-hidden bg-[#1C1C1E]">
-      {/* Background image */}
+      {/* Background video */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/hero-electrician.jpg"
-          alt="Licensed electrician in Brampton performing electrical panel upgrade"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          quality={85}
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1] bg-black/65" />
+      {/* Dark overlay - 80% */}
+      <div className="absolute inset-0 z-[1] bg-black/80" />
 
       {/* Bottom gradient */}
       <div className="absolute inset-x-0 bottom-0 h-40 z-[1] bg-gradient-to-t from-[#1C1C1E] via-[#1C1C1E]/50 to-transparent" />
@@ -83,134 +106,79 @@ export default function HeroSection() {
       {/* Electrical particles */}
       <ElectricalParticles />
 
-      {/* Emergency badge - top right desktop */}
-      <div className="absolute top-24 right-8 z-20 hidden lg:block">
-        <div className="animate-emergency-pulse inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E31837]/20 border border-[#E31837]/40">
-          <Zap className="w-4 h-4 text-[#E31837]" fill="currentColor" />
-          <span className="font-heading text-xs uppercase tracking-[0.15em] font-bold text-white">
-            24/7 Emergency
-          </span>
-        </div>
-      </div>
-
-      {/* 2-Column Content */}
+      {/* 2-Column Content - taller hero */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-12 lg:pt-32 lg:pb-14">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
-          {/* Left column - 60% */}
-          <div className="lg:w-[60%]">
-            {/* Emergency badge - mobile */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-6 lg:hidden"
-            >
-              <div className="animate-emergency-pulse inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E31837]/20 border border-[#E31837]/40">
-                <Zap
-                  className="w-3.5 h-3.5 text-[#E31837]"
-                  fill="currentColor"
-                />
-                <span className="font-heading text-xs uppercase tracking-[0.15em] font-bold text-white">
-                  24/7 Emergency
-                </span>
-              </div>
-            </motion.div>
-
+        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-10">
+          {/* Left column - 55% */}
+          <div className="lg:w-[55%]">
             {/* H1 */}
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="font-heading text-5xl md:text-6xl lg:text-[80px] font-black uppercase leading-[1.05] tracking-tight text-white"
+              className="font-heading text-4xl md:text-5xl lg:text-[64px] font-black uppercase leading-[1.05] tracking-tight text-white"
             >
               Brampton&apos;s Most
               <br />
-              Trusted Electrician
+              Trusted Electricians
             </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-              className="font-accent italic text-2xl md:text-3xl lg:text-[40px] tracking-[0.05em] text-[#E31837] uppercase mt-2 leading-[1.1]"
-            >
-              Superior Power Electric
-            </motion.p>
-
-            {/* Subhead */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="mt-5 font-body text-lg text-[#94a3b8] tracking-wide"
-            >
-              ESA Licensed &middot; Fully Insured &middot; 5-Star Rated
-            </motion.p>
-
-            {/* Guarantee line */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-4 flex items-center gap-2"
-            >
-              <Shield className="w-4 h-4 text-[#1B4FE4]" />
-              <span className="font-body text-sm text-white/70">
-                $49 credited toward your job &middot; Free remote estimates
-                available
-              </span>
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-              className="mt-8 flex flex-col sm:flex-row gap-4"
-            >
-              <ShimmerButton href="/contact">
-                Book Your $49 Assessment
-                <ArrowRight className="w-4 h-4" />
-              </ShimmerButton>
-
-              <a
-                href={`tel:${business.phoneFull}`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/40 text-white rounded-lg font-heading text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:border-white/70 hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] min-h-[52px]"
+            {/* Subtitle + CTAs share width */}
+            <div className="lg:inline-flex lg:flex-col mt-2">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+                className="font-accent italic text-xl md:text-2xl lg:text-[32px] tracking-[0.05em] text-white uppercase leading-[1.1] mt-1"
               >
-                <Phone className="w-4 h-4" />
-                Call {business.phone}
-              </a>
-            </motion.div>
-
-            {/* Trust strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-gray-300"
-            >
-              {trustItems.map((item, index) => (
-                <span key={item.text} className="flex items-center gap-1.5">
-                  {item.hasIcon && (
-                    <Star
-                      className="w-4 h-4 text-yellow-400 -mr-0.5"
-                      fill="currentColor"
-                    />
-                  )}
-                  <span>{item.text}</span>
-                  {index < trustItems.length - 1 && (
-                    <span className="text-gray-500 ml-1">&middot;</span>
-                  )}
+                <span className="relative inline-block pb-1">
+                  Superior Power Electric
+                  <span
+                    className="absolute left-0 bottom-0 w-full h-[6px] md:h-[8px] bg-[#E31837] rounded-sm"
+                    aria-hidden="true"
+                  />
                 </span>
-              ))}
-            </motion.div>
+              </motion.p>
+
+              {/* CTAs - desktop only, mobile uses sticky bar */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                className="mt-6 hidden lg:flex gap-3"
+              >
+                <a
+                  href={`tel:${business.phoneFull}`}
+                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#1B4FE4] text-white rounded-lg font-heading text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#1640c0] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#1B4FE4]/30"
+                >
+                  <span
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+                    style={{ animation: "shimmerSweep 3s ease-in-out infinite" }}
+                  />
+                  <Phone className="w-5 h-5 relative z-10" />
+                  <span className="relative z-10">Call Us</span>
+                </a>
+                <a
+                  href={`sms:${business.phoneFull}`}
+                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#E31837] text-white rounded-lg font-heading text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#c8152f] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#E31837]/30"
+                >
+                  <span
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+                    style={{ animation: "shimmerSweep 3s ease-in-out 1.5s infinite" }}
+                  />
+                  <MessageCircle className="w-5 h-5 relative z-10" />
+                  <span className="relative z-10">Text Us</span>
+                </a>
+              </motion.div>
+            </div>
+
           </div>
 
-          {/* Right column - 40% - Quote Form */}
+          {/* Right column - 45% - Quote Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
-            className="lg:w-[40%]"
+            className="lg:w-[45%]"
           >
             <QuoteForm />
           </motion.div>
@@ -219,7 +187,7 @@ export default function HeroSection() {
 
       {/* Hero Bottom - Stats + Testimonial */}
       <div className="relative z-10 border-t border-white/10 bg-black/40 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-6">
           <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
             {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8 shrink-0">
@@ -271,6 +239,9 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* Sliding Marquee Banner - last thing above the fold */}
+      <HeroMarquee />
     </section>
   );
 }
