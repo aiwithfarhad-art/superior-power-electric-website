@@ -94,15 +94,15 @@ export default function BlogIndexPage() {
             <span className="text-[#E31837]">Blog</span>
           </nav>
 
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-[#1B4FE4]/15 text-[#1B4FE4] mb-6">
-            <BookOpen className="w-3.5 h-3.5" />
+          <span className="eyebrow-label mb-6">
+            <BookOpen className="w-3.5 h-3.5 mr-2" />
             Expert Electrical Guides
           </span>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
             Electrical Tips & Guides
             <br />
-            <span className="font-heading font-normal italic text-[#E31837]">
+            <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
               for Brampton Homeowners
             </span>
           </h1>
@@ -120,9 +120,9 @@ export default function BlogIndexPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <Link
             href={`/blog/${featuredPost.slug}`}
-            className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+            className="group card-premium p-0 overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center"
           >
-            <div className="relative aspect-[16/10] rounded-xl overflow-hidden">
+            <div className="relative aspect-[16/10] overflow-hidden">
               <Image
                 src={featuredPost.featuredImage}
                 alt={featuredPost.featuredImageAlt}
@@ -137,14 +137,14 @@ export default function BlogIndexPage() {
                 </span>
               </div>
             </div>
-            <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#1B4FE4]/10 text-[#1B4FE4] mb-4">
+            <div className="p-6 lg:p-8">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#E31837]/10 text-[#E31837] border border-[#E31837]/20 mb-4">
                 {featuredPost.category}
               </span>
-              <h2 className="text-2xl md:text-3xl font-black text-[#1C1C1E] uppercase tracking-tight leading-tight mb-4 group-hover:text-[#1B4FE4] transition-colors">
+              <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1a2975] uppercase tracking-tight leading-tight mb-4 group-hover:text-[#1B4FE4] transition-colors">
                 {featuredPost.title}
               </h2>
-              <p className="text-[#6B7280] leading-relaxed mb-4">
+              <p className="font-body text-[#6B7280] leading-relaxed mb-4">
                 {featuredPost.excerpt}
               </p>
               <div className="flex items-center gap-4 text-sm text-[#9CA3AF] mb-6">
@@ -166,7 +166,7 @@ export default function BlogIndexPage() {
       </section>
 
       {/* Posts by Category */}
-      <section className="py-16 bg-[#F5F5F5]">
+      <section className="py-16 bg-[#F8F9FA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Posts Grid */}
@@ -175,7 +175,7 @@ export default function BlogIndexPage() {
                 const categoryPosts = getBlogPostsByCategory(category);
                 return (
                   <div key={category} className="mb-12 last:mb-0">
-                    <h2 className="text-xl font-black text-[#1C1C1E] uppercase tracking-tight mb-6 flex items-center gap-3">
+                    <h2 className="font-heading text-xl font-black text-[#1a2975] uppercase tracking-tight mb-6 flex items-center gap-3">
                       <span className="w-1 h-6 bg-[#E31837] rounded-full" />
                       {category}
                     </h2>
@@ -184,7 +184,7 @@ export default function BlogIndexPage() {
                         <Link
                           key={post.slug}
                           href={`/blog/${post.slug}`}
-                          className="group block bg-white rounded-xl overflow-hidden border border-[#E5E5E5] hover:border-[#1B4FE4]/30 hover:-translate-y-0.5 transition-all duration-300"
+                          className="group block card-premium p-0 overflow-hidden"
                         >
                           <div className="relative aspect-[16/9] overflow-hidden">
                             <Image
@@ -195,16 +195,16 @@ export default function BlogIndexPage() {
                               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             />
                             <div className="absolute top-3 left-3">
-                              <span className="bg-[#1B4FE4] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-[#E31837]/10 text-[#E31837] border border-[#E31837]/20 backdrop-blur-sm">
                                 {post.category}
                               </span>
                             </div>
                           </div>
                           <div className="p-5">
-                            <h3 className="text-base font-bold text-[#1C1C1E] mb-2 group-hover:text-[#1B4FE4] transition-colors line-clamp-2 leading-snug">
+                            <h3 className="font-heading text-base font-bold text-[#1a2975] mb-2 group-hover:text-[#1B4FE4] transition-colors line-clamp-2 leading-snug">
                               {post.title}
                             </h3>
-                            <p className="text-[#9CA3AF] text-sm line-clamp-2 mb-3">
+                            <p className="font-body text-[#9CA3AF] text-sm line-clamp-2 mb-3">
                               {post.excerpt}
                             </p>
                             <div className="flex items-center justify-between text-xs text-[#9CA3AF]">
@@ -230,8 +230,8 @@ export default function BlogIndexPage() {
             <aside className="lg:col-span-1">
               <div className="sticky top-24 space-y-8">
                 {/* Services Widget */}
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]">
-                  <h3 className="text-lg font-bold text-[#1C1C1E] mb-4 font-heading uppercase tracking-tight">
+                <div className="card-premium p-6">
+                  <h3 className="text-lg font-bold text-[#1a2975] mb-4 font-heading uppercase tracking-tight">
                     Our Services
                   </h3>
                   <ul className="space-y-3">
@@ -281,8 +281,8 @@ export default function BlogIndexPage() {
                 </div>
 
                 {/* Categories */}
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]">
-                  <h3 className="text-lg font-bold text-[#1C1C1E] mb-4 font-heading uppercase tracking-tight">
+                <div className="card-premium p-6">
+                  <h3 className="text-lg font-bold text-[#1a2975] mb-4 font-heading uppercase tracking-tight">
                     Categories
                   </h3>
                   <ul className="space-y-2.5">
@@ -296,7 +296,7 @@ export default function BlogIndexPage() {
                           <span className={count > 0 ? "text-[#1C1C1E] font-medium" : "text-[#9CA3AF]"}>
                             {cat}
                           </span>
-                          <span className="bg-[#F5F5F5] text-[#6B7280] text-xs px-2 py-0.5 rounded-full">
+                          <span className="bg-[#F8F9FA] text-[#6B7280] text-xs px-2 py-0.5 rounded-full">
                             {count}
                           </span>
                         </li>

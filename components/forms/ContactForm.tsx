@@ -75,7 +75,7 @@ export function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors"
+            className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#1B4FE4] focus:ring-2 focus:ring-[#1B4FE4]/20 transition-colors"
           />
         </div>
         <div>
@@ -90,7 +90,7 @@ export function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="Your phone number"
-            className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors"
+            className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#1B4FE4] focus:ring-2 focus:ring-[#1B4FE4]/20 transition-colors"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ export function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="Your email (optional)"
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors"
+          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#1B4FE4] focus:ring-2 focus:ring-[#1B4FE4]/20 transition-colors"
         />
       </div>
 
@@ -119,7 +119,7 @@ export function ContactForm() {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors bg-white"
+          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#1B4FE4] focus:ring-2 focus:ring-[#1B4FE4]/20 transition-colors bg-white"
         >
           <option value="">Select a service</option>
           <option value="Residential Electrical">Residential Electrical</option>
@@ -144,7 +144,7 @@ export function ContactForm() {
           name="estimateType"
           value={formData.estimateType}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors bg-white"
+          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#1B4FE4] focus:ring-2 focus:ring-[#1B4FE4]/20 transition-colors bg-white"
         >
           <option value="">Select an option</option>
           <option value="$49 On-Site Assessment">$49 On-Site Assessment (credited toward project)</option>
@@ -164,7 +164,7 @@ export function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell us about your project or question..."
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#1B4FE4] focus:ring-2 focus:ring-[#1B4FE4]/20 transition-colors resize-none"
         />
       </div>
 

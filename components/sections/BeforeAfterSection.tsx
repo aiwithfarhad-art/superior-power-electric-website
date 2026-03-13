@@ -68,12 +68,13 @@ export default function BeforeAfterSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="inline-block px-5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase mb-4 bg-[#E31837]/10 text-[#E31837] font-heading">
-            Our Work
-          </span>
-          <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
-            The Difference is Clear
+          <span className="eyebrow-label">Our Work</span>
+          <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+            See The Difference
           </h2>
+          <p className="font-accent italic tracking-[0.05em] text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
+            Before And After
+          </p>
         </motion.div>
 
         <motion.div
@@ -96,7 +97,7 @@ export default function BeforeAfterSection() {
             {/* AFTER image - full width background */}
             <div className="absolute inset-0">
               <Image
-                src="/images/services/panel-upgrade.jpg"
+                src="/images/services/panel-upgrade.webp"
                 alt="After - new 200-amp panel upgrade"
                 fill
                 className="object-cover"
@@ -113,7 +114,7 @@ export default function BeforeAfterSection() {
               style={{ width: `${position}%` }}
             >
               <Image
-                src="/images/services/knob-tube.jpg"
+                src="/images/services/knob-tube.webp"
                 alt="Before - old fuse box"
                 fill
                 className="object-cover"

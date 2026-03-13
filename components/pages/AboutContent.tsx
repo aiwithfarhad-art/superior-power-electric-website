@@ -40,19 +40,19 @@ export function AboutContent() {
             transition={{ duration: 0.6, ease: [0.625, 0.05, 0, 1] }}
             className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 bg-white/10 text-white">
+            <span className="eyebrow-label mb-6">
               About Us
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
               ABOUT
               <br />
-              <span className="font-heading font-normal italic text-[#E31837]">
+              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
                 Superior Power
               </span>
             </h1>
 
-            <p className="mt-6 text-gray-400 text-lg max-w-2xl">
+            <p className="mt-6 font-body text-gray-400 text-lg max-w-2xl">
               Founded in {business.foundedYear} by {business.owner}, Superior
               Power Electric has grown from a one-person operation into one of
               Brampton&apos;s most trusted electrical contractors.{" "}
@@ -90,19 +90,19 @@ export function AboutContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#1B4FE4]/10 text-[#1B4FE4]">
+              <span className="eyebrow-label">
                 Our Story
               </span>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1C1C1E]">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1a2975]">
                 BUILT ON
                 <br />
-                <span className="font-heading font-normal italic text-[#E31837]">
+                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
                   Hard Work
                 </span>
               </h2>
 
-              <div className="mt-6 space-y-4 text-[#6B7280] leading-relaxed">
+              <div className="mt-6 space-y-4 font-body text-[#6B7280] leading-relaxed">
                 <p>
                   {business.owner} founded Superior Power Electric in{" "}
                   {business.foundedYear} in Brampton, Ontario. What started as a
@@ -137,9 +137,9 @@ export function AboutContent() {
                 delay: 0.1,
                 ease: [0.625, 0.05, 0, 1],
               }}
-              className="bg-[#F5F5F5] rounded-xl p-8"
+              className="bg-[#F8F9FA] rounded-xl p-8"
             >
-              <h3 className="text-lg font-bold text-[#1C1C1E] mb-6">
+              <h3 className="font-heading text-lg font-bold text-[#1a2975] mb-6">
                 What Sets Us Apart
               </h3>
               <div className="space-y-5">
@@ -198,7 +198,7 @@ export function AboutContent() {
       </section>
 
       {/* By the Numbers */}
-      <section className="py-20 bg-[#F5F5F5]">
+      <section className="py-20 bg-[#F8F9FA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -207,13 +207,13 @@ export function AboutContent() {
             transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
             className="text-center mb-12"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#1B4FE4]/10 text-[#1B4FE4]">
+            <span className="eyebrow-label">
               By the Numbers
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1C1C1E]">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1a2975]">
               PROVEN
               <br />
-              <span className="font-heading font-normal italic text-[#E31837]">
+              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
                 Track Record
               </span>
             </h2>
@@ -250,15 +250,15 @@ export function AboutContent() {
                   delay: index * 0.08,
                   ease: [0.625, 0.05, 0, 1],
                 }}
-                className="bg-white rounded-xl p-6 text-center border border-[#E5E5E5]"
+                className="card-premium p-6 text-center"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center mx-auto mb-3">
                   <stat.icon className="w-5 h-5 text-[#1B4FE4]" />
                 </div>
-                <div className="text-2xl font-black text-[#1C1C1E]">
+                <div className="stat-number text-2xl">
                   {stat.value}
                 </div>
-                <div className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-1">
+                <div className="font-body text-xs text-[#9CA3AF] uppercase tracking-wider mt-1">
                   {stat.label}
                 </div>
               </motion.div>
@@ -277,17 +277,17 @@ export function AboutContent() {
             transition={{ duration: 0.5, ease: [0.625, 0.05, 0, 1] }}
             className="text-center mb-12"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4 bg-[#1B4FE4]/10 text-[#1B4FE4]">
+            <span className="eyebrow-label">
               What We Do
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1C1C1E]">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#1a2975]">
               OUR
               <br />
-              <span className="font-heading font-normal italic text-[#E31837]">
+              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
                 Services
               </span>
             </h2>
-            <p className="mt-4 text-base md:text-lg max-w-2xl mx-auto text-[#9CA3AF]">
+            <p className="mt-4 font-body text-base md:text-lg max-w-2xl mx-auto text-[#9CA3AF]">
               Full-service electrical for homes and businesses across the Greater
               Toronto Area.
             </p>
@@ -328,15 +328,15 @@ export function AboutContent() {
                   delay: index * 0.08,
                   ease: [0.625, 0.05, 0, 1],
                 }}
-                className="group bg-[#F5F5F5] rounded-xl p-8 border border-[#E5E5E5] hover:border-[#1B4FE4]/30 transition-all hover:-translate-y-0.5"
+                className="group card-premium p-8"
               >
                 <div className="w-12 h-12 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center mb-5">
                   <service.icon className="w-6 h-6 text-[#1B4FE4]" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1C1C1E] mb-2">
+                <h3 className="font-heading text-lg font-bold text-[#1a2975] mb-2">
                   {service.title}
                 </h3>
-                <p className="text-[#9CA3AF] text-sm leading-relaxed mb-4">
+                <p className="font-body text-[#9CA3AF] text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
                 <span className="inline-flex items-center gap-1 text-[#1B4FE4] text-sm font-semibold group-hover:gap-2 transition-all">

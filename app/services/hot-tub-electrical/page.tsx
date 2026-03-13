@@ -7,8 +7,10 @@ import {
   serviceSchema,
   faqSchema,
   breadcrumbSchema,
+  howToSchema,
 } from "@/components/seo/JsonLd";
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
+import { serviceDetails } from "@/data/service-details";
 
 const slug = "hot-tub-electrical";
 
@@ -50,6 +52,10 @@ export default function HotTubElectricalPage() {
             { name: "Services", href: "/#services" },
             { name: service.title, href: `/services/${slug}` },
           ]),
+          howToSchema(
+            `How ${service.title} Works`,
+            serviceDetails[slug]?.processSteps || []
+          ),
         ]}
       />
       <ServicePageTemplate service={service} relatedServices={relatedServices} />

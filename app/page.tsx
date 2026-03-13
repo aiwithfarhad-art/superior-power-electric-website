@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/sections/HeroSection";
-import MarqueeTicker from "@/components/sections/MarqueeTicker";
+
 import TrustLogosBar from "@/components/sections/TrustLogosBar";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
+import AboutSection from "@/components/sections/AboutSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
-import EmergencyBanner from "@/components/sections/EmergencyBanner";
+import InstagramSection from "@/components/sections/InstagramSection";
+import { BlogSection } from "@/components/sections/BlogSection";
 import { ServiceAreaSection } from "@/components/sections/ServiceAreaSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
@@ -25,15 +26,14 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <MarqueeTicker />
-      <TrustLogosBar />
       <ServicesSection />
       <ProcessSection />
       <WhyUsSection />
+      <AboutSection />
       <TestimonialsSection />
-      <BeforeAfterSection />
-      <EmergencyBanner />
+      <InstagramSection />
       <ServiceAreaSection />
+      <BlogSection />
       <CTASection />
       <StickyMobileCTA />
     </>

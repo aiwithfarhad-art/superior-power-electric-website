@@ -34,6 +34,10 @@ export interface CityPage {
   faqs: { question: string; answer: string }[];
   relatedCities: string[];
   serviceLinks: boolean;
+  landmarks: { name: string; context: string }[];
+  housingContext: string;
+  topServices: string[];
+  mapEmbedUrl: string;
 }
 
 export const cities: CityPage[] = [
@@ -151,6 +155,17 @@ export const cities: CityPage[] = [
     ],
     relatedCities: ["mississauga", "caledon", "vaughan"],
     serviceLinks: true,
+    landmarks: [
+      { name: "Bramalea City Centre", context: "25 Peel Centre Drive - the regional mall anchoring east Brampton" },
+      { name: "Gage Park", context: "45 Main Street North - Brampton's signature downtown park with bandshell and gardens" },
+      { name: "Chinguacousy Park", context: "9050 Bramalea Road - ski hill, splash pad, and recreation hub" },
+      { name: "Heart Lake Conservation Area", context: "10818 Heart Lake Road - trails, fishing, and swimming in northeast Brampton" },
+      { name: "Brampton Civic Hospital", context: "2100 Bovaird Drive East - William Osler Health System's main campus" },
+      { name: "Sheridan College Davis Campus", context: "7899 McLaughlin Road - driving student housing demand in central Brampton" },
+    ],
+    housingContext: "Bramalea's 1960s and 1970s housing stock is reaching the age where 60-amp fuse boxes need upgrading to 200-amp breaker panels. Many of these homes still have aluminum wiring and outdated grounding. New developments in Mount Pleasant and Heritage Heights are driving demand for EV charger installations and smart home wiring.",
+    topServices: ["panel-upgrades", "rewiring", "ev-charger"],
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92261.23!2d-79.8!3d43.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b15eaa5d24c03%3A0x5601b726d673e512!2sBrampton%2C%20ON!5e0!3m2!1sen!2sca!4v1",
   },
   {
     slug: "mississauga",
@@ -321,6 +336,17 @@ export const cities: CityPage[] = [
     ],
     relatedCities: ["brampton", "oakville"],
     serviceLinks: true,
+    landmarks: [
+      { name: "Square One Shopping Centre", context: "100 City Centre Drive - the GTA's largest shopping destination" },
+      { name: "Port Credit Waterfront", context: "Lakeshore Road East - the vibrant lakeside village with heritage homes" },
+      { name: "Erin Mills Town Centre", context: "5100 Erin Mills Parkway - anchoring the western residential corridor" },
+      { name: "University of Toronto Mississauga", context: "3359 Mississauga Road - driving rental and student housing demand" },
+      { name: "Pearson Airport Area", context: "Malton and Airport Corporate Centre - commercial electrical hub" },
+      { name: "Hurontario LRT Corridor", context: "New transit line bringing mixed-use development and electrical demand" },
+    ],
+    housingContext: "Erin Mills and Meadowvale have large pockets of 1980s housing where electrical panels are reaching end of life. Malton has older pre-1970 homes that sometimes still have knob-and-tube wiring needing replacement. The Hurontario LRT corridor is spurring new condo development, creating commercial electrical demand across the city.",
+    topServices: ["panel-upgrades", "knob-and-tube", "ev-charger"],
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92338.94!2d-79.7!3d43.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b469fe76b05b7%3A0x3d3f0a4e1b1f7f6e!2sMississauga%2C%20ON!5e0!3m2!1sen!2sca!4v1",
   },
   {
     slug: "vaughan",
@@ -430,6 +456,17 @@ export const cities: CityPage[] = [
     ],
     relatedCities: ["brampton", "mississauga"],
     serviceLinks: true,
+    landmarks: [
+      { name: "Canada's Wonderland", context: "1 Canada's Wonderland Drive - the GTA's premier amusement park in Maple" },
+      { name: "Vaughan Mills", context: "1 Bass Pro Mills Drive - major retail and entertainment destination" },
+      { name: "McMichael Canadian Art Collection", context: "10365 Islington Avenue, Kleinburg - cultural landmark in the estate district" },
+      { name: "Vaughan Metropolitan Centre", context: "The new downtown core with TTC subway access and condo towers" },
+      { name: "Cortellucci Hospital", context: "7100 Weston Road - Mackenzie Health's new state-of-the-art facility" },
+      { name: "Boyd Conservation Area", context: "200 Islington Avenue - Humber Valley trails and nature area" },
+    ],
+    housingContext: "Woodbridge's 1970s and 1980s Italian-Canadian housing stock is due for panel upgrades and updated wiring. Kleinburg's estate homes on 1-to-5-acre lots represent the highest-value residential electrical work in the GTA - from whole-home surge protection to landscape lighting and heated driveway circuits. The VMC condo corridor is adding commercial demand.",
+    topServices: ["panel-upgrades", "lighting", "hot-tub-electrical"],
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92114.26!2d-79.6!3d43.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2a4936291733%3A0x5201760ad6b142ed!2sVaughan%2C%20ON!5e0!3m2!1sen!2sca!4v1",
   },
   {
     slug: "oakville",
@@ -540,6 +577,17 @@ export const cities: CityPage[] = [
     ],
     relatedCities: ["mississauga", "brampton"],
     serviceLinks: true,
+    landmarks: [
+      { name: "Glen Abbey Golf Club", context: "1333 Dorval Drive - legendary course in the heart of the executive neighbourhood" },
+      { name: "Bronte Harbour", context: "2340 Ontario Street - the lakeside village with heritage waterfront homes" },
+      { name: "Oakville Place", context: "240 Leighland Avenue - the town's central shopping destination" },
+      { name: "Sheridan College Trafalgar Campus", context: "1430 Trafalgar Road - animation and arts campus driving area development" },
+      { name: "Sixteen Mile Creek", context: "Natural corridor dividing east and west Oakville's residential areas" },
+      { name: "Downtown Oakville", context: "Lakeshore Road East - boutique shopping, dining, and heritage homes" },
+    ],
+    housingContext: "Heritage homes in Old Oakville and Bronte date from the early 1900s and require careful electrical upgrades that respect original construction while meeting modern code. Glen Abbey's large executive lots drive demand for landscape lighting, hot tub wiring, and EV chargers. The southeast Ford plant redevelopment is creating a wave of new construction electrical demand.",
+    topServices: ["lighting", "panel-upgrades", "hot-tub-electrical"],
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46223.86!2d-79.7!3d43.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b5b9bdc983e39%3A0x53e24f30e3b6b78e!2sOakville%2C%20ON!5e0!3m2!1sen!2sca!4v1",
   },
   {
     slug: "georgetown",
@@ -642,6 +690,17 @@ export const cities: CityPage[] = [
     ],
     relatedCities: ["brampton", "oakville", "caledon"],
     serviceLinks: true,
+    landmarks: [
+      { name: "Georgetown GO Station", context: "22 Mill Street - Kitchener GO line making Georgetown a popular commuter town" },
+      { name: "Silver Creek Conservation Area", context: "8362 Fifth Line - trails and nature reserve on the town's edge" },
+      { name: "Credit River", context: "Heritage homes and trails along Georgetown's scenic river corridor" },
+      { name: "Hungry Hollow", context: "Natural ravine trail system winding through the heart of Georgetown" },
+      { name: "Downtown Georgetown", context: "Main Street heritage district with shops, restaurants, and character homes" },
+      { name: "Georgetown Hospital", context: "1 Princess Anne Drive - Halton Healthcare anchor serving the community" },
+    ],
+    housingContext: "Heritage homes along the Credit River and throughout downtown Georgetown often need panel upgrades and rewiring to handle modern loads. The GO station has attracted young families who want their older homes modernized with pot lights, EV chargers, and updated electrical systems. Rural properties around Glen Williams and Limehouse frequently need service upgrades from 100 to 200 amps.",
+    topServices: ["panel-upgrades", "rewiring", "residential"],
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23079.47!2d-79.93!3d43.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b61a9a6a76e63%3A0x2e29abf3a16db78a!2sGeorgetown%2C%20Halton%20Hills%2C%20ON!5e0!3m2!1sen!2sca!4v1",
   },
   {
     slug: "caledon",
@@ -754,6 +813,17 @@ export const cities: CityPage[] = [
     ],
     relatedCities: ["brampton", "georgetown", "vaughan"],
     serviceLinks: true,
+    landmarks: [
+      { name: "Cheltenham Badlands", context: "1739 Olde Base Line Road - iconic red clay formations and Niagara Escarpment views" },
+      { name: "Forks of the Credit Provincial Park", context: "17760 McLaren Road - scenic trails at the Credit River headwaters" },
+      { name: "Bolton", context: "Caledon's main commercial hub with the majority of the town's retail and services" },
+      { name: "Albion Hills Conservation Area", context: "16500 Peel Regional Road 50 - mountain biking, skiing, and camping" },
+      { name: "Caledon Trailway", context: "35-kilometre multi-use trail connecting Bolton to Palgrave and beyond" },
+      { name: "SouthFields Village", context: "Caledon's fastest-growing community with new construction and young families" },
+    ],
+    housingContext: "Many rural Caledon properties still run on 100-amp service that cannot handle modern loads from EV chargers, home offices, and workshops. Estate homes in Palgrave need landscape lighting, barn wiring, and backup generator hookups. Bolton's growing residential base is driving demand for standard residential electrical work. Horse properties throughout Caledon need specialized barn and arena wiring with weatherproof fixtures.",
+    topServices: ["panel-upgrades", "residential", "rewiring"],
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92000.0!2d-79.87!3d43.86!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b1f5e69f3e6b5%3A0x1b2f3c4d5e6f7a8b!2sCaledon%2C%20ON!5e0!3m2!1sen!2sca!4v1",
   },
 ];
 

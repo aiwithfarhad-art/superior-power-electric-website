@@ -7,8 +7,10 @@ import {
   serviceSchema,
   faqSchema,
   breadcrumbSchema,
+  howToSchema,
 } from "@/components/seo/JsonLd";
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
+import { serviceDetails } from "@/data/service-details";
 
 const service = getServiceBySlug("ev-charger");
 
@@ -51,6 +53,10 @@ export default function EVChargerPage() {
             { name: "Services", href: "/#services" },
             { name: service.title, href: `/services/${service.slug}` },
           ]),
+          howToSchema(
+            `How ${service.title} Works`,
+            serviceDetails["ev-charger"]?.processSteps || []
+          ),
         ]}
       />
       <ServicePageTemplate service={service} relatedServices={relatedServices} />

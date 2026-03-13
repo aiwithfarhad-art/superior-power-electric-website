@@ -7,6 +7,7 @@ import {
   electricianSchema,
   faqSchema,
   breadcrumbSchema,
+  localBusinessSchema,
 } from "@/components/seo/JsonLd";
 import { CityPageTemplate } from "@/components/templates/CityPageTemplate";
 
@@ -47,6 +48,7 @@ export default function VaughanPage() {
       <JsonLd
         data={[
           schema,
+          localBusinessSchema(city),
           faqSchema(city.faqs),
           breadcrumbSchema([
             { name: "Home", href: "/" },

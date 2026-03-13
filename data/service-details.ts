@@ -17,10 +17,16 @@ export interface PricingCTA {
   buttonText: string;
 }
 
+export interface BeforeAfter {
+  withoutItems: string[];
+  withItems: string[];
+}
+
 export interface ServiceDetails {
   benefits: ServiceBenefit[];
   processSteps: ProcessStep[];
   pricingCTA: PricingCTA;
+  beforeAfter: BeforeAfter;
 }
 
 export const serviceDetails: Record<string, ServiceDetails> = {
@@ -78,6 +84,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       priceRange: "$2,000 - $4,500",
       buttonText: "Get an Exact Quote",
     },
+    beforeAfter: {
+      withoutItems: [
+        "Outdated panel with no arc-fault protection",
+        "Breakers tripping when running multiple appliances",
+        "Insurance company flagging your panel as a risk",
+        "Cannot add EV charger, hot tub, or home office circuits",
+        "Potential fire hazard from overloaded wiring",
+      ],
+      withItems: [
+        "Modern 200A panel with full arc-fault protection",
+        "Capacity for every appliance and future upgrades",
+        "Insurance compliance with ESA certificate on file",
+        "Ready for EV chargers, hot tubs, and smart home systems",
+        "Peace of mind with code-compliant, inspected wiring",
+      ],
+    },
   },
   "pot-lights": {
     benefits: [
@@ -132,6 +154,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Pot light installation runs $150 to $250 per light installed, depending on ceiling type and accessibility. A standard 6-light kitchen installation costs $900 to $1,500. $49 assessment credited toward your project.",
       priceRange: "$150 - $250 per light",
       buttonText: "Book Your $49 Assessment",
+    },
+    beforeAfter: {
+      withoutItems: [
+        "Dark corners and uneven shadows across the room",
+        "Bulky fixtures collecting dust and dating your space",
+        "Halogen bulbs burning out every few months",
+        "No dimming control for different moods or tasks",
+        "Higher electricity bills from inefficient lighting",
+      ],
+      withItems: [
+        "Even, shadow-free illumination in every corner",
+        "Clean flush-mount design that modernizes any room",
+        "LED bulbs lasting 25,000+ hours with zero maintenance",
+        "Full dimmer control from bright task lighting to ambient glow",
+        "75% energy savings starting from day one",
+      ],
     },
   },
   "ev-charger": {
@@ -188,6 +226,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       priceRange: "$1,500 - $3,000",
       buttonText: "Get an Exact Quote",
     },
+    beforeAfter: {
+      withoutItems: [
+        "Driving to public chargers and waiting 30-60 minutes",
+        "Paying $15 to $25 per public charging session",
+        "Unreliable Level 1 charging taking 24+ hours for a full battery",
+        "Extension cords and improper outlets creating fire risk",
+        "No dedicated circuit if you upgrade to a bigger EV later",
+      ],
+      withItems: [
+        "Full charge overnight in your own garage or driveway",
+        "Charging cost drops to $2 to $4 per session at home rates",
+        "Level 2 delivers 30 to 50 km of range per hour",
+        "Dedicated 240V circuit with proper safety protection",
+        "Future-proof wiring ready for next-generation chargers",
+      ],
+    },
   },
   residential: {
     benefits: [
@@ -242,6 +296,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Residential electrical costs vary by project. Small repairs start at $150, while larger projects like panel upgrades or rewiring range from $2,000 to $20,000. $49 assessment credited toward your project. Free remote estimates also available.",
       priceRange: "Varies by project",
       buttonText: "Book Your $49 Assessment",
+    },
+    beforeAfter: {
+      withoutItems: [
+        "Flickering lights and outlets that do not work reliably",
+        "Old wiring that may not meet current Ontario safety code",
+        "No idea if your home passes an electrical safety inspection",
+        "Calling different electricians for different problems",
+        "Worrying about electrical fires from aging systems",
+      ],
+      withItems: [
+        "Every outlet, switch, and circuit working perfectly",
+        "Full compliance with Ontario Electrical Safety Code",
+        "ESA certificate of inspection on file for insurance",
+        "One licensed team handling all your electrical needs",
+        "Modern, safe wiring you can trust for decades",
+      ],
     },
   },
   commercial: {
@@ -298,6 +368,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       priceRange: "Custom quotes",
       buttonText: "Book Your $49 Assessment",
     },
+    beforeAfter: {
+      withoutItems: [
+        "Electrical issues disrupting business operations",
+        "No documentation for insurance or municipal compliance",
+        "Contractors who work during your peak hours",
+        "Surprise charges and hidden fees after the job",
+        "Waiting days for a quote or callback",
+      ],
+      withItems: [
+        "Reliable electrical systems that keep your business running",
+        "Full ESA documentation for insurance and code compliance",
+        "Work scheduled around your hours with zero disruption",
+        "Upfront pricing with detailed scope before any work starts",
+        "Same-day quotes and priority scheduling available",
+      ],
+    },
   },
   rewiring: {
     benefits: [
@@ -352,6 +438,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Partial rewiring typically runs $3,000 to $8,000. A full home rewire ranges from $8,000 to $20,000 depending on home size and accessibility. $49 assessment credited toward your project. Honest quotes with no surprises.",
       priceRange: "$3,000 - $20,000",
       buttonText: "Book Your $49 Assessment",
+    },
+    beforeAfter: {
+      withoutItems: [
+        "Old aluminum or knob-and-tube wiring creating fire risk",
+        "Insurance company threatening to cancel your policy",
+        "Circuits that cannot handle modern appliances safely",
+        "No grounding protection on any of your outlets",
+        "Lower home resale value due to outdated electrical",
+      ],
+      withItems: [
+        "Modern NMD90 copper wiring throughout your home",
+        "Full insurance compliance with ESA documentation",
+        "Capacity for every appliance, charger, and device",
+        "Proper grounding on every circuit and outlet",
+        "Increased home value with certified electrical systems",
+      ],
     },
   },
   "hot-tub-electrical": {
@@ -408,6 +510,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       priceRange: "$800 - $2,500",
       buttonText: "Get an Exact Quote",
     },
+    beforeAfter: {
+      withoutItems: [
+        "Extension cords and adapters creating a tripping hazard",
+        "No GFCI protection near water - serious shock risk",
+        "Panel that cannot handle a 50-amp hot tub circuit",
+        "Exposed wiring deteriorating in Ontario weather",
+        "No ESA permit - could void your home insurance",
+      ],
+      withItems: [
+        "Clean, dedicated circuit from panel to hot tub",
+        "Code-required GFCI disconnect within sight of the tub",
+        "Panel verified or upgraded to handle the load safely",
+        "Weatherproof conduit rated for Canadian winters",
+        "ESA permit and inspection certificate included",
+      ],
+    },
   },
   lighting: {
     benefits: [
@@ -463,6 +581,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       priceRange: "$100 - $1,500+",
       buttonText: "Book Your $49 Assessment",
     },
+    beforeAfter: {
+      withoutItems: [
+        "Rooms that feel dark even with all the lights on",
+        "Outdated fixtures that waste energy and look dated",
+        "No smart controls - getting up to flip every switch",
+        "Mismatched color temperatures across the house",
+        "Outdoor areas with no security or landscape lighting",
+      ],
+      withItems: [
+        "Bright, even illumination designed for every room",
+        "Modern LED fixtures that save $200 to $400 per year",
+        "Smart home controls via phone, voice, or automation",
+        "Consistent color temperature throughout your home",
+        "Professional outdoor lighting for safety and curb appeal",
+      ],
+    },
   },
   "knob-and-tube": {
     benefits: [
@@ -517,6 +651,22 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Knob and tube removal typically costs $5,000 to $15,000 depending on home size, amount of active wiring, and accessibility. A typical Brampton bungalow runs $5,000 to $8,000.",
       priceRange: "$5,000 - $15,000",
       buttonText: "Book Your $49 Assessment",
+    },
+    beforeAfter: {
+      withoutItems: [
+        "70 to 100 year old ungrounded wiring throughout your walls",
+        "Insurance company refusing coverage or charging higher premiums",
+        "Cannot safely add insulation without fire risk",
+        "No arc-fault or ground-fault protection anywhere",
+        "Failing a home inspection and losing a sale",
+      ],
+      withItems: [
+        "Modern NMD90 copper wiring with full grounding",
+        "Insurance compliance with ESA certificate provided",
+        "Safe to insulate your attic and walls properly",
+        "Arc-fault and ground-fault protection on every circuit",
+        "Clean home inspection report that closes the deal",
+      ],
     },
   },
 };

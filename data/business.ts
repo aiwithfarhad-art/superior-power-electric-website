@@ -3,7 +3,7 @@ export const business = {
   tagline: "Licensed Electricians in Brampton & GTA",
   phone: "(905) 452-8439",
   phoneFull: "+19054528439",
-  email: "superiorpowerelectric@gmail.com",
+  email: "Info@superiorpowerelectric.ca",
   address: {
     street: "59 Maisonneuve Blvd",
     city: "Brampton",

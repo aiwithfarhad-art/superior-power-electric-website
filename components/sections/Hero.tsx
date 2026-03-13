@@ -43,7 +43,7 @@ export function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
               Brampton&apos;s Trusted
               <br />
-              <span className="font-heading font-normal italic text-[#E31837]">
+              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
                 Electrical Experts
               </span>
             </h1>

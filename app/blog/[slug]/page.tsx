@@ -81,24 +81,24 @@ function renderContent(content: string) {
 
 function CTABox() {
   return (
-    <div className="my-10 bg-[#E31837] rounded-xl p-8 text-center">
-      <p className="text-white text-xl font-bold font-heading uppercase tracking-tight mb-3">
+    <div className="my-10 border-l-4 border-[#E31837] bg-[#E31837]/5 p-6 rounded-lg">
+      <p className="font-heading text-xl font-bold text-[#1a2975] uppercase tracking-tight mb-3">
         Book Your $49 Assessment
       </p>
-      <p className="text-white/90 text-sm mb-5">
+      <p className="font-body text-[#64748b] text-sm mb-5">
         Credit applied toward your project. ESA licensed. No obligation.
       </p>
-      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      <div className="flex flex-col sm:flex-row gap-3">
         <a
           href={`tel:${business.phoneFull}`}
-          className="inline-flex items-center justify-center gap-2 bg-white text-[#E31837] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+          className="inline-flex items-center justify-center gap-2 bg-[#E31837] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#C21430] transition-colors text-sm"
         >
           <Phone className="w-4 h-4" />
           Call {business.phone}
         </a>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+          className="inline-flex items-center justify-center gap-2 border-2 border-gray-200 text-[#1C1C1E] px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition-colors text-sm"
         >
           Book Your $49 Assessment
           <ArrowRight className="w-4 h-4" />
@@ -201,21 +201,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </nav>
 
           {/* Category badge */}
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-[#1B4FE4]/15 text-[#1B4FE4] mb-6">
-            <BookOpen className="w-3.5 h-3.5" />
+          <span className="eyebrow-label mb-6">
+            <BookOpen className="w-3.5 h-3.5 mr-2" />
             {post.category}
           </span>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.1] mb-6">
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-[1.1] mb-6">
             {post.title}
           </h1>
 
           {/* Meta */}
-          <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm">
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4" />
-              <span>
+          <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm font-body">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1B4FE4]/10 border border-[#1B4FE4]/20">
+              <User className="w-4 h-4 text-[#1B4FE4]" />
+              <span className="text-white">
                 {post.author}, {post.authorCredential}
               </span>
             </div>
@@ -252,21 +252,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Article Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div className="bg-white max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main content */}
           <article className="lg:col-span-2">
             {post.sections.map((section, index) => (
               <div key={index}>
                 <div className="mb-10">
-                  <h2 className="text-2xl md:text-3xl font-black text-[#1C1C1E] uppercase tracking-tight mb-4">
+                  <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1a2975] uppercase tracking-tight mb-4">
                     {section.heading}
                   </h2>
                   <div className="space-y-4">
                     {section.content.split("\n\n").map((paragraph, pIndex) => (
                       <p
                         key={pIndex}
-                        className="text-[#6B7280] leading-relaxed text-base md:text-lg"
+                        className="font-body text-[#6B7280] leading-[1.85] text-base md:text-lg"
                       >
                         {renderContent(paragraph)}
                       </p>
@@ -285,19 +285,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* FAQ Section */}
             {post.faqs.length > 0 && (
               <div className="mt-16 pt-12 border-t border-gray-200">
-                <h2 className="text-2xl md:text-3xl font-black text-[#1C1C1E] uppercase tracking-tight mb-8">
+                <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1a2975] uppercase tracking-tight mb-8">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-6">
                   {post.faqs.map((faq, index) => (
                     <div
                       key={index}
-                      className="bg-[#F5F5F5] rounded-xl p-6 border border-[#E5E5E5]"
+                      className="card-premium p-6"
                     >
-                      <h3 className="text-lg font-bold text-[#1C1C1E] mb-2">
+                      <h3 className="font-heading text-lg font-bold text-[#1a2975] mb-2">
                         {faq.question}
                       </h3>
-                      <p className="text-[#6B7280] leading-relaxed">
+                      <p className="font-body text-[#6B7280] leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -315,8 +315,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="sticky top-24 space-y-8">
               {/* Services Widget */}
               {relatedServiceData.length > 0 && (
-                <div className="bg-[#F5F5F5] rounded-xl p-6 border border-[#E5E5E5]">
-                  <h3 className="text-lg font-bold text-[#1C1C1E] mb-4 font-heading uppercase tracking-tight">
+                <div className="card-premium p-6">
+                  <h3 className="text-lg font-bold text-[#1a2975] mb-4 font-heading uppercase tracking-tight">
                     Related Services
                   </h3>
                   <ul className="space-y-3">
@@ -361,8 +361,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               {/* Table of Contents */}
-              <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]">
-                <h3 className="text-lg font-bold text-[#1C1C1E] mb-4 font-heading uppercase tracking-tight">
+              <div className="card-premium p-6">
+                <h3 className="text-lg font-bold text-[#1a2975] mb-4 font-heading uppercase tracking-tight">
                   In This Article
                 </h3>
                 <ul className="space-y-2">
@@ -382,12 +382,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 bg-[#F5F5F5]">
+        <section className="py-16 bg-[#F8F9FA]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 className="text-3xl md:text-4xl font-black text-[#1C1C1E] uppercase tracking-tight text-center mb-10">
+            <h2 className="font-heading text-3xl md:text-4xl font-black text-[#1a2975] uppercase tracking-tight text-center mb-10">
               Related
               <br />
-              <span className="font-heading font-normal italic text-[#E31837]">
+              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
                 Articles
               </span>
             </h2>
@@ -396,7 +396,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="group block bg-white rounded-xl overflow-hidden border border-[#E5E5E5] hover:border-[#1B4FE4]/30 hover:-translate-y-0.5 transition-all duration-300"
+                  className="group block card-premium p-0 overflow-hidden"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
@@ -407,16 +407,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="bg-[#1B4FE4] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-[#E31837]/10 text-[#E31837] border border-[#E31837]/20 backdrop-blur-sm">
                         {related.category}
                       </span>
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-base font-bold text-[#1C1C1E] mb-2 group-hover:text-[#1B4FE4] transition-colors line-clamp-2">
+                    <h3 className="font-heading text-base font-bold text-[#1a2975] mb-2 group-hover:text-[#1B4FE4] transition-colors line-clamp-2">
                       {related.title}
                     </h3>
-                    <p className="text-[#9CA3AF] text-sm line-clamp-2 mb-3">
+                    <p className="font-body text-[#9CA3AF] text-sm line-clamp-2 mb-3">
                       {related.excerpt}
                     </p>
                     <div className="flex items-center justify-between text-xs text-[#9CA3AF]">

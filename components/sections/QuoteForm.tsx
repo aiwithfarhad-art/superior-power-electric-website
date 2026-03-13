@@ -6,47 +6,109 @@ import { format } from "date-fns";
 import {
   ArrowLeft,
   ArrowRight,
+  Check,
   CheckCircle,
+  ChevronRight,
   Phone,
+  Sparkles,
+  Zap,
+  Lightbulb,
+  Car,
+  HelpCircle,
+  Home,
+  Building,
+  Building2,
+  Briefcase,
+  Clock,
+  CalendarDays,
+  FileText,
+  Crown,
+  Camera,
 } from "lucide-react";
-import {
-  IconPanel,
-  IconPotlights,
-  IconEV,
-  IconOther,
-  IconHouse,
-  IconSemi,
-  IconCondo,
-  IconCommercial,
-  IconASAP,
-  IconWeek,
-  IconDate,
-} from "@/components/ui/form-icons";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { business } from "@/data/business";
 
+/* ─── Step Labels ─── */
+
+const stepLabels = ["PLAN", "SERVICE", "PROPERTY", "TIMELINE", "DETAILS"];
+const totalSteps = 5;
+
 /* ─── Data ─── */
 
+const estimateOptions = [
+  {
+    id: "assessment",
+    badge: "MOST POPULAR",
+    badgeColor: "bg-[#E31837] text-white",
+    icon: Crown,
+    title: "$49 PROJECT ASSESSMENT",
+    bullets: [
+      "Licensed electrician visits your home",
+      "Detailed written quote on the spot",
+      "$49 credited toward your project",
+    ],
+    note: "Best for panel upgrades, rewiring, EV chargers, and complex projects.",
+  },
+  {
+    id: "remote",
+    badge: "REMOTE OPTION",
+    badgeColor: "bg-gray-200 text-gray-600",
+    icon: Camera,
+    title: "FREE REMOTE ESTIMATE",
+    bullets: [
+      "Send us clear photos of the work area",
+      "Describe your project details",
+      "Receive a ballpark estimate by phone",
+    ],
+    note: "Best for pot lights, simple fixture swaps, and smaller projects.",
+  },
+];
+
 const serviceOptions = [
-  { id: "panel", icon: IconPanel, label: "Panel Upgrade" },
-  { id: "potlights", icon: IconPotlights, label: "Pot Lights" },
-  { id: "ev", icon: IconEV, label: "EV Charger" },
-  { id: "other", icon: IconOther, label: "Other" },
+  { id: "panel", icon: Zap, label: "PANEL UPGRADE / REWIRING" },
+  { id: "potlights", icon: Lightbulb, label: "POT LIGHTS / FIXTURES" },
+  { id: "ev", icon: Car, label: "EV CHARGER INSTALLATION" },
+  { id: "other", icon: HelpCircle, label: "OTHER / NOT SURE" },
 ];
 
 const propertyOptions = [
-  { id: "house", icon: IconHouse, label: "House" },
-  { id: "semi", icon: IconSemi, label: "Semi-Detached" },
-  { id: "condo", icon: IconCondo, label: "Condo / Apt" },
-  { id: "commercial", icon: IconCommercial, label: "Commercial" },
+  { id: "house", icon: Home, label: "DETACHED HOUSE" },
+  { id: "semi", icon: Building, label: "SEMI / TOWNHOUSE" },
+  { id: "condo", icon: Building2, label: "CONDO / APARTMENT" },
+  { id: "commercial", icon: Briefcase, label: "COMMERCIAL" },
 ];
 
 const timelineOptions = [
-  { id: "asap", icon: IconASAP, label: "ASAP", sub: "As soon as possible" },
-  { id: "week", icon: IconWeek, label: "This Week", sub: "Within 7 days" },
-  { id: "date", icon: IconDate, label: "Pick a Date", sub: "Choose a date" },
+  {
+    id: "asap",
+    icon: Zap,
+    label: "ASAP / EMERGENCY",
+    sub: "24/7 available",
+  },
+  {
+    id: "week",
+    icon: Clock,
+    label: "WITHIN A WEEK",
+    sub: "Flexible timing",
+  },
+  {
+    id: "date",
+    icon: CalendarDays,
+    label: "PICK A SPECIFIC DATE",
+    sub: "Choose below",
+  },
+  {
+    id: "quote",
+    icon: FileText,
+    label: "JUST GETTING A QUOTE",
+    sub: "No rush",
+  },
 ];
 
 /* ─── Animation Variants ─── */
@@ -66,12 +128,159 @@ const slideVariants = {
   }),
 };
 
-/* ─── Component ─── */
+/* ─── Step Indicator ─── */
+
+function StepIndicator({
+  currentStep,
+}: {
+  currentStep: number;
+}) {
+  return (
+    <div className="flex items-center justify-between w-full">
+      {stepLabels.map((label, i) => {
+        const stepNum = i + 1;
+        const isCompleted = stepNum < currentStep;
+        const isActive = stepNum === currentStep;
+        const isFuture = stepNum > currentStep;
+
+        return (
+          <div key={label} className="flex items-center flex-1 last:flex-none">
+            {/* Circle + Label */}
+            <div className="flex flex-col items-center gap-1">
+              <div
+                className={cn(
+                  "w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300",
+                  isCompleted &&
+                    "bg-[#E31837] text-white",
+                  isActive &&
+                    "bg-[#E31837] text-white ring-4 ring-[#E31837]/20",
+                  isFuture &&
+                    "bg-gray-100 text-gray-400 border border-gray-200"
+                )}
+              >
+                {isCompleted ? (
+                  <Check className="w-4 h-4" strokeWidth={3} />
+                ) : (
+                  stepNum
+                )}
+              </div>
+              <span
+                className={cn(
+                  "text-[9px] font-bold uppercase tracking-wider whitespace-nowrap",
+                  isCompleted && "text-[#E31837]",
+                  isActive && "text-[#E31837]",
+                  isFuture && "text-gray-400"
+                )}
+              >
+                {label}
+              </span>
+            </div>
+
+            {/* Connector line */}
+            {i < stepLabels.length - 1 && (
+              <div className="flex-1 mx-1.5 mt-[-14px]">
+                <div
+                  className={cn(
+                    "h-[2px] w-full rounded-full transition-all duration-300",
+                    stepNum < currentStep ? "bg-[#E31837]" : "bg-gray-200"
+                  )}
+                />
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ─── List Option Row ─── */
+
+function OptionRow({
+  icon: Icon,
+  label,
+  sub,
+  selected,
+  onClick,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  sub?: string;
+  selected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={cn(
+        "w-full flex items-center gap-3 p-3 rounded-xl border transition-all duration-200 cursor-pointer group",
+        selected
+          ? "border-[#E31837] bg-[#E31837]/5 shadow-sm"
+          : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+      )}
+    >
+      {/* Icon */}
+      <div
+        className={cn(
+          "w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors",
+          selected
+            ? "bg-[#E31837]/10"
+            : "bg-gray-100 group-hover:bg-gray-200/70"
+        )}
+      >
+        <Icon
+          className={cn(
+            "w-4 h-4 transition-colors",
+            selected ? "text-[#E31837]" : "text-[#E31837]/70"
+          )}
+        />
+      </div>
+
+      {/* Radio circle */}
+      <div
+        className={cn(
+          "w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all",
+          selected ? "border-[#E31837]" : "border-gray-300"
+        )}
+      >
+        {selected && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="w-2 h-2 rounded-full bg-[#E31837]"
+          />
+        )}
+      </div>
+
+      {/* Text */}
+      <div className="flex-1 text-left">
+        <span className="font-heading text-xs font-bold uppercase tracking-wide text-gray-900">
+          {label}
+        </span>
+        {sub && (
+          <span className="block text-[11px] text-gray-500 mt-0.5">{sub}</span>
+        )}
+      </div>
+
+      {/* Chevron */}
+      <ChevronRight
+        className={cn(
+          "w-4 h-4 shrink-0 transition-colors",
+          selected ? "text-[#E31837]" : "text-gray-300 group-hover:text-gray-400"
+        )}
+      />
+    </button>
+  );
+}
+
+/* ─── Main Component ─── */
 
 export default function QuoteForm() {
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
 
+  const [estimateType, setEstimateType] = useState("");
   const [serviceType, setServiceType] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [timeline, setTimeline] = useState("");
@@ -88,8 +297,6 @@ export default function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const totalSteps = 4;
-
   const goNext = useCallback(() => {
     setDirection(1);
     setStep((s) => Math.min(s + 1, totalSteps));
@@ -102,10 +309,19 @@ export default function QuoteForm() {
 
   const canProceed = () => {
     switch (step) {
-      case 1: return serviceType !== "";
-      case 2: return propertyType !== "";
-      case 3: return timeline !== "" && (timeline !== "date" || selectedDate !== undefined);
-      default: return true;
+      case 1:
+        return estimateType !== "";
+      case 2:
+        return serviceType !== "";
+      case 3:
+        return propertyType !== "";
+      case 4:
+        return (
+          timeline !== "" &&
+          (timeline !== "date" || selectedDate !== undefined)
+        );
+      default:
+        return true;
     }
   };
 
@@ -122,20 +338,27 @@ export default function QuoteForm() {
           phone: formData.phone,
           email: formData.email,
           message: formData.message,
+          estimateType,
           service: serviceType,
           propertyType,
           timeline,
-          selectedDate: selectedDate ? format(selectedDate, "yyyy-MM-dd") : undefined,
+          selectedDate: selectedDate
+            ? format(selectedDate, "yyyy-MM-dd")
+            : undefined,
           source: "quote-form",
         }),
       });
       if (res.ok) {
         setSubmitted(true);
       } else {
-        setError(`Something went wrong. Please call us at ${business.phone}`);
+        setError(
+          `Something went wrong. Please call us at ${business.phone}`
+        );
       }
     } catch {
-      setError(`Something went wrong. Please call us at ${business.phone}`);
+      setError(
+        `Something went wrong. Please call us at ${business.phone}`
+      );
     } finally {
       setSubmitting(false);
     }
@@ -145,26 +368,19 @@ export default function QuoteForm() {
   if (submitted) {
     return (
       <div className="quote-form-section" id="quote-form">
-        <div
-          className="rounded-2xl p-8 md:p-10 text-center"
-          style={{
-            background: "linear-gradient(145deg, hsl(0 0% 10.2%), hsl(0 0% 6.7%))",
-            border: "1px solid hsl(0 0% 20%)",
-            boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
-          }}
-        >
+        <div className="rounded-2xl bg-white p-8 md:p-10 text-center shadow-xl border border-gray-100">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <div className="w-16 h-16 rounded-full bg-green-500/15 flex items-center justify-center mx-auto mb-5">
-              <CheckCircle className="w-9 h-9 text-green-400" />
+            <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5">
+              <CheckCircle className="w-9 h-9 text-green-500" />
             </div>
-            <h3 className="font-heading text-xl md:text-2xl font-bold text-white uppercase tracking-wide">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-gray-900 uppercase tracking-wide">
               Request Received
             </h3>
-            <p className="font-body text-sm text-white/50 mt-2">
+            <p className="font-body text-sm text-gray-500 mt-2">
               We will be in touch within 2 hours.
             </p>
             <a
@@ -183,39 +399,35 @@ export default function QuoteForm() {
   /* ─── Main Form ─── */
   return (
     <div className="quote-form-section" id="quote-form">
-      <div
-        className="rounded-2xl overflow-hidden"
-        style={{
-          background: "linear-gradient(145deg, hsl(0 0% 10.2%), hsl(0 0% 6.7%))",
-          border: "1px solid hsl(0 0% 20%)",
-          boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
-        }}
-      >
+      <div className="rounded-2xl overflow-hidden bg-white shadow-xl border border-gray-100">
         {/* Header */}
-        <div className="px-6 md:px-8 pt-6 md:pt-8 pb-4">
-          <div className="flex items-center justify-between mb-1">
-            <span className="font-heading text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#E31837]">
-              Get Started
-            </span>
-            <span className="font-body text-[10px] md:text-xs text-white/40">
-              Step {step} of {totalSteps}
-            </span>
+        <div className="px-4 sm:px-6 md:px-8 pt-4 md:pt-6 pb-3 md:pb-4">
+          <div className="flex items-start justify-between mb-4">
+            <div>
+              <span className="font-heading text-xs font-bold uppercase tracking-[0.15em] text-[#E31837]">
+                Free Quote
+              </span>
+              <h2 className="font-heading text-xl md:text-2xl font-black uppercase tracking-tight text-gray-900 mt-0.5">
+                Get Your Estimate
+              </h2>
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E31837]/10 text-[#E31837] shrink-0">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="text-xs font-bold">&lt;2 MIN</span>
+            </div>
           </div>
-          {/* Progress bar */}
-          <div className="mt-3 h-1 w-full bg-white/10 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-[#E31837] rounded-full"
-              initial={false}
-              animate={{ width: `${(step / totalSteps) * 100}%` }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            />
-          </div>
+
+          {/* Step Indicator */}
+          <StepIndicator currentStep={step} />
         </div>
 
+        {/* Divider */}
+        <div className="h-px bg-gray-100 mx-4 sm:mx-6 md:mx-8" />
+
         {/* Body */}
-        <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2 min-h-[320px] relative">
+        <div className="px-4 sm:px-6 md:px-8 py-4 min-h-[260px] relative">
           <AnimatePresence mode="wait" custom={direction}>
-            {/* ── Step 1: Service Type ── */}
+            {/* ── Step 1: Estimate Type ── */}
             {step === 1 && (
               <motion.div
                 key="step1"
@@ -226,43 +438,60 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <h3 className="font-heading text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-5">
-                  What do you need help with?
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {serviceOptions.map((opt) => {
+                <p className="font-body text-base text-gray-600 mb-4">
+                  Choose your estimate type
+                </p>
+                <div className="space-y-3">
+                  {estimateOptions.map((opt) => {
                     const Icon = opt.icon;
-                    const selected = serviceType === opt.id;
+                    const selected = estimateType === opt.id;
                     return (
                       <button
                         key={opt.id}
                         type="button"
-                        onClick={() => setServiceType(opt.id)}
+                        onClick={() => setEstimateType(opt.id)}
                         className={cn(
-                          "flex flex-col items-center gap-3 p-4 md:p-5 rounded-xl border-2 transition-all duration-200 cursor-pointer group",
+                          "w-full text-left p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer",
                           selected
-                            ? "border-[#E31837] bg-[#E31837]/10"
-                            : "border-white/15 bg-white/[0.03] hover:border-white/30 hover:bg-white/[0.05]"
+                            ? "border-[#E31837] bg-[#E31837]/[0.03] shadow-sm"
+                            : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
                         )}
                       >
-                        <div
-                          className={cn(
-                            "w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors",
-                            selected
-                              ? "bg-[#E31837]/20"
-                              : "bg-white/10 group-hover:bg-white/15"
-                          )}
-                        >
+                        {/* Badge + Icon row */}
+                        <div className="flex items-center justify-between mb-2">
+                          <span
+                            className={cn(
+                              "inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider",
+                              opt.badgeColor
+                            )}
+                          >
+                            {opt.badge}
+                          </span>
                           <Icon
                             className={cn(
-                              "w-5 h-5 md:w-6 md:h-6 transition-colors",
-                              selected ? "text-[#E31837]" : "text-white/70 group-hover:text-white"
+                              "w-5 h-5",
+                              selected ? "text-[#E31837]" : "text-gray-400"
                             )}
                           />
                         </div>
-                        <span className="font-heading text-[10px] md:text-xs font-bold uppercase tracking-wider text-white leading-tight text-center">
-                          {opt.label}
-                        </span>
+
+                        {/* Title */}
+                        <h3 className="font-heading text-base font-bold uppercase tracking-wide text-gray-900 mb-2">
+                          {opt.title}
+                        </h3>
+
+                        {/* Bullets */}
+                        <ul className="space-y-1">
+                          {opt.bullets.map((b) => (
+                            <li
+                              key={b}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <CheckCircle className="w-4 h-4 text-[#E31837] shrink-0 mt-0.5" />
+                              <span className="font-body">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </button>
                     );
                   })}
@@ -270,7 +499,7 @@ export default function QuoteForm() {
               </motion.div>
             )}
 
-            {/* ── Step 2: Property Type ── */}
+            {/* ── Step 2: Service Type ── */}
             {step === 2 && (
               <motion.div
                 key="step2"
@@ -281,51 +510,24 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <h3 className="font-heading text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-5">
-                  What type of property?
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {propertyOptions.map((opt) => {
-                    const Icon = opt.icon;
-                    const selected = propertyType === opt.id;
-                    return (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setPropertyType(opt.id)}
-                        className={cn(
-                          "flex flex-col items-center gap-3 p-4 md:p-5 rounded-xl border-2 transition-all duration-200 cursor-pointer group",
-                          selected
-                            ? "border-[#E31837] bg-[#E31837]/10"
-                            : "border-white/15 bg-white/[0.03] hover:border-white/30 hover:bg-white/[0.05]"
-                        )}
-                      >
-                        <div
-                          className={cn(
-                            "w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors",
-                            selected
-                              ? "bg-[#E31837]/20"
-                              : "bg-white/10 group-hover:bg-white/15"
-                          )}
-                        >
-                          <Icon
-                            className={cn(
-                              "w-5 h-5 md:w-6 md:h-6 transition-colors",
-                              selected ? "text-[#E31837]" : "text-white/70 group-hover:text-white"
-                            )}
-                          />
-                        </div>
-                        <span className="font-heading text-[10px] md:text-xs font-bold uppercase tracking-wider text-white leading-tight text-center">
-                          {opt.label}
-                        </span>
-                      </button>
-                    );
-                  })}
+                <p className="font-body text-sm text-gray-600 mb-4">
+                  What do you need help with?
+                </p>
+                <div className="space-y-2">
+                  {serviceOptions.map((opt) => (
+                    <OptionRow
+                      key={opt.id}
+                      icon={opt.icon}
+                      label={opt.label}
+                      selected={serviceType === opt.id}
+                      onClick={() => setServiceType(opt.id)}
+                    />
+                  ))}
                 </div>
               </motion.div>
             )}
 
-            {/* ── Step 3: Timeline ── */}
+            {/* ── Step 3: Property Type ── */}
             {step === 3 && (
               <motion.div
                 key="step3"
@@ -336,59 +538,59 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <h3 className="font-heading text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-5">
+                <p className="font-body text-sm text-gray-600 mb-4">
+                  What type of property?
+                </p>
+                <div className="space-y-2">
+                  {propertyOptions.map((opt) => (
+                    <OptionRow
+                      key={opt.id}
+                      icon={opt.icon}
+                      label={opt.label}
+                      selected={propertyType === opt.id}
+                      onClick={() => setPropertyType(opt.id)}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* ── Step 4: Timeline ── */}
+            {step === 4 && (
+              <motion.div
+                key="step4"
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <p className="font-body text-sm text-gray-600 mb-4">
                   When do you need this done?
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {timelineOptions.map((opt) => {
-                    const Icon = opt.icon;
-                    const selected = timeline === opt.id;
-                    return (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => {
-                          setTimeline(opt.id);
-                          if (opt.id === "date") {
-                            setCalendarOpen(true);
-                          } else {
-                            setSelectedDate(undefined);
-                          }
-                        }}
-                        className={cn(
-                          "flex flex-col items-center gap-2 p-4 md:p-5 rounded-xl border-2 transition-all duration-200 cursor-pointer group",
-                          selected
-                            ? "border-[#E31837] bg-[#E31837]/10"
-                            : "border-white/15 bg-white/[0.03] hover:border-white/30 hover:bg-white/[0.05]",
-                          opt.id === "date" && timelineOptions.length === 3 ? "col-span-2" : ""
-                        )}
-                      >
-                        <div
-                          className={cn(
-                            "w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center transition-colors",
-                            selected
-                              ? "bg-[#E31837]/20"
-                              : "bg-white/10 group-hover:bg-white/15"
-                          )}
-                        >
-                          <Icon
-                            className={cn(
-                              "w-5 h-5 md:w-6 md:h-6 transition-colors",
-                              selected ? "text-[#E31837]" : "text-white/70 group-hover:text-white"
-                            )}
-                          />
-                        </div>
-                        <span className="font-heading text-[10px] md:text-xs font-bold uppercase tracking-wider text-white leading-tight text-center">
-                          {opt.label}
-                        </span>
-                        <span className="font-body text-[10px] text-white/40 leading-tight text-center">
-                          {selected && opt.id === "date" && selectedDate
-                            ? format(selectedDate, "MMM d, yyyy")
-                            : opt.sub}
-                        </span>
-                      </button>
-                    );
-                  })}
+                </p>
+                <div className="space-y-2">
+                  {timelineOptions.map((opt) => (
+                    <OptionRow
+                      key={opt.id}
+                      icon={opt.icon}
+                      label={opt.label}
+                      sub={
+                        opt.id === "date" && selectedDate
+                          ? format(selectedDate, "MMM d, yyyy")
+                          : opt.sub
+                      }
+                      selected={timeline === opt.id}
+                      onClick={() => {
+                        setTimeline(opt.id);
+                        if (opt.id === "date") {
+                          setCalendarOpen(true);
+                        } else {
+                          setSelectedDate(undefined);
+                        }
+                      }}
+                    />
+                  ))}
                 </div>
 
                 {/* Calendar popover for "Pick a Date" */}
@@ -400,8 +602,8 @@ export default function QuoteForm() {
                           type="button"
                           className={cn(
                             "w-full px-4 py-3 rounded-lg text-left font-body text-sm transition-all",
-                            "bg-white/[0.06] border border-white/15 hover:border-white/25",
-                            selectedDate ? "text-white" : "text-white/40"
+                            "bg-gray-50 border border-gray-200 hover:border-gray-300",
+                            selectedDate ? "text-gray-900" : "text-gray-400"
                           )}
                         >
                           {selectedDate
@@ -410,7 +612,7 @@ export default function QuoteForm() {
                         </button>
                       </PopoverTrigger>
                       <PopoverContent
-                        className="w-auto p-0 bg-[#1a1a1a] border-white/15"
+                        className="w-auto p-0 bg-white border-gray-200"
                         align="center"
                       >
                         <Calendar
@@ -430,10 +632,10 @@ export default function QuoteForm() {
               </motion.div>
             )}
 
-            {/* ── Step 4: Contact Details ── */}
-            {step === 4 && (
+            {/* ── Step 5: Contact Details ── */}
+            {step === 5 && (
               <motion.div
-                key="step4"
+                key="step5"
                 custom={direction}
                 variants={slideVariants}
                 initial="enter"
@@ -441,9 +643,9 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <h3 className="font-heading text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-5">
+                <p className="font-body text-sm text-gray-600 mb-4">
                   Your contact details
-                </h3>
+                </p>
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <input
                     type="text"
@@ -451,20 +653,10 @@ export default function QuoteForm() {
                     required
                     maxLength={100}
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-md font-body text-[15px] text-white placeholder:text-white/30 transition-all focus:outline-none"
-                    style={{
-                      background: "hsl(0 0% 10.2%)",
-                      border: "1px solid hsl(0 0% 20%)",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "hsl(0 85% 50% / 0.5)";
-                      e.target.style.boxShadow = "0 0 0 3px hsl(0 85% 50% / 0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "hsl(0 0% 20%)";
-                      e.target.style.boxShadow = "none";
-                    }}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
                   />
                   <input
                     type="tel"
@@ -472,20 +664,10 @@ export default function QuoteForm() {
                     required
                     maxLength={20}
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-md font-body text-[15px] text-white placeholder:text-white/30 transition-all focus:outline-none"
-                    style={{
-                      background: "hsl(0 0% 10.2%)",
-                      border: "1px solid hsl(0 0% 20%)",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "hsl(0 85% 50% / 0.5)";
-                      e.target.style.boxShadow = "0 0 0 3px hsl(0 85% 50% / 0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "hsl(0 0% 20%)";
-                      e.target.style.boxShadow = "none";
-                    }}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
                   />
                   <input
                     type="email"
@@ -493,65 +675,39 @@ export default function QuoteForm() {
                     required
                     maxLength={150}
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-md font-body text-[15px] text-white placeholder:text-white/30 transition-all focus:outline-none"
-                    style={{
-                      background: "hsl(0 0% 10.2%)",
-                      border: "1px solid hsl(0 0% 20%)",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "hsl(0 85% 50% / 0.5)";
-                      e.target.style.boxShadow = "0 0 0 3px hsl(0 85% 50% / 0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "hsl(0 0% 20%)";
-                      e.target.style.boxShadow = "none";
-                    }}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
                   />
                   <textarea
-                    placeholder="Any additional details about your project?"
+                    placeholder="Tell us about your project (optional)"
                     maxLength={500}
                     rows={3}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-md font-body text-[15px] text-white placeholder:text-white/30 transition-all focus:outline-none resize-none"
-                    style={{
-                      background: "hsl(0 0% 10.2%)",
-                      border: "1px solid hsl(0 0% 20%)",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "hsl(0 85% 50% / 0.5)";
-                      e.target.style.boxShadow = "0 0 0 3px hsl(0 85% 50% / 0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "hsl(0 0% 20%)";
-                      e.target.style.boxShadow = "none";
-                    }}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10 resize-none"
                   />
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="btn-primary w-full text-sm md:text-base !py-3.5 cursor-pointer disabled:opacity-50"
+                    className="btn-primary w-full text-sm !py-3.5 cursor-pointer disabled:opacity-50"
                   >
                     <Phone size={16} />
-                    {submitting ? "Sending..." : "Book My $49 Assessment"}
+                    {submitting
+                      ? "Sending..."
+                      : estimateType === "assessment"
+                        ? "Book My $49 Assessment"
+                        : "Request Free Estimate"}
                     {!submitting && <ArrowRight size={16} />}
                   </button>
                   {error && (
-                    <p className="font-body text-xs text-red-400 text-center mt-2">
+                    <p className="font-body text-xs text-red-500 text-center mt-2">
                       {error}
                     </p>
                   )}
-                  <div className="flex flex-col gap-1 pt-1">
-                    <p className="font-body text-[11px] text-white/35 flex items-center gap-1.5">
-                      <CheckCircle size={10} className="text-green-400/60 shrink-0" />
-                      $49 credited toward your job if you proceed
-                    </p>
-                    <p className="font-body text-[11px] text-white/35 flex items-center gap-1.5">
-                      <CheckCircle size={10} className="text-green-400/60 shrink-0" />
-                      No spam. We respond within 2 hours.
-                    </p>
-                  </div>
                 </form>
               </motion.div>
             )}
@@ -559,64 +715,68 @@ export default function QuoteForm() {
         </div>
 
         {/* Navigation Footer */}
-        {step < 4 && (
-          <div className="px-6 md:px-8 pb-6 md:pb-8 flex items-center justify-between">
-            {step > 1 ? (
-              <button
-                type="button"
-                onClick={goBack}
-                className="inline-flex items-center gap-1.5 font-body text-xs text-white/40 hover:text-white/70 transition-colors cursor-pointer"
-              >
-                <ArrowLeft size={14} />
-                Back
-              </button>
-            ) : (
-              <div />
-            )}
+        {step < 5 && (
+          <div className="px-4 sm:px-6 md:px-8 pb-4 md:pb-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <button
               type="button"
               disabled={!canProceed()}
               onClick={goNext}
               className={cn(
-                "inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-heading text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer",
+                "relative overflow-hidden w-full md:w-auto md:order-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 md:py-2.5 rounded-lg font-heading text-sm md:text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer",
                 canProceed()
-                  ? "bg-[#E31837] text-white hover:bg-[#c8152f]"
-                  : "bg-white/10 text-white/30 cursor-not-allowed"
+                  ? "bg-[#1B4FE4] md:bg-[#E31837] text-white hover:bg-[#1640c0] md:hover:bg-[#c8152f] shadow-md shadow-[#1B4FE4]/20 md:shadow-[#E31837]/20"
+                  : "bg-gray-100 text-gray-400 cursor-not-allowed"
               )}
             >
-              Next
-              <ArrowRight size={14} />
+              {canProceed() && (
+                <span
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-20deg] md:hidden"
+                  style={{ animation: "shimmerSweep 3s ease-in-out infinite" }}
+                />
+              )}
+              <span className="relative z-10">Next</span>
+              <ArrowRight size={14} className="relative z-10" />
             </button>
+            {step > 1 && (
+              <button
+                type="button"
+                onClick={goBack}
+                className="md:order-1 inline-flex items-center justify-center gap-1.5 font-body text-xs text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+              >
+                <ArrowLeft size={14} />
+                BACK
+              </button>
+            )}
           </div>
         )}
 
-        {/* Back button on step 4 */}
-        {step === 4 && (
-          <div className="px-6 md:px-8 pb-5">
+        {/* Back button on step 5 */}
+        {step === 5 && (
+          <div className="px-4 sm:px-6 md:px-8 pb-4 md:pb-5">
             <button
               type="button"
               onClick={goBack}
-              className="inline-flex items-center gap-1.5 font-body text-xs text-white/40 hover:text-white/70 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 font-body text-xs text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
             >
               <ArrowLeft size={14} />
-              Back
+              BACK
             </button>
           </div>
         )}
 
         {/* Trust Footer */}
-        <div
-          className="px-6 md:px-8 py-3 flex items-center justify-center gap-4 text-[10px] md:text-[11px] font-body text-white/30"
-          style={{ borderTop: "1px solid hsl(0 0% 15%)" }}
-        >
-          <span className="flex items-center gap-1">
-            <CheckCircle size={10} className="text-[#E31837]/60" /> No Spam
+        <div className="px-4 sm:px-6 md:px-8 py-2.5 md:py-3 border-t border-gray-100 flex items-center justify-center gap-4 md:gap-5 text-[10px] md:text-[11px] font-body text-gray-400">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle size={11} className="text-[#E31837]/60" />
+            No Spam
           </span>
-          <span className="flex items-center gap-1">
-            <CheckCircle size={10} className="text-[#E31837]/60" /> Fast Response
+          <span className="flex items-center gap-1.5">
+            <CheckCircle size={11} className="text-[#E31837]/60" />
+            100% Free
           </span>
-          <span className="flex items-center gap-1">
-            <CheckCircle size={10} className="text-[#E31837]/60" /> ESA Licensed
+          <span className="flex items-center gap-1.5">
+            <CheckCircle size={11} className="text-[#E31837]/60" />
+            No Obligation
           </span>
         </div>
       </div>

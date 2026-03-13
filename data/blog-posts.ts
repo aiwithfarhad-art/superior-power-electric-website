@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
     readTime: 6,
     excerpt:
       "Panel upgrades in Ontario typically cost $2,000 to $4,500 depending on amperage and complexity. Here is what affects pricing and how to get the best deal.",
-    featuredImage: "/images/services/panel-upgrade.jpg",
+    featuredImage: "/images/services/panel-upgrade.webp",
     featuredImageAlt:
       "Electrical panel upgrade being performed by licensed electrician in Brampton",
     sections: [
@@ -147,7 +147,7 @@ export const blogPosts: BlogPost[] = [
     readTime: 5,
     excerpt:
       "Pot light installation in Brampton typically costs $150 to $250 per light. Here is what drives the price and how to plan your project.",
-    featuredImage: "/images/services/pot-lights.jpg",
+    featuredImage: "/images/services/pot-lights.webp",
     featuredImageAlt:
       "LED pot lights installed in a modern Brampton kitchen ceiling",
     sections: [
@@ -319,7 +319,7 @@ export const blogPosts: BlogPost[] = [
     readTime: 5,
     excerpt:
       "Tripping breakers, burning smells, and flickering lights are warning signs your panel needs attention. Here are 7 signs every Ontario homeowner should know.",
-    featuredImage: "/images/services/panel-upgrade.jpg",
+    featuredImage: "/images/services/panel-upgrade.webp",
     featuredImageAlt:
       "Old electrical panel showing signs it needs replacement",
     sections: [
@@ -417,7 +417,7 @@ export const blogPosts: BlogPost[] = [
     readTime: 5,
     excerpt:
       "Knob and tube wiring is common in Ontario homes built before 1950. Here is what you need to know about safety, insurance, and when to replace it.",
-    featuredImage: "/images/services/knob-tube.jpg",
+    featuredImage: "/images/services/knob-tube.webp",
     featuredImageAlt:
       "Knob and tube wiring visible in an older Ontario home attic",
     sections: [

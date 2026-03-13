@@ -174,6 +174,23 @@ export function organizationSchema() {
   };
 }
 
+export function howToSchema(
+  name: string,
+  steps: { title: string; description: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      text: s.description,
+    })),
+  };
+}
+
 export function breadcrumbSchema(
   items: { name: string; href: string }[]
 ) {
@@ -186,5 +203,60 @@ export function breadcrumbSchema(
       name: item.name,
       item: `${business.domain}${item.href}`,
     })),
+  };
+}
+
+export function localBusinessSchema(city: { name: string; slug: string; neighborhoods: string[] }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    name: `Superior Power Electric - ${city.name}`,
+    url: `https://superiorpowerelectric.ca/locations/${city.slug}`,
+    telephone: "+19054528439",
+    email: "info@superiorpowerelectric.ca",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: city.name,
+      addressRegion: "ON",
+      addressCountry: "CA",
+    },
+    areaServed: {
+      "@type": "City",
+      name: city.name,
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: "Ontario",
+      },
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "ESA/ECRA License",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Electrical Safety Authority",
+      },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "47",
+      bestRating: "5",
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "15:00",
+      },
+    ],
+    priceRange: "$$",
+    knowsAbout: city.neighborhoods.map((n) => `Electrical services in ${n}, ${city.name}`),
   };
 }

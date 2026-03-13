@@ -7,15 +7,15 @@ export function BlogSection() {
   const featured = blogPosts.slice(0, 3);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[#F8F9FA]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Heading */}
         <div className="text-center mb-12 animate-on-scroll">
-          <p className="eyebrow mb-4">Expert Guides</p>
-          <h2 className="heading-section text-[#1C1C1E]">
+          <span className="eyebrow-label">Expert Guides</span>
+          <h2 className="heading-section text-[#1a2975]">
             From Our
             <br />
-            <span className="font-heading font-normal italic text-[#E31837]">
+            <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
               Blog
             </span>
           </h2>

@@ -104,6 +104,7 @@
 
   /* Font families */
   --font-heading: var(--font-oswald), sans-serif;
+  --font-accent: var(--font-orbitron), sans-serif;
   --font-body: var(--font-dm-sans), sans-serif;
   --font-sans: var(--font-dm-sans), sans-serif;
 
@@ -685,4 +686,161 @@ html {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ============================================
+   PHASE 1: GLOBAL LAYOUT SYSTEM
+   Premium redesign - consistent spacing,
+   backgrounds, typography, cards, buttons
+   ============================================ */
+
+/* Consistent section spacing */
+.section-padding {
+  padding: 5rem 0;
+}
+@media (min-width: 768px) {
+  .section-padding { padding: 7rem 0; }
+}
+@media (min-width: 1024px) {
+  .section-padding { padding: 9rem 0; }
+}
+
+/* Section backgrounds */
+.bg-section-white { background: #FFFFFF; }
+.bg-section-grey  { background: #F8F9FA; }
+.bg-section-dark  { background: #1C1C1E; }
+
+/* Eyebrow labels - premium pill design */
+.eyebrow-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(227, 24, 55, 0.08);
+  border: 1px solid rgba(227, 24, 55, 0.15);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #E31837;
+  margin-bottom: 1rem;
+}
+
+/* Section divider line */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+  margin: 0;
+}
+
+/* Premium card - light version for body sections */
+.card-premium {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+.card-premium:hover {
+  border-color: rgba(227, 24, 55, 0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+
+/* Primary solid button - refined */
+.btn-primary-solid {
+  background: #E31837;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 16px rgba(227, 24, 55, 0.35);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary-solid:hover {
+  background: #C21430;
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(227, 24, 55, 0.45);
+}
+
+/* Outline dark button */
+.btn-outline-dark {
+  background: transparent;
+  color: #1C1C1E;
+  padding: 13px 32px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0,0,0,0.2);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: all 0.25s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-outline-dark:hover {
+  border-color: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.04);
+}
+
+/* Prose layout for legal/content pages */
+.prose-legal {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.prose-legal h2 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #1a2975;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.prose-legal h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #1C1C1E;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-legal p {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+.prose-legal ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prose-legal li {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
+.prose-legal a {
+  color: #1B4FE4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

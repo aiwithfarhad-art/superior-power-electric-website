@@ -1,9 +1,26 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Globe, Phone, Mail, MapPin } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import {
+  Facebook,
+  Instagram,
+  ExternalLink,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronDown,
+  Star,
+  Clock,
+  Zap,
+  ArrowRight,
+  Shield,
+} from "lucide-react";
 import { business } from "@/data/business";
+
+/* ─── Data ─── */
 
 const services = [
   { name: "Panel Upgrades", slug: "panel-upgrades" },
@@ -26,31 +43,344 @@ const locations = [
   { name: "Oakville", slug: "oakville" },
 ];
 
-const socialLinks = [
-  { icon: Facebook, href: business.social.facebook, label: "Facebook" },
-  { icon: Instagram, href: business.social.instagram, label: "Instagram" },
-  { icon: Globe, href: business.domain, label: "Google" },
+const companyLinks = [
+  { name: "About", href: "/about" },
+  { name: "Reviews", href: "/reviews" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
 ];
 
-export function Footer() {
+const socialLinks = [
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/SuperiorPowerElectric/",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/superiorpowerelectric/",
+    label: "Instagram",
+  },
+  {
+    icon: ExternalLink,
+    href: "https://share.google/rXefBgv7k6fmqcU5l",
+    label: "Google",
+  },
+];
+
+/* ─── Accordion (mobile collapse) ─── */
+
+function FooterAccordion({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <footer className="bg-[#1C1C1E] border-t border-white/10">
-      {/* Top section */}
-      <div className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
-            {/* Column 1 - Brand */}
-            <div>
-              <Image
-                src="https://spe-brand-kit.vercel.app/logo-light.svg"
-                alt="Superior Power Electric"
-                width={160}
-                height={45}
-              />
-              <p className="font-body text-[#94a3b8] text-sm mt-4">
-                {business.tagline}
+    <div className="border-b border-white/[0.08] lg:border-0">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between py-5 lg:py-0 lg:mb-6 lg:pointer-events-none group"
+      >
+        <div className="flex flex-col items-start">
+          <h3 className="font-heading text-white font-bold text-sm uppercase tracking-[0.2em]">
+            {title}
+          </h3>
+          {/* Red accent bar under heading - desktop only */}
+          <div className="hidden lg:block w-8 h-[2px] bg-[#E31837] mt-2.5 rounded-full" />
+        </div>
+        <ChevronDown
+          size={16}
+          className={`text-white/40 lg:hidden transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-out ${
+          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+        } lg:max-h-none lg:opacity-100 lg:overflow-visible`}
+      >
+        <div className="pb-6 lg:pb-0">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Star Rating ─── */
+
+function StarRating({ rating, size = 16 }: { rating: number; size?: number }) {
+  return (
+    <div className="flex items-center gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          size={size}
+          className={
+            i < Math.round(rating)
+              ? "fill-amber-400 text-amber-400"
+              : "fill-white/10 text-white/10"
+          }
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Footer Link ─── */
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group block text-white/70 text-[15px] font-body hover:text-white transition-colors duration-200 py-[6px]"
+    >
+      <span className="relative">
+        {children}
+        <span className="absolute -bottom-px left-0 w-0 h-px bg-[#E31837] group-hover:w-full transition-all duration-300" />
+      </span>
+    </Link>
+  );
+}
+
+/* ─── Footer ─── */
+
+export function Footer() {
+  const ctaRef = useRef(null);
+  const trustRef = useRef(null);
+  const gridRef = useRef(null);
+  const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
+  const trustInView = useInView(trustRef, { once: true, amount: 0.3 });
+  const gridInView = useInView(gridRef, { once: true, amount: 0.1 });
+
+  return (
+    <footer className="relative overflow-hidden">
+      {/* ════════════════════════════════════════════
+          1. GOOGLE TRUST BAR
+      ════════════════════════════════════════════ */}
+      <div
+        ref={trustRef}
+        className="relative bg-white border-b border-black/[0.06]"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={trustInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col lg:flex-row items-center justify-between gap-8"
+          >
+            {/* Google rating */}
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              {/* Big rating number */}
+              <div className="flex items-center gap-4">
+                <div className="text-center sm:text-left">
+                  <div className="font-heading text-[#1C1C1E] text-5xl lg:text-6xl font-bold leading-none">
+                    {business.googleReviews.rating.toFixed(1)}
+                  </div>
+                  <StarRating rating={business.googleReviews.rating} size={18} />
+                </div>
+                <div className="w-px h-14 bg-black/10 hidden sm:block" />
+                <div className="hidden sm:block">
+                  <p className="text-[#1C1C1E] font-heading font-bold text-lg uppercase tracking-wide">
+                    {business.googleReviews.count} Five-Star Reviews
+                  </p>
+                  <p className="text-[#64748b] text-sm font-body mt-0.5">
+                    Verified on Google
+                  </p>
+                </div>
+              </div>
+              {/* Mobile sub-text */}
+              <div className="sm:hidden text-center">
+                <p className="text-[#1C1C1E] font-heading font-bold text-base uppercase tracking-wide">
+                  {business.googleReviews.count} Five-Star Reviews
+                </p>
+                <p className="text-[#64748b] text-xs font-body mt-0.5">
+                  Verified on Google
+                </p>
+              </div>
+              {/* Read reviews link */}
+              <Link
+                href="/reviews"
+                className="text-[#E31837] text-sm font-body font-semibold hover:text-[#1C1C1E] transition-colors flex items-center gap-1.5 group"
+              >
+                Read Our Reviews
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Credentials + License */}
+            <div className="flex flex-col items-center lg:items-end gap-4">
+              <div className="flex items-center gap-4 bg-black/[0.02] rounded-2xl px-6 py-3.5">
+                <Image
+                  src="/images/esa-badge.webp"
+                  alt="Electrical Safety Authority"
+                  width={120}
+                  height={40}
+                  className="h-9 w-auto"
+                />
+                <div className="w-px h-8 bg-black/10" />
+                <Image
+                  src="/images/ecra-badge.webp"
+                  alt="ECRA Licensed"
+                  width={120}
+                  height={40}
+                  className="h-9 w-auto"
+                />
+                <div className="w-px h-8 bg-black/10" />
+                <Image
+                  src="/images/wsib-badge.webp"
+                  alt="WSIB Ontario"
+                  width={120}
+                  height={40}
+                  className="h-9 w-auto"
+                />
+              </div>
+              {/* License number */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4 text-[#1B4FE4]"
+                    fill="currentColor"
+                  >
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+                  </svg>
+                  <span className="text-[#64748b] text-xs uppercase tracking-[0.12em] font-body font-medium">
+                    ESA / ECRA Licensed
+                  </span>
+                </div>
+                <span className="font-heading text-[#1C1C1E] text-lg font-bold tracking-[0.1em]">
+                  {business.esaLicense}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-3.5 h-3.5 text-emerald-500"
+                    fill="currentColor"
+                  >
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                  </svg>
+                  <span className="text-emerald-600 text-xs uppercase tracking-[0.12em] font-body font-medium">
+                    Verified &amp; Insured
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════
+          2. EMERGENCY CTA BANNER
+      ════════════════════════════════════════════ */}
+      <div
+        ref={ctaRef}
+        className="relative bg-gradient-to-r from-[#C21430] via-[#E31837] to-[#C21430] overflow-hidden"
+      >
+        {/* Subtle pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        {/* Shine sweep */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent -skew-x-12 translate-x-[-200%] animate-[shimmer_6s_ease-in-out_infinite]" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col lg:flex-row items-center justify-between gap-6"
+          >
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+                <div className="relative">
+                  <div className="w-2.5 h-2.5 rounded-full bg-white" />
+                  <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-white animate-ping" />
+                </div>
+                <p className="text-white/80 text-xs uppercase tracking-[0.2em] font-body font-bold">
+                  24/7 Emergency Service
+                </p>
+              </div>
+              <h2 className="font-heading text-white text-2xl lg:text-3xl font-bold uppercase tracking-wide">
+                Electrical Emergency? Call Now.
+              </h2>
+              <p className="text-white/60 text-sm font-body mt-1">
+                Licensed electricians on standby. We answer day and night.
               </p>
-              <div className="mt-6 flex gap-3">
+            </div>
+
+            <a
+              href={`tel:${business.phoneFull}`}
+              className="group flex items-center gap-3 bg-white hover:bg-white/90 rounded-full px-8 py-4 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#E31837] flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Phone className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-[#1C1C1E] font-heading font-bold text-xl tracking-wide">
+                {business.phone}
+              </span>
+            </a>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════
+          3. MAIN CONTENT GRID
+      ════════════════════════════════════════════ */}
+      <div ref={gridRef} className="relative bg-[#1C1C1E]">
+        {/* Subtle top line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+
+        {/* Subtle grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.02] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={gridInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-10"
+          >
+            {/* Column 1 - Brand */}
+            <div className="lg:col-span-3 text-center lg:text-left pb-6 mb-2 border-b border-white/[0.08] lg:border-0 lg:pb-0 lg:mb-0">
+              <div className="flex justify-center lg:justify-start">
+                <Image
+                  src="https://spe-brand-kit.vercel.app/logo-dark.svg"
+                  alt="Superior Power Electric"
+                  width={500}
+                  height={150}
+                  className="h-28 lg:h-32 w-auto"
+                />
+              </div>
+              <p className="font-body text-white/60 text-[15px] mt-1 leading-relaxed max-w-sm mx-auto lg:mx-0">
+                {business.tagline}. Serving the Greater Toronto Area since{" "}
+                {business.foundedYear} with {business.yearsInBusiness} years of
+                trusted expertise.
+              </p>
+
+              {/* Social icons */}
+              <div className="flex justify-center lg:justify-start gap-3 mt-8">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -58,142 +388,185 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-[#1B4FE4] hover:text-white transition-all"
+                    className="group relative w-11 h-11 rounded-full bg-white/[0.08] flex items-center justify-center text-white/60 hover:text-white hover:bg-[#E31837] transition-all duration-300 hover:shadow-[0_0_20px_rgba(227,24,55,0.3)]"
                   >
-                    <social.icon className="w-4 h-4" />
+                    <social.icon className="w-[18px] h-[18px] relative z-10" />
                   </a>
                 ))}
+              </div>
+
+              {/* License badge */}
+              <div className="flex justify-center lg:justify-start mt-6">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+                  <Shield className="w-4 h-4 text-[#E31837]" />
+                  <span className="text-white/50 text-xs font-body font-medium tracking-wide">
+                    ESA {business.esaLicense}
+                  </span>
+                </div>
               </div>
             </div>
 
             {/* Column 2 - Services */}
-            <div>
-              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
-                Services
-              </h3>
-              <nav>
-                {services.map((service) => (
-                  <Link
-                    key={service.slug}
-                    href={`/services/${service.slug}`}
-                    className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                  >
-                    {service.name}
-                  </Link>
-                ))}
-              </nav>
+            <div className="lg:col-span-2">
+              <FooterAccordion title="Services">
+                <nav className="space-y-0.5">
+                  {services.map((service) => (
+                    <FooterLink
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                    >
+                      {service.name}
+                    </FooterLink>
+                  ))}
+                </nav>
+              </FooterAccordion>
             </div>
 
-            {/* Column 3 - Locations */}
-            <div>
-              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
-                Areas We Serve
-              </h3>
-              <nav>
-                {locations.map((location) => (
-                  <Link
-                    key={location.slug}
-                    href={`/locations/${location.slug}`}
-                    className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                  >
-                    {location.name}
-                  </Link>
-                ))}
-              </nav>
+            {/* Column 3 - Areas We Serve */}
+            <div className="lg:col-span-2">
+              <FooterAccordion title="Service Areas">
+                <nav className="space-y-0.5">
+                  {locations.map((location) => (
+                    <FooterLink
+                      key={location.slug}
+                      href={`/locations/${location.slug}`}
+                    >
+                      {location.name}
+                    </FooterLink>
+                  ))}
+                </nav>
+              </FooterAccordion>
             </div>
 
-            {/* Column 4 - Resources */}
-            <div>
-              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
-                Resources
-              </h3>
-              <nav>
-                <Link
-                  href="/blog"
-                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                >
-                  Blog
-                </Link>
-                <Link
-                  href="/blog/electrical-panel-upgrade-cost-ontario"
-                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                >
-                  Panel Upgrade Costs
-                </Link>
-                <Link
-                  href="/blog/pot-light-installation-cost-brampton"
-                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                >
-                  Pot Light Pricing
-                </Link>
-                <Link
-                  href="/blog/ev-charger-installation-ontario-rebate"
-                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                >
-                  EV Charger Guide
-                </Link>
-                <Link
-                  href="/blog/knob-and-tube-wiring-ontario"
-                  className="block text-[#94a3b8] text-sm font-body hover:text-white transition-colors py-1"
-                >
-                  Knob & Tube Guide
-                </Link>
-              </nav>
+            {/* Column 4 - Company */}
+            <div className="lg:col-span-2">
+              <FooterAccordion title="Company">
+                <nav className="space-y-0.5">
+                  {companyLinks.map((link) => (
+                    <FooterLink key={link.href} href={link.href}>
+                      {link.name}
+                    </FooterLink>
+                  ))}
+                </nav>
+              </FooterAccordion>
             </div>
 
             {/* Column 5 - Contact */}
-            <div
-              itemScope
-              itemType="https://schema.org/ElectricalContractor"
-            >
-              <h3 className="font-heading text-white font-bold text-sm uppercase tracking-wider mb-4">
-                Contact
-              </h3>
-              <div className="space-y-3 text-[#94a3b8] text-sm font-body">
-                <a
-                  href={`tel:${business.phoneFull}`}
-                  className="flex items-center gap-2 text-white font-bold hover:text-[#E31837] transition-colors"
+            <div className="lg:col-span-3">
+              <FooterAccordion title="Contact Us">
+                <div
+                  itemScope
+                  itemType="https://schema.org/ElectricalContractor"
+                  className="space-y-5"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span itemProp="telephone">{business.phone}</span>
-                </a>
-                <a
-                  href={`mailto:${business.email}`}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span itemProp="email">{business.email}</span>
-                </a>
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span itemProp="address">{business.address.full}</span>
-                </div>
+                  {/* Phone */}
+                  <a
+                    href={`tel:${business.phoneFull}`}
+                    className="group flex items-center gap-4 transition-colors"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-[#E31837]/15 flex items-center justify-center group-hover:bg-[#E31837]/25 transition-all duration-300">
+                      <Phone className="w-[18px] h-[18px] text-[#E31837]" />
+                    </div>
+                    <div>
+                      <span
+                        itemProp="telephone"
+                        className="text-white font-heading font-bold text-lg tracking-wide group-hover:text-[#E31837] transition-colors"
+                      >
+                        {business.phone}
+                      </span>
+                      <p className="text-white/40 text-xs font-body mt-0.5">
+                        Call or text anytime
+                      </p>
+                    </div>
+                  </a>
 
-                <div className="pt-2 space-y-1">
-                  <p>{business.hours.weekday}</p>
-                  <p>{business.hours.saturday}</p>
-                  <p>Sun: {business.hours.sunday}</p>
-                </div>
+                  {/* Email */}
+                  <a
+                    href={`mailto:${business.email}`}
+                    className="group flex items-center gap-4"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.12] transition-all duration-300">
+                      <Mail className="w-[18px] h-[18px] text-white/60" />
+                    </div>
+                    <div>
+                      <span
+                        itemProp="email"
+                        className="text-white/80 text-[15px] font-body group-hover:text-white transition-colors"
+                      >
+                        {business.email}
+                      </span>
+                      <p className="text-white/40 text-xs font-body mt-0.5">
+                        Email us anytime
+                      </p>
+                    </div>
+                  </a>
 
-                <p className="text-[#E31837] font-bold text-sm pt-1">
-                  24/7 Emergency Available
-                </p>
-              </div>
+                  {/* Address */}
+                  <div className="flex items-center gap-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.08] flex items-center justify-center shrink-0">
+                      <MapPin className="w-[18px] h-[18px] text-white/60" />
+                    </div>
+                    <span
+                      itemProp="address"
+                      className="text-white/70 text-[15px] font-body leading-relaxed"
+                    >
+                      {business.address.full}
+                    </span>
+                  </div>
+
+                  {/* Hours */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.08] flex items-center justify-center shrink-0">
+                      <Clock className="w-[18px] h-[18px] text-white/60" />
+                    </div>
+                    <div className="text-white/70 text-[15px] font-body space-y-1 pt-0.5">
+                      <p>{business.hours.weekday}</p>
+                      <p>{business.hours.saturday}</p>
+                      <p>Sun: {business.hours.sunday}</p>
+                    </div>
+                  </div>
+
+                  {/* Emergency */}
+                  <div className="flex items-center gap-3 bg-[#E31837]/[0.08] border border-[#E31837]/20 rounded-xl px-4 py-3.5">
+                    <div className="relative">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#E31837]" />
+                      <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-[#E31837] animate-ping" />
+                    </div>
+                    <span className="text-[#E31837] font-heading font-bold text-xs uppercase tracking-[0.15em]">
+                      24/7 Emergency Available
+                    </span>
+                  </div>
+                </div>
+              </FooterAccordion>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/10 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#94a3b8] text-xs">
-            &copy; 2026 {business.name}. All rights reserved.
+      {/* ════════════════════════════════════════════
+          4. BOTTOM BAR
+      ════════════════════════════════════════════ */}
+      <div className="bg-[#141416] border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/35 text-xs font-body">
+            &copy; {new Date().getFullYear()} {business.name}. All rights
+            reserved. ESA Licensed.
           </p>
-          <p className="text-[#94a3b8] text-xs">
-            ESA/ECRA License {business.esaLicense} | Licensed Electrical
-            Contractor
-          </p>
+          <div className="flex items-center gap-6 text-white/35 text-xs font-body">
+            <Link
+              href="/privacy"
+              className="hover:text-white/60 transition-colors duration-200"
+            >
+              Privacy Policy
+            </Link>
+            <span className="w-px h-3.5 bg-white/10" />
+            <Link
+              href="/terms"
+              className="hover:text-white/60 transition-colors duration-200"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

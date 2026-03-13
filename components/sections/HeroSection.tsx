@@ -107,48 +107,44 @@ export default function HeroSection() {
       <ElectricalParticles />
 
       {/* 2-Column Content - taller hero */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-12 lg:pt-32 lg:pb-14">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-12 lg:pt-44 lg:pb-32">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10">
           {/* Left column - 55% */}
-          <div className="lg:w-[55%]">
+          <div className="lg:w-[55%] text-center lg:text-left">
             {/* H1 */}
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="font-heading text-4xl md:text-5xl lg:text-[64px] font-black uppercase leading-[1.05] tracking-tight text-white"
+              className="font-heading text-[9vw] sm:text-[11vw] md:text-5xl lg:text-[64px] font-black uppercase leading-[1.05] tracking-tight text-white"
             >
               Brampton&apos;s Most
               <br />
               Trusted Electricians
             </motion.h1>
             {/* Subtitle + CTAs share width */}
-            <div className="lg:inline-flex lg:flex-col mt-2">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
+            <div className="lg:inline-flex lg:flex-col mt-5 lg:mt-6">
+              <motion.h3
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-                className="font-accent italic text-xl md:text-2xl lg:text-[32px] tracking-[0.05em] text-white uppercase leading-[1.1] mt-1"
+                transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
+                className="font-body text-[3.8vw] sm:text-sm md:text-xl lg:text-[28px] text-white/60 leading-relaxed"
               >
-                <span className="relative inline-block pb-1">
-                  Superior Power Electric
-                  <span
-                    className="absolute left-0 bottom-0 w-full h-[6px] md:h-[8px] bg-[#E31837] rounded-sm"
-                    aria-hidden="true"
-                  />
-                </span>
-              </motion.p>
+                ESA licensed electricians serving Brampton and the GTA
+                <br />
+                Panel upgrades, pot lights, EV chargers, 24/7 emergency
+              </motion.h3>
 
               {/* CTAs - desktop only, mobile uses sticky bar */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                className="mt-6 hidden lg:flex gap-3"
+                className="mt-8 hidden lg:flex gap-3"
               >
                 <a
                   href={`tel:${business.phoneFull}`}
-                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#1B4FE4] text-white rounded-lg font-heading text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#1640c0] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#1B4FE4]/30"
+                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#1B4FE4] text-white rounded-lg font-heading text-base sm:text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#1640c0] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#1B4FE4]/30"
                 >
                   <span
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
@@ -159,7 +155,7 @@ export default function HeroSection() {
                 </a>
                 <a
                   href={`sms:${business.phoneFull}`}
-                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 bg-[#E31837] text-white rounded-lg font-heading text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#c8152f] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#E31837]/30"
+                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#E31837] text-white rounded-lg font-heading text-base sm:text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#c8152f] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#E31837]/30"
                 >
                   <span
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
@@ -181,6 +177,39 @@ export default function HeroSection() {
             className="lg:w-[45%]"
           >
             <QuoteForm />
+          </motion.div>
+
+          {/* Mobile Social Proof - after form, mobile only */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+            className="lg:hidden w-full"
+          >
+            {/* Google rating bar */}
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <img src="/images/g-icon.webp" alt="Google" className="h-6 w-auto" />
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="font-heading text-lg font-black text-white">5.0</span>
+              <span className="text-white/30">|</span>
+              <span className="font-body text-base text-white/70">47 Reviews</span>
+            </div>
+
+            {/* Short review */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+              <p className="font-body text-base text-white/70 leading-relaxed text-center">
+                &ldquo;Shaun and his crew were courteous and professional. From the initial quote to completion, our experience was great.&rdquo;
+              </p>
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <span className="font-heading text-sm font-bold text-white uppercase tracking-wide">Daniel Lebar</span>
+                <span className="text-white/30">-</span>
+                <span className="font-body text-xs text-white/50">via Google</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -212,7 +241,7 @@ export default function HeroSection() {
             <div className="hidden lg:block w-px h-16 bg-white/15 shrink-0" />
 
             {/* Testimonial */}
-            <div className="flex-1 min-w-0">
+            <div className="hidden lg:block flex-1 min-w-0">
               <div className="flex items-start gap-3">
                 <span className="shrink-0 text-[#E31837] text-2xl font-serif leading-none mt-0.5">&ldquo;</span>
                 <div>
@@ -228,10 +257,7 @@ export default function HeroSection() {
                     <span className="font-body text-xs text-gray-400">
                       Daniel Lebar
                     </span>
-                    <span className="text-gray-600 text-xs">&middot;</span>
-                    <span className="font-body text-xs text-gray-500">
-                      via Google
-                    </span>
+                    <img src="/images/g-icon.webp" alt="Google" className="h-3 w-auto" />
                   </div>
                 </div>
               </div>

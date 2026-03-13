@@ -46,7 +46,7 @@ export function SectionHeading({
         {line2 && (
           <>
             <br />
-            <span className="font-heading font-normal italic text-[#E31837]">
+            <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
               {line2}
             </span>
           </>

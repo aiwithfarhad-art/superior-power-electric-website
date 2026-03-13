@@ -7,8 +7,10 @@ import {
   serviceSchema,
   faqSchema,
   breadcrumbSchema,
+  howToSchema,
 } from "@/components/seo/JsonLd";
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
+import { serviceDetails } from "@/data/service-details";
 
 const service = getServiceBySlug("knob-and-tube");
 
@@ -51,6 +53,10 @@ export default function KnobAndTubePage() {
             { name: "Services", href: "/#services" },
             { name: service.title, href: `/services/${service.slug}` },
           ]),
+          howToSchema(
+            `How ${service.title} Works`,
+            serviceDetails["knob-and-tube"]?.processSteps || []
+          ),
         ]}
       />
       <ServicePageTemplate service={service} relatedServices={relatedServices} />
