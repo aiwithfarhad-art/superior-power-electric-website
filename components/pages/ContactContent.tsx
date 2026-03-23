@@ -8,7 +8,7 @@ export function ContactContent() {
   return (
     <>
       {/* Quote Form only - no headline, badge, or description */}
-      <section className="bg-white pt-32 md:pt-36 pb-8 md:pb-16">
+      <section className="bg-white pt-40 md:pt-48 pb-8 md:pb-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <QuoteForm />
         </div>
