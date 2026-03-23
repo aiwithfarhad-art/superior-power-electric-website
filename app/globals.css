@@ -98,7 +98,7 @@
 
   /* Font families */
   --font-heading: var(--font-oswald), sans-serif;
-  --font-accent: var(--font-orbitron), sans-serif;
+  --font-accent: var(--font-oswald), sans-serif;
   --font-body: var(--font-dm-sans), sans-serif;
   --font-sans: var(--font-dm-sans), sans-serif;
 
@@ -839,4 +839,32 @@ html {
   color: #E31837;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-on-scroll,
+  .animate-on-scroll-left,
+  .animate-on-scroll-right,
+  .animate-on-scroll-scale,
+  .animate-blur-in {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .stagger-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

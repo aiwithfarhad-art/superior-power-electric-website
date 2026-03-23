@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Oswald, DM_Sans, Orbitron } from "next/font/google";
+import { Oswald, DM_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd, electricianSchema, websiteSchema, siteNavigationSchema } from "@/components/seo/JsonLd";
@@ -20,12 +20,6 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
-});
-
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
-  subsets: ["latin"],
-  display: "optional",
 });
 
 export const metadata: Metadata = {
@@ -72,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-CA" className={`${oswald.variable} ${dmSans.variable} ${orbitron.variable}`}>
+    <html lang="en-CA" className={`${oswald.variable} ${dmSans.variable}`}>
       <body className="font-body antialiased">
         <JsonLd data={electricianSchema()} />
         <JsonLd data={websiteSchema()} />
@@ -86,7 +80,7 @@ export default function RootLayout({
         <Script
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_ac24ff496c7741b687f2d922474876e7"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

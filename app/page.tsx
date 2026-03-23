@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/sections/HeroSection";
-
-import TrustLogosBar from "@/components/sections/TrustLogosBar";
 import ServicesSection from "@/components/sections/ServicesSection";
-import ProcessSection from "@/components/sections/ProcessSection";
-import WhyUsSection from "@/components/sections/WhyUsSection";
-import AboutSection from "@/components/sections/AboutSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import InstagramSection from "@/components/sections/InstagramSection";
-import { BlogSection } from "@/components/sections/BlogSection";
-import { ServiceAreaSection } from "@/components/sections/ServiceAreaSection";
-import { CTASection } from "@/components/sections/CTASection";
-import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { JsonLd, organizationSchema, breadcrumbSchema, faqSchema } from "@/components/seo/JsonLd";
+
+const ProcessSection = dynamic(() => import("@/components/sections/ProcessSection"));
+const WhyUsSection = dynamic(() => import("@/components/sections/WhyUsSection"));
+const AboutSection = dynamic(() => import("@/components/sections/AboutSection"));
+const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection"));
+const InstagramSection = dynamic(() => import("@/components/sections/InstagramSection"));
+const BlogSection = dynamic(() => import("@/components/sections/BlogSection").then(m => ({ default: m.BlogSection })));
+const ServiceAreaSection = dynamic(() => import("@/components/sections/ServiceAreaSection").then(m => ({ default: m.ServiceAreaSection })));
+const CTASection = dynamic(() => import("@/components/sections/CTASection").then(m => ({ default: m.CTASection })));
 
 export const metadata: Metadata = {
   title: "Licensed Electrician in Brampton | Superior Power Electric",
@@ -60,7 +59,6 @@ export default function HomePage() {
       <ServiceAreaSection />
       <BlogSection />
       <CTASection />
-      <StickyMobileCTA />
     </>
   );
 }
