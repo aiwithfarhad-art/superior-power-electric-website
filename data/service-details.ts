@@ -313,7 +313,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         step: 1,
         title: "Contact Us",
         description:
-          "Call (905) 452-8439 or fill out our online form to book a $49 on-site assessment or request a free remote estimate.",
+          "Call (647) 872-9954 or fill out our online form to book a $49 on-site assessment or request a free remote estimate.",
       },
       {
         step: 2,

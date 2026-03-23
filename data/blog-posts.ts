@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How to Get the Best Price in Brampton",
         content:
-          "Get at least two quotes from ESA-licensed electricians. Make sure each quote includes the same scope of work so you are comparing apples to apples.\n\nAsk about bundling. If you need other electrical work (pot lights, wiring updates, EV charger prep), doing it all during the panel upgrade saves money because the electrician is already on site.\n\nDo not choose the cheapest quote if it does not include the ESA permit and inspection. That is a non-negotiable requirement in Ontario. Any electrician who offers to skip the permit is not someone you want working on your home.\n\nReady for a quote? Call Superior Power Electric at (905) 452-8439 to book a $49 [panel upgrade assessment](/services/panel-upgrades) at your [Brampton](/locations/brampton) home. The $49 is credited toward your project if you proceed. We will tell you exactly what you need, what it costs, and handle the entire process from permit to inspection. Prefer a ballpark first? Send us photos for a free remote estimate.",
+          "Get at least two quotes from ESA-licensed electricians. Make sure each quote includes the same scope of work so you are comparing apples to apples.\n\nAsk about bundling. If you need other electrical work (pot lights, wiring updates, EV charger prep), doing it all during the panel upgrade saves money because the electrician is already on site.\n\nDo not choose the cheapest quote if it does not include the ESA permit and inspection. That is a non-negotiable requirement in Ontario. Any electrician who offers to skip the permit is not someone you want working on your home.\n\nReady for a quote? Call Superior Power Electric at (647) 872-9954 to book a $49 [panel upgrade assessment](/services/panel-upgrades) at your [Brampton](/locations/brampton) home. The $49 is credited toward your project if you proceed. We will tell you exactly what you need, what it costs, and handle the entire process from permit to inspection. Prefer a ballpark first? Send us photos for a free remote estimate.",
       },
     ],
     faqs: [
@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Get an Accurate Quote",
         content:
-          "Every home is different. Ceiling type, wiring access, and the number of lights all affect your final price. The best way to get an accurate number is a $49 in-home assessment (credited toward your project if you proceed).\n\nCall Superior Power Electric at (905) 452-8439 or visit our [contact page](/contact) to book your pot light assessment. We serve [Brampton](/locations/brampton), [Mississauga](/locations/mississauga), Vaughan, Caledon, and the wider GTA.\n\nWe will walk through your home, recommend the right layout, and give you a written quote on the spot. Want a ballpark first? Send us photos for a free remote estimate.",
+          "Every home is different. Ceiling type, wiring access, and the number of lights all affect your final price. The best way to get an accurate number is a $49 in-home assessment (credited toward your project if you proceed).\n\nCall Superior Power Electric at (647) 872-9954 or visit our [contact page](/contact) to book your pot light assessment. We serve [Brampton](/locations/brampton), [Mississauga](/locations/mississauga), Vaughan, Caledon, and the wider GTA.\n\nWe will walk through your home, recommend the right layout, and give you a written quote on the spot. Want a ballpark first? Send us photos for a free remote estimate.",
       },
     ],
     faqs: [
@@ -265,7 +265,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Book Your EV Charger Installation",
         content:
-          "Ready to charge at home? Call Superior Power Electric at (905) 452-8439 to book a $49 [EV charger assessment](/services/ev-charger) (credited toward your installation). We install all major brands including Tesla Wall Connector, ChargePoint, Grizzl-E, FLO, and JuiceBox.\n\nWe serve [Brampton](/locations/brampton), Mississauga, Vaughan, Caledon, Georgetown, and Oakville. ESA License #7014710.",
+          "Ready to charge at home? Call Superior Power Electric at (647) 872-9954 to book a $49 [EV charger assessment](/services/ev-charger) (credited toward your installation). We install all major brands including Tesla Wall Connector, ChargePoint, Grizzl-E, FLO, and JuiceBox.\n\nWe serve [Brampton](/locations/brampton), Mississauga, Vaughan, Caledon, Georgetown, and Oakville. ESA License #7014710.",
       },
     ],
     faqs: [
@@ -361,7 +361,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What to Do Next",
         content:
-          "If you recognized one or more of these signs in your home, the next step is a professional assessment. Do not ignore warning signs from your electrical panel. Electrical fires are among the leading causes of house fires in Ontario.\n\nCall Superior Power Electric at (905) 452-8439 to book a $49 [panel assessment](/services/panel-upgrades). We will inspect your panel, test your breakers, measure your load, and give you an honest recommendation. The $49 is credited toward your project if you proceed. If you do not need an upgrade, we will tell you that too.\n\nESA License #7014710. Serving Brampton, Mississauga, Vaughan, Caledon, Georgetown, and Oakville. We also handle [knob-and-tube replacement](/services/knob-and-tube) and full home [rewiring](/services/rewiring).",
+          "If you recognized one or more of these signs in your home, the next step is a professional assessment. Do not ignore warning signs from your electrical panel. Electrical fires are among the leading causes of house fires in Ontario.\n\nCall Superior Power Electric at (647) 872-9954 to book a $49 [panel assessment](/services/panel-upgrades). We will inspect your panel, test your breakers, measure your load, and give you an honest recommendation. The $49 is credited toward your project if you proceed. If you do not need an upgrade, we will tell you that too.\n\nESA License #7014710. Serving Brampton, Mississauga, Vaughan, Caledon, Georgetown, and Oakville. We also handle [knob-and-tube replacement](/services/knob-and-tube) and full home [rewiring](/services/rewiring).",
       },
     ],
     faqs: [
@@ -449,7 +449,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "ESA Requirements in Ontario",
         content:
-          "All [knob and tube replacement](/services/knob-and-tube) work in Ontario must be performed by an ESA-licensed electrician. An ESA permit is required before work begins, and an ESA inspection must be completed after the work is done.\n\nThe ESA inspector verifies that all old K&T wiring has been properly disconnected or removed, that the new wiring meets current Ontario Electrical Safety Code, that all connections are properly made, and that the new circuits are correctly protected by appropriately sized breakers.\n\nAfter passing inspection, you receive an ESA certificate. This certificate is what your insurance company needs to update your policy and, in many cases, lower your premium.\n\nCall Superior Power Electric at (905) 452-8439 to book a $49 knob and tube assessment at your [Brampton](/locations/brampton) home. The fee is credited toward your project if you proceed. We will inspect the wiring, tell you what needs replacing, and give you a written quote. ESA License #7014710.\n\nWe also handle [complete home rewiring](/services/rewiring) and aluminum wiring remediation.",
+          "All [knob and tube replacement](/services/knob-and-tube) work in Ontario must be performed by an ESA-licensed electrician. An ESA permit is required before work begins, and an ESA inspection must be completed after the work is done.\n\nThe ESA inspector verifies that all old K&T wiring has been properly disconnected or removed, that the new wiring meets current Ontario Electrical Safety Code, that all connections are properly made, and that the new circuits are correctly protected by appropriately sized breakers.\n\nAfter passing inspection, you receive an ESA certificate. This certificate is what your insurance company needs to update your policy and, in many cases, lower your premium.\n\nCall Superior Power Electric at (647) 872-9954 to book a $49 knob and tube assessment at your [Brampton](/locations/brampton) home. The fee is credited toward your project if you proceed. We will inspect the wiring, tell you what needs replacing, and give you a written quote. ESA License #7014710.\n\nWe also handle [complete home rewiring](/services/rewiring) and aluminum wiring remediation.",
       },
     ],
     faqs: [
@@ -538,7 +538,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "When to Call a Licensed Electrician",
         content:
-          "If you are reading this article, you are probably trying to figure out whether your specific project needs a professional. Here is a simple rule.\n\nIf the work involves anything behind your walls, inside your panel, or connected to your home's permanent wiring, call a licensed electrician. The cost of doing it right is always less than the cost of doing it wrong.\n\nAt Superior Power Electric, we offer a $49 [on-site assessment](/services/residential) that covers any electrical question you have. We will look at your project, tell you exactly what is needed, and give you a written quote. The $49 is credited toward your project if you proceed.\n\nCall (905) 452-8439 or visit our [contact page](/contact) to book. We serve [Brampton](/locations/brampton), [Mississauga](/locations/mississauga), [Vaughan](/locations/vaughan), [Oakville](/locations/oakville), and the wider GTA. ESA License #7014710.",
+          "If you are reading this article, you are probably trying to figure out whether your specific project needs a professional. Here is a simple rule.\n\nIf the work involves anything behind your walls, inside your panel, or connected to your home's permanent wiring, call a licensed electrician. The cost of doing it right is always less than the cost of doing it wrong.\n\nAt Superior Power Electric, we offer a $49 [on-site assessment](/services/residential) that covers any electrical question you have. We will look at your project, tell you exactly what is needed, and give you a written quote. The $49 is credited toward your project if you proceed.\n\nCall (647) 872-9954 or visit our [contact page](/contact) to book. We serve [Brampton](/locations/brampton), [Mississauga](/locations/mississauga), [Vaughan](/locations/vaughan), [Oakville](/locations/oakville), and the wider GTA. ESA License #7014710.",
       },
     ],
     faqs: [

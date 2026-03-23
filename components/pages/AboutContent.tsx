@@ -294,7 +294,7 @@ export function AboutContent() {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-[0.25em] text-white/60 mb-5"
               >
                 <Clock className="w-3 h-3 text-[#E31837]" />
-                Since 2010
+                Since 2020
               </motion.span>
 
               <motion.h1

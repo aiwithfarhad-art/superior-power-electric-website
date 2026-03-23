@@ -144,7 +144,7 @@ export default function OGImage() {
             letterSpacing: "1px",
           }}
         >
-          (905) 452-8439 | superiorpowerelectric.ca
+          (647) 872-9954 | superiorpowerelectric.ca
         </div>
       </div>
     ),

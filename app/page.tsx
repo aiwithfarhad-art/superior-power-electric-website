@@ -16,7 +16,7 @@ const CTASection = dynamic(() => import("@/components/sections/CTASection").then
 export const metadata: Metadata = {
   title: "Licensed Electrician in Brampton | Superior Power Electric",
   description:
-    "Licensed electricians in Brampton & GTA. ESA #7014710. Panel upgrades, pot lights, rewiring, EV chargers. $49 assessment credited toward your project. (905) 452-8439.",
+    "Licensed electricians in Brampton & GTA. ESA #7014710. Panel upgrades, pot lights, rewiring, EV chargers. $49 assessment credited toward your project. (647) 872-9954.",
   alternates: {
     canonical: "https://superiorpowerelectric.ca",
   },
@@ -46,7 +46,7 @@ export default function HomePage() {
         },
         {
           question: "Do you offer emergency electrical service?",
-          answer: "Yes. We offer 24/7 emergency electrical service across the GTA. Call (905) 452-8439 for immediate assistance with electrical emergencies.",
+          answer: "Yes. We offer 24/7 emergency electrical service across the GTA. Call (647) 872-9954 for immediate assistance with electrical emergencies.",
         },
       ])} />
       <HeroSection />

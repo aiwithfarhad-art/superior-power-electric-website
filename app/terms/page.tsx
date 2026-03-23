@@ -100,7 +100,7 @@ export default function TermsPage() {
           <p>
             Superior Power Electric<br />
             59 Maisonneuve Blvd, Brampton, ON L6P 1Y7<br />
-            Phone: (905) 452-8439<br />
+            Phone: (647) 872-9954<br />
             Email: info@superiorpowerelectric.ca
           </p>
           <p>

@@ -1047,7 +1047,7 @@ export function ServicePageTemplate({
                   15+ Years Experience
                 </h3>
                 <p className="text-[#64748b] max-w-xs text-lg md:text-xl leading-relaxed">
-                  Serving Brampton and the Greater Toronto Area since 2010 with consistent quality.
+                  Serving Brampton and the Greater Toronto Area since 2020 with consistent quality.
                 </p>
               </div>
             </motion.div>

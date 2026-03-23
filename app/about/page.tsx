@@ -3,14 +3,14 @@ import { JsonLd, breadcrumbSchema, organizationSchema } from "@/components/seo/J
 import { AboutContent } from "@/components/pages/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About Superior Power Electric | Licensed Electricians Since 2010",
+  title: "About Superior Power Electric | Licensed Electricians Since 2020",
   description:
     "Meet Shaun Pennant and the Superior Power Electric team. 15+ years serving Brampton & GTA. ESA #7014710. 47 five-star reviews.",
   alternates: {
     canonical: "https://superiorpowerelectric.ca/about",
   },
   openGraph: {
-    title: "About Superior Power Electric | Licensed Electricians Since 2010",
+    title: "About Superior Power Electric | Licensed Electricians Since 2020",
     description:
       "Meet Shaun Pennant and the Superior Power Electric team. 15+ years serving Brampton & GTA. ESA #7014710. 47 five-star reviews.",
     url: "https://superiorpowerelectric.ca/about",

@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Do you offer financing for electrical work?",
-    a: "We can discuss payment options for larger projects like panel upgrades and rewiring. Contact us at (905) 452-8439 to discuss your project and we will work out a payment plan that fits your budget.",
+    a: "We can discuss payment options for larger projects like panel upgrades and rewiring. Contact us at (647) 872-9954 to discuss your project and we will work out a payment plan that fits your budget.",
   },
   {
     q: "What is your $49 Project Assessment?",

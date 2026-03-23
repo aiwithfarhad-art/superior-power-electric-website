@@ -32,11 +32,11 @@ export default function ThankYouPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+19054528439"
+              href="tel:+16478729954"
               className="inline-flex items-center justify-center gap-2 bg-[#E31837] text-white px-8 py-4 rounded-lg font-body font-semibold text-sm uppercase tracking-wider hover:bg-[#C21430] transition-colors"
             >
               <Phone className="w-4 h-4" />
-              Call (905) 452-8439
+              Call (647) 872-9954
             </a>
             <Link
               href="/"

@@ -52,7 +52,7 @@ export function StickyMobileCTA() {
       }}
     >
       <a
-        href="tel:+19054528439"
+        href="tel:+16478729954"
         className="flex-1 flex items-center justify-center gap-2 bg-[#1C1C1E] text-white font-heading text-[15px] font-bold uppercase tracking-wide"
       >
         <Phone className="w-4 h-4" />

@@ -27,7 +27,7 @@ const steps = [
     number: "04",
     icon: Zap,
     title: "Stay Protected. Always.",
-    desc: "Lifetime workmanship warranty. Call us anytime - 24/7 emergency service available.",
+    desc: "1-year workmanship warranty. Call us anytime - 24/7 emergency service available.",
   },
 ];
 

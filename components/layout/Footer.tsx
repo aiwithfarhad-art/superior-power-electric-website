@@ -554,8 +554,8 @@ export function Footer() {
                     </div>
                     <div className="text-white/70 text-[15px] font-body space-y-1 pt-0.5">
                       <p>{business.hours.weekday}</p>
-                      <p>{business.hours.saturday}</p>
-                      <p>Sun: {business.hours.sunday}</p>
+                      <p>{business.hours.weekend}</p>
+                      <p>{business.hours.emergency}</p>
                     </div>
                   </div>
 

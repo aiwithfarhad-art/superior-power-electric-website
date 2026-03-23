@@ -12,7 +12,7 @@ export const homeFaqs = [
   {
     question: "How quickly can you start a project?",
     answer:
-      "We typically schedule within 3-5 business days for standard projects. Emergency electrical issues are prioritized and we do our best to respond the same day. Call (905) 452-8439 for availability.",
+      "We typically schedule within 3-5 business days for standard projects. Emergency electrical issues are prioritized and we do our best to respond the same day. Call (647) 872-9954 for availability.",
   },
   {
     question: "Are your electricians licensed?",

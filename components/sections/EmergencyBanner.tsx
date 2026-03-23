@@ -32,13 +32,13 @@ export default function EmergencyBanner() {
           {/* Right side */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
-              href="tel:+19054528439"
+              href="tel:+16478729954"
               className="font-heading text-white text-3xl md:text-4xl font-black tracking-tight animate-[phonePulse_2s_ease-in-out_infinite]"
             >
-              (905) 452-8439
+              (647) 872-9954
             </a>
             <a
-              href="tel:+19054528439"
+              href="tel:+16478729954"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#E31837] rounded-lg font-heading font-bold text-sm uppercase tracking-wide hover:bg-gray-100 transition-all duration-300 min-h-[52px]"
             >
               <Phone size={18} />

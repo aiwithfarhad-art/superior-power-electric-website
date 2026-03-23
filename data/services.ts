@@ -30,7 +30,7 @@ export const services: Service[] = [
     metaTitle:
       "Residential Electrician Brampton | Superior Power Electric",
     metaDescription:
-      "Trusted residential electrician in Brampton. ESA licensed, fully insured. All home electrical work. Call (905) 452-8439.",
+      "Trusted residential electrician in Brampton. ESA licensed, fully insured. All home electrical work. Call (647) 872-9954.",
     h1: "Residential Electrician in Brampton, ON",
     heroDescription:
       "Complete residential electrical services across the Greater Toronto Area. From panel upgrades to pot light installation, we handle projects of all sizes with ESA-certified quality.",
@@ -76,7 +76,7 @@ export const services: Service[] = [
       {
         question: "How quickly can you start a residential project?",
         answer:
-          "Most residential projects can be scheduled within 1-2 business days. Emergency services are available 24/7. Call (905) 452-8439 for availability.",
+          "Most residential projects can be scheduled within 1-2 business days. Emergency services are available 24/7. Call (647) 872-9954 for availability.",
       },
       {
         question: "How do your estimates work?",
@@ -97,7 +97,7 @@ export const services: Service[] = [
     metaTitle:
       "Commercial Electrician Brampton | Superior Power Electric",
     metaDescription:
-      "Commercial electrical services in Brampton. Licensed, insured, reliable. Office, retail & industrial. Call (905) 452-8439.",
+      "Commercial electrical services in Brampton. Licensed, insured, reliable. Office, retail & industrial. Call (647) 872-9954.",
     h1: "Commercial Electrician in Brampton, ON",
     heroDescription:
       "Professional commercial electrical services for businesses across the Greater Toronto Area. From retail stores to warehouses, we deliver safe, code-compliant electrical solutions.",
@@ -162,7 +162,7 @@ export const services: Service[] = [
     metaTitle:
       "Electrical Panel Upgrade Brampton | Superior Power Electric",
     metaDescription:
-      "Need an electrical panel upgrade in Brampton? ESA-licensed electricians. Same-day quotes. Serving Brampton & GTA. Call (905) 452-8439.",
+      "Need an electrical panel upgrade in Brampton? ESA-licensed electricians. Same-day quotes. Serving Brampton & GTA. Call (647) 872-9954.",
     h1: "Electrical Panel Upgrade in Brampton, ON",
     heroDescription:
       "Upgrade your outdated or overloaded electrical panel to meet modern safety standards and power demands. From 100 to 200 amp upgrades to fuse box replacements, we handle it all with ESA certification.",
@@ -231,7 +231,7 @@ export const services: Service[] = [
     metaTitle:
       "Pot Light Installation Brampton | Superior Power Electric",
     metaDescription:
-      "Professional pot light installation in Brampton. LED recessed lighting experts. $49 assessment credited toward your project. ESA licensed. Call (905) 452-8439.",
+      "Professional pot light installation in Brampton. LED recessed lighting experts. $49 assessment credited toward your project. ESA licensed. Call (647) 872-9954.",
     h1: "Pot Light Installation in Brampton, ON",
     heroDescription:
       "Transform any room with modern, energy-efficient pot lights. Professional installation in kitchens, living rooms, basements, and bathrooms across Brampton and the GTA.",
@@ -300,7 +300,7 @@ export const services: Service[] = [
     metaTitle:
       "Hot Tub Electrician Brampton | Superior Power Electric",
     metaDescription:
-      "Hot tub electrical hookup in Brampton. 240V dedicated circuit, ESA permit included. Same-day quotes. Call (905) 452-8439.",
+      "Hot tub electrical hookup in Brampton. 240V dedicated circuit, ESA permit included. Same-day quotes. Call (647) 872-9954.",
     h1: "Hot Tub Electrical Installation in Brampton, ON",
     heroDescription:
       "Safe, code-compliant electrical installation for your hot tub or spa. Dedicated circuits, GFCI protection, and ESA inspection included.",
@@ -369,7 +369,7 @@ export const services: Service[] = [
     metaTitle:
       "Lighting Installation Brampton | Superior Power Electric",
     metaDescription:
-      "Indoor and outdoor lighting installation in Brampton. LED upgrades, fixtures, smart lighting. ESA licensed. Call (905) 452-8439.",
+      "Indoor and outdoor lighting installation in Brampton. LED upgrades, fixtures, smart lighting. ESA licensed. Call (647) 872-9954.",
     h1: "Lighting Installation in Brampton, ON",
     heroDescription:
       "Professional lighting installation for homes and businesses across the GTA. LED upgrades, smart lighting, dimmer switches, outdoor lighting, and more.",
@@ -438,7 +438,7 @@ export const services: Service[] = [
     metaTitle:
       "Electrical Rewiring Brampton | Superior Power Electric",
     metaDescription:
-      "Home electrical rewiring in Brampton. Old wiring? Safety hazard? ESA licensed rewiring experts. Call (905) 452-8439.",
+      "Home electrical rewiring in Brampton. Old wiring? Safety hazard? ESA licensed rewiring experts. Call (647) 872-9954.",
     h1: "Electrical Rewiring in Brampton, ON",
     heroDescription:
       "Complete electrical rewiring for homes with outdated or unsafe wiring. Knob and tube removal, aluminum wiring replacement, and full home rewires with ESA certification.",
@@ -508,7 +508,7 @@ export const services: Service[] = [
     metaTitle:
       "EV Charger Installation Brampton | Superior Power Electric",
     metaDescription:
-      "Level 2 EV charger installation in Brampton. Ontario rebates available. ESA licensed. Same-day quotes. Call (905) 452-8439.",
+      "Level 2 EV charger installation in Brampton. Ontario rebates available. ESA licensed. Same-day quotes. Call (647) 872-9954.",
     h1: "EV Charger Installation in Brampton, ON",
     heroDescription:
       "Fast, safe Level 2 EV charger installation for your home or business. All brands including Tesla Wall Connector, ChargePoint, and more. ESA-certified with panel assessment included.",
@@ -578,7 +578,7 @@ export const services: Service[] = [
     metaTitle:
       "Knob and Tube Removal Brampton | Superior Power Electric",
     metaDescription:
-      "Knob and tube wiring removal in Brampton. Insurance issues? Safety risk? ESA licensed. $49 assessment credited toward your project. Call (905) 452-8439.",
+      "Knob and tube wiring removal in Brampton. Insurance issues? Safety risk? ESA licensed. $49 assessment credited toward your project. Call (647) 872-9954.",
     h1: "Knob and Tube Wiring Removal in Brampton, ON",
     heroDescription:
       "Remove dangerous knob-and-tube wiring and upgrade to modern, safe electrical. Protect your home, meet insurance requirements, and increase your property value.",

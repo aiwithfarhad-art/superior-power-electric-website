@@ -4,16 +4,16 @@ import { business } from "@/data/business";
 import { ContactContent } from "@/components/pages/ContactContent";
 
 export const metadata: Metadata = {
-  title: "Contact Superior Power Electric | $49 Assessment | (905) 452-8439",
+  title: "Contact Superior Power Electric | $49 Assessment | (647) 872-9954",
   description:
-    "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 assessment credited toward your project. Call (905) 452-8439.",
+    "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 assessment credited toward your project. Call (647) 872-9954.",
   alternates: {
     canonical: "https://superiorpowerelectric.ca/contact",
   },
   openGraph: {
-    title: "Contact Superior Power Electric | $49 Assessment | (905) 452-8439",
+    title: "Contact Superior Power Electric | $49 Assessment | (647) 872-9954",
     description:
-      "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 assessment credited toward your project. Call (905) 452-8439.",
+      "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 assessment credited toward your project. Call (647) 872-9954.",
     url: "https://superiorpowerelectric.ca/contact",
     siteName: "Superior Power Electric",
     type: "website",
@@ -52,13 +52,13 @@ function contactPointSchema() {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
-        closes: "18:00",
+        closes: "17:00",
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
+        dayOfWeek: ["Saturday", "Sunday"],
         opens: "09:00",
-        closes: "15:00",
+        closes: "17:00",
       },
     ],
   };
