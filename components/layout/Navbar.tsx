@@ -70,8 +70,8 @@ const MegaServices = ({ onClose }: { onClose: () => void }) => (
       {/* Hero image column */}
       <div className="col-span-3 relative overflow-hidden">
         <Image
-          src="/images/hero-electrician.jpg"
-          alt="Electrician at work"
+          src="/images/shaun-panel-work.webp"
+          alt="Shaun working on electrical panel"
           fill
           className="object-cover"
         />
@@ -717,7 +717,7 @@ export function Navbar() {
                         key={l.label}
                         href={l.href}
                         onClick={closeMobile}
-                        className="px-3 py-1.5 rounded-full border border-gray-200 font-body text-[12px] text-gray-500 active:border-[#E31837] active:text-[#E31837] transition-colors"
+                        className="px-3 py-1.5 rounded-full border border-[#F2F0EC] font-body text-[12px] text-gray-500 active:border-[#E31837] active:text-[#E31837] transition-colors"
                       >
                         {l.label}
                       </Link>

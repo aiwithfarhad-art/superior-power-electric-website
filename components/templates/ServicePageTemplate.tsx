@@ -153,23 +153,23 @@ const slugToReviewService: Record<string, string> = {
 const ease = [0.625, 0.05, 0, 1] as const;
 
 function splitHeadline(h1: string): { line1: string; line2: string } {
-  const splitWords = ["in", "for", "&"];
   const words = h1.split(" ");
-  for (let i = words.length - 1; i >= 0; i--) {
-    if (
-      splitWords.includes(words[i].toLowerCase()) ||
-      splitWords.includes(words[i])
-    ) {
-      return {
-        line1: words.slice(0, i).join(" "),
-        line2: words.slice(i).join(" "),
-      };
+  if (words.length <= 1) return { line1: h1, line2: "" };
+
+  let bestSplit = 1;
+  let bestDiff = Infinity;
+  for (let i = 1; i < words.length; i++) {
+    const l1 = words.slice(0, i).join(" ");
+    const l2 = words.slice(i).join(" ");
+    const diff = Math.abs(l1.length - l2.length);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestSplit = i;
     }
   }
-  const mid = Math.ceil(words.length / 2);
   return {
-    line1: words.slice(0, mid).join(" "),
-    line2: words.slice(mid).join(" "),
+    line1: words.slice(0, bestSplit).join(" "),
+    line2: words.slice(bestSplit).join(" "),
   };
 }
 
@@ -309,11 +309,11 @@ export function ServicePageTemplate({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2, ease }}
-                className="font-heading text-[30px] md:text-5xl lg:text-[46px] font-black text-white uppercase tracking-tight leading-[1.05] lg:whitespace-nowrap"
+                className="font-heading text-[6.5vw] md:text-5xl lg:text-[46px] font-black text-white uppercase tracking-tight leading-[1.05] lg:whitespace-nowrap"
               >
                 {line1}
                 <br />
-                <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
+                <span className="text-[#E31837]">
                   {line2}
                 </span>
               </motion.h1>
@@ -387,7 +387,7 @@ export function ServicePageTemplate({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="lg:hidden px-6 sm:px-10 pb-8 flex flex-col gap-3"
+            className="lg:hidden px-6 sm:px-10 pt-6 pb-8 flex flex-col gap-3"
           >
             <a
               href="/contact"
@@ -444,7 +444,7 @@ export function ServicePageTemplate({
       {/* ============================================
           2. TRUST BAR (white bg)
           ============================================ */}
-      <section className="py-6 bg-white border-b border-gray-100">
+      <section className="py-6 bg-white border-b border-[#F2F0EC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
@@ -563,7 +563,7 @@ export function ServicePageTemplate({
                 </div>
               )}
               {/* Inline review */}
-              <div className="bg-white rounded-xl p-6 border border-gray-100">
+              <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)]">
                 <Quote className="w-6 h-6 text-[#E31837]/30 mb-3" />
                 <p className="text-[#4B5563] text-lg md:text-xl leading-relaxed italic mb-4">
                   &ldquo;{featuredReview.text}&rdquo;
@@ -711,7 +711,7 @@ export function ServicePageTemplate({
                       delay: index * 0.1,
                       ease,
                     }}
-                    className="bg-white rounded-xl p-8 border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="w-14 h-14 rounded-2xl bg-[#E31837]/10 flex items-center justify-center mb-5">
                       <BenefitIcon className="w-7 h-7 text-[#E31837]" />
@@ -1014,7 +1014,7 @@ export function ServicePageTemplate({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease }}
-              className="bg-white rounded-2xl lg:col-span-2 p-8 md:p-10 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
+              className="bg-white rounded-2xl lg:col-span-2 p-8 md:p-10 flex justify-between flex-col min-h-[280px] shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group"
             >
               <Shield className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -1036,7 +1036,7 @@ export function ServicePageTemplate({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease }}
-              className="bg-white rounded-2xl p-8 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
+              className="bg-white rounded-2xl p-8 flex justify-between flex-col min-h-[280px] shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group"
             >
               <Clock className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -1058,7 +1058,7 @@ export function ServicePageTemplate({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15, ease }}
-              className="bg-white rounded-2xl p-8 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
+              className="bg-white rounded-2xl p-8 flex justify-between flex-col min-h-[280px] shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group"
             >
               <Star className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -1080,7 +1080,7 @@ export function ServicePageTemplate({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2, ease }}
-              className="bg-white rounded-2xl lg:col-span-2 p-8 md:p-10 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
+              className="bg-white rounded-2xl lg:col-span-2 p-8 md:p-10 flex justify-between flex-col min-h-[280px] shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group"
             >
               <Award className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -1112,7 +1112,7 @@ export function ServicePageTemplate({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="mt-5 bg-white rounded-2xl p-8 md:p-10 border border-gray-100"
+            className="mt-5 bg-white rounded-2xl p-8 md:p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)]"
           >
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <Quote className="w-8 h-8 text-[#E31837]/30 flex-shrink-0" />
@@ -1193,7 +1193,7 @@ export function ServicePageTemplate({
                 Are Saying
               </span>
             </h2>
-            <div className="inline-flex items-center gap-3 mt-6 px-5 py-2.5 rounded-full bg-white border border-gray-100">
+            <div className="inline-flex items-center gap-3 mt-6 px-5 py-2.5 rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)]">
               <img src="/images/g-icon.webp" alt="Google" className="h-5 w-auto" />
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
@@ -1226,7 +1226,7 @@ export function ServicePageTemplate({
                   {testimonials.slice(0, 5).map((t, i) => (
                     <div
                       key={`${dupIdx}-${i}`}
-                      className="w-[340px] p-7 rounded-2xl bg-white border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                      className="w-[340px] p-7 rounded-2xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-500 group"
                     >
                       <div className="flex items-center gap-2 mb-4">
                         <div className="flex gap-0.5">
@@ -1239,7 +1239,7 @@ export function ServicePageTemplate({
                       <p className="text-[#374151] text-lg leading-relaxed font-body mb-5">
                         &ldquo;{t.text}&rdquo;
                       </p>
-                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-3 pt-4 border-t border-[#F2F0EC]">
                         <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
                           <span className="text-white text-[11px] font-bold font-heading">
                             {t.name.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
@@ -1269,7 +1269,7 @@ export function ServicePageTemplate({
                   {testimonials.slice(5, 10).map((t, i) => (
                     <div
                       key={`${dupIdx}-${i}`}
-                      className="w-[340px] p-7 rounded-2xl bg-white border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                      className="w-[340px] p-7 rounded-2xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-500 group"
                     >
                       <div className="flex items-center gap-2 mb-4">
                         <div className="flex gap-0.5">
@@ -1282,7 +1282,7 @@ export function ServicePageTemplate({
                       <p className="text-[#374151] text-lg leading-relaxed font-body mb-5">
                         &ldquo;{t.text}&rdquo;
                       </p>
-                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-3 pt-4 border-t border-[#F2F0EC]">
                         <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
                           <span className="text-white text-[11px] font-bold font-heading">
                             {t.name.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
@@ -1312,7 +1312,7 @@ export function ServicePageTemplate({
                   {testimonials.slice(10, 15).map((t, i) => (
                     <div
                       key={`${dupIdx}-${i}`}
-                      className="w-[340px] p-7 rounded-2xl bg-white border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                      className="w-[340px] p-7 rounded-2xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-500 group"
                     >
                       <div className="flex items-center gap-2 mb-4">
                         <div className="flex gap-0.5">
@@ -1325,7 +1325,7 @@ export function ServicePageTemplate({
                       <p className="text-[#374151] text-lg leading-relaxed font-body mb-5">
                         &ldquo;{t.text}&rdquo;
                       </p>
-                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                      <div className="flex items-center gap-3 pt-4 border-t border-[#F2F0EC]">
                         <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
                           <span className="text-white text-[11px] font-bold font-heading">
                             {t.name.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
@@ -1408,7 +1408,7 @@ export function ServicePageTemplate({
                   >
                     <Link
                       href={`/services/${related.slug}`}
-                      className="group block bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-[#E31837]/30 hover:-translate-y-1 transition-all duration-300"
+                      className="group block bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300"
                     >
                       {relatedImage && (
                         <div className="relative aspect-[16/9] overflow-hidden">

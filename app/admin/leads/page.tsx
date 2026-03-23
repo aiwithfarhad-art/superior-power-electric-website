@@ -13,6 +13,7 @@ import {
   StickyNote,
   Save,
   Loader2,
+  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -32,12 +33,12 @@ interface Lead {
 
 const STATUS_OPTIONS = ["new", "contacted", "quoted", "won", "lost"] as const;
 
-const STATUS_COLORS: Record<string, string> = {
-  new: "bg-blue-500/20 text-blue-400",
-  contacted: "bg-yellow-500/20 text-yellow-400",
-  quoted: "bg-orange-500/20 text-orange-400",
-  won: "bg-green-500/20 text-green-400",
-  lost: "bg-[#3A3A3E] text-[#6B7280]",
+const STATUS_STYLES: Record<string, string> = {
+  new: "bg-blue-50 text-blue-600",
+  contacted: "bg-amber-50 text-amber-600",
+  quoted: "bg-orange-50 text-orange-600",
+  won: "bg-emerald-50 text-emerald-600",
+  lost: "bg-neutral-100 text-neutral-400",
 };
 
 export default function LeadsPage() {
@@ -112,10 +113,7 @@ export default function LeadsPage() {
 
   const filtered = useMemo(() => {
     return leads.filter((lead) => {
-      // Status filter
       if (filterStatus !== "all" && lead.status !== filterStatus) return false;
-
-      // Search filter
       if (search) {
         const q = search.toLowerCase();
         const name = `${lead.first_name} ${lead.last_name}`.toLowerCase();
@@ -123,7 +121,6 @@ export default function LeadsPage() {
         const phone = (lead.phone || "").toLowerCase();
         return name.includes(q) || email.includes(q) || phone.includes(q);
       }
-
       return true;
     });
   }, [leads, search, filterStatus]);
@@ -142,20 +139,20 @@ export default function LeadsPage() {
 
   return (
     <AdminShell>
-      <div className="space-y-4">
+      <div className="space-y-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <h1 className="text-xl font-bold text-white">Leads</h1>
-            <p className="text-sm text-[#9CA3AF]">
+            <h1 className="text-2xl font-bold text-[#1A1A1A] tracking-[-0.02em]">Leads</h1>
+            <p className="text-[13px] text-[#ABABAB] mt-1 font-medium">
               {filtered.length} of {leads.length} leads
             </p>
           </div>
           <a
             href="/api/admin/leads/export"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#2A2A2E] text-white text-sm rounded-lg hover:bg-[#3A3A3E] transition-colors"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white text-[#1A1A1A] text-[13px] font-semibold rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 text-[#ABABAB]" />
             Export CSV
           </a>
         </div>
@@ -163,19 +160,19 @@ export default function LeadsPage() {
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#CDCDCD]" />
             <input
               type="text"
               placeholder="Search by name, email, phone..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-[#2A2A2E] border border-[#3A3A3E] rounded-lg text-white text-sm placeholder-[#6B7280] focus:outline-none focus:border-[#E31837]"
+              className="w-full pl-11 pr-4 py-3 bg-white rounded-xl text-[#1A1A1A] text-[14px] placeholder-[#CDCDCD] focus:outline-none shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.04)] focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-shadow duration-300"
             />
           </div>
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-4 py-2.5 bg-[#2A2A2E] border border-[#3A3A3E] rounded-lg text-white text-sm focus:outline-none focus:border-[#E31837] cursor-pointer"
+            className="px-4 py-3 bg-white rounded-xl text-[#1A1A1A] text-[14px] focus:outline-none cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.04)] focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12),0_4px_12px_rgba(0,0,0,0.04)] transition-shadow duration-300"
           >
             <option value="all">All statuses</option>
             {STATUS_OPTIONS.map((s) => (
@@ -188,17 +185,21 @@ export default function LeadsPage() {
 
         {/* Table */}
         {loading ? (
-          <div className="flex items-center justify-center py-20">
+          <div className="flex items-center justify-center py-24">
             <Loader2 className="w-6 h-6 text-[#E31837] animate-spin" />
           </div>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-[#6B7280] text-sm">No leads found</p>
+          <div className="text-center py-24 bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)]">
+            <div className="w-16 h-16 rounded-2xl bg-[#F6F5F2] flex items-center justify-center mx-auto mb-4">
+              <Users className="w-7 h-7 text-[#D1D1D1]" />
+            </div>
+            <p className="text-[#1A1A1A] text-[15px] font-semibold">No leads found</p>
+            <p className="text-[#ABABAB] text-[13px] mt-1.5">Leads from your contact form will appear here</p>
           </div>
         ) : (
-          <div className="bg-[#1C1C1E] rounded-xl border border-[#2A2A2E] overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden">
             {/* Desktop header */}
-            <div className="hidden md:grid grid-cols-[1fr_1fr_1fr_1fr_120px_100px] gap-4 px-4 py-3 text-xs font-medium text-[#6B7280] uppercase tracking-wide border-b border-[#2A2A2E]">
+            <div className="hidden md:grid grid-cols-[1fr_1fr_1fr_1fr_110px_60px] gap-4 px-6 py-4 text-[11px] font-semibold text-[#ABABAB] uppercase tracking-[0.08em]">
               <div>Date</div>
               <div>Name</div>
               <div>Contact</div>
@@ -208,44 +209,47 @@ export default function LeadsPage() {
             </div>
 
             {/* Rows */}
-            {filtered.map((lead) => (
+            {filtered.map((lead, idx) => (
               <div key={lead.id}>
                 {/* Main row */}
                 <div
                   onClick={() => toggleExpand(lead.id)}
-                  className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1fr_120px_100px] gap-2 md:gap-4 px-4 py-3 border-b border-[#2A2A2E] hover:bg-[#2A2A2E]/50 cursor-pointer transition-colors"
+                  className={cn(
+                    "grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1fr_110px_60px] gap-2 md:gap-4 px-6 py-4 hover:bg-[#FAFAF8] cursor-pointer transition-colors duration-200",
+                    idx > 0 && "border-t border-[#F2F0EC]"
+                  )}
                 >
-                  <div className="text-sm text-[#9CA3AF]">
+                  <div className="text-[13px] text-[#8A8A8A]">
                     {new Date(lead.created_at).toLocaleDateString("en-CA", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
                     })}
-                    <span className="text-[#6B7280] ml-2 text-xs">
+                    <span className="text-[#CDCDCD] ml-2 text-[11px]">
                       {new Date(lead.created_at).toLocaleTimeString("en-CA", {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
                     </span>
                   </div>
-                  <div className="text-sm text-white font-medium">
+                  <div className="text-[14px] text-[#1A1A1A] font-semibold tracking-[-0.01em]">
                     {lead.first_name} {lead.last_name}
                   </div>
-                  <div className="text-sm text-[#9CA3AF] space-y-0.5">
+                  <div className="text-[13px] text-[#8A8A8A] space-y-1">
                     {lead.phone && (
-                      <div className="flex items-center gap-1.5">
-                        <Phone className="w-3 h-3" />
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-3.5 h-3.5 text-[#CDCDCD]" />
                         {lead.phone}
                       </div>
                     )}
                     {lead.email && (
-                      <div className="flex items-center gap-1.5 truncate">
-                        <Mail className="w-3 h-3 flex-shrink-0" />
+                      <div className="flex items-center gap-2 truncate">
+                        <Mail className="w-3.5 h-3.5 text-[#CDCDCD] flex-shrink-0" />
                         <span className="truncate">{lead.email}</span>
                       </div>
                     )}
                   </div>
-                  <div className="text-sm text-[#9CA3AF]">
+                  <div className="text-[13px] text-[#8A8A8A]">
                     {lead.service || "-"}
                   </div>
                   <div>
@@ -255,8 +259,8 @@ export default function LeadsPage() {
                       onChange={(e) => updateStatus(lead.id, e.target.value)}
                       disabled={updatingStatus === lead.id}
                       className={cn(
-                        "px-2 py-1 rounded-md text-xs font-medium border-0 cursor-pointer focus:outline-none",
-                        STATUS_COLORS[lead.status] || STATUS_COLORS.new
+                        "px-3 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-[0.04em] cursor-pointer focus:outline-none appearance-none transition-colors duration-200",
+                        STATUS_STYLES[lead.status] || STATUS_STYLES.new
                       )}
                     >
                       {STATUS_OPTIONS.map((s) => (
@@ -267,42 +271,47 @@ export default function LeadsPage() {
                     </select>
                   </div>
                   <div className="flex items-center justify-end">
-                    {expandedId === lead.id ? (
-                      <ChevronUp className="w-4 h-4 text-[#6B7280]" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-[#6B7280]" />
-                    )}
+                    <div className={cn(
+                      "w-7 h-7 rounded-lg flex items-center justify-center transition-colors duration-200",
+                      expandedId === lead.id ? "bg-[#F2F0EC]" : "bg-transparent"
+                    )}>
+                      {expandedId === lead.id ? (
+                        <ChevronUp className="w-4 h-4 text-[#8A8A8A]" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-[#CDCDCD]" />
+                      )}
+                    </div>
                   </div>
                 </div>
 
                 {/* Expanded detail */}
                 {expandedId === lead.id && (
-                  <div className="px-4 py-4 bg-[#111113] border-b border-[#2A2A2E] space-y-4">
+                  <div className="px-6 py-5 bg-[#FAFAF8] border-t border-[#F2F0EC] space-y-4">
                     {/* Message */}
                     {lead.message && (
                       <div>
-                        <div className="flex items-center gap-2 text-xs text-[#6B7280] mb-1">
-                          <MessageSquare className="w-3 h-3" />
+                        <div className="flex items-center gap-2 text-[11px] text-[#ABABAB] font-semibold uppercase tracking-[0.06em] mb-2">
+                          <MessageSquare className="w-3.5 h-3.5" />
                           Message
                         </div>
-                        <p className="text-sm text-[#9CA3AF] whitespace-pre-wrap">
+                        <p className="text-[13px] text-[#4A4A4A] leading-relaxed whitespace-pre-wrap bg-white rounded-xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
                           {lead.message}
                         </p>
                       </div>
                     )}
 
                     {/* Source */}
-                    <div className="text-xs text-[#6B7280]">
-                      Source: {lead.source_page || "Unknown"}
+                    <div className="text-[11px] text-[#CDCDCD] font-medium">
+                      Source: <span className="text-[#8A8A8A]">{lead.source_page || "Unknown"}</span>
                     </div>
 
                     {/* Notes */}
                     <div>
-                      <div className="flex items-center gap-2 text-xs text-[#6B7280] mb-1">
-                        <StickyNote className="w-3 h-3" />
+                      <div className="flex items-center gap-2 text-[11px] text-[#ABABAB] font-semibold uppercase tracking-[0.06em] mb-2">
+                        <StickyNote className="w-3.5 h-3.5" />
                         Admin Notes
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2.5">
                         <textarea
                           value={editingNotes[lead.id] ?? lead.notes ?? ""}
                           onChange={(e) =>
@@ -313,12 +322,12 @@ export default function LeadsPage() {
                           }
                           placeholder="Add notes about this lead..."
                           rows={2}
-                          className="flex-1 px-3 py-2 bg-[#2A2A2E] border border-[#3A3A3E] rounded-lg text-sm text-white placeholder-[#6B7280] focus:outline-none focus:border-[#E31837] resize-none"
+                          className="flex-1 px-4 py-3 bg-white rounded-xl text-[13px] text-[#1A1A1A] placeholder-[#CDCDCD] focus:outline-none focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] shadow-[0_1px_2px_rgba(0,0,0,0.03)] resize-none transition-shadow duration-300"
                         />
                         <button
                           onClick={() => saveNotes(lead.id)}
                           disabled={savingNotes === lead.id}
-                          className="px-3 py-2 bg-[#E31837] text-white rounded-lg text-sm hover:bg-[#C21430] transition-colors self-end cursor-pointer disabled:opacity-50"
+                          className="w-10 h-10 bg-gradient-to-br from-[#E31837] to-[#C91530] text-white rounded-xl flex items-center justify-center shadow-[0_2px_8px_rgba(227,24,55,0.25)] hover:shadow-[0_4px_14px_rgba(227,24,55,0.35)] transition-all duration-300 self-end cursor-pointer disabled:opacity-50"
                         >
                           {savingNotes === lead.id ? (
                             <Loader2 className="w-4 h-4 animate-spin" />
@@ -330,22 +339,22 @@ export default function LeadsPage() {
                     </div>
 
                     {/* Quick actions */}
-                    <div className="flex gap-2">
+                    <div className="flex gap-2.5 pt-1">
                       {lead.phone && (
                         <a
                           href={`tel:${lead.phone}`}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#2A2A2E] text-white text-xs rounded-lg hover:bg-[#3A3A3E] transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#1A1A1A] text-[12px] font-semibold rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300"
                         >
-                          <Phone className="w-3 h-3" />
+                          <Phone className="w-3.5 h-3.5 text-[#ABABAB]" />
                           Call
                         </a>
                       )}
                       {lead.email && (
                         <a
                           href={`mailto:${lead.email}`}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#2A2A2E] text-white text-xs rounded-lg hover:bg-[#3A3A3E] transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#1A1A1A] text-[12px] font-semibold rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300"
                         >
-                          <Mail className="w-3 h-3" />
+                          <Mail className="w-3.5 h-3.5 text-[#ABABAB]" />
                           Email
                         </a>
                       )}

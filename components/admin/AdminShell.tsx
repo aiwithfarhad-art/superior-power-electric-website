@@ -33,17 +33,26 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   }
 
   const sidebar = (
-    <div className="flex flex-col h-full bg-[#1C1C1E] border-r border-[#2A2A2E]">
+    <div className="flex flex-col h-full bg-[#141416] relative overflow-hidden">
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
+
       {/* Logo */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-[#2A2A2E]">
-        <div className="w-8 h-8 bg-[#E31837] rounded-lg flex items-center justify-center">
-          <Zap className="w-4 h-4 text-white" />
+      <div className="relative flex items-center gap-3.5 px-6 py-6">
+        <div className="w-10 h-10 bg-gradient-to-br from-[#E31837] to-[#B91430] rounded-xl flex items-center justify-center shadow-[0_4px_12px_rgba(227,24,55,0.3)]">
+          <Zap className="w-5 h-5 text-white" />
         </div>
-        <span className="text-white font-bold text-sm">SPE Admin</span>
+        <div>
+          <span className="text-white font-semibold text-[15px] block leading-tight tracking-[-0.01em]">SPE Admin</span>
+          <span className="text-white/30 text-[10px] uppercase tracking-[0.15em] font-medium">Dashboard</span>
+        </div>
       </div>
 
+      {/* Divider */}
+      <div className="mx-5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className="relative flex-1 px-4 py-5 space-y-1">
         {navItems.map((item) => {
           const active = pathname === item.href;
           return (
@@ -52,13 +61,13 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               href={item.href}
               onClick={() => setSidebarOpen(false)}
               className={cn(
-                "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors",
+                "flex items-center gap-3 px-4 py-3 rounded-xl text-[13px] font-medium tracking-wide transition-all duration-300",
                 active
-                  ? "bg-[#E31837] text-white"
-                  : "text-[#9CA3AF] hover:text-white hover:bg-[#2A2A2E]"
+                  ? "bg-gradient-to-r from-[#E31837] to-[#C91530] text-white shadow-[0_4px_16px_rgba(227,24,55,0.25)]"
+                  : "text-white/40 hover:text-white/80 hover:bg-white/[0.04]"
               )}
             >
-              <item.icon className="w-4 h-4" />
+              <item.icon className={cn("w-[18px] h-[18px]", active ? "text-white" : "text-white/30")} />
               {item.label}
             </Link>
           );
@@ -66,13 +75,14 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* Logout */}
-      <div className="px-3 py-4 border-t border-[#2A2A2E]">
+      <div className="relative px-4 py-5">
+        <div className="mx-1 mb-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <button
           onClick={handleLogout}
           disabled={loggingOut}
-          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-[#9CA3AF] hover:text-white hover:bg-[#2A2A2E] transition-colors w-full cursor-pointer"
+          className="flex items-center gap-3 px-4 py-3 rounded-xl text-[13px] font-medium text-white/30 hover:text-white/60 hover:bg-white/[0.04] transition-all duration-300 w-full cursor-pointer"
         >
-          <LogOut className="w-4 h-4" />
+          <LogOut className="w-[18px] h-[18px]" />
           {loggingOut ? "Logging out..." : "Log Out"}
         </button>
       </div>
@@ -80,14 +90,16 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <div className="min-h-screen bg-[#111113] flex">
+    <div className="min-h-screen bg-[#F6F5F2] flex">
       {/* Desktop sidebar */}
-      <div className="hidden md:block w-56 flex-shrink-0">{sidebar}</div>
+      <div className="hidden lg:block w-[260px] flex-shrink-0 fixed inset-y-0 left-0 z-30">
+        {sidebar}
+      </div>
 
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 md:hidden"
+          className="fixed inset-0 bg-black/30 backdrop-blur-[2px] z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -95,34 +107,40 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       {/* Mobile sidebar drawer */}
       <div
         className={cn(
-          "fixed inset-y-0 left-0 w-56 z-50 transform transition-transform md:hidden",
+          "fixed inset-y-0 left-0 w-[280px] z-50 transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden",
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {sidebar}
+        <button
+          onClick={() => setSidebarOpen(false)}
+          className="absolute top-5 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/60 cursor-pointer hover:bg-white/20 hover:text-white transition-all duration-200"
+        >
+          <X className="w-4 h-4" />
+        </button>
       </div>
 
       {/* Main */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 lg:ml-[260px]">
         {/* Mobile header */}
-        <div className="md:hidden flex items-center justify-between px-4 py-3 bg-[#1C1C1E] border-b border-[#2A2A2E]">
+        <div className="lg:hidden flex items-center justify-between px-5 py-4 bg-[#F6F5F2] sticky top-0 z-20">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="text-white cursor-pointer"
+            className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#1A1A1A] cursor-pointer shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.08),0_8px_20px_rgba(0,0,0,0.06)] transition-shadow duration-300"
           >
             <Menu className="w-5 h-5" />
           </button>
-          <span className="text-white font-bold text-sm">SPE Admin</span>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="text-white opacity-0 pointer-events-none"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#E31837] to-[#B91430] rounded-lg flex items-center justify-center shadow-[0_2px_8px_rgba(227,24,55,0.25)]">
+              <Zap className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-[#1A1A1A] font-semibold text-[15px] tracking-[-0.01em]">SPE Admin</span>
+          </div>
+          <div className="w-10" />
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-4 md:p-6 overflow-auto">{children}</div>
+        <div className="flex-1 p-5 md:p-8 lg:p-10 overflow-auto">{children}</div>
       </div>
     </div>
   );

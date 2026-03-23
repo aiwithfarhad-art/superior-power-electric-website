@@ -36,12 +36,12 @@ export default function ProcessSection() {
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} className="bg-white py-24 md:py-32 lg:py-40 overflow-hidden">
+    <section ref={sectionRef} className="bg-white py-14 md:py-32 lg:py-40 overflow-hidden">
       <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
-          className="mb-16 md:mb-24"
+          className="mb-10 md:mb-24"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.625, 0.05, 0, 1] }}

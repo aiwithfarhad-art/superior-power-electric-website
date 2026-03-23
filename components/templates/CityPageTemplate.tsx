@@ -98,11 +98,33 @@ function getCityTestimonials(slug: string, count: number = 3) {
   return result;
 }
 
+function splitHeadline(h1: string): { line1: string; line2: string } {
+  const words = h1.split(" ");
+  if (words.length <= 1) return { line1: h1, line2: "" };
+
+  let bestSplit = 1;
+  let bestDiff = Infinity;
+  for (let i = 1; i < words.length; i++) {
+    const l1 = words.slice(0, i).join(" ");
+    const l2 = words.slice(i).join(" ");
+    const diff = Math.abs(l1.length - l2.length);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestSplit = i;
+    }
+  }
+  return {
+    line1: words.slice(0, bestSplit).join(" "),
+    line2: words.slice(bestSplit).join(" "),
+  };
+}
+
 interface CityPageTemplateProps {
   city: CityPage;
 }
 
 export function CityPageTemplate({ city }: CityPageTemplateProps) {
+  const { line1, line2 } = splitHeadline(city.h1);
   const cityTestimonials = getCityTestimonials(city.slug);
 
   const relatedCitiesData = city.relatedCities
@@ -150,9 +172,13 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease }}
-                className="font-heading font-bold text-[30px] md:text-[64px] lg:text-[72px] text-white uppercase tracking-[-0.02em] leading-[1.05] max-w-2xl"
+                className="font-heading font-black text-[9vw] md:text-[64px] lg:text-[72px] text-white uppercase tracking-[-0.02em] leading-[1.05] max-w-2xl"
               >
-                {city.h1}
+                {line1}
+                <br />
+                <span className="text-[#E31837]">
+                  {line2}
+                </span>
               </motion.h1>
 
               <motion.p
@@ -199,7 +225,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease }}
-            className="lg:hidden px-6 sm:px-10 pb-8 flex flex-col gap-3"
+            className="lg:hidden px-6 sm:px-10 pt-6 pb-8 flex flex-col gap-3"
           >
             <ShimmerButton href="/contact" className="w-full">Book Your $49 Assessment</ShimmerButton>
             <a

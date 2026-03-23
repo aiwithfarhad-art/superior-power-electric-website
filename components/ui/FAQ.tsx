@@ -19,13 +19,15 @@ function FaqAccordionItem({
   question,
   answer,
   index,
+  isOpen,
+  onToggle,
 }: {
   question: string;
   answer: string;
   index: number;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
-  const [isOpen, setIsOpen] = React.useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -35,14 +37,14 @@ function FaqAccordionItem({
       className={cn(
         "group rounded-xl",
         "transition-all duration-200 ease-in-out",
-        "border border-gray-200/60",
+        "shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)]",
         isOpen
           ? "bg-gradient-to-br from-white via-[#F8F9FA] to-white shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
           : "hover:bg-[#F8F9FA]/60"
       )}
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer"
       >
         <h3
@@ -101,6 +103,8 @@ function FaqAccordionItem({
 }
 
 export function FAQ({ items, className }: FAQProps) {
+  const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+
   return (
     <div className={cn("space-y-2.5", className)}>
       {items.map((item, index) => (
@@ -109,6 +113,8 @@ export function FAQ({ items, className }: FAQProps) {
           question={item.question}
           answer={item.answer}
           index={index}
+          isOpen={openIndex === index}
+          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
         />
       ))}
     </div>

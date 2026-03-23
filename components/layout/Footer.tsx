@@ -607,7 +607,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-white/60 transition-colors duration-200"
               >
-                Made with ❤️ by ALG
+                Made with ❤️ by AI Local Growth
               </a>
             </div>
           </div>

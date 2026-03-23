@@ -62,7 +62,7 @@ export default function FAQSection() {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="rounded-xl px-5 md:px-6 border border-border/40 bg-white"
+                className="rounded-xl px-5 md:px-6 bg-white"
                 style={{ boxShadow: "0 2px 12px hsl(0 0% 0% / 0.04)" }}
               >
                 <AccordionTrigger className="text-left font-heading text-base md:text-lg font-semibold text-foreground hover:text-primary transition-colors py-5">

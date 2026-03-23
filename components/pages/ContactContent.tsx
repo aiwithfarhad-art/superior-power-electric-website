@@ -2,14 +2,17 @@
 
 import { motion } from "framer-motion";
 import { business } from "@/data/business";
-import { CTASection } from "@/components/sections/CTASection";
-
+import QuoteForm from "@/components/sections/QuoteForm";
 
 export function ContactContent() {
   return (
     <>
-      {/* CTA with Quote Form */}
-      <CTASection />
+      {/* Quote Form only - no headline, badge, or description */}
+      <section className="bg-white pt-8 md:pt-20 pb-8 md:pb-16">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <QuoteForm />
+        </div>
+      </section>
 
       {/* Google Maps */}
       <section className="bg-white pb-10 md:pb-24">

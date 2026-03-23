@@ -84,7 +84,7 @@ export function QuoteForm() {
   if (step === "success") {
     return (
       <div id="quote-form" className="relative">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200/60">
+        <div className="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.06),0_12px_48px_rgba(0,0,0,0.06)] overflow-hidden">
           <div className="p-8 text-center">
             <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8 text-green-500" />
@@ -110,9 +110,9 @@ export function QuoteForm() {
 
   return (
     <div id="quote-form" className="relative">
-      <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200/60">
+      <div className="bg-white rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.06),0_12px_48px_rgba(0,0,0,0.06)] overflow-hidden">
         {/* Header */}
-        <div className="px-5 md:px-6 py-4 border-b border-gray-100">
+        <div className="px-5 md:px-6 py-4 border-b border-[#F2F0EC]">
           <div className="flex items-center justify-between">
             <div>
               <p className="font-heading text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#E31837]">
@@ -162,7 +162,7 @@ export function QuoteForm() {
                       "flex flex-col items-center gap-2 p-3 md:p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer group",
                       selectedService === s.label
                         ? "border-[#E31837] bg-[#E31837]/5"
-                        : "border-gray-200 hover:border-[#E31837]/40 hover:bg-[#E31837]/[0.02]"
+                        : "border-[#F2F0EC] hover:border-[#E31837]/30 hover:bg-[#E31837]/[0.02]"
                     )}
                   >
                     <div
@@ -212,7 +212,7 @@ export function QuoteForm() {
                         ? "border-[#E31837] bg-[#E31837]/5"
                         : a.id === "in-person"
                           ? "border-[#E31837]/30 bg-[#E31837]/[0.02] hover:border-[#E31837]/40"
-                          : "border-gray-200 hover:border-[#E31837]/40"
+                          : "border-[#F2F0EC] hover:border-[#E31837]/30"
                     )}
                   >
                     <div
@@ -274,7 +274,7 @@ export function QuoteForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50/50 font-body text-sm text-[#1C1C1E] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E31837]/20 focus:border-[#E31837]/40 transition-all"
+                  className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 font-body text-sm text-[#1C1C1E] placeholder:text-[#9CA3AF] focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
                 />
                 <input
                   type="tel"
@@ -285,7 +285,7 @@ export function QuoteForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50/50 font-body text-sm text-[#1C1C1E] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E31837]/20 focus:border-[#E31837]/40 transition-all"
+                  className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 font-body text-sm text-[#1C1C1E] placeholder:text-[#9CA3AF] focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
                 />
                 <textarea
                   placeholder={
@@ -299,7 +299,7 @@ export function QuoteForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50/50 font-body text-sm text-[#1C1C1E] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E31837]/20 focus:border-[#E31837]/40 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 font-body text-sm text-[#1C1C1E] placeholder:text-[#9CA3AF] focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all resize-none"
                 />
                 {selectedAssessment === "remote" && (
                   <p className="font-body text-[10px] md:text-xs text-[#9CA3AF] bg-[#E31837]/5 rounded-lg px-3 py-2 border border-[#E31837]/10">
@@ -336,7 +336,7 @@ export function QuoteForm() {
         </div>
 
         {/* Trust footer */}
-        <div className="px-5 md:px-6 py-3 flex items-center justify-center gap-4 text-[10px] md:text-[11px] font-body text-[#9CA3AF] border-t border-gray-100">
+        <div className="px-5 md:px-6 py-3 flex items-center justify-center gap-4 text-[10px] md:text-[11px] font-body text-[#9CA3AF] border-t border-[#F2F0EC]">
           <span className="flex items-center gap-1">
             <CheckCircle size={10} className="text-[#E31837]" /> No Spam
           </span>

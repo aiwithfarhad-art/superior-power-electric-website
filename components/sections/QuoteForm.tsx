@@ -155,7 +155,7 @@ function StepIndicator({
                   isActive &&
                     "bg-[#E31837] text-white ring-4 ring-[#E31837]/20",
                   isFuture &&
-                    "bg-gray-100 text-gray-400 border border-gray-200"
+                    "bg-[#F6F5F2] text-[#ABABAB] border border-[#F2F0EC]"
                 )}
               >
                 {isCompleted ? (
@@ -217,7 +217,7 @@ function OptionRow({
         "w-full flex items-center gap-3 p-3 rounded-xl border transition-all duration-200 cursor-pointer group",
         selected
           ? "border-[#E31837] bg-[#E31837]/5 shadow-sm"
-          : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+          : "border-[#F2F0EC] bg-white hover:border-[#E31837]/30 hover:shadow-sm"
       )}
     >
       {/* Icon */}
@@ -368,7 +368,7 @@ export default function QuoteForm() {
   if (submitted) {
     return (
       <div className="quote-form-section" id="quote-form">
-        <div className="rounded-2xl bg-white p-8 md:p-10 text-center shadow-xl border border-gray-100">
+        <div className="rounded-2xl bg-white p-8 md:p-10 text-center shadow-[0_2px_12px_rgba(0,0,0,0.06),0_12px_48px_rgba(0,0,0,0.06)]">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -399,7 +399,7 @@ export default function QuoteForm() {
   /* ─── Main Form ─── */
   return (
     <div className="quote-form-section" id="quote-form">
-      <div className="rounded-2xl overflow-hidden bg-white shadow-xl border border-gray-100">
+      <div className="rounded-2xl overflow-hidden bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06),0_12px_48px_rgba(0,0,0,0.06)]">
         {/* Header */}
         <div className="px-4 sm:px-6 md:px-8 pt-6 md:pt-8 pb-1 md:pb-2">
           <div className="flex items-start justify-between mb-4">
@@ -422,7 +422,7 @@ export default function QuoteForm() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gray-100 mx-4 sm:mx-6 md:mx-8" />
+        <div className="h-px bg-[#F2F0EC] mx-4 sm:mx-6 md:mx-8" />
 
         {/* Body */}
         <div className="px-4 sm:px-6 md:px-8 pt-6 pb-0 h-[390px] overflow-y-auto relative">
@@ -454,7 +454,7 @@ export default function QuoteForm() {
                           "w-full text-left px-4 py-2.5 rounded-xl border-2 transition-all duration-200 cursor-pointer",
                           selected
                             ? "border-[#E31837] bg-[#E31837]/[0.03] shadow-sm"
-                            : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+                            : "border-[#F2F0EC] bg-white hover:border-[#E31837]/30 hover:shadow-sm"
                         )}
                       >
                         {/* Badge + Icon row */}
@@ -602,7 +602,7 @@ export default function QuoteForm() {
                           type="button"
                           className={cn(
                             "w-full px-4 py-3 rounded-lg text-left font-body text-sm transition-all",
-                            "bg-gray-50 border border-gray-200 hover:border-gray-300",
+                            "bg-[#FAFAF8] border border-[#F2F0EC] hover:border-[#E31837]/30",
                             selectedDate ? "text-gray-900" : "text-gray-400"
                           )}
                         >
@@ -656,7 +656,7 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-[#FAFAF8] border-0 transition-all focus:outline-none focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)]"
                   />
                   <input
                     type="tel"
@@ -667,7 +667,7 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-[#FAFAF8] border-0 transition-all focus:outline-none focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)]"
                   />
                   <input
                     type="email"
@@ -678,7 +678,7 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-[#FAFAF8] border-0 transition-all focus:outline-none focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)]"
                   />
                   <textarea
                     placeholder="Tell us about your project (optional)"
@@ -688,7 +688,7 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10 resize-none"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-[#FAFAF8] border-0 transition-all focus:outline-none focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] resize-none"
                   />
                   <button
                     type="submit"
@@ -765,7 +765,7 @@ export default function QuoteForm() {
         )}
 
         {/* Trust Footer */}
-        <div className="px-4 sm:px-6 md:px-8 py-1 border-t border-gray-100 flex items-center justify-center gap-4 md:gap-5 text-[10px] md:text-[11px] font-body text-gray-400">
+        <div className="px-4 sm:px-6 md:px-8 py-1 border-t border-[#F2F0EC] flex items-center justify-center gap-4 md:gap-5 text-[10px] md:text-[11px] font-body text-gray-400">
           <span className="flex items-center gap-1.5">
             <CheckCircle size={11} className="text-[#E31837]/60" />
             No Spam

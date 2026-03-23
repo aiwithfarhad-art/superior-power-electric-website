@@ -46,8 +46,8 @@ const services = [
     title: "Residential",
     desc: "Full-service electrical for renovations, additions, and new builds.",
     href: "/services/residential",
-    image: "/images/shaun-residential-work.webp",
-    alt: "Shaun performing residential electrical work in Brampton home",
+    image: "/images/services/residential.webp",
+    alt: "Residential electrical services in Brampton",
   },
   {
     icon: Building2,
@@ -62,8 +62,8 @@ const services = [
     title: "Rewiring",
     desc: "Replace outdated wiring to handle today's electrical loads safely.",
     href: "/services/rewiring",
-    image: "/images/shaun-inspection.webp",
-    alt: "Shaun inspecting home wiring in Brampton",
+    image: "/images/services/rewiring.webp",
+    alt: "Home rewiring service Brampton",
   },
   {
     icon: Waves,
@@ -95,7 +95,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="relative overflow-hidden">
       {/* ---- White Header Area ---- */}
-      <div className="bg-white pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24">
+      <div className="bg-white pt-14 md:pt-32 lg:pt-40 pb-10 md:pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -133,7 +133,7 @@ export default function ServicesSection() {
       </div>
 
       {/* ---- Cards Area ---- */}
-      <div className="relative bg-white pt-0 pb-24 md:pb-32 lg:pb-40">
+      <div className="relative bg-white pt-0 pb-14 md:pb-32 lg:pb-40">
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -217,8 +217,8 @@ export default function ServicesSection() {
         </div>
         </div>
 
-        {/* Bottom edge accent line */}
-        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/[0.06] to-transparent" />
+        {/* Bottom edge accent line - desktop only */}
+        <div className="hidden md:block absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/[0.06] to-transparent" />
       </div>
     </section>
   );

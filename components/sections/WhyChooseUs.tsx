@@ -66,7 +66,7 @@ export function WhyChooseUs() {
                 delay: index * 0.08,
                 ease: [0.625, 0.05, 0, 1],
               }}
-              className="bg-white rounded-xl p-6 border border-[#E5E5E5]"
+              className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)]"
             >
               <div className="w-12 h-12 rounded-lg bg-[#E31837]/10 flex items-center justify-center mb-4">
                 <reason.icon className="w-6 h-6 text-[#E31837]" />

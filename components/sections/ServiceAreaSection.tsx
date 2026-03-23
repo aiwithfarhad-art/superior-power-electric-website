@@ -38,7 +38,7 @@ export function ServiceAreaSection() {
             >
               <Link
                 href={city.href}
-                className="group cursor-pointer block bg-white border border-gray-200 rounded-xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:border-[#E31837]/50 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(27,79,228,0.12)] transition-all duration-300"
+                className="group cursor-pointer block bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
                   <div>

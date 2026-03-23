@@ -48,7 +48,7 @@ export default function WhyUsSection() {
                     delay: index * 0.1,
                     ease: [0.625, 0.05, 0, 1],
                   }}
-                  className="rounded-xl border border-gray-200 p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500"
+                  className="rounded-2xl p-6 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500"
                 >
                   <NumberTicker
                     value={stat.value}

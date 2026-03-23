@@ -113,7 +113,7 @@ function GoogleReviewSlider() {
         </div>
 
         {/* Dots */}
-        <div className="flex items-center justify-center gap-1.5 mt-4 pt-3 border-t border-gray-100">
+        <div className="flex items-center justify-center gap-1.5 mt-4 pt-3 border-t border-[#F2F0EC]">
           {googleReviews.map((_, i) => (
             <button
               key={i}
@@ -150,7 +150,7 @@ export function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-1.5 rounded-full border border-black/[0.08] text-[10px] font-bold uppercase tracking-[0.25em] text-[#64748b] mb-4 lg:mb-6"
+              className="inline-block px-4 py-1.5 rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.04)] text-[10px] font-bold uppercase tracking-[0.25em] text-[#64748b] mb-4 lg:mb-6"
             >
               Free Quote
             </motion.span>

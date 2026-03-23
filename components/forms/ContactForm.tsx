@@ -41,7 +41,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-xl border border-[#E5E5E5] p-8 text-center">
+      <div className="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] p-8 text-center">
         <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-[#1C1C1E] mb-2">Message Sent!</h3>
         <p className="text-[#9CA3AF] mb-4">
@@ -60,7 +60,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-xl border border-[#E5E5E5] p-6 md:p-8 space-y-5"
+      className="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] p-6 md:p-8 space-y-5"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
@@ -75,7 +75,7 @@ export function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] focus:ring-2 focus:ring-[#E31837]/20 transition-colors"
+            className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 text-sm focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
           />
         </div>
         <div>
@@ -90,7 +90,7 @@ export function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="Your phone number"
-            className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] focus:ring-2 focus:ring-[#E31837]/20 transition-colors"
+            className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 text-sm focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ export function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="Your email (optional)"
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] focus:ring-2 focus:ring-[#E31837]/20 transition-colors"
+          className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 text-sm focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
         />
       </div>
 
@@ -119,7 +119,7 @@ export function ContactForm() {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] focus:ring-2 focus:ring-[#E31837]/20 transition-colors bg-white"
+          className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 text-sm focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
         >
           <option value="">Select a service</option>
           <option value="Residential Electrical">Residential Electrical</option>
@@ -144,7 +144,7 @@ export function ContactForm() {
           name="estimateType"
           value={formData.estimateType}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] focus:ring-2 focus:ring-[#E31837]/20 transition-colors bg-white"
+          className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 text-sm focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all"
         >
           <option value="">Select an option</option>
           <option value="$49 On-Site Assessment">$49 On-Site Assessment (credited toward project)</option>
@@ -164,14 +164,14 @@ export function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell us about your project or question..."
-          className="w-full px-4 py-3 rounded-lg border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#E31837] focus:ring-2 focus:ring-[#E31837]/20 transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-lg bg-[#FAFAF8] border-0 text-sm focus:bg-white focus:shadow-[0_0_0_2px_rgba(227,24,55,0.12)] focus:outline-none transition-all resize-none"
         />
       </div>
 
       <button
         type="submit"
         disabled={submitting}
-        className="w-full inline-flex items-center justify-center gap-2 bg-[#E31837] text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-[#C21430] transition-colors disabled:opacity-50 cursor-pointer"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#E31837] text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-[#C21430] hover:shadow-[0_4px_16px_rgba(227,24,55,0.3)] transition-all disabled:opacity-50 cursor-pointer"
       >
         {submitting ? "Sending..." : "Send Message"}
         {!submitting && <ArrowRight className="w-4 h-4" />}

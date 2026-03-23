@@ -55,7 +55,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-6 right-3 sm:right-6 lg:right-8 bg-white rounded-xl shadow-lg border border-black/[0.06] px-5 py-4 flex items-center gap-4"
+              className="absolute -bottom-6 right-3 sm:right-6 lg:right-8 bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.06),0_8px_32px_rgba(0,0,0,0.04)] px-5 py-4 flex items-center gap-4"
             >
               <div className="w-11 h-11 rounded-full bg-[#E31837]/10 flex items-center justify-center shrink-0">
                 <Star className="w-5 h-5 text-[#E31837] fill-[#E31837]" />
@@ -135,7 +135,7 @@ export default function AboutSection() {
               {badges.map((b) => (
                 <span
                   key={b.text}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-black/[0.04] text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-[#64748b]"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-[0_1px_4px_rgba(0,0,0,0.04)] text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-[#64748b]"
                 >
                   <b.icon className="w-3.5 h-3.5 text-[#E31837]" />
                   {b.text}

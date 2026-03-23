@@ -23,8 +23,8 @@ export function Card({
     <Wrapper
       href={href}
       className={cn(
-        "group block bg-white rounded-xl border border-[#E5E5E5] p-6 transition-all duration-200",
-        href && "hover:border-[#E31837]/30 hover:-translate-y-0.5 hover:shadow-lg",
+        "group block bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] p-6 transition-all duration-200",
+        href && "hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-0.5",
         className
       )}
     >

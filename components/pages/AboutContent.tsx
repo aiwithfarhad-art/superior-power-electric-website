@@ -583,7 +583,7 @@ export function AboutContent() {
               <div className="grid grid-cols-2 gap-6 md:gap-8">
                 {statsData.map((stat, i) => (
                   <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease }}
-                    className="rounded-xl border border-gray-200 p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500"
+                    className="rounded-2xl p-6 text-center shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500"
                   >
                     <NumberTicker value={stat.value} suffix={stat.suffix} className="stat-number font-heading text-5xl md:text-6xl lg:text-7xl font-black" />
                     <p className="font-body text-sm text-[#64748b] uppercase tracking-wider mt-2">{stat.label}</p>

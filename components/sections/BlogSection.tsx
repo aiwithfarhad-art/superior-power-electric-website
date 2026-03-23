@@ -24,7 +24,7 @@ export function BlogSection() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group block bg-white rounded-xl overflow-hidden border border-[#E5E5E5] hover:border-[#E31837]/30 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="group block bg-white rounded-xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300"
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
