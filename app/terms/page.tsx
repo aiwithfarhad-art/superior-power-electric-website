@@ -4,6 +4,17 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Service | Superior Power Electric",
   description: "Terms of service for Superior Power Electric electrical contracting services.",
+  alternates: {
+    canonical: "https://superiorpowerelectric.ca/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | Superior Power Electric",
+    description: "Terms of service for Superior Power Electric electrical contracting services.",
+    url: "https://superiorpowerelectric.ca/terms",
+    siteName: "Superior Power Electric",
+    type: "website",
+    locale: "en_CA",
+  },
 };
 
 export default function TermsPage() {
@@ -93,7 +104,7 @@ export default function TermsPage() {
             Email: info@superiorpowerelectric.ca
           </p>
           <p>
-            <Link href="https://share.google/rXefBgv7k6fmqcU5l" target="_blank" rel="noopener noreferrer" className="text-[#1B4FE4]">
+            <Link href="https://share.google/rXefBgv7k6fmqcU5l" target="_blank" rel="noopener noreferrer" className="text-[#E31837]">
               View our Google Business Profile
             </Link>
           </p>

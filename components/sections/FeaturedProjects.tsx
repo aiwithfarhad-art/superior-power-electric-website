@@ -57,8 +57,8 @@ const FeaturedProjects = () => {
               className="group"
             >
               {/* Placeholder Image */}
-              <div className="bg-[#F5F5F5] rounded-xl aspect-[4/3] flex flex-col items-center justify-center gap-3">
-                <Camera className="w-8 h-8 text-[#1B4FE4]" />
+              <div className="bg-white rounded-xl aspect-[4/3] flex flex-col items-center justify-center gap-3">
+                <Camera className="w-8 h-8 text-[#E31837]" />
                 <span className="text-sm text-[#6B7280] font-body">
                   Photos Coming Soon
                 </span>

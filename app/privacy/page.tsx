@@ -3,6 +3,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Superior Power Electric",
   description: "Privacy policy for Superior Power Electric - how we collect, use, and protect your personal information.",
+  alternates: {
+    canonical: "https://superiorpowerelectric.ca/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Superior Power Electric",
+    description: "Privacy policy for Superior Power Electric - how we collect, use, and protect your personal information.",
+    url: "https://superiorpowerelectric.ca/privacy",
+    siteName: "Superior Power Electric",
+    type: "website",
+    locale: "en_CA",
+  },
 };
 
 export default function PrivacyPage() {

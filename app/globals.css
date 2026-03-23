@@ -49,12 +49,9 @@
   --silver-dark: 0 0% 55%;
   --platinum: 220 10% 92%;
 
-  /* Electric Blue + Navy accent system */
-  --blue: 224 87% 50%;
-  --blue-light: 224 87% 60%;
-  --blue-dark: 224 87% 40%;
-  --navy: 228 60% 28%;
-  --navy-light: 228 60% 38%;
+  /* Red accent system - NO BLUE */
+  --red-soft: 350 82% 92%;
+  --red-muted: 350 82% 70%;
 }
 
 @theme inline {
@@ -95,12 +92,9 @@
   --color-silver-dark: hsl(0 0% 55%);
   --color-platinum: hsl(220 10% 92%);
 
-  /* Electric Blue + Navy accent colors */
-  --color-blue: hsl(224 87% 50%);
-  --color-blue-light: hsl(224 87% 60%);
-  --color-blue-dark: hsl(224 87% 40%);
-  --color-navy: hsl(228 60% 28%);
-  --color-navy-light: hsl(228 60% 38%);
+  /* Red soft accent colors */
+  --color-red-soft: hsl(350 82% 92%);
+  --color-red-muted: hsl(350 82% 70%);
 
   /* Font families */
   --font-heading: var(--font-oswald), sans-serif;
@@ -181,6 +175,7 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -189,6 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -808,7 +804,7 @@ html {
   font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: #1a2975;
+  color: #1C1C1E;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -840,7 +836,7 @@ html {
   margin-bottom: 0.25rem;
 }
 .prose-legal a {
-  color: #1B4FE4;
+  color: #E31837;
   text-decoration: underline;
   text-underline-offset: 2px;
 }

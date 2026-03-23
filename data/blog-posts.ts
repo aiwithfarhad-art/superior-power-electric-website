@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
     readTime: 6,
     excerpt:
       "Panel upgrades in Ontario typically cost $2,000 to $4,500 depending on amperage and complexity. Here is what affects pricing and how to get the best deal.",
-    featuredImage: "/images/services/panel-upgrade.webp",
+    featuredImage: "/images/services/panel-upgrade-hero.webp",
     featuredImageAlt:
       "Electrical panel upgrade being performed by licensed electrician in Brampton",
     sections: [
@@ -487,6 +487,93 @@ export const blogPosts: BlogPost[] = [
       "electrical-panel-upgrade-cost-ontario",
     ],
     relatedServices: ["knob-and-tube", "rewiring", "panel-upgrades"],
+  },
+
+  // POST 6: DIY Electrical Work Ontario
+  {
+    slug: "diy-electrical-work-ontario-what-you-can-and-cannot-do",
+    title:
+      "What Electrical Work Can You Do Yourself in Ontario? (And What You Cannot)",
+    metaTitle:
+      "DIY Electrical Work Ontario - What's Legal & What's Not | Superior Power",
+    metaDescription:
+      "What electrical work can you legally do yourself in Ontario? Learn what requires an ESA-licensed electrician, what homeowners can handle, and the penalties for illegal work.",
+    targetKeyword: "diy electrical work ontario",
+    category: "Cost Guides",
+    author: "Shaun Pennant",
+    authorCredential: "ESA Licensed Electrician",
+    publishedDate: "2025-01-10",
+    readTime: 6,
+    excerpt:
+      "Ontario homeowners can handle a few basic electrical tasks, but most work requires an ESA-licensed electrician. Here is where the line is drawn and what happens if you cross it.",
+    featuredImage: "/images/services/rewiring.webp",
+    featuredImageAlt:
+      "Licensed electrician performing electrical work in an Ontario home",
+    sections: [
+      {
+        heading: "The Short Answer: Most Electrical Work Requires a License",
+        content:
+          "Ontario takes electrical safety seriously. The Ontario Electrical Safety Code and the Electricity Act set clear rules about who can do what. The Electrical Safety Authority (ESA) enforces those rules.\n\nThe general principle is simple. If the work involves changing, extending, or adding to your home's permanent electrical wiring, you need an ESA-licensed electrician. If the work only involves plugging things in or swapping surface-level components, you can likely do it yourself.\n\nThis is not about what you are capable of doing. You might be perfectly handy. The law does not care. Unlicensed electrical work in Ontario is illegal, voids your insurance, and can kill someone. That is not an exaggeration.",
+      },
+      {
+        heading: "Electrical Work You CAN Do Yourself",
+        content:
+          "There are a handful of tasks Ontario homeowners can legally handle without a licensed electrician.\n\nReplacing a light switch (same type, same location) is allowed. Swapping a standard toggle switch for a new toggle switch in the same box does not require a permit. However, if you are adding a dimmer, smart switch, or changing the switch type, consult an electrician.\n\nReplacing a light fixture (same location, same circuit) is allowed. Taking down an old ceiling light and hanging a new one on the same junction box is a basic swap. Make sure the breaker is off and the new fixture is rated for the circuit.\n\nReplacing an outlet cover plate is allowed. This is cosmetic. No wiring involved.\n\nReplacing a damaged plug on an appliance cord is allowed. This is cord repair, not fixed wiring.\n\nResetting a tripped breaker is allowed. Flip it off, then back on. If it keeps tripping, stop and call a professional.\n\nThat is about it. Everything beyond this list moves into territory that requires a licensed electrician and, in most cases, an ESA permit.",
+      },
+      {
+        heading: "Electrical Work You CANNOT Do Yourself",
+        content:
+          "This is the list most people underestimate. All of the following require an ESA-licensed electrician in Ontario.\n\nInstalling new outlets or switches. Adding an outlet to a room, even if you know how to run wire, requires a permit and inspection. Moving an existing outlet to a different location also counts as new work.\n\nRunning new circuits. Adding a dedicated circuit for a [home office, workshop, or kitchen appliance](/services/residential) requires a permit. This includes running wire through walls, connecting to the panel, and installing the breaker.\n\n[Panel upgrades](/services/panel-upgrades) and replacements. Any work inside your electrical panel is strictly licensed-only. This includes replacing breakers, adding circuits, and upgrading from 100 to 200 amps.\n\n[Pot light installation](/services/pot-lights). Cutting holes in your ceiling and running new wiring to recessed lights requires a licensed electrician. Even if the YouTube video makes it look easy.\n\n[EV charger installation](/services/ev-charger). A Level 2 charger runs on a dedicated 240V circuit. This is not a plug-in situation. It requires a permit, proper wire gauge, and ESA inspection.\n\nAny outdoor wiring. Running power to a shed, installing landscape lighting on a new circuit, or adding an outdoor outlet all require permits and licensed work.\n\n[Knob and tube replacement](/services/knob-and-tube) or any [rewiring](/services/rewiring). This should go without saying, but replacing old wiring in your walls is complex, dangerous, and absolutely requires a professional.",
+      },
+      {
+        heading: "What Happens If You Do Illegal Electrical Work",
+        content:
+          "The consequences are real and they stack up.\n\nYour home insurance is void. If unlicensed electrical work causes a fire, your insurance company can deny the claim entirely. They will send an investigator, and if the fire originated from unpermitted work, you are on your own. This applies even if the work was done by a previous owner.\n\nYou face ESA fines. The Electrical Safety Authority can issue fines up to $50,000 for individuals and $100,000 for corporations doing unlicensed electrical work. They actively investigate complaints and inspect properties.\n\nYou cannot sell your home cleanly. When you sell, the buyer's home inspector will check the electrical panel for evidence of unpermitted work. Missing permits and amateur wiring are red flags that can kill a deal or force you to pay for a licensed electrician to redo everything before closing.\n\nSomeone can get hurt. Improperly wired circuits cause fires, shocks, and electrocution. The Ontario Electrical Safety Code exists because people died. The rules are written in tragedies.",
+      },
+      {
+        heading: "How ESA Permits Work in Ontario",
+        content:
+          "Every significant electrical project in Ontario requires an ESA permit. Here is how the process works.\n\nYour licensed electrician applies for the permit before starting work. The permit is tied to the specific scope of work (panel upgrade, new circuits, etc.) and the property address.\n\nThe work is completed by the licensed electrician according to the Ontario Electrical Safety Code. After completion, the ESA sends an inspector to verify the work meets code.\n\nIf the work passes inspection, you receive an ESA certificate. This certificate proves the work was done legally and to code. Keep it with your home documents. Your insurance company may ask for it, and it adds value when selling your home.\n\nIf the work does not pass, the electrician must correct the deficiencies and request a re-inspection. At Superior Power Electric, we have a first-pass inspection rate above 98% because we do the job right the first time.\n\nYou can verify any electrician's ESA license at esasafe.com. If they cannot provide a license number, do not hire them.",
+      },
+      {
+        heading: "When to Call a Licensed Electrician",
+        content:
+          "If you are reading this article, you are probably trying to figure out whether your specific project needs a professional. Here is a simple rule.\n\nIf the work involves anything behind your walls, inside your panel, or connected to your home's permanent wiring, call a licensed electrician. The cost of doing it right is always less than the cost of doing it wrong.\n\nAt Superior Power Electric, we offer a $49 [on-site assessment](/services/residential) that covers any electrical question you have. We will look at your project, tell you exactly what is needed, and give you a written quote. The $49 is credited toward your project if you proceed.\n\nCall (905) 452-8439 or visit our [contact page](/contact) to book. We serve [Brampton](/locations/brampton), [Mississauga](/locations/mississauga), [Vaughan](/locations/vaughan), [Oakville](/locations/oakville), and the wider GTA. ESA License #7014710.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I install a ceiling fan myself in Ontario?",
+        answer:
+          "If you are replacing an existing light fixture with a ceiling fan on the same junction box, and the box is rated for fan weight, this is generally considered a like-for-like swap. However, if the box needs upgrading or new wiring is required, you need a licensed electrician.",
+      },
+      {
+        question: "Do I need a permit to change a light fixture in Ontario?",
+        answer:
+          "No. Replacing a light fixture on an existing junction box (same location, same circuit) does not require a permit. Adding a new fixture where one did not exist before does require a permit and licensed electrician.",
+      },
+      {
+        question: "Can a handyman do electrical work in Ontario?",
+        answer:
+          "No. In Ontario, only ESA-licensed electricians can perform electrical work that involves permanent wiring. A handyman cannot legally install outlets, run circuits, or do panel work, regardless of their experience.",
+      },
+      {
+        question: "How do I check if an electrician is licensed in Ontario?",
+        answer:
+          "Visit the ESA website at esasafe.com and use their contractor verification tool. Any legitimate electrician will provide their ESA license number upfront. Superior Power Electric holds ESA License #7014710.",
+      },
+      {
+        question: "What is the fine for doing electrical work without a permit in Ontario?",
+        answer:
+          "The ESA can issue fines up to $50,000 for individuals and $100,000 for corporations performing unlicensed electrical work. Beyond fines, unpermitted work voids your home insurance and can prevent the sale of your home.",
+      },
+    ],
+    relatedPosts: [
+      "electrical-panel-upgrade-cost-ontario",
+      "when-to-replace-electrical-panel-ontario",
+      "knob-and-tube-wiring-ontario",
+    ],
+    relatedServices: ["residential", "panel-upgrades", "rewiring"],
   },
 ];
 

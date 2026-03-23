@@ -34,6 +34,7 @@ export const business = {
   social: {
     facebook: "https://www.facebook.com/superiorpowerelectric",
     instagram: "https://www.instagram.com/superiorpowerelectric",
+    googleBusinessProfile: "https://www.google.com/maps/place/Superior+Power+Electric",
   },
   domain: "https://superiorpowerelectric.ca",
   owner: "Shaun Pennant",

@@ -6,7 +6,19 @@ import { ContactContent } from "@/components/pages/ContactContent";
 export const metadata: Metadata = {
   title: "Contact Superior Power Electric | $49 Assessment | (905) 452-8439",
   description:
-    "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 on-site assessment credited toward your project. Call (905) 452-8439. ESA #7014710. Same-day emergency service.",
+    "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 assessment credited toward your project. Call (905) 452-8439.",
+  alternates: {
+    canonical: "https://superiorpowerelectric.ca/contact",
+  },
+  openGraph: {
+    title: "Contact Superior Power Electric | $49 Assessment | (905) 452-8439",
+    description:
+      "Contact Superior Power Electric for electrical estimates in Brampton & GTA. $49 assessment credited toward your project. Call (905) 452-8439.",
+    url: "https://superiorpowerelectric.ca/contact",
+    siteName: "Superior Power Electric",
+    type: "website",
+    locale: "en_CA",
+  },
 };
 
 function contactPointSchema() {

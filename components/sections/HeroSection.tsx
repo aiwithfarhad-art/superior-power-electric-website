@@ -35,8 +35,8 @@ function ElectricalParticles() {
             height: p.size,
             left: `${p.left}%`,
             top: `${p.top}%`,
-            backgroundColor: "#1B4FE4",
-            boxShadow: `0 0 ${p.size * 3}px ${p.size}px rgba(27, 79, 228, 0.4)`,
+            backgroundColor: "#E31837",
+            boxShadow: `0 0 ${p.size * 3}px ${p.size}px rgba(227, 24, 55, 0.4)`,
             animation: `electricFloat ${p.duration}s ease-in-out ${p.delay}s infinite`,
           }}
         />
@@ -62,7 +62,7 @@ function HeroMarquee() {
   const repeated = [...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems];
 
   return (
-    <div className="relative z-10 bg-[#1B4FE4] py-3 overflow-hidden">
+    <div className="relative z-10 bg-[#E31837] py-3 overflow-hidden">
       <div
         className="flex gap-8 whitespace-nowrap"
         style={{ animation: "marquee 30s linear infinite" }}
@@ -107,28 +107,44 @@ export default function HeroSection() {
       <ElectricalParticles />
 
       {/* 2-Column Content - taller hero */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-12 lg:pt-44 lg:pb-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-36 pb-12 lg:pt-52 lg:pb-32">
         <div className="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10">
           {/* Left column - 55% */}
           <div className="lg:w-[55%] text-center lg:text-left">
+            {/* Available 24/7 badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 mb-4"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              <span className="font-body text-[11px] sm:text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold">
+                Available 24/7
+              </span>
+            </motion.div>
+
             {/* H1 */}
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="font-heading text-[9vw] sm:text-[11vw] md:text-5xl lg:text-[64px] font-black uppercase leading-[1.05] tracking-tight text-white"
+              className="font-heading text-[7.5vw] sm:text-4xl md:text-5xl lg:text-[56px] font-black uppercase leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
             >
-              Brampton&apos;s Most
+              Brampton&apos;s #1 Rated
               <br />
-              Trusted Electricians
+              <span className="text-[#E31837]">Electrical Contractors</span>
             </motion.h1>
             {/* Subtitle + CTAs share width */}
-            <div className="lg:inline-flex lg:flex-col mt-5 lg:mt-6">
+            <div className="lg:inline-flex lg:flex-col mt-2 lg:mt-3">
               <motion.h3
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
-                className="font-body text-[3.8vw] sm:text-sm md:text-xl lg:text-[28px] text-white/60 leading-relaxed"
+                className="font-body text-[3.8vw] sm:text-sm md:text-xl lg:text-[28px] text-white/60 leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)]"
               >
                 ESA licensed electricians serving Brampton and the GTA
                 <br />
@@ -144,7 +160,7 @@ export default function HeroSection() {
               >
                 <a
                   href={`tel:${business.phoneFull}`}
-                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#1B4FE4] text-white rounded-lg font-heading text-base sm:text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#1640c0] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#1B4FE4]/30"
+                  className="relative overflow-hidden flex-1 inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 sm:py-5 bg-[#E31837] text-white rounded-lg font-heading text-base sm:text-lg md:text-xl font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#C21430] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#E31837]/30"
                 >
                   <span
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"

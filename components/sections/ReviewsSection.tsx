@@ -29,7 +29,7 @@ export function ReviewsSection() {
                 delay: index * 0.08,
                 ease: [0.625, 0.05, 0, 1],
               }}
-              className="bg-[#F5F5F5] rounded-xl p-6"
+              className="bg-white rounded-xl p-6"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-3">

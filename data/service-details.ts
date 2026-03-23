@@ -20,6 +20,8 @@ export interface PricingCTA {
 export interface BeforeAfter {
   withoutItems: string[];
   withItems: string[];
+  mobileWithoutItems?: string[];
+  mobileWithItems?: string[];
 }
 
 export interface ServiceDetails {
@@ -99,6 +101,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Ready for EV chargers, hot tubs, and smart home systems",
         "Peace of mind with code-compliant, inspected wiring",
       ],
+      mobileWithoutItems: [
+        "No arc-fault protection",
+        "Breakers tripping constantly",
+        "Insurance flagging your panel",
+        "Can't add EV or hot tub circuits",
+        "Fire hazard from overloaded wiring",
+      ],
+      mobileWithItems: [
+        "Modern 200A panel installed",
+        "Capacity for all appliances",
+        "ESA certificate on file",
+        "EV and smart home ready",
+        "Code-compliant, inspected wiring",
+      ],
     },
   },
   "pot-lights": {
@@ -169,6 +185,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "LED bulbs lasting 25,000+ hours with zero maintenance",
         "Full dimmer control from bright task lighting to ambient glow",
         "75% energy savings starting from day one",
+      ],
+      mobileWithoutItems: [
+        "Dark corners and uneven lighting",
+        "Bulky, dust-collecting fixtures",
+        "Halogen bulbs burning out fast",
+        "No dimming control",
+        "High electricity bills",
+      ],
+      mobileWithItems: [
+        "Shadow-free illumination everywhere",
+        "Clean flush-mount LED design",
+        "25,000+ hour bulb lifespan",
+        "Full dimmer control included",
+        "75% energy savings day one",
       ],
     },
   },
@@ -241,6 +271,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Dedicated 240V circuit with proper safety protection",
         "Future-proof wiring ready for next-generation chargers",
       ],
+      mobileWithoutItems: [
+        "Driving to public chargers",
+        "$15-$25 per charging session",
+        "Level 1 takes 24+ hours",
+        "Extension cords creating fire risk",
+        "No dedicated EV circuit",
+      ],
+      mobileWithItems: [
+        "Full charge overnight at home",
+        "$2-$4 per charge at home rates",
+        "30-50 km range per hour",
+        "Dedicated 240V safety circuit",
+        "Future-proof for any EV",
+      ],
     },
   },
   residential: {
@@ -311,6 +355,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "ESA certificate of inspection on file for insurance",
         "One licensed team handling all your electrical needs",
         "Modern, safe wiring you can trust for decades",
+      ],
+      mobileWithoutItems: [
+        "Flickering lights and dead outlets",
+        "Old wiring failing safety code",
+        "No electrical safety certificate",
+        "Different electricians each time",
+        "Fire risk from aging systems",
+      ],
+      mobileWithItems: [
+        "Every outlet and switch working",
+        "Full Ontario safety code compliance",
+        "ESA certificate for insurance",
+        "One licensed team for everything",
+        "Modern, safe wiring for decades",
       ],
     },
   },
@@ -383,6 +441,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Upfront pricing with detailed scope before any work starts",
         "Same-day quotes and priority scheduling available",
       ],
+      mobileWithoutItems: [
+        "Electrical issues disrupting ops",
+        "No compliance documentation",
+        "Work during your peak hours",
+        "Surprise charges and hidden fees",
+        "Days waiting for a quote",
+      ],
+      mobileWithItems: [
+        "Reliable systems, zero downtime",
+        "Full ESA compliance documentation",
+        "Work around your schedule",
+        "Upfront pricing, no surprises",
+        "Same-day quotes available",
+      ],
     },
   },
   rewiring: {
@@ -453,6 +525,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Capacity for every appliance, charger, and device",
         "Proper grounding on every circuit and outlet",
         "Increased home value with certified electrical systems",
+      ],
+      mobileWithoutItems: [
+        "Old wiring creating fire risk",
+        "Insurance threatening cancellation",
+        "Circuits can't handle appliances",
+        "No grounding on outlets",
+        "Lower home resale value",
+      ],
+      mobileWithItems: [
+        "Modern NMD90 copper wiring",
+        "ESA certified, insurance compliant",
+        "Capacity for all your devices",
+        "Full grounding on every outlet",
+        "Higher home resale value",
       ],
     },
   },
@@ -525,6 +611,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Weatherproof conduit rated for Canadian winters",
         "ESA permit and inspection certificate included",
       ],
+      mobileWithoutItems: [
+        "Extension cords and trip hazards",
+        "No GFCI shock protection",
+        "Panel can't handle the load",
+        "Exposed wiring in weather",
+        "No ESA permit on file",
+      ],
+      mobileWithItems: [
+        "Dedicated circuit to hot tub",
+        "GFCI disconnect installed",
+        "Panel verified for the load",
+        "Weatherproof conduit installed",
+        "ESA permit and certificate",
+      ],
     },
   },
   lighting: {
@@ -596,6 +696,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Consistent color temperature throughout your home",
         "Professional outdoor lighting for safety and curb appeal",
       ],
+      mobileWithoutItems: [
+        "Dark rooms even with lights on",
+        "Outdated, energy-wasting fixtures",
+        "No smart controls at all",
+        "Mismatched color temperatures",
+        "No outdoor lighting installed",
+      ],
+      mobileWithItems: [
+        "Bright, even lighting everywhere",
+        "LED fixtures save $200-$400/yr",
+        "Smart home controls included",
+        "Consistent color throughout",
+        "Pro outdoor lighting installed",
+      ],
     },
   },
   "knob-and-tube": {
@@ -666,6 +780,20 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         "Safe to insulate your attic and walls properly",
         "Arc-fault and ground-fault protection on every circuit",
         "Clean home inspection report that closes the deal",
+      ],
+      mobileWithoutItems: [
+        "70-100 year old ungrounded wiring",
+        "Insurance refusing coverage",
+        "Can't safely add insulation",
+        "No arc-fault protection",
+        "Failing home inspections",
+      ],
+      mobileWithItems: [
+        "Modern NMD90 copper wiring",
+        "ESA certificate for insurance",
+        "Safe to insulate everywhere",
+        "Full arc-fault protection",
+        "Clean home inspection report",
       ],
     },
   },

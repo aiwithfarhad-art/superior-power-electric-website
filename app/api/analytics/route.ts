@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Failed to track event" }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ success: true }, { status: 200, headers: { "Cache-Control": "no-store" } });
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }

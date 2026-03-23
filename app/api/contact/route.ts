@@ -71,7 +71,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       { success: true, message: "Message received. We will be in touch within 24 hours." },
-      { status: 200 }
+      {
+        status: 200,
+        headers: { "Cache-Control": "no-store" },
+      }
     );
   } catch {
     return NextResponse.json(

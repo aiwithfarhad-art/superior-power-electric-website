@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import {
   Phone,
@@ -42,6 +43,7 @@ import { serviceDetails } from "@/data/service-details";
 import { reviews } from "@/data/reviews";
 import { testimonials } from "@/data/testimonials";
 import { FAQ } from "@/components/ui/FAQ";
+import ProcessStepSlider from "@/components/ui/ProcessStepSlider";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap,
@@ -73,6 +75,55 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 const heroBackgrounds: Record<string, string> = {
   "panel-upgrades": "/images/services/panel-upgrade-hero.webp",
+};
+
+/** Service-specific "Our Work" gallery photos */
+const serviceGalleryPhotos: Record<string, { src: string; alt: string; label: string }[]> = {
+  "pot-lights": [
+    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting with pot lights", label: "Kitchen Lighting" },
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+  ],
+  "panel-upgrades": [
+    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+  ],
+  lighting: [
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/instagram/ig-4.webp", alt: "Commercial lighting installation", label: "Commercial Lighting" },
+    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting with pot lights", label: "Kitchen Lighting" },
+  ],
+  rewiring: [
+    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+    { src: "/images/instagram/ig-4.webp", alt: "Commercial lighting installation", label: "Commercial Lighting" },
+  ],
+  "knob-and-tube": [
+    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting", label: "Kitchen Lighting" },
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+  ],
+  "hot-tub-electrical": [
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+  ],
+  "ev-charger": [
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+  ],
+  residential: [
+    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting", label: "Kitchen Lighting" },
+  ],
+  commercial: [
+    { src: "/images/instagram/ig-4.webp", alt: "Commercial lighting installation", label: "Commercial Lighting" },
+    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+  ],
 };
 
 const serviceImages: Record<string, string> = {
@@ -170,7 +221,7 @@ function renderWithBoldStats(text: string): React.ReactNode {
 }
 
 /** Gradient divider line between sections */
-function SectionDivider({ color = "#1B4FE4" }: { color?: string }) {
+function SectionDivider({ color = "#E31837" }: { color?: string }) {
   return (
     <div
       className="h-px w-full"
@@ -196,7 +247,6 @@ export function ServicePageTemplate({
   const heroBg = heroBackgrounds[service.slug];
   const featuredReview = getServiceReview(service.slug);
   const details = serviceDetails[service.slug];
-  const featuredTestimonials = testimonials.slice(0, 3);
 
   return (
     <>
@@ -204,9 +254,9 @@ export function ServicePageTemplate({
           1. HERO - Split Layout (text left, image bg right)
           ============================================ */}
       <section className="relative bg-[#1C1C1E] overflow-hidden">
-        <div className="flex flex-col lg:flex-row min-h-[650px] lg:min-h-[750px]">
+        <div className="flex flex-col lg:flex-row lg:min-h-[750px]">
           {/* Left column - Text + CTAs */}
-          <div className="relative z-10 lg:w-[55%] flex flex-col justify-center pt-36 pb-16 lg:pt-44 lg:pb-24 px-6 sm:px-10 lg:pl-[max(2rem,calc((100vw-72rem)/2+1.5rem))] lg:pr-12">
+          <div className="relative z-10 lg:w-[55%] flex flex-col justify-center pt-24 pb-6 lg:pt-44 lg:pb-24 px-6 sm:px-10 lg:pl-[max(2rem,calc((100vw-72rem)/2+1.5rem))] lg:pr-12">
             {/* Subtle dot grid */}
             <div className="absolute inset-0 opacity-5 pointer-events-none">
               <div
@@ -225,7 +275,7 @@ export function ServicePageTemplate({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease }}
-                className="flex items-center gap-2 text-sm text-gray-400 mb-8"
+                className="flex items-center gap-2 text-sm text-gray-400 mb-3 lg:mb-8"
                 aria-label="Breadcrumb"
               >
                 <Link href="/" className="hover:text-white transition-colors">
@@ -248,7 +298,7 @@ export function ServicePageTemplate({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-[#1B4FE4]/15 text-[#1B4FE4] mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase bg-[#E31837]/15 text-[#E31837] mb-3 lg:mb-6">
                   <ServiceIcon className="w-3.5 h-3.5" />
                   {service.shortTitle || service.title}
                 </span>
@@ -259,11 +309,11 @@ export function ServicePageTemplate({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2, ease }}
-                className="font-heading text-4xl md:text-5xl lg:text-[46px] font-black text-white uppercase tracking-tight leading-[1.05] lg:whitespace-nowrap"
+                className="font-heading text-[30px] md:text-5xl lg:text-[46px] font-black text-white uppercase tracking-tight leading-[1.05] lg:whitespace-nowrap"
               >
                 {line1}
                 <br />
-                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+                <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                   {line2}
                 </span>
               </motion.h1>
@@ -273,7 +323,7 @@ export function ServicePageTemplate({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3, ease }}
-                className="mt-5 text-lg text-gray-300 leading-relaxed max-w-lg"
+                className="mt-3 lg:mt-5 text-[15px] lg:text-lg text-gray-300 leading-relaxed max-w-lg"
               >
                 {service.heroDescription}
               </motion.p>
@@ -283,7 +333,7 @@ export function ServicePageTemplate({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4, ease }}
-                className="mt-8 flex flex-col sm:flex-row gap-3"
+                className="mt-8 hidden lg:flex flex-col sm:flex-row gap-3"
               >
                 <a
                   href="/contact"
@@ -305,15 +355,69 @@ export function ServicePageTemplate({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-3.5 font-body text-[13px] text-white/40 tracking-wide"
+                className="hidden lg:block mt-3.5 font-body text-[13px] text-white/40 tracking-wide"
               >
                 $49 credited toward your project &middot; Free remote estimates also available
               </motion.p>
             </div>
           </div>
 
-          {/* Right column - Full background image */}
-          <div className="relative lg:w-[45%] min-h-[300px] lg:min-h-0">
+          {/* Mobile image - full width, no clip-path */}
+          <div className="relative lg:hidden w-full h-[260px]">
+            <Image
+              src={heroBg || heroImage || "/images/services/panel-upgrade.webp"}
+              alt={`${service.title} - Superior Power Electric`}
+              fill
+              className="object-cover object-[55%_center]"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[#1C1C1E]/20" />
+            {/* ESA badge */}
+            <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/50 backdrop-blur-sm">
+              <Shield className="w-3.5 h-3.5 text-[#E31837]" />
+              <span className="text-white text-[11px] font-bold tracking-wide">
+                ESA/ECRA {business.esaLicense}
+              </span>
+            </div>
+          </div>
+
+          {/* Mobile CTAs - full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3, ease }}
+            className="lg:hidden px-6 sm:px-10 pb-8 flex flex-col gap-3"
+          >
+            <a
+              href="/contact"
+              className="flex items-center justify-center gap-2 w-full bg-[#E31837] text-white px-6 py-4 rounded-lg font-bold text-sm uppercase tracking-wide hover:bg-[#C21430] transition-all duration-300 relative overflow-hidden group"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+              <span className="relative z-10 flex items-center gap-2">
+                Book Your $49 Assessment
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </a>
+            <a
+              href={`tel:${business.phoneFull}`}
+              className="flex items-center justify-center gap-2 w-full bg-transparent border-2 border-white/25 text-white px-6 py-4 rounded-lg font-semibold text-sm uppercase tracking-wide hover:border-white/50 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call {business.phone}
+            </a>
+            <p className="font-body text-[12px] text-white/40 tracking-wide text-center mt-1">
+              $49 credited toward your project
+            </p>
+          </motion.div>
+
+          {/* Desktop image with clip-path */}
+          <motion.div
+            className="relative hidden lg:block lg:w-[45%]"
+            initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
+            animate={{ clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)' }}
+            transition={{ duration: 1.2, ease: "circOut" }}
+          >
             <Image
               src={heroBg || heroImage || "/images/services/panel-upgrade.webp"}
               alt={`${service.title} - Superior Power Electric`}
@@ -322,20 +426,18 @@ export function ServicePageTemplate({
               priority
               quality={95}
               unoptimized={!!heroBg}
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="50vw"
             />
             {/* Gradient blend from dark left into image */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#1C1C1E] via-[#1C1C1E]/30 to-transparent lg:w-[40%]" />
-            {/* Bottom gradient for mobile */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1E]/60 via-transparent to-transparent lg:hidden" />
             {/* ESA badge */}
             <div className="absolute bottom-6 left-6 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/50 backdrop-blur-sm">
-              <Shield className="w-3.5 h-3.5 text-[#1B4FE4]" />
+              <Shield className="w-3.5 h-3.5 text-[#E31837]" />
               <span className="text-white text-[11px] font-bold tracking-wide">
                 ESA/ECRA {business.esaLicense}
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -375,8 +477,8 @@ export function ServicePageTemplate({
                 transition={{ duration: 0.4, delay: i * 0.08, ease }}
                 className="flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-[#1B4FE4]" />
+                <div className="w-10 h-10 rounded-lg bg-[#E31837]/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 h-5 text-[#E31837]" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-[#1C1C1E]">
@@ -403,8 +505,8 @@ export function ServicePageTemplate({
               transition={{ duration: 0.5, ease }}
             >
               {/* First section with accent border */}
-              <div className="pl-5 border-l-4 border-[#1B4FE4]/30">
-                <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-black text-[#1C1C1E] uppercase tracking-tight mb-6">
+              <div className="pl-5 border-l-4 border-[#E31837]/30">
+                <h2 className="font-heading text-3xl lg:text-4xl font-black text-[#1C1C1E] uppercase tracking-tight mb-6">
                   {service.sections[0]?.heading || `About ${service.title}`}
                 </h2>
                 <div className="space-y-5">
@@ -412,7 +514,7 @@ export function ServicePageTemplate({
                     (p, i) => (
                       <p
                         key={i}
-                        className="text-[#6B7280] leading-relaxed text-base md:text-lg"
+                        className="text-[#6B7280] leading-relaxed text-lg md:text-xl"
                       >
                         {renderWithBoldStats(p)}
                       </p>
@@ -431,7 +533,7 @@ export function ServicePageTemplate({
                     {splitIntoBiteSize(section.content).map((p, i) => (
                       <p
                         key={i}
-                        className="text-[#6B7280] leading-relaxed text-base md:text-lg"
+                        className="text-[#6B7280] leading-relaxed text-lg md:text-xl"
                       >
                         {renderWithBoldStats(p)}
                       </p>
@@ -447,7 +549,7 @@ export function ServicePageTemplate({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15, ease }}
-              className="space-y-6"
+              className="space-y-6 lg:sticky lg:top-28"
             >
               {heroImage && (
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
@@ -461,9 +563,9 @@ export function ServicePageTemplate({
                 </div>
               )}
               {/* Inline review */}
-              <div className="bg-[#F8F9FA] rounded-xl p-6 border border-gray-100">
-                <Quote className="w-6 h-6 text-[#1B4FE4]/30 mb-3" />
-                <p className="text-[#4B5563] text-sm leading-relaxed italic mb-4">
+              <div className="bg-white rounded-xl p-6 border border-gray-100">
+                <Quote className="w-6 h-6 text-[#E31837]/30 mb-3" />
+                <p className="text-[#4B5563] text-lg md:text-xl leading-relaxed italic mb-4">
                   &ldquo;{featuredReview.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-2">
@@ -485,6 +587,67 @@ export function ServicePageTemplate({
           </div>
         </div>
       </section>
+
+      {/* OUR WORK GALLERY */}
+      {(serviceGalleryPhotos[service.slug] || serviceGalleryPhotos["residential"]).length > 0 && (
+        <section className="py-20 bg-[#F7F7F7]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease }}
+              className="text-center mb-12"
+            >
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#E31837] bg-[#E31837]/8 border border-[#E31837]/15 px-4 py-1.5 rounded-full mb-4">
+                Our Work
+              </span>
+              <h2 className="font-heading font-semibold text-[32px] md:text-[44px] text-[#1C1C1E] leading-[1.1]">
+                Recent {service.shortTitle || service.title}
+                <br />
+                <span className="text-[#E31837]">Projects</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {(serviceGalleryPhotos[service.slug] || serviceGalleryPhotos["residential"]).map((photo, i) => (
+                <motion.div
+                  key={photo.src}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1, ease }}
+                  className="group relative bg-white rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] overflow-hidden hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="font-heading font-medium text-[15px] text-[#1C1C1E]">{photo.label}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3, ease }}
+              className="text-center mt-8"
+            >
+              <p className="font-body text-[15px] text-[#94a3b8]">
+                ESA licensed. ECRA #7014710. Every job inspected and certified.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Strip after overview - ENHANCED */}
       <section className="py-12 md:py-14 bg-[#E31837]">
@@ -515,7 +678,7 @@ export function ServicePageTemplate({
           5. BENEFITS GRID (light grey #F8F9FA bg)
           ============================================ */}
       {details?.benefits && (
-        <section className="py-20 bg-[#F8F9FA]">
+        <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -525,10 +688,10 @@ export function ServicePageTemplate({
               className="text-center mb-12"
             >
               <span className="eyebrow-label">Key Benefits</span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
+              <h2 className="font-heading text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
                 Benefits of Professional
                 <br />
-                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+                <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                   {service.shortTitle || service.title}
                 </span>
               </h2>
@@ -548,15 +711,15 @@ export function ServicePageTemplate({
                       delay: index * 0.1,
                       ease,
                     }}
-                    className="bg-white rounded-xl p-8 border border-gray-100 hover:border-[#1B4FE4]/20 hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white rounded-xl p-8 border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="w-14 h-14 rounded-2xl bg-[#1B4FE4]/10 flex items-center justify-center mb-5">
-                      <BenefitIcon className="w-7 h-7 text-[#1B4FE4]" />
+                    <div className="w-14 h-14 rounded-2xl bg-[#E31837]/10 flex items-center justify-center mb-5">
+                      <BenefitIcon className="w-7 h-7 text-[#E31837]" />
                     </div>
                     <h3 className="text-lg font-bold text-[#1C1C1E] mb-2">
                       {benefit.title}
                     </h3>
-                    <p className="text-[#6B7280] text-sm leading-relaxed">
+                    <p className="text-[#6B7280] text-lg md:text-xl leading-relaxed">
                       {benefit.description}
                     </p>
                   </motion.div>
@@ -571,66 +734,25 @@ export function ServicePageTemplate({
           6. PROCESS (white bg) + HowTo JSON-LD
           ============================================ */}
       {details?.processSteps && (
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <section className="py-24 md:py-32 bg-white overflow-hidden">
+          <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease }}
-              className="text-center mb-16"
+              transition={{ duration: 0.6, ease }}
+              className="mb-16 md:mb-24"
             >
-              <span className="eyebrow-label">How It Works</span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
-                How Our Process
+              <span className="font-body text-[11px] tracking-[0.3em] text-[#E31837] uppercase block mb-4">
+                Simple Process
+              </span>
+              <h2 className="font-heading font-black uppercase leading-[0.95] tracking-tight text-4xl sm:text-5xl lg:text-[60px]">
+                <span className="text-[#1C1C1E]">How Our Process</span>
                 <br />
-                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
-                  Works
-                </span>
+                <span className="text-[#E31837]">Works</span>
               </h2>
             </motion.div>
-
-            <div className="relative">
-              {/* Dashed connector line (desktop only) */}
-              <div className="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-[#1B4FE4]/20" />
-
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
-                {details.processSteps.map((step, index) => (
-                  <motion.div
-                    key={step.step}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.1,
-                      ease,
-                    }}
-                    className="relative text-center"
-                  >
-                    {/* Large step number background */}
-                    <div className="relative inline-block mb-4">
-                      <span className="font-heading text-[80px] md:text-[100px] font-black text-[#F0F0F0] leading-none select-none">
-                        {step.step}
-                      </span>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-[#1B4FE4] flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">
-                            {step.step}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <h3 className="text-lg font-bold text-[#1C1C1E] mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-[#6B7280] text-sm leading-relaxed max-w-xs mx-auto">
-                      {step.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            <ProcessStepSlider steps={details.processSteps} />
           </div>
         </section>
       )}
@@ -648,13 +770,13 @@ export function ServicePageTemplate({
               transition={{ duration: 0.5, ease }}
               className="bg-white shadow-lg rounded-xl p-8 md:p-12 border-l-4 border-[#E31837] text-center"
             >
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1a2975] uppercase tracking-tight mb-6">
+              <h2 className="font-heading text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight mb-6">
                 {details.pricingCTA.heading}
               </h2>
               <p className="text-[#64748b] text-lg md:text-xl leading-relaxed mb-4 max-w-2xl mx-auto">
                 {details.pricingCTA.description}
               </p>
-              <p className="text-[#E31837] font-heading text-2xl md:text-3xl font-bold mb-8">
+              <p className="text-[#E31837] font-heading text-3xl font-bold mb-8">
                 {details.pricingCTA.priceRange}
               </p>
               <a
@@ -676,96 +798,184 @@ export function ServicePageTemplate({
           8. BEFORE / AFTER COMPARISON (light grey bg) ** NEW **
           ============================================ */}
       {details?.beforeAfter && (
-        <section className="py-20 bg-[#F8F9FA]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          {/* Luxury background - subtle warm gradient */}
+          <div className="absolute inset-0 bg-white" />
+          {/* Subtle diagonal texture overlay */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                #1C1C1E 20px,
+                #1C1C1E 21px
+              )`,
+            }}
+          />
+
+          <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section header */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease }}
-              className="text-center mb-12"
+              transition={{ duration: 0.7, ease }}
+              className="text-center mb-16 md:mb-20"
             >
               <span className="eyebrow-label">The Difference</span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#1C1C1E] uppercase tracking-tight mt-4">
                 Without vs. With
-                <br />
-                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
-                  Professional Service
-                </span>
               </h2>
+              <p className="font-heading font-semibold text-2xl md:text-3xl lg:text-4xl tracking-tight text-[#E31837] mt-2">
+                Professional Service
+              </p>
+              {/* Decorative line */}
+              <div className="flex items-center justify-center gap-3 mt-8">
+                <div className="h-px w-16 bg-[#E31837]/30" />
+                <div className="w-2 h-2 rotate-45 bg-[#E31837]" />
+                <div className="h-px w-16 bg-[#E31837]/30" />
+              </div>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-              {/* WITHOUT card */}
+            {/* Two-column comparison */}
+            <div className="grid lg:grid-cols-2 gap-0 lg:gap-0 rounded-2xl overflow-hidden shadow-2xl shadow-black/8">
+
+              {/* WITHOUT card - dark, danger aesthetic */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, ease }}
-                className="bg-white rounded-xl p-8 border-2 border-red-200 relative overflow-hidden"
+                transition={{ duration: 0.7, ease }}
+                className="relative bg-[#1C1C1E] p-8 md:p-10"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-[#E31837]" />
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                    <X className="w-5 h-5 text-[#E31837]" />
+                {/* Red accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#E31837] via-[#ff3350] to-[#E31837]" />
+                {/* Subtle radial glow */}
+                <div className="absolute top-0 left-0 w-64 h-64 bg-[#E31837]/5 rounded-full blur-3xl" />
+
+                <div className="relative">
+                  {/* Header */}
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="w-14 h-14 rounded-xl bg-[#E31837]/15 border border-[#E31837]/20 flex items-center justify-center">
+                      <X className="w-7 h-7 text-[#E31837]" />
+                    </div>
+                    <h3 className="font-heading text-xl md:text-2xl font-bold text-white uppercase tracking-wide">
+                      Without Professional Help
+                    </h3>
                   </div>
-                  <h3 className="font-heading text-lg font-bold text-[#1C1C1E] uppercase">
-                    Without Professional Help
-                  </h3>
+
+                  {/* Items - mobile short copy */}
+                  <ul className="space-y-4 md:hidden">
+                    {(details.beforeAfter.mobileWithoutItems ?? details.beforeAfter.withoutItems).map((item, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.15 + i * 0.08, ease }}
+                        className="flex items-start gap-3 group"
+                      >
+                        <span className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-[#E31837]/10 border border-[#E31837]/20 flex items-center justify-center">
+                          <X className="w-3.5 h-3.5 text-[#E31837]" />
+                        </span>
+                        <span className="text-white/70 text-base leading-snug">
+                          {item}
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  {/* Items - desktop full copy */}
+                  <ul className="hidden md:block space-y-5">
+                    {details.beforeAfter.withoutItems.map((item, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.15 + i * 0.08, ease }}
+                        className="flex items-start gap-4 group"
+                      >
+                        <span className="mt-1 flex-shrink-0 w-7 h-7 rounded-full bg-[#E31837]/10 border border-[#E31837]/20 flex items-center justify-center group-hover:bg-[#E31837]/20 transition-colors duration-300">
+                          <X className="w-4 h-4 text-[#E31837]" />
+                        </span>
+                        <span className="text-white/70 text-xl leading-relaxed">
+                          {item}
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-4">
-                  {details.beforeAfter.withoutItems.map((item, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 0.1 + i * 0.08, ease }}
-                      className="flex items-start gap-3"
-                    >
-                      <X className="w-4 h-4 text-[#E31837] flex-shrink-0 mt-0.5" />
-                      <span className="text-[#6B7280] text-sm leading-relaxed">
-                        {item}
-                      </span>
-                    </motion.li>
-                  ))}
-                </ul>
               </motion.div>
 
-              {/* WITH card */}
+              {/* WITH card - light, premium, aspirational */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, ease }}
-                className="bg-white rounded-xl p-8 border-2 border-blue-200 relative overflow-hidden"
+                transition={{ duration: 0.7, ease }}
+                className="relative bg-white p-8 md:p-10"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-[#1B4FE4]" />
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-[#1B4FE4]/10 flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-[#1B4FE4]" />
+                {/* Blue accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#E31837] via-[#3b6ff7] to-[#E31837]" />
+                {/* Subtle radial glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#E31837]/5 rounded-full blur-3xl" />
+                {/* Corner accent */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#E31837]/5 to-transparent" />
+
+                <div className="relative">
+                  {/* Header */}
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="w-14 h-14 rounded-xl bg-[#E31837]/10 border border-[#E31837]/15 flex items-center justify-center">
+                      <CheckCircle className="w-7 h-7 text-[#E31837]" />
+                    </div>
+                    <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1C1C1E] uppercase tracking-wide">
+                      With Superior Power Electric
+                    </h3>
                   </div>
-                  <h3 className="font-heading text-lg font-bold text-[#1C1C1E] uppercase">
-                    With Superior Power Electric
-                  </h3>
+
+                  {/* Items - mobile short copy */}
+                  <ul className="space-y-4 md:hidden">
+                    {(details.beforeAfter.mobileWithItems ?? details.beforeAfter.withItems).map((item, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: 15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.15 + i * 0.08, ease }}
+                        className="flex items-start gap-3 group"
+                      >
+                        <span className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-[#E31837]/10 border border-[#E31837]/15 flex items-center justify-center">
+                          <CheckCircle className="w-3.5 h-3.5 text-[#E31837]" />
+                        </span>
+                        <span className="text-[#4B5563] text-base leading-snug">
+                          {item}
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  {/* Items - desktop full copy */}
+                  <ul className="hidden md:block space-y-5">
+                    {details.beforeAfter.withItems.map((item, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: 15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.15 + i * 0.08, ease }}
+                        className="flex items-start gap-4 group"
+                      >
+                        <span className="mt-1 flex-shrink-0 w-7 h-7 rounded-full bg-[#E31837]/10 border border-[#E31837]/15 flex items-center justify-center group-hover:bg-[#E31837]/20 transition-colors duration-300">
+                          <CheckCircle className="w-4 h-4 text-[#E31837]" />
+                        </span>
+                        <span className="text-[#4B5563] text-xl leading-relaxed">
+                          {item}
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-4">
-                  {details.beforeAfter.withItems.map((item, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: 10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 0.1 + i * 0.08, ease }}
-                      className="flex items-start gap-3"
-                    >
-                      <CheckCircle className="w-4 h-4 text-[#1B4FE4] flex-shrink-0 mt-0.5" />
-                      <span className="text-[#6B7280] text-sm leading-relaxed">
-                        {item}
-                      </span>
-                    </motion.li>
-                  ))}
-                </ul>
               </motion.div>
             </div>
           </div>
@@ -773,117 +983,145 @@ export function ServicePageTemplate({
       )}
 
       {/* ============================================
-          9. WHY SPE (light grey #F8F9FA bg)
+          9. WHY SPE - Bento Grid (white bg)
           ============================================ */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease }}
-            className="text-center mb-12"
+            className="flex flex-col gap-4 items-start mb-12"
           >
             <span className="eyebrow-label">Why Choose Us</span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1a2975] uppercase tracking-tight">
-              Why Brampton Homeowners
-              <br />
-              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+            <div>
+              <h2 className="font-heading text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
+                Why Brampton Homeowners
+              </h2>
+              <p className="font-heading font-semibold text-xl sm:text-2xl lg:text-[30px] tracking-tight text-[#E31837] uppercase leading-[1.1] mt-1">
                 Choose Superior Power
-              </span>
-            </h2>
+              </p>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                icon: Shield,
-                title: "Licensed & Certified",
-                stat: `ESA ${business.esaLicense}`,
-                description:
-                  "Every job inspected and certified to Ontario Electrical Safety Code standards.",
-              },
-              {
-                icon: Clock,
-                title: "15+ Years Experience",
-                stat: "500+ Jobs Completed",
-                description:
-                  "Serving Brampton and the Greater Toronto Area since 2010 with consistent quality.",
-              },
-              {
-                icon: Star,
-                title: "Perfect Reviews",
-                stat: `${business.googleReviews.count} Five-Star Reviews`,
-                description:
-                  "Our reputation speaks for itself. Read what Brampton homeowners say about us.",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease,
-                }}
-                className="bg-[#F8F9FA] rounded-xl p-8 border border-gray-100 text-center"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-[#1B4FE4]/10 flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-8 h-8 text-[#1B4FE4]" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1C1C1E] mb-1">
-                  {item.title}
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* Card 1 - Licensed & Certified (wide) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease }}
+              className="bg-white rounded-2xl lg:col-span-2 p-8 md:p-10 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
+            >
+              <Shield className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
+              <div>
+                <p className="text-[#E31837] font-heading text-xs font-bold uppercase tracking-wider mb-2">
+                  ESA {business.esaLicense}
+                </p>
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-2">
+                  Licensed & Certified
                 </h3>
-                <p className="text-[#E31837] font-heading text-sm font-bold uppercase tracking-wider mb-3">
-                  {item.stat}
+                <p className="text-[#64748b] max-w-md text-lg md:text-xl leading-relaxed">
+                  Every job inspected and certified to Ontario Electrical Safety Code standards.
                 </p>
-                <p className="text-[#64748b] text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
 
-          {/* Trust bullets + featured review */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            {/* Card 2 - 15+ Years (tall) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease }}
-              className="space-y-4"
+              className="bg-white rounded-2xl p-8 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
             >
-              {[
-                "Upfront pricing with no hidden fees",
-                "$49 assessment credited toward your project",
-                "Same-day emergency service available",
-                "Clean worksite and full cleanup included",
-              ].map((bullet, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#1B4FE4]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#1B4FE4]" />
-                  </div>
-                  <p className="text-[#64748b] text-sm leading-relaxed">
-                    {bullet}
-                  </p>
-                </div>
-              ))}
+              <Clock className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
+              <div>
+                <p className="text-[#E31837] font-heading text-xs font-bold uppercase tracking-wider mb-2">
+                  500+ Jobs Completed
+                </p>
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-2">
+                  15+ Years Experience
+                </h3>
+                <p className="text-[#64748b] max-w-xs text-lg md:text-xl leading-relaxed">
+                  Serving Brampton and the Greater Toronto Area since 2010 with consistent quality.
+                </p>
+              </div>
             </motion.div>
 
+            {/* Card 3 - Perfect Reviews (tall) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3, ease }}
-              className="bg-[#F8F9FA] border border-gray-100 shadow-sm rounded-xl p-8"
+              transition={{ duration: 0.5, delay: 0.15, ease }}
+              className="bg-white rounded-2xl p-8 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
             >
-              <Quote className="w-8 h-8 text-[#1B4FE4]/30 mb-4" />
-              <p className="text-[#4B5563] text-base leading-relaxed mb-6 italic">
-                &ldquo;{featuredReview.text}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
+              <Star className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
+              <div>
+                <p className="text-[#E31837] font-heading text-xs font-bold uppercase tracking-wider mb-2">
+                  {business.googleReviews.count} Five-Star Reviews
+                </p>
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-2">
+                  Perfect Reviews
+                </h3>
+                <p className="text-[#64748b] max-w-xs text-lg md:text-xl leading-relaxed">
+                  Our reputation speaks for itself. Read what Brampton homeowners say about us.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 4 - Trust Promises (wide) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2, ease }}
+              className="bg-white rounded-2xl lg:col-span-2 p-8 md:p-10 flex justify-between flex-col min-h-[280px] border border-gray-100 hover:border-[#E31837]/20 transition-colors duration-300 group"
+            >
+              <Award className="w-8 h-8 text-[#E31837] stroke-1 mb-6 group-hover:scale-110 transition-transform duration-300" />
+              <div>
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-4">
+                  Our Promise to You
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    "Upfront, no-surprise pricing",
+                    "$49 assessment credited to job",
+                    "Same-day emergency service",
+                    "Clean worksite guaranteed",
+                  ].map((bullet, index) => (
+                    <div key={index} className="flex items-start gap-2.5">
+                      <CheckCircle className="w-5 h-5 text-[#E31837] flex-shrink-0 mt-1" />
+                      <p className="text-[#64748b] text-lg md:text-xl leading-relaxed">
+                        {bullet}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Featured review below grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3, ease }}
+            className="mt-5 bg-white rounded-2xl p-8 md:p-10 border border-gray-100"
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <Quote className="w-8 h-8 text-[#E31837]/30 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-[#4B5563] text-lg md:text-xl leading-relaxed italic">
+                  &ldquo;{featuredReview.text}&rdquo;
+                </p>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -897,8 +1135,8 @@ export function ServicePageTemplate({
                 </span>
                 <img src="/images/g-icon.webp" alt="Google" className="h-4 w-auto" />
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -906,7 +1144,7 @@ export function ServicePageTemplate({
           10. FAQ (white bg)
           ============================================ */}
       {service.faqs.length > 0 && (
-        <section className="py-20 bg-[#F8F9FA]">
+        <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -916,10 +1154,10 @@ export function ServicePageTemplate({
               className="text-center mb-12"
             >
               <span className="eyebrow-label">Common Questions</span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
+              <h2 className="font-heading text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
                 Frequently Asked
                 <br />
-                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+                <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                   Questions
                 </span>
               </h2>
@@ -932,13 +1170,14 @@ export function ServicePageTemplate({
         </section>
       )}
 
-      <SectionDivider color="#1B4FE4" />
+      <SectionDivider color="#E31837" />
 
       {/* ============================================
-          11. TESTIMONIAL CAROUSEL (light grey bg) ** NEW **
+          11. SCROLLING TESTIMONIALS (white bg)
           ============================================ */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -947,65 +1186,183 @@ export function ServicePageTemplate({
             className="text-center mb-12"
           >
             <span className="eyebrow-label">Real Reviews</span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
+            <h2 className="font-heading text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
               What Homeowners
               <br />
-              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+              <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                 Are Saying
               </span>
             </h2>
+            <div className="inline-flex items-center gap-3 mt-6 px-5 py-2.5 rounded-full bg-white border border-gray-100">
+              <img src="/images/g-icon.webp" alt="Google" className="h-5 w-auto" />
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="font-heading font-bold text-[#1C1C1E] text-lg">{business.googleReviews.rating}</span>
+              <span className="text-[#64748b] text-sm font-body">{business.googleReviews.count} reviews</span>
+            </div>
           </motion.div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredTestimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease,
-                }}
-                className="bg-[#F8F9FA] rounded-xl p-8 border border-gray-100 flex flex-col"
-              >
-                <Quote className="w-8 h-8 text-[#1B4FE4]/20 mb-4 flex-shrink-0" />
-                <p className="text-[#4B5563] text-sm leading-relaxed italic mb-6 flex-1 line-clamp-5">
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-[#1C1C1E] font-bold text-sm">
-                    {testimonial.name}
-                  </span>
-                  <img src="/images/g-icon.webp" alt="Google" className="h-4 w-auto ml-auto" />
-                </div>
-              </motion.div>
-            ))}
+        {/* Scrolling columns */}
+        <div
+          className="flex justify-center gap-5 max-h-[680px] overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          {/* Column 1 */}
+          <div className="hidden lg:block">
+            <motion.div
+              animate={{ translateY: "-50%" }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+              className="flex flex-col gap-5 pb-5"
+            >
+              {[...Array(2)].map((_, dupIdx) => (
+                <React.Fragment key={dupIdx}>
+                  {testimonials.slice(0, 5).map((t, i) => (
+                    <div
+                      key={`${dupIdx}-${i}`}
+                      className="w-[340px] p-7 rounded-2xl bg-white border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                    >
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex gap-0.5">
+                          {[...Array(5)].map((_, si) => (
+                            <Star key={si} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                          ))}
+                        </div>
+                        <img src="/images/g-icon.webp" alt="Google" className="h-4 w-auto ml-auto opacity-50 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[#374151] text-lg leading-relaxed font-body mb-5">
+                        &ldquo;{t.text}&rdquo;
+                      </p>
+                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
+                          <span className="text-white text-[11px] font-bold font-heading">
+                            {t.name.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-heading text-sm font-bold uppercase text-[#1C1C1E] tracking-tight block">{t.name}</span>
+                          <span className="text-[11px] text-[#94a3b8]">Google Review</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </motion.div>
           </div>
 
-          {/* Google review link */}
+          {/* Column 2 */}
+          <div>
+            <motion.div
+              animate={{ translateY: "-50%" }}
+              transition={{ duration: 22, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+              className="flex flex-col gap-5 pb-5"
+            >
+              {[...Array(2)].map((_, dupIdx) => (
+                <React.Fragment key={dupIdx}>
+                  {testimonials.slice(5, 10).map((t, i) => (
+                    <div
+                      key={`${dupIdx}-${i}`}
+                      className="w-[340px] p-7 rounded-2xl bg-white border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                    >
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex gap-0.5">
+                          {[...Array(5)].map((_, si) => (
+                            <Star key={si} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                          ))}
+                        </div>
+                        <img src="/images/g-icon.webp" alt="Google" className="h-4 w-auto ml-auto opacity-50 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[#374151] text-lg leading-relaxed font-body mb-5">
+                        &ldquo;{t.text}&rdquo;
+                      </p>
+                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
+                          <span className="text-white text-[11px] font-bold font-heading">
+                            {t.name.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-heading text-sm font-bold uppercase text-[#1C1C1E] tracking-tight block">{t.name}</span>
+                          <span className="text-[11px] text-[#94a3b8]">Google Review</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Column 3 */}
+          <div className="hidden md:block">
+            <motion.div
+              animate={{ translateY: "-50%" }}
+              transition={{ duration: 16, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+              className="flex flex-col gap-5 pb-5"
+            >
+              {[...Array(2)].map((_, dupIdx) => (
+                <React.Fragment key={dupIdx}>
+                  {testimonials.slice(10, 15).map((t, i) => (
+                    <div
+                      key={`${dupIdx}-${i}`}
+                      className="w-[340px] p-7 rounded-2xl bg-white border border-gray-100 hover:border-[#E31837]/20 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                    >
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="flex gap-0.5">
+                          {[...Array(5)].map((_, si) => (
+                            <Star key={si} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                          ))}
+                        </div>
+                        <img src="/images/g-icon.webp" alt="Google" className="h-4 w-auto ml-auto opacity-50 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <p className="text-[#374151] text-lg leading-relaxed font-body mb-5">
+                        &ldquo;{t.text}&rdquo;
+                      </p>
+                      <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
+                          <span className="text-white text-[11px] font-bold font-heading">
+                            {t.name.split(" ").map((n: string) => n[0]).join("").toUpperCase()}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-heading text-sm font-bold uppercase text-[#1C1C1E] tracking-tight block">{t.name}</span>
+                          <span className="text-[11px] text-[#94a3b8]">Google Review</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+
+        {/* CTA below columns */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center mt-8"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center mt-10"
           >
-            <p className="text-[#9CA3AF] text-sm">
-              {business.googleReviews.count} five-star reviews on Google &middot;{" "}
-              <span className="text-[#1B4FE4] font-semibold">
-                {business.googleReviews.rating} average rating
-              </span>
-            </p>
+            <a
+              href="https://www.google.com/maps/place/?q=place_id:ChIJw_EMMkEZK4gRlraWiwcAOnY"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg border-2 border-[#E31837] text-[#E31837] font-heading text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#E31837] hover:text-white hover:shadow-[0_8px_24px_rgba(27,79,228,0.25)] group"
+            >
+              <img src="/images/g-icon.webp" alt="Google" className="h-4 w-auto" />
+              Read All {business.googleReviews.count} Reviews
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </motion.div>
         </div>
       </section>
@@ -1014,7 +1371,7 @@ export function ServicePageTemplate({
           12. RELATED SERVICES (light grey bg)
           ============================================ */}
       {relatedServices.length > 0 && (
-        <section className="py-20 bg-[#F8F9FA]">
+        <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1024,10 +1381,10 @@ export function ServicePageTemplate({
               className="text-center mb-12"
             >
               <span className="eyebrow-label">Related Services</span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
+              <h2 className="font-heading text-4xl lg:text-5xl font-black text-[#1C1C1E] uppercase tracking-tight">
                 You Might
                 <br />
-                <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+                <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                   Also Need
                 </span>
               </h2>
@@ -1051,7 +1408,7 @@ export function ServicePageTemplate({
                   >
                     <Link
                       href={`/services/${related.slug}`}
-                      className="group block bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-[#1B4FE4]/30 hover:-translate-y-1 transition-all duration-300"
+                      className="group block bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-[#E31837]/30 hover:-translate-y-1 transition-all duration-300"
                     >
                       {relatedImage && (
                         <div className="relative aspect-[16/9] overflow-hidden">
@@ -1066,16 +1423,16 @@ export function ServicePageTemplate({
                         </div>
                       )}
                       <div className="p-6">
-                        <div className="w-10 h-10 rounded-lg bg-[#1B4FE4]/10 flex items-center justify-center mb-3 group-hover:bg-[#1B4FE4]/20 transition-colors">
-                          <RelatedIcon className="w-5 h-5 text-[#1B4FE4]" />
+                        <div className="w-10 h-10 rounded-lg bg-[#E31837]/10 flex items-center justify-center mb-3 group-hover:bg-[#E31837]/20 transition-colors">
+                          <RelatedIcon className="w-5 h-5 text-[#E31837]" />
                         </div>
-                        <h3 className="text-lg font-bold text-[#1C1C1E] mb-2 group-hover:text-[#1B4FE4] transition-colors">
+                        <h3 className="text-lg font-bold text-[#1C1C1E] mb-2 group-hover:text-[#E31837] transition-colors">
                           {related.title}
                         </h3>
-                        <p className="text-[#9CA3AF] text-sm leading-relaxed line-clamp-2">
+                        <p className="text-[#9CA3AF] text-lg md:text-xl leading-relaxed line-clamp-2">
                           {related.heroDescription}
                         </p>
-                        <span className="inline-flex items-center gap-1 mt-4 text-[#1B4FE4] text-sm font-semibold">
+                        <span className="inline-flex items-center gap-1 mt-4 text-[#E31837] text-sm font-semibold">
                           Learn More
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </span>
@@ -1110,10 +1467,10 @@ export function ServicePageTemplate({
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease }}
           >
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-6">
+            <h2 className="font-heading text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-6">
               Ready to Book Your
               <br />
-              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+              <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                 {service.shortTitle || service.title}?
               </span>
             </h2>

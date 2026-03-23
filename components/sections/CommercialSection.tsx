@@ -14,7 +14,7 @@ const commercialServices = [
 
 const CommercialSection = () => {
   return (
-    <section className="section-dark py-20 md:py-28 lg:py-32 relative">
+    <section className="bg-white py-20 md:py-28 lg:py-32 relative">
       <div className="premium-divider" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-on-scroll">

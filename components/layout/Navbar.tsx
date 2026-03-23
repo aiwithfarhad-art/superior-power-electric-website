@@ -15,8 +15,6 @@ import {
   Mail,
   ArrowRight,
   Shield,
-  Facebook,
-  Instagram,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { siteConfig } from "@/data/config";
@@ -533,7 +531,6 @@ export function Navbar() {
 
               {[
                 { label: "About", href: "/about" },
-                { label: "Reviews", href: "/#testimonials" },
                 { label: "Blog", href: "/blog" },
               ].map((link) => (
                 <Link
@@ -643,226 +640,136 @@ export function Navbar() {
               onClick={closeMobile}
             />
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
+              exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="lg:hidden bg-white overflow-hidden"
-              style={{ borderTop: "1px solid hsl(0 0% 92%)" }}
             >
-              <div className="max-h-[80vh] overflow-y-auto overscroll-contain px-6 py-3">
-                {/* Services */}
-                <MobileSection
-                  title="Services"
-                  isOpen={mobileSection === "services"}
-                  onToggle={() =>
-                    setMobileSection(
-                      mobileSection === "services" ? null : "services"
-                    )
-                  }
+              {/* Red accent line */}
+              <div className="h-[2px] bg-gradient-to-r from-transparent via-[#E31837] to-transparent" />
+
+              <div className="px-6 pt-5 pb-6">
+                {/* ── Primary Nav ── */}
+                <nav className="space-y-0 mb-5">
+                  {[
+                    { label: "About", href: "/about" },
+                    { label: "Blog", href: "/blog" },
+                    { label: "Contact", href: "/contact" },
+                  ].map((link, i) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 + i * 0.04, duration: 0.3 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={closeMobile}
+                        className="flex items-center justify-between py-3 border-b border-gray-100 active:bg-gray-50 -mx-2 px-2 rounded-sm transition-colors"
+                      >
+                        <span className="font-heading text-[15px] font-bold uppercase tracking-[0.08em] text-[#1C1C1E]">
+                          {link.label}
+                        </span>
+                        <ChevronRight size={16} className="text-gray-300" />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+
+                {/* ── Services ── */}
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.18, duration: 0.3 }}
+                  className="mb-5"
                 >
-                  <div className="space-y-0.5">
+                  <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E31837] mb-2.5">
+                    Services
+                  </p>
+                  <div className="grid grid-cols-3 gap-x-3 gap-y-1.5">
                     {services.map((s) => (
                       <Link
                         key={s.label}
                         href={s.href}
                         onClick={closeMobile}
-                        className="flex items-center justify-between py-3.5 px-4 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                        className="py-1.5 font-body text-[13px] text-gray-500 active:text-[#E31837] transition-colors"
                       >
-                        <div>
-                          <span className="text-[15px] font-semibold text-gray-900 block">
-                            {s.label}
-                          </span>
-                          <span className="text-[13px] text-gray-400 mt-0.5 block">
-                            {s.desc}
-                          </span>
-                        </div>
-                        <ChevronRight
-                          size={16}
-                          className="text-gray-300 flex-shrink-0 ml-3"
-                        />
+                        {s.label}
                       </Link>
                     ))}
                   </div>
-                </MobileSection>
+                </motion.div>
 
-                {/* Locations */}
-                <MobileSection
-                  title="Locations"
-                  isOpen={mobileSection === "locations"}
-                  onToggle={() =>
-                    setMobileSection(
-                      mobileSection === "locations" ? null : "locations"
-                    )
-                  }
+                {/* ── Locations ── */}
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.24, duration: 0.3 }}
+                  className="mb-6"
                 >
-                  <div className="grid grid-cols-2 gap-1.5">
+                  <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E31837] mb-2.5">
+                    Service Areas
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
                     {locations.map((l) => (
                       <Link
                         key={l.label}
                         href={l.href}
                         onClick={closeMobile}
-                        className="flex items-center gap-3 py-3.5 px-4 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                        className="px-3 py-1.5 rounded-full border border-gray-200 font-body text-[12px] text-gray-500 active:border-[#E31837] active:text-[#E31837] transition-colors"
                       >
-                        <MapPin
-                          size={16}
-                          className="text-[#E31837] flex-shrink-0"
-                        />
-                        <span className="text-[15px] font-medium text-gray-800">
-                          {l.label}
-                        </span>
+                        {l.label}
                       </Link>
                     ))}
                   </div>
-                </MobileSection>
+                </motion.div>
 
-                {/* Resources */}
-                <MobileSection
-                  title="Resources"
-                  isOpen={mobileSection === "resources"}
-                  onToggle={() =>
-                    setMobileSection(
-                      mobileSection === "resources" ? null : "resources"
-                    )
-                  }
+                {/* ── CTA ── */}
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.3 }}
                 >
-                  <div className="space-y-0.5">
-                    {resources.map((r) => (
-                      <Link
-                        key={r.label}
-                        href={r.href}
-                        onClick={closeMobile}
-                        className="flex items-center justify-between py-3.5 px-4 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
-                      >
-                        <span className="text-[15px] text-gray-700 font-medium">
-                          {r.label}
-                        </span>
-                        <ChevronRight
-                          size={16}
-                          className="text-gray-300"
-                        />
-                      </Link>
-                    ))}
-                  </div>
-                </MobileSection>
-
-                {/* Contact */}
-                <MobileSection
-                  title="Contact"
-                  isOpen={mobileSection === "contact"}
-                  onToggle={() =>
-                    setMobileSection(
-                      mobileSection === "contact" ? null : "contact"
-                    )
-                  }
-                >
-                  <div className="space-y-2">
-                    <a
-                      href={`tel:${siteConfig.phoneFormatted}`}
-                      onClick={closeMobile}
-                      className="flex items-center gap-4 py-3.5 px-4 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
-                    >
-                      <div className="w-11 h-11 rounded-xl bg-[#E31837]/[0.07] flex items-center justify-center flex-shrink-0">
-                        <Phone size={18} className="text-[#E31837]" />
-                      </div>
-                      <div>
-                        <span className="text-base font-bold text-gray-900 block">
-                          {siteConfig.phone}
-                        </span>
-                        <span className="text-[13px] text-gray-400">
-                          Call or text anytime
-                        </span>
-                      </div>
-                    </a>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      onClick={closeMobile}
-                      className="flex items-center gap-4 py-3.5 px-4 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors"
-                    >
-                      <div className="w-11 h-11 rounded-xl bg-gray-100/60 flex items-center justify-center flex-shrink-0">
-                        <Mail size={18} className="text-gray-400" />
-                      </div>
-                      <div>
-                        <span className="text-[14px] text-gray-800 block font-semibold break-all">
-                          {siteConfig.email}
-                        </span>
-                        <span className="text-[13px] text-gray-400">
-                          Email us for quotes
-                        </span>
-                      </div>
-                    </a>
-                    <div className="flex items-start gap-4 py-3.5 px-4">
-                      <div className="w-11 h-11 rounded-xl bg-gray-100/60 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Clock size={18} className="text-gray-400" />
-                      </div>
-                      <div className="text-[14px] text-gray-700 space-y-1">
-                        <p>Mon - Fri: 8 AM - 6 PM</p>
-                        <p>Sat: 9 AM - 3 PM</p>
-                        <p className="text-gray-400">Sun: Closed</p>
-                        <div className="flex items-center gap-1.5 mt-1">
-                          <div className="relative">
-                            <div className="w-2 h-2 rounded-full bg-[#E31837]" />
-                            <div className="absolute inset-0 w-2 h-2 rounded-full bg-[#E31837] animate-ping" />
-                          </div>
-                          <span className="text-[#E31837] font-bold text-[12px] uppercase tracking-wider">
-                            24/7 Emergency
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </MobileSection>
-
-                {/* Quick links */}
-                <div className="py-4 space-y-1">
-                  {[
-                    { label: "About", href: "/about" },
-                    { label: "Reviews", href: "/#testimonials" },
-                    { label: "Blog", href: "/blog" },
-                  ].map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={closeMobile}
-                      className="block py-3 font-heading text-base font-bold uppercase tracking-[0.1em] text-gray-400 hover:text-[#E31837] active:text-[#E31837] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Mobile CTA */}
-                <div className="py-3">
                   <Link
                     href="/contact"
                     onClick={closeMobile}
-                    className="flex items-center justify-center gap-2 w-full py-4 bg-[#E31837] text-white rounded-xl font-heading text-sm font-bold uppercase tracking-wider hover:bg-[#C21430] transition-colors"
-                    style={{ boxShadow: "0 4px 20px rgba(227,24,55,0.3)" }}
+                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#E31837] text-white rounded-xl font-heading text-[13px] font-bold uppercase tracking-wider active:bg-[#C21430] transition-colors"
+                    style={{ boxShadow: "0 4px 16px rgba(227,24,55,0.2)" }}
                   >
-                    Get Free Quote <ArrowRight size={16} />
+                    Get Free Quote
+                    <ArrowRight size={14} />
                   </Link>
-                </div>
+                </motion.div>
 
-                {/* Social icons */}
-                <div className="py-4 flex items-center justify-center gap-4">
-                  <a href="https://www.facebook.com/SuperiorPowerElectric/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-gray-100/60 flex items-center justify-center text-gray-400 hover:bg-[#E31837] hover:text-white transition-all">
-                    <Facebook size={18} />
-                  </a>
-                  <a href="https://www.instagram.com/superiorpowerelectric/" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-full bg-gray-100/60 flex items-center justify-center text-gray-400 hover:bg-[#E31837] hover:text-white transition-all">
-                    <Instagram size={18} />
-                  </a>
-                </div>
-
-                {/* Emergency call button */}
-                <div className="pb-8 px-0">
-                  <a
-                    href="tel:+19054528439"
-                    className="flex items-center justify-center gap-2.5 w-full py-4 bg-[#1C1C1E] text-white rounded-xl font-heading text-base font-bold uppercase tracking-wider"
-                  >
-                    <Phone size={18} />
-                    Emergency: (905) 452-8439
-                  </a>
-                </div>
+                {/* ── Trust Footer ── */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.35, duration: 0.3 }}
+                  className="flex items-center justify-between mt-5 pt-4 border-t border-gray-100"
+                >
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={10}
+                          className="fill-amber-400 text-amber-400"
+                        />
+                      ))}
+                    </div>
+                    <span className="text-[11px] text-gray-400 font-body">
+                      {siteConfig.googleReviewCount} reviews
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Shield size={11} className="text-[#E31837]" />
+                    <span className="text-[11px] text-gray-400 font-heading font-semibold uppercase tracking-wider">
+                      ESA #{siteConfig.esaLicense?.replace("#", "")}
+                    </span>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </>

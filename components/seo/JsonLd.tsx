@@ -76,13 +76,45 @@ export function electricianSchema() {
         closes: "23:59",
       },
     ],
-    sameAs: [business.social.facebook, business.social.instagram],
+    sameAs: [business.social.facebook, business.social.instagram, business.social.googleBusinessProfile],
     founder: {
       "@type": "Person",
       name: business.owner,
     },
     foundingDate: String(business.foundedYear),
     priceRange: "$$",
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Daniel Lebar" },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+        reviewBody: "We had Superior Power Electric upgrade our service to 200 amps and our experience was great. Throughout the process, from the initial quote to completion of the job, Shaun and his crew were courteous and professional.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Tanya Burkart" },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+        reviewBody: "Shaun was on time, patient and answered all of my questions. He took his time and did a thorough review. Great job Shaun.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "J Bassi" },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+        reviewBody: "Recently hired Superior Power Electric for project to install new lighting fixtures and outlets. From the very beginning Shaun was very transparent and provided us with a competitive quote.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Pallav Maggu" },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+        reviewBody: "Excellent service! The electrician was professional, on time, and did a great job. Everything was explained clearly and the work was done neatly. Highly recommend!",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Bhaskar Venkatraman" },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+        reviewBody: "I recently had my electrical panel upgraded and a full set of smoke detectors installed. I am extremely impressed with the entire experience from start to finish.",
+      },
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Electrical Services",
@@ -170,7 +202,96 @@ export function organizationSchema() {
       name: business.owner,
     },
     foundingDate: String(business.foundedYear),
-    sameAs: [business.social.facebook, business.social.instagram],
+    sameAs: [business.social.facebook, business.social.instagram, business.social.googleBusinessProfile],
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: business.name,
+    url: business.domain,
+    description: `Licensed electricians in Brampton serving residential and commercial clients across the GTA. ESA ${business.esaLicense}.`,
+    publisher: {
+      "@type": "Organization",
+      name: business.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${business.domain}/logo.svg`,
+      },
+    },
+    inLanguage: "en-CA",
+  };
+}
+
+export function siteNavigationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Site Navigation",
+    itemListElement: [
+      {
+        "@type": "SiteNavigationElement",
+        position: 1,
+        name: "Home",
+        url: business.domain,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 2,
+        name: "About Us",
+        url: `${business.domain}/about`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 3,
+        name: "Residential Electrical Services",
+        url: `${business.domain}/services/residential`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 4,
+        name: "Commercial Electrical Services",
+        url: `${business.domain}/services/commercial`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 5,
+        name: "Panel Upgrades",
+        url: `${business.domain}/services/panel-upgrades`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 6,
+        name: "Pot Light Installation",
+        url: `${business.domain}/services/pot-lights`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 7,
+        name: "EV Charger Installation",
+        url: `${business.domain}/services/ev-charger`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 8,
+        name: "Electrical Services in Brampton",
+        url: `${business.domain}/locations/brampton`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 9,
+        name: "Contact Us",
+        url: `${business.domain}/contact`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 10,
+        name: "Blog",
+        url: `${business.domain}/blog`,
+      },
+    ],
   };
 }
 

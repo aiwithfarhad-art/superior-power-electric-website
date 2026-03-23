@@ -22,7 +22,7 @@ export default function AboutSection() {
       aria-labelledby="about-heading"
     >
       {/* Split background - right side light grey on desktop */}
-      <div className="absolute top-0 right-0 w-[45%] h-full bg-[#F8F9FA] hidden lg:block" />
+      <div className="absolute top-0 right-0 w-[45%] h-full bg-white hidden lg:block" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16">
@@ -83,12 +83,12 @@ export default function AboutSection() {
 
               <h2
                 id="about-heading"
-                className="font-heading text-[28px] sm:text-4xl lg:text-[44px] font-black uppercase tracking-tight leading-[1.05] text-[#1a2975] mt-4"
+                className="font-heading text-[28px] sm:text-4xl lg:text-[44px] font-black uppercase tracking-tight leading-[1.05] text-[#1C1C1E] mt-4"
               >
                 One Truck. One Promise.
               </h2>
-              <p className="font-accent tracking-[0.05em] text-[#E31837] uppercase text-xl sm:text-2xl lg:text-[30px] leading-[1.1] mt-1">
-                15 Years Later, Same Standard.
+              <p className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-xl sm:text-2xl lg:text-[30px] leading-[1.1] mt-1">
+                15 Years. Same Standard.
               </p>
             </motion.div>
 
@@ -97,7 +97,7 @@ export default function AboutSection() {
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="w-16 h-[2px] bg-gradient-to-r from-[#1B4FE4]/30 to-transparent origin-left mt-6"
+              className="w-16 h-[2px] bg-gradient-to-r from-[#E31837]/30 to-transparent origin-left mt-6"
             />
 
             {/* Story - short, punchy, SEO keywords naturally placed */}
@@ -105,7 +105,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-6 space-y-4 font-body text-[#64748b] text-base lg:text-[17px] leading-[1.75]"
+              className="mt-6 space-y-4 font-body text-[#64748b] text-lg md:text-xl leading-[1.75]"
             >
               <p>
                 In 2010, Shaun Pennant started Superior Power Electric with one
@@ -135,9 +135,9 @@ export default function AboutSection() {
               {badges.map((b) => (
                 <span
                   key={b.text}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F8F9FA] border border-black/[0.04] text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-[#64748b]"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-black/[0.04] text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-[#64748b]"
                 >
-                  <b.icon className="w-3.5 h-3.5 text-[#1B4FE4]" />
+                  <b.icon className="w-3.5 h-3.5 text-[#E31837]" />
                   {b.text}
                 </span>
               ))}

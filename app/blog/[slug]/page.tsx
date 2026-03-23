@@ -69,7 +69,7 @@ function renderContent(content: string) {
         <Link
           key={i}
           href={linkMatch[2]}
-          className="text-[#1B4FE4] font-semibold hover:underline"
+          className="text-[#E31837] font-semibold hover:underline"
         >
           {linkMatch[1]}
         </Link>
@@ -82,7 +82,7 @@ function renderContent(content: string) {
 function CTABox() {
   return (
     <div className="my-10 border-l-4 border-[#E31837] bg-[#E31837]/5 p-6 rounded-lg">
-      <p className="font-heading text-xl font-bold text-[#1a2975] uppercase tracking-tight mb-3">
+      <p className="font-heading text-xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-3">
         Book Your $49 Assessment
       </p>
       <p className="font-body text-[#64748b] text-sm mb-5">
@@ -213,8 +213,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm font-body">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1B4FE4]/10 border border-[#1B4FE4]/20">
-              <User className="w-4 h-4 text-[#1B4FE4]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E31837]/10 border border-[#E31837]/20">
+              <User className="w-4 h-4 text-[#E31837]" />
               <span className="text-white">
                 {post.author}, {post.authorCredential}
               </span>
@@ -259,7 +259,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {post.sections.map((section, index) => (
               <div key={index}>
                 <div className="mb-10">
-                  <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1a2975] uppercase tracking-tight mb-4">
+                  <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1C1C1E] uppercase tracking-tight mb-4">
                     {section.heading}
                   </h2>
                   <div className="space-y-4">
@@ -285,7 +285,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* FAQ Section */}
             {post.faqs.length > 0 && (
               <div className="mt-16 pt-12 border-t border-gray-200">
-                <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1a2975] uppercase tracking-tight mb-8">
+                <h2 className="font-heading text-2xl md:text-3xl font-black text-[#1C1C1E] uppercase tracking-tight mb-8">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-6">
@@ -294,7 +294,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       key={index}
                       className="card-premium p-6"
                     >
-                      <h3 className="font-heading text-lg font-bold text-[#1a2975] mb-2">
+                      <h3 className="font-heading text-lg font-bold text-[#1C1C1E] mb-2">
                         {faq.question}
                       </h3>
                       <p className="font-body text-[#6B7280] leading-relaxed">
@@ -316,7 +316,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Services Widget */}
               {relatedServiceData.length > 0 && (
                 <div className="card-premium p-6">
-                  <h3 className="text-lg font-bold text-[#1a2975] mb-4 font-heading uppercase tracking-tight">
+                  <h3 className="text-lg font-bold text-[#1C1C1E] mb-4 font-heading uppercase tracking-tight">
                     Related Services
                   </h3>
                   <ul className="space-y-3">
@@ -325,7 +325,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <li key={svc.slug}>
                           <Link
                             href={`/services/${svc.slug}`}
-                            className="flex items-center gap-2 text-[#6B7280] hover:text-[#1B4FE4] transition-colors text-sm font-medium"
+                            className="flex items-center gap-2 text-[#6B7280] hover:text-[#E31837] transition-colors text-sm font-medium"
                           >
                             <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
                             {svc.title}
@@ -362,7 +362,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {/* Table of Contents */}
               <div className="card-premium p-6">
-                <h3 className="text-lg font-bold text-[#1a2975] mb-4 font-heading uppercase tracking-tight">
+                <h3 className="text-lg font-bold text-[#1C1C1E] mb-4 font-heading uppercase tracking-tight">
                   In This Article
                 </h3>
                 <ul className="space-y-2">
@@ -384,10 +384,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {relatedPosts.length > 0 && (
         <section className="py-16 bg-[#F8F9FA]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-[#1a2975] uppercase tracking-tight text-center mb-10">
+            <h2 className="font-heading text-3xl md:text-4xl font-black text-[#1C1C1E] uppercase tracking-tight text-center mb-10">
               Related
               <br />
-              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
+              <span className="font-heading font-semibold text-[0.75em] tracking-tight text-[#E31837]">
                 Articles
               </span>
             </h2>
@@ -413,7 +413,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-heading text-base font-bold text-[#1a2975] mb-2 group-hover:text-[#1B4FE4] transition-colors line-clamp-2">
+                    <h3 className="font-heading text-base font-bold text-[#1C1C1E] mb-2 group-hover:text-[#E31837] transition-colors line-clamp-2">
                       {related.title}
                     </h3>
                     <p className="font-body text-[#9CA3AF] text-sm line-clamp-2 mb-3">
@@ -421,7 +421,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </p>
                     <div className="flex items-center justify-between text-xs text-[#9CA3AF]">
                       <span>{related.readTime} min read</span>
-                      <span className="text-[#1B4FE4] font-semibold group-hover:underline flex items-center gap-1">
+                      <span className="text-[#E31837] font-semibold group-hover:underline flex items-center gap-1">
                         Read More
                         <ArrowRight className="w-3 h-3" />
                       </span>

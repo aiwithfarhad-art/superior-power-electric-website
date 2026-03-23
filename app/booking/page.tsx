@@ -30,7 +30,7 @@ export default function BookingPage() {
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <span className="eyebrow-label">What Happens Next</span>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#1a2975] uppercase tracking-tight mb-10">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-10">
             Three Simple Steps
           </h2>
 
@@ -56,8 +56,8 @@ export default function BookingPage() {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-5">
-                <div className="w-12 h-12 rounded-xl bg-[#1B4FE4]/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-6 h-6 text-[#1B4FE4]" />
+                <div className="w-12 h-12 rounded-xl bg-[#E31837]/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-6 h-6 text-[#E31837]" />
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-bold text-[#1C1C1E] uppercase">

@@ -29,7 +29,7 @@ const services = [
   { name: "Residential", slug: "residential" },
   { name: "Commercial", slug: "commercial" },
   { name: "Rewiring", slug: "rewiring" },
-  { name: "Hot Tub", slug: "hot-tub" },
+  { name: "Hot Tub", slug: "hot-tub-electrical" },
   { name: "Lighting", slug: "lighting" },
   { name: "Knob & Tube", slug: "knob-and-tube" },
 ];
@@ -45,7 +45,7 @@ const locations = [
 
 const companyLinks = [
   { name: "About", href: "/about" },
-  { name: "Reviews", href: "/reviews" },
+  { name: "Reviews", href: "https://share.google/rXefBgv7k6fmqcU5l" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -208,13 +208,15 @@ export function Footer() {
                 </p>
               </div>
               {/* Read reviews link */}
-              <Link
-                href="/reviews"
+              <a
+                href="https://share.google/rXefBgv7k6fmqcU5l"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#E31837] text-sm font-body font-semibold hover:text-[#1C1C1E] transition-colors flex items-center gap-1.5 group"
               >
                 Read Our Reviews
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
 
             {/* Credentials + License */}
@@ -249,7 +251,7 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <svg
                     viewBox="0 0 24 24"
-                    className="w-4 h-4 text-[#1B4FE4]"
+                    className="w-4 h-4 text-[#E31837]"
                     fill="currentColor"
                   >
                     <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
@@ -373,7 +375,7 @@ export function Footer() {
                   className="h-28 lg:h-32 w-auto"
                 />
               </div>
-              <p className="font-body text-white/60 text-[15px] mt-1 leading-relaxed max-w-sm mx-auto lg:mx-0">
+              <p className="font-body text-white/60 text-[15px] mt-1 leading-relaxed max-w-md mx-auto lg:mx-0">
                 {business.tagline}. Serving the Greater Toronto Area since{" "}
                 {business.foundedYear} with {business.yearsInBusiness} years of
                 trusted expertise.
@@ -395,8 +397,24 @@ export function Footer() {
                 ))}
               </div>
 
+              {/* Available - Let's chat */}
+              <a
+                href={`tel:${business.phoneFull}`}
+                className="flex justify-center lg:justify-start mt-6 group"
+              >
+                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 group-hover:border-emerald-500/40 transition-colors">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  </span>
+                  <span className="text-emerald-400 text-xs uppercase tracking-[0.15em] font-body font-semibold">
+                    Available 24/7 - Let&apos;s Chat
+                  </span>
+                </div>
+              </a>
+
               {/* License badge */}
-              <div className="flex justify-center lg:justify-start mt-6">
+              <div className="flex justify-center lg:justify-start mt-4">
                 <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
                   <Shield className="w-4 h-4 text-[#E31837]" />
                   <span className="text-white/50 text-xs font-body font-medium tracking-wide">
@@ -442,11 +460,26 @@ export function Footer() {
             <div className="lg:col-span-2">
               <FooterAccordion title="Company">
                 <nav className="space-y-0.5">
-                  {companyLinks.map((link) => (
-                    <FooterLink key={link.href} href={link.href}>
-                      {link.name}
-                    </FooterLink>
-                  ))}
+                  {companyLinks.map((link) =>
+                    link.href.startsWith("http") ? (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block text-white/70 text-[15px] font-body hover:text-white transition-colors duration-200 py-[6px]"
+                      >
+                        <span className="relative">
+                          {link.name}
+                          <span className="absolute -bottom-px left-0 w-0 h-px bg-[#E31837] group-hover:w-full transition-all duration-300" />
+                        </span>
+                      </a>
+                    ) : (
+                      <FooterLink key={link.href} href={link.href}>
+                        {link.name}
+                      </FooterLink>
+                    )
+                  )}
                 </nav>
               </FooterAccordion>
             </div>
@@ -547,25 +580,36 @@ export function Footer() {
           4. BOTTOM BAR
       ════════════════════════════════════════════ */}
       <div className="bg-[#141416] border-t border-white/[0.06]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/35 text-xs font-body">
-            &copy; {new Date().getFullYear()} {business.name}. All rights
-            reserved. ESA Licensed.
-          </p>
-          <div className="flex items-center gap-6 text-white/35 text-xs font-body">
-            <Link
-              href="/privacy"
-              className="hover:text-white/60 transition-colors duration-200"
-            >
-              Privacy Policy
-            </Link>
-            <span className="w-px h-3.5 bg-white/10" />
-            <Link
-              href="/terms"
-              className="hover:text-white/60 transition-colors duration-200"
-            >
-              Terms of Service
-            </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col items-center gap-4">
+          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-white/35 text-xs font-body">
+              &copy; {new Date().getFullYear()} {business.name}. All rights
+              reserved. ESA Licensed.
+            </p>
+            <div className="flex items-center gap-6 text-white/45 text-xs font-body">
+              <Link
+                href="/privacy"
+                className="hover:text-white/60 transition-colors duration-200"
+              >
+                Privacy Policy
+              </Link>
+              <span className="w-px h-3.5 bg-white/10" />
+              <Link
+                href="/terms"
+                className="hover:text-white/60 transition-colors duration-200"
+              >
+                Terms of Service
+              </Link>
+              <span className="w-px h-3.5 bg-white/10" />
+              <a
+                href="https://www.ailocalgrowth.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white/60 transition-colors duration-200"
+              >
+                Made with ❤️ by AI Local Growth Inc.
+              </a>
+            </div>
           </div>
         </div>
       </div>

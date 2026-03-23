@@ -19,10 +19,10 @@ export function ServiceAreaSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="eyebrow-label">Service Area</span>
-          <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+          <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
             Serving Your City
           </h2>
-          <p className="font-accent italic tracking-[0.05em] text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
+          <p className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
             Brampton And Beyond
           </p>
         </div>
@@ -38,7 +38,7 @@ export function ServiceAreaSection() {
             >
               <Link
                 href={city.href}
-                className="group cursor-pointer block bg-white border border-gray-200 rounded-xl p-6 hover:border-[#1B4FE4]/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#1B4FE4]/10 transition-all duration-300"
+                className="group cursor-pointer block bg-white border border-gray-200 rounded-xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:border-[#E31837]/50 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(27,79,228,0.12)] transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
                   <div>
@@ -49,22 +49,22 @@ export function ServiceAreaSection() {
                       <span
                         className={`w-2 h-2 rounded-full ${
                           city.response === "Same Day"
-                            ? "bg-[#1B4FE4]"
-                            : "bg-[#1B4FE4]"
+                            ? "bg-[#E31837]"
+                            : "bg-[#E31837]"
                         }`}
                       />
                       <span
                         className={`text-xs font-bold ${
                           city.response === "Same Day"
-                            ? "text-[#1B4FE4]"
-                            : "text-[#1B4FE4]"
+                            ? "text-[#E31837]"
+                            : "text-[#E31837]"
                         }`}
                       >
                         {city.response}
                       </span>
                     </div>
                   </div>
-                  <span className="text-[#94a3b8] group-hover:text-[#1B4FE4] text-sm font-body transition-colors flex items-center gap-1">
+                  <span className="text-[#94a3b8] group-hover:text-[#E31837] text-sm font-body transition-colors flex items-center gap-1">
                     View Services
                     <ArrowRight className="w-4 h-4" />
                   </span>

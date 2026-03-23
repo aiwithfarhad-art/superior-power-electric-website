@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import Image from "next/image";
 import { NumberTicker } from "@/components/ui/NumberTicker";
 
 const stats = [
@@ -24,10 +25,10 @@ export default function WhyUsSection() {
           transition={{ duration: 0.6, ease: [0.625, 0.05, 0, 1] }}
         >
           <span className="eyebrow-label">Why Choose Us</span>
-          <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+          <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
             The Numbers Speak
           </h2>
-          <p className="font-accent italic tracking-[0.05em] text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
+          <p className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
             Power You Can Trust
           </p>
         </motion.div>
@@ -47,7 +48,7 @@ export default function WhyUsSection() {
                     delay: index * 0.1,
                     ease: [0.625, 0.05, 0, 1],
                   }}
-                  className="rounded-xl border border-gray-200 p-6 text-center"
+                  className="rounded-xl border border-gray-200 p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500"
                 >
                   <NumberTicker
                     value={stat.value}
@@ -62,7 +63,7 @@ export default function WhyUsSection() {
             </div>
           </div>
 
-          {/* Right Side - Pull Quote */}
+          {/* Right Side - Shaun Portrait + Pull Quote */}
           <motion.div
             className="lg:w-2/5"
             initial={{ opacity: 0, x: 30 }}
@@ -70,8 +71,27 @@ export default function WhyUsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.625, 0.05, 0, 1] }}
           >
-            <div className="bg-[#F8F9FA] rounded-xl p-6 border-l-4 border-[#1B4FE4]">
-              <blockquote className="font-body text-[#4B5563] text-lg italic leading-relaxed">
+            {/* Shaun portrait */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-5 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+              <Image
+                src="/images/shaun-portrait.webp"
+                alt="Shaun - Owner of Superior Power Electric"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1E]/50 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-[11px] font-heading font-bold text-[#1C1C1E] uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-[#E31837]" />
+                  Shaun - Owner &amp; Master Electrician
+                </span>
+              </div>
+            </div>
+
+            {/* Testimonial quote */}
+            <div className="bg-white rounded-xl p-6 border-l-4 border-[#E31837] shadow-[0_4px_24px_rgba(227,24,55,0.08)]">
+              <blockquote className="font-body text-[#4B5563] text-lg md:text-xl italic leading-relaxed">
                 &ldquo;We had Superior Power Electric upgrade our service to 200
                 amps and our experience was great. Throughout the process, from
                 the initial quote to completion of the job, Shaun and his crew

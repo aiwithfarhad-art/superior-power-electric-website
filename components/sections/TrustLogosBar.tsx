@@ -40,9 +40,9 @@ export default function TrustLogosBar() {
                   delay: i * 0.1,
                   ease: "easeOut",
                 }}
-                className="flex items-center gap-3 px-6 py-4 bg-[#F1F5F9] rounded-xl border-l-4 border-transparent hover:border-[#1B4FE4] transition-all duration-300"
+                className="flex items-center gap-3 px-6 py-4 bg-white rounded-xl border-l-4 border-transparent hover:border-[#E31837] transition-all duration-300"
               >
-                <badge.icon className="w-6 h-6 text-[#1B4FE4] shrink-0" strokeWidth={2} />
+                <badge.icon className="w-6 h-6 text-[#E31837] shrink-0" strokeWidth={2} />
                 <div>
                   <p className="font-heading text-sm font-bold uppercase text-[#1C1C1E]">
                     {badge.label}

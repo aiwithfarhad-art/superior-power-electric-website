@@ -54,7 +54,7 @@ export default function StatsTicker() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.625, 0.05, 0, 1] }}
           >
-            <div className="border-l-4 border-[#1B4FE4] pl-6">
+            <div className="border-l-4 border-[#E31837] pl-6">
               <p className="font-body text-white/80 text-sm leading-relaxed italic">
                 &ldquo;We had Superior Power Electric upgrade our service to 200
                 amps and our experience was great. Throughout the process, Shaun

@@ -21,7 +21,7 @@ export default function EmergencyBanner() {
             <h2 className="font-heading text-white font-black uppercase text-3xl md:text-4xl lg:text-[40px] tracking-tight leading-[1.1]">
               24/7 Emergency Service
             </h2>
-            <p className="font-accent italic tracking-[0.05em] text-white/90 uppercase text-xl md:text-2xl lg:text-[30px] leading-[1.1] mt-1">
+            <p className="font-heading font-semibold tracking-tight text-white/90 uppercase text-xl md:text-2xl lg:text-[30px] leading-[1.1] mt-1">
               When You Need Us Most
             </p>
             <p className="font-body text-white/80 text-lg mt-3">

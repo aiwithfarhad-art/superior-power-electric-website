@@ -94,7 +94,7 @@ function GoogleReviewSlider() {
               </p>
               <div className="mt-3 flex items-center gap-2">
                 {/* Avatar circle */}
-                <div className="w-7 h-7 rounded-full bg-[#1B4FE4] flex items-center justify-center">
+                <div className="w-7 h-7 rounded-full bg-[#E31837] flex items-center justify-center">
                   <span className="text-white text-[11px] font-bold">
                     {googleReviews[current].author.charAt(0)}
                   </span>
@@ -137,7 +137,7 @@ export function CTASection() {
   return (
     <section className="relative bg-white pt-20 md:pt-36 lg:pt-44 pb-8 md:pb-20 lg:pb-28 overflow-hidden">
       {/* Subtle ambient blobs */}
-      <div className="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full bg-[#1B4FE4]/[0.02] blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full bg-[#E31837]/[0.02] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-[5%] w-[400px] h-[400px] rounded-full bg-[#E31837]/[0.015] blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,7 +161,7 @@ export function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-[32px] sm:text-4xl lg:text-[52px] font-black uppercase tracking-tight leading-[1.05] text-[#1a2975]"
+              className="font-heading text-[32px] sm:text-4xl lg:text-[52px] font-black uppercase tracking-tight leading-[1.05] text-[#1C1C1E]"
             >
               Get Your Free
             </motion.h2>
@@ -170,7 +170,7 @@ export function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="font-accent tracking-[0.05em] text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[40px] leading-[1.1] mt-1"
+              className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[40px] leading-[1.1] mt-1"
             >
               Estimate Today
             </motion.p>
@@ -201,7 +201,7 @@ export function CTASection() {
                   key={item.text}
                   className="inline-flex items-center gap-2 text-[11px] font-body text-[#94a3b8] uppercase tracking-[0.15em]"
                 >
-                  <item.icon className="w-3.5 h-3.5 text-[#1B4FE4]/60" />
+                  <item.icon className="w-3.5 h-3.5 text-[#E31837]/60" />
                   {item.text}
                 </span>
               ))}

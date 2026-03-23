@@ -40,11 +40,11 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
-              Brampton&apos;s Trusted
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[1.1]">
+              Superior Power Electric
               <br />
-              <span className="font-accent italic text-[0.75em] tracking-[0.05em] text-[#E31837]">
-                Electrical Experts
+              <span className="text-[#E31837]">
+                Brampton&apos;s Trusted Electrician
               </span>
             </h1>
 

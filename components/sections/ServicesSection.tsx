@@ -22,8 +22,8 @@ const services = [
     title: "Panel Upgrades",
     desc: "Upgrade outdated panels to meet modern safety codes and power demands.",
     href: "/services/panel-upgrades",
-    image: "/images/services/panel-upgrade.webp",
-    alt: "Electrical panel upgrade service in Brampton",
+    image: "/images/shaun-panel-work.webp",
+    alt: "Shaun performing an electrical panel upgrade in Brampton",
   },
   {
     icon: Lightbulb,
@@ -46,8 +46,8 @@ const services = [
     title: "Residential",
     desc: "Full-service electrical for renovations, additions, and new builds.",
     href: "/services/residential",
-    image: "/images/services/residential.webp",
-    alt: "Residential electrical services in Brampton",
+    image: "/images/shaun-residential-work.webp",
+    alt: "Shaun performing residential electrical work in Brampton home",
   },
   {
     icon: Building2,
@@ -62,8 +62,8 @@ const services = [
     title: "Rewiring",
     desc: "Replace outdated wiring to handle today's electrical loads safely.",
     href: "/services/rewiring",
-    image: "/images/services/rewiring.webp",
-    alt: "Home rewiring service Brampton",
+    image: "/images/shaun-inspection.webp",
+    alt: "Shaun inspecting home wiring in Brampton",
   },
   {
     icon: Waves,
@@ -109,11 +109,11 @@ export default function ServicesSection() {
               Our Services
             </span>
 
-            <h2 className="font-heading text-[#1a2975] font-black uppercase text-4xl sm:text-5xl lg:text-[64px] tracking-tight leading-[1.0]">
+            <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-4xl sm:text-5xl lg:text-[64px] tracking-tight leading-[1.0]">
               Everything Electrical
             </h2>
 
-            <p className="font-accent text-2xl sm:text-3xl lg:text-[36px] tracking-[0.04em] italic leading-tight mt-2 mb-8 bg-gradient-to-r from-[#E31837] via-[#ff4d6a] to-[#E31837] bg-clip-text text-transparent">
+            <p className="font-heading font-semibold text-2xl sm:text-3xl lg:text-[36px] tracking-tight uppercase leading-tight mt-2 mb-8 text-[#E31837]">
               One Trusted Team
             </p>
 
@@ -124,7 +124,7 @@ export default function ServicesSection() {
               <div className="w-12 h-px bg-gradient-to-l from-transparent to-black/10" />
             </div>
 
-            <p className="text-[#64748b] text-base md:text-lg max-w-xl mx-auto font-body leading-relaxed">
+            <p className="text-[#64748b] text-lg md:text-xl max-w-xl mx-auto font-body leading-relaxed">
               From panel upgrades to EV chargers, we handle every job with
               licensed expertise and same-day availability.
             </p>
@@ -198,7 +198,7 @@ export default function ServicesSection() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-white/40 text-sm font-body leading-relaxed line-clamp-2 group-hover:text-white/60 transition-colors duration-500">
+                    <p className="text-white/40 text-lg md:text-xl font-body leading-relaxed line-clamp-2 group-hover:text-white/60 transition-colors duration-500">
                       {s.desc}
                     </p>
                   </div>

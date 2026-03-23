@@ -13,7 +13,7 @@ export default function MarqueeTicker() {
   const repeated = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="bg-[#1B4FE4] py-3 overflow-hidden">
+    <div className="bg-[#E31837] py-3 overflow-hidden">
       <div
         className="flex gap-8 whitespace-nowrap"
         style={{ animation: "marquee 30s linear infinite" }}

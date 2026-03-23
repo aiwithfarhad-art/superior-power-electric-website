@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,41 +15,101 @@ interface FAQProps {
   className?: string;
 }
 
-export function FAQ({ items, className }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+function FaqAccordionItem({
+  question,
+  answer,
+  index,
+}: {
+  question: string;
+  answer: string;
+  index: number;
+}) {
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className={cn("space-y-3", className)}>
-      {items.map((item, index) => (
-        <div
-          key={index}
-          className="border border-[#E5E5E5] rounded-xl overflow-hidden"
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.2, delay: index * 0.08 }}
+      className={cn(
+        "group rounded-xl",
+        "transition-all duration-200 ease-in-out",
+        "border border-gray-200/60",
+        isOpen
+          ? "bg-gradient-to-br from-white via-[#F8F9FA] to-white shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+          : "hover:bg-[#F8F9FA]/60"
+      )}
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-5 flex items-center justify-between text-left cursor-pointer"
+      >
+        <h3
+          className={cn(
+            "text-lg md:text-xl font-bold font-heading uppercase tracking-tight transition-colors duration-200 pr-4",
+            isOpen ? "text-[#1C1C1E]" : "text-[#1C1C1E]/70"
+          )}
         >
-          <button
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="w-full flex items-center justify-between p-5 text-left cursor-pointer hover:bg-[#F5F5F5] transition-colors"
+          {question}
+        </h3>
+        <motion.div
+          animate={{
+            rotate: isOpen ? 180 : 0,
+            scale: isOpen ? 1.1 : 1,
+          }}
+          transition={{ duration: 0.2 }}
+          className={cn(
+            "p-1 rounded-full flex-shrink-0",
+            "transition-colors duration-200",
+            isOpen ? "text-[#E31837]" : "text-[#9CA3AF]"
+          )}
+        >
+          <ChevronDown className="h-5 w-5" />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+              transition: { duration: 0.2, ease: "easeOut" },
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: { duration: 0.2, ease: "easeIn" },
+            }}
           >
-            <span className="font-semibold text-[#1C1C1E] pr-4">
-              {item.question}
-            </span>
-            <ChevronDown
-              className={cn(
-                "w-5 h-5 text-[#9CA3AF] flex-shrink-0 transition-transform duration-200",
-                openIndex === index && "rotate-180"
-              )}
-            />
-          </button>
-          <div
-            className={cn(
-              "overflow-hidden transition-all duration-200",
-              openIndex === index ? "max-h-96" : "max-h-0"
-            )}
-          >
-            <p className="px-5 pb-5 text-[#6B7280] leading-relaxed">
-              {item.answer}
-            </p>
-          </div>
-        </div>
+            <div className="px-6 pb-5 pt-1">
+              <motion.p
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                className="text-lg md:text-xl text-[#4B5563] leading-relaxed font-body"
+              >
+                {answer}
+              </motion.p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+export function FAQ({ items, className }: FAQProps) {
+  return (
+    <div className={cn("space-y-2.5", className)}>
+      {items.map((item, index) => (
+        <FaqAccordionItem
+          key={index}
+          question={item.question}
+          answer={item.answer}
+          index={index}
+        />
       ))}
     </div>
   );

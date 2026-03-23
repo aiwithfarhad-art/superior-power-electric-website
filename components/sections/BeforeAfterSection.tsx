@@ -59,7 +59,7 @@ export default function BeforeAfterSection() {
   }, []);
 
   return (
-    <section className="bg-[#F8F9FA] py-20 md:py-28">
+    <section className="bg-white py-20 md:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,10 +69,10 @@ export default function BeforeAfterSection() {
           className="text-center mb-12"
         >
           <span className="eyebrow-label">Our Work</span>
-          <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+          <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
             See The Difference
           </h2>
-          <p className="font-accent italic tracking-[0.05em] text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
+          <p className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-2xl sm:text-3xl lg:text-[42px] leading-[1.1]">
             Before And After
           </p>
         </motion.div>
@@ -97,13 +97,13 @@ export default function BeforeAfterSection() {
             {/* AFTER image - full width background */}
             <div className="absolute inset-0">
               <Image
-                src="/images/services/panel-upgrade.webp"
-                alt="After - new 200-amp panel upgrade"
+                src="/images/shaun-panel-work.webp"
+                alt="After - Shaun completing a 200-amp panel upgrade"
                 fill
                 className="object-cover"
                 sizes="(max-width: 896px) 100vw, 896px"
               />
-              <span className="absolute bottom-4 right-4 bg-[#1B4FE4] text-white px-3 py-1 rounded-full font-heading text-xs uppercase tracking-wider font-bold z-[5]">
+              <span className="absolute bottom-4 right-4 bg-[#E31837] text-white px-3 py-1 rounded-full font-heading text-xs uppercase tracking-wider font-bold z-[5]">
                 After
               </span>
             </div>
@@ -138,7 +138,7 @@ export default function BeforeAfterSection() {
             </div>
           </div>
 
-          <p className="text-center mt-6 font-body text-[#6B7280] text-sm">
+          <p className="text-center mt-6 font-body text-[#6B7280] text-lg md:text-xl">
             Old fuse box to 200-amp panel upgrade. Done in one day.
           </p>
         </motion.div>

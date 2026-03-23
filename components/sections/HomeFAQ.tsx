@@ -7,7 +7,7 @@ import { homeFaqs } from "@/data/homepage-faqs";
 
 export function HomeFAQ() {
   return (
-    <section className="py-20 bg-[#F5F5F5]">
+    <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading
           badge="FAQ"

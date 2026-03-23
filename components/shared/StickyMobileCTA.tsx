@@ -52,8 +52,8 @@ export function StickyMobileCTA() {
       }}
     >
       <a
-        href="tel:9054528439"
-        className="flex-1 flex items-center justify-center gap-2 bg-[#1B4FE4] text-white font-heading text-[15px] font-bold uppercase tracking-wide"
+        href="tel:+19054528439"
+        className="flex-1 flex items-center justify-center gap-2 bg-[#1C1C1E] text-white font-heading text-[15px] font-bold uppercase tracking-wide"
       >
         <Phone className="w-4 h-4" />
         Call Now

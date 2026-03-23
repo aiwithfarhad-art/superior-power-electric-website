@@ -126,7 +126,7 @@ function AnimatedCounter({
 function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
   return (
     <div className="w-[300px] md:w-[340px] lg:w-[360px] shrink-0 flex">
-      <div className="rounded-2xl p-6 bg-white border border-black/[0.06] shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:border-[#1B4FE4]/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 flex flex-col flex-1 group">
+      <div className="rounded-2xl p-6 bg-white border border-black/[0.06] shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:border-[#E31837]/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 flex flex-col flex-1 group">
         {/* Stars + Google */}
         <div className="flex items-center gap-3 mb-4">
           <StarRow />
@@ -138,13 +138,13 @@ function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
         </div>
 
         {/* Quote */}
-        <p className="font-body text-[#374151] text-[15px] leading-relaxed flex-1">
+        <p className="font-body text-[#374151] text-lg md:text-xl leading-relaxed flex-1">
           &ldquo;{review.text}&rdquo;
         </p>
 
         {/* Author */}
         <div className="flex items-center gap-3 mt-5 pt-4 border-t border-black/[0.06]">
-          <div className="w-9 h-9 rounded-full bg-[#1B4FE4] flex items-center justify-center shrink-0">
+          <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
             <span className="text-white text-[11px] font-bold font-heading tracking-wide">
               {getInitials(review.name)}
             </span>
@@ -254,9 +254,9 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="relative bg-[#F8F9FA] py-16 md:py-28 lg:py-36 overflow-hidden">
+    <section className="relative bg-white py-16 md:py-28 lg:py-36 overflow-hidden">
       {/* -------- Subtle decorative gradient blobs -------- */}
-      <div className="absolute top-[-300px] right-[-200px] w-[600px] h-[600px] rounded-full bg-[#1B4FE4] opacity-[0.025] blur-[200px] pointer-events-none" />
+      <div className="absolute top-[-300px] right-[-200px] w-[600px] h-[600px] rounded-full bg-[#E31837] opacity-[0.025] blur-[200px] pointer-events-none" />
       <div className="absolute bottom-[-250px] left-[-150px] w-[500px] h-[500px] rounded-full bg-[#E31837] opacity-[0.02] blur-[180px] pointer-events-none" />
 
       <div className="relative z-10">
@@ -273,15 +273,15 @@ export default function TestimonialsSection() {
             <span className="eyebrow-label">Testimonials</span>
 
             {/* Heading */}
-            <h2 className="font-heading text-[#1a2975] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
+            <h2 className="font-heading text-[#1C1C1E] font-black uppercase text-3xl sm:text-4xl lg:text-[56px] tracking-tight leading-[1.05]">
               What Homeowners Say
             </h2>
-            <p className="font-accent tracking-[0.05em] text-[#E31837] uppercase text-xl sm:text-2xl lg:text-[36px] leading-[1.2] mt-2">
+            <p className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-xl sm:text-2xl lg:text-[36px] leading-[1.2] mt-2">
               Real Google Reviews
             </p>
 
             {/* Decorative divider */}
-            <div className="w-16 h-[2px] mx-auto mt-6 mb-6 bg-gradient-to-r from-transparent via-[#1B4FE4]/20 to-transparent" />
+            <div className="w-16 h-[2px] mx-auto mt-6 mb-6 bg-gradient-to-r from-transparent via-[#E31837]/20 to-transparent" />
 
             {/* Premium trust strip */}
             <motion.div
@@ -366,13 +366,13 @@ export default function TestimonialsSection() {
                   </div>
 
                   {/* Quote */}
-                  <p className="font-body text-[#374151] text-sm leading-relaxed flex-1">
+                  <p className="font-body text-[#374151] text-base md:text-lg leading-relaxed flex-1">
                     &ldquo;{review.text}&rdquo;
                   </p>
 
                   {/* Author */}
                   <div className="flex items-center gap-3 mt-4 pt-3 border-t border-black/[0.06]">
-                    <div className="w-8 h-8 rounded-full bg-[#1B4FE4] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#E31837] flex items-center justify-center shrink-0">
                       <span className="text-white text-[10px] font-bold font-heading">
                         {getInitials(review.name)}
                       </span>
@@ -398,7 +398,7 @@ export default function TestimonialsSection() {
                 className="h-full rounded-full transition-all duration-300 ease-out"
                 style={{
                   width: `${((activeSlide + 1) / reviews.length) * 100}%`,
-                  background: "linear-gradient(90deg, #E31837, #1B4FE4)",
+                  background: "linear-gradient(90deg, #E31837, #E31837)",
                 }}
               />
             </div>
@@ -434,7 +434,7 @@ export default function TestimonialsSection() {
               href="https://www.google.com/maps/place/?q=place_id:ChIJw_EMMkEZK4gRlraWiwcAOnY"
               target="_blank"
               rel="noopener"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg border-2 border-[#1B4FE4] text-[#1B4FE4] font-heading text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#1B4FE4] hover:text-white hover:shadow-[0_8px_24px_rgba(27,79,228,0.25)] group"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg border-2 border-[#E31837] text-[#E31837] font-heading text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:bg-[#E31837] hover:text-white hover:shadow-[0_8px_24px_rgba(27,79,228,0.25)] group"
             >
               <img
                 src="/images/g-icon.webp"

@@ -73,6 +73,41 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/electrical-services-in-brampton",
+        destination: "/locations/brampton",
+        permanent: true,
+      },
+      {
+        source: "/ev-charger-installation",
+        destination: "/services/ev-charger",
+        permanent: true,
+      },
+      {
+        source: "/knob-and-tube-wiring",
+        destination: "/services/knob-and-tube",
+        permanent: true,
+      },
+      {
+        source: "/knob-and-tube-wiring-removal",
+        destination: "/services/knob-and-tube",
+        permanent: true,
+      },
+      {
+        source: "/our-services",
+        destination: "/services/residential",
+        permanent: true,
+      },
+      {
+        source: "/rewiring",
+        destination: "/services/rewiring",
+        permanent: true,
+      },
+      {
         source: "/commercial-electrical-services",
         destination: "/services/commercial",
         permanent: true,

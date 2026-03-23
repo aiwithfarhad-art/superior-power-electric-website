@@ -255,11 +255,11 @@ function OptionRow({
 
       {/* Text */}
       <div className="flex-1 text-left">
-        <span className="font-heading text-xs font-bold uppercase tracking-wide text-gray-900">
+        <span className="font-heading text-sm font-bold uppercase tracking-wide text-gray-900">
           {label}
         </span>
         {sub && (
-          <span className="block text-[11px] text-gray-500 mt-0.5">{sub}</span>
+          <span className="block text-xs text-gray-500 mt-0.5">{sub}</span>
         )}
       </div>
 
@@ -401,7 +401,7 @@ export default function QuoteForm() {
     <div className="quote-form-section" id="quote-form">
       <div className="rounded-2xl overflow-hidden bg-white shadow-xl border border-gray-100">
         {/* Header */}
-        <div className="px-4 sm:px-6 md:px-8 pt-4 md:pt-6 pb-3 md:pb-4">
+        <div className="px-4 sm:px-6 md:px-8 pt-6 md:pt-8 pb-1 md:pb-2">
           <div className="flex items-start justify-between mb-4">
             <div>
               <span className="font-heading text-xs font-bold uppercase tracking-[0.15em] text-[#E31837]">
@@ -425,7 +425,7 @@ export default function QuoteForm() {
         <div className="h-px bg-gray-100 mx-4 sm:mx-6 md:mx-8" />
 
         {/* Body */}
-        <div className="px-4 sm:px-6 md:px-8 py-4 min-h-[260px] relative">
+        <div className="px-4 sm:px-6 md:px-8 pt-6 pb-0 h-[390px] overflow-y-auto relative">
           <AnimatePresence mode="wait" custom={direction}>
             {/* ── Step 1: Estimate Type ── */}
             {step === 1 && (
@@ -438,7 +438,7 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <p className="font-body text-base text-gray-600 mb-4">
+                <p className="font-body text-lg text-gray-600 mb-4">
                   Choose your estimate type
                 </p>
                 <div className="space-y-3">
@@ -451,14 +451,14 @@ export default function QuoteForm() {
                         type="button"
                         onClick={() => setEstimateType(opt.id)}
                         className={cn(
-                          "w-full text-left p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer",
+                          "w-full text-left px-4 py-2.5 rounded-xl border-2 transition-all duration-200 cursor-pointer",
                           selected
                             ? "border-[#E31837] bg-[#E31837]/[0.03] shadow-sm"
                             : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
                         )}
                       >
                         {/* Badge + Icon row */}
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center justify-between mb-1">
                           <span
                             className={cn(
                               "inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider",
@@ -476,18 +476,18 @@ export default function QuoteForm() {
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-heading text-base font-bold uppercase tracking-wide text-gray-900 mb-2">
+                        <h3 className="font-heading text-lg font-bold uppercase tracking-wide text-gray-900 mb-1">
                           {opt.title}
                         </h3>
 
                         {/* Bullets */}
-                        <ul className="space-y-1">
+                        <ul className="space-y-0.5">
                           {opt.bullets.map((b) => (
                             <li
                               key={b}
                               className="flex items-start gap-2 text-sm text-gray-700"
                             >
-                              <CheckCircle className="w-4 h-4 text-[#E31837] shrink-0 mt-0.5" />
+                              <CheckCircle className="w-3.5 h-3.5 text-[#E31837] shrink-0 mt-0.5" />
                               <span className="font-body">{b}</span>
                             </li>
                           ))}
@@ -510,7 +510,7 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <p className="font-body text-sm text-gray-600 mb-4">
+                <p className="font-body text-base text-gray-600 mb-4">
                   What do you need help with?
                 </p>
                 <div className="space-y-2">
@@ -538,7 +538,7 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <p className="font-body text-sm text-gray-600 mb-4">
+                <p className="font-body text-base text-gray-600 mb-4">
                   What type of property?
                 </p>
                 <div className="space-y-2">
@@ -566,7 +566,7 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <p className="font-body text-sm text-gray-600 mb-4">
+                <p className="font-body text-base text-gray-600 mb-4">
                   When do you need this done?
                 </p>
                 <div className="space-y-2">
@@ -643,7 +643,7 @@ export default function QuoteForm() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <p className="font-body text-sm text-gray-600 mb-4">
+                <p className="font-body text-base text-gray-600 mb-4">
                   Your contact details
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-3">
@@ -656,7 +656,7 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
                   />
                   <input
                     type="tel"
@@ -667,7 +667,7 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
                   />
                   <input
                     type="email"
@@ -678,17 +678,17 @@ export default function QuoteForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10"
                   />
                   <textarea
                     placeholder="Tell us about your project (optional)"
                     maxLength={500}
-                    rows={3}
+                    rows={2}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg font-body text-sm text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10 resize-none"
+                    className="w-full px-4 py-3 rounded-lg font-body text-base text-gray-900 placeholder:text-gray-400 bg-gray-50 border border-gray-200 transition-all focus:outline-none focus:border-[#E31837]/50 focus:ring-2 focus:ring-[#E31837]/10 resize-none"
                   />
                   <button
                     type="submit"
@@ -716,15 +716,25 @@ export default function QuoteForm() {
 
         {/* Navigation Footer */}
         {step < 5 && (
-          <div className="px-4 sm:px-6 md:px-8 pb-4 md:pb-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+          <div className="px-4 sm:px-6 md:px-8 pt-2 pb-5 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            {step > 1 && (
+              <button
+                type="button"
+                onClick={goBack}
+                className="order-2 md:order-1 inline-flex items-center justify-center md:justify-start gap-1.5 font-body text-xs text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+              >
+                <ArrowLeft size={14} />
+                BACK
+              </button>
+            )}
             <button
               type="button"
               disabled={!canProceed()}
               onClick={goNext}
               className={cn(
-                "relative overflow-hidden w-full md:w-auto md:order-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 md:py-2.5 rounded-lg font-heading text-sm md:text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer",
+                "relative overflow-hidden w-full md:w-auto md:ml-auto order-1 md:order-2 inline-flex items-center justify-center gap-2 px-8 py-3.5 md:py-2.5 rounded-lg font-heading text-sm md:text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer",
                 canProceed()
-                  ? "bg-[#1B4FE4] md:bg-[#E31837] text-white hover:bg-[#1640c0] md:hover:bg-[#c8152f] shadow-md shadow-[#1B4FE4]/20 md:shadow-[#E31837]/20"
+                  ? "bg-[#1C1C1E] text-white hover:bg-[#2a2a2d] shadow-md shadow-black/20"
                   : "bg-gray-100 text-gray-400 cursor-not-allowed"
               )}
             >
@@ -737,22 +747,12 @@ export default function QuoteForm() {
               <span className="relative z-10">Next</span>
               <ArrowRight size={14} className="relative z-10" />
             </button>
-            {step > 1 && (
-              <button
-                type="button"
-                onClick={goBack}
-                className="md:order-1 inline-flex items-center justify-center gap-1.5 font-body text-xs text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
-              >
-                <ArrowLeft size={14} />
-                BACK
-              </button>
-            )}
           </div>
         )}
 
         {/* Back button on step 5 */}
         {step === 5 && (
-          <div className="px-4 sm:px-6 md:px-8 pb-4 md:pb-5">
+          <div className="px-4 sm:px-6 md:px-8 pt-2 pb-5">
             <button
               type="button"
               onClick={goBack}
@@ -765,7 +765,7 @@ export default function QuoteForm() {
         )}
 
         {/* Trust Footer */}
-        <div className="px-4 sm:px-6 md:px-8 py-2.5 md:py-3 border-t border-gray-100 flex items-center justify-center gap-4 md:gap-5 text-[10px] md:text-[11px] font-body text-gray-400">
+        <div className="px-4 sm:px-6 md:px-8 py-1 border-t border-gray-100 flex items-center justify-center gap-4 md:gap-5 text-[10px] md:text-[11px] font-body text-gray-400">
           <span className="flex items-center gap-1.5">
             <CheckCircle size={11} className="text-[#E31837]/60" />
             No Spam
