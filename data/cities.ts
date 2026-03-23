@@ -82,7 +82,7 @@ export const cities: CityPage[] = [
     province: "ON",
     metaTitle: "Electrician in Brampton, ON | Superior Power Electric",
     metaDescription:
-      "Licensed electrician in Brampton. Same-day service, ESA certified, 4.9\u2605 Google rated. Panel upgrades, pot lights, EV chargers & more. Call (647) 872-9954.",
+      "Licensed electrician in Brampton. Same-day service, ESA certified, 5.0\u2605 Google rated. Panel upgrades, pot lights, EV chargers & more. Call (647) 872-9954.",
     h1: "Electrician in Brampton, ON",
     heroSubhead:
       "Panel upgrades, pot lights, EV chargers and rewiring for Brampton homes. Same-day appointments available across Springdale, Castlemore and Bramalea.",

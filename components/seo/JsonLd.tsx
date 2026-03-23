@@ -352,7 +352,7 @@ export function localBusinessSchema(city: { name: string; slug: string; neighbor
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
+      ratingValue: "5.0",
       reviewCount: "47",
       bestRating: "5",
     },

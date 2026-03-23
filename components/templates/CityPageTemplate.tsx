@@ -246,7 +246,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
                   { text: "ESA Licensed", icon: Shield },
                   { text: "Fully Insured", icon: Award },
                   { text: "Next-Day Service", icon: Clock },
-                  { text: "4.9\u2605 Google Rated", icon: Star },
+                  { text: "5.0\u2605 Google Rated", icon: Star },
                 ].map((item, i) => (
                   <motion.div
                     key={item.text}
@@ -322,7 +322,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
                 <ul className="space-y-5">
                   {[
                     { icon: Zap, label: <><strong>{city.jobsCompleted}+</strong> jobs completed in {city.name}</> },
-                    { icon: Star, label: <><strong>4.9</strong> average rating</> },
+                    { icon: Star, label: <><strong>5.0</strong> average rating</> },
                     { icon: Check, label: <>ESA Licensed &amp; Insured</> },
                     { icon: Clock, label: <><strong>{city.responseTime}</strong> service</> },
                     { icon: MapPin, label: <>Serving all of <strong>{city.name}</strong></> },
@@ -897,7 +897,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
               <span className="text-[#E31837]">Choose Superior Power Electric</span>
             </h2>
             <p className="font-body text-[16px] text-[#94a3b8] mt-3">
-              Rated 4.9/5 on Google by {city.name} homeowners
+              Rated 5.0/5 on Google by {city.name} homeowners
             </p>
           </motion.div>
 
@@ -999,7 +999,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
                 ))}
               </div>
               <span className="font-body text-[15px] text-[#64748b]">
-                4.9 from 47 reviews on Google
+                5.0 from 47 reviews on Google
               </span>
             </div>
           </motion.div>
