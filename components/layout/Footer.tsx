@@ -580,13 +580,13 @@ export function Footer() {
           4. BOTTOM BAR
       ════════════════════════════════════════════ */}
       <div className="bg-[#141416] border-t border-white/[0.06]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-[88px] lg:pb-6 flex flex-col items-center gap-4">
           <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-white/35 text-xs font-body">
               &copy; {new Date().getFullYear()} {business.name}. All rights
-              reserved. ESA Licensed.
+              reserved.
             </p>
-            <div className="flex items-center gap-6 text-white/45 text-xs font-body">
+            <div className="flex items-center gap-3 sm:gap-6 text-white/45 text-[10px] sm:text-xs font-body whitespace-nowrap">
               <Link
                 href="/privacy"
                 className="hover:text-white/60 transition-colors duration-200"
@@ -607,7 +607,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-white/60 transition-colors duration-200"
               >
-                Made with ❤️ by AI Local Growth Inc.
+                Made with ❤️ by ALG
               </a>
             </div>
           </div>
