@@ -18,43 +18,19 @@ import {
   Wrench,
   Award,
   Building2,
+  CalendarDays,
+  FileCheck,
+  Lightbulb,
 } from "lucide-react";
 import { ShimmerButton } from "@/components/ui/ShimmerButton";
 import { NumberTicker } from "@/components/ui/NumberTicker";
 import { FAQ } from "@/components/ui/FAQ";
-import { services } from "@/data/services";
 import { reviews } from "@/data/reviews";
 import { testimonials } from "@/data/testimonials";
 import { getCityBySlug } from "@/data/cities";
 import type { CityPage } from "@/data/cities";
 
 const ease = [0.625, 0.05, 0, 1] as const;
-
-/** Service slug -> real photo path (hero cards only) */
-const serviceHeroImages: Record<string, string> = {
-  residential: "/images/services/residential.webp",
-  commercial: "/images/services/commercial.webp",
-};
-
-/** Full services grid matching reference - slug, label, icon, link (if service page exists) */
-const allGridServices = [
-  { slug: "electrical-repairs", label: "Electrical Repairs", icon: "/images/icons/electrical.webp", href: "/contact" },
-  { slug: "rewiring", label: "Electrical Rewiring / Upgrades", icon: "/images/icons/electrical-wiring.webp", href: "/services/rewiring" },
-  { slug: "panel-upgrades", label: "Electrical Panel Upgrades", icon: "/images/icons/electric-panel.webp", href: "/services/panel-upgrades" },
-  { slug: "pot-lights", label: "Pot Light Installation", icon: "/images/icons/ceiling-lamp.webp", href: "/services/pot-lights" },
-  { slug: "hot-tub-electrical", label: "Hot Tub & Pool Installation", icon: "/images/icons/hot-bath.webp", href: "/services/hot-tub-electrical" },
-  { slug: "ceiling-fans", label: "Ceiling Fans", icon: "/images/icons/ceiling-fan.webp", href: "/contact" },
-  { slug: "surge-protection", label: "Surge Protection", icon: "/images/icons/surge-protection.webp", href: "/contact" },
-  { slug: "lighting", label: "Lighting Installations", icon: "/images/icons/lighting.webp", href: "/services/lighting" },
-  { slug: "electrical-upgrades", label: "Electrical Upgrades", icon: "/images/icons/bulb.webp", href: "/contact" },
-  { slug: "lighting-upgrades", label: "Lighting Upgrades", icon: "/images/icons/ceiling-lamp.webp", href: "/services/lighting" },
-  { slug: "knob-and-tube", label: "Electrical System Installation", icon: "/images/icons/electrical-maintenance.webp", href: "/services/knob-and-tube" },
-  { slug: "ev-charger", label: "EV Charger Installation", icon: "/images/icons/bulb.webp", href: "/services/ev-charger" },
-  { slug: "electrical-inspections", label: "Electrical Inspections", icon: "/images/icons/electrical-maintenance.webp", href: "/contact" },
-  { slug: "backup-generators", label: "Backup Generator Systems", icon: "/images/icons/electric-generator.webp", href: "/contact" },
-  { slug: "exhaust-fans", label: "Exhaust Fans", icon: "/images/icons/fan.webp", href: "/contact" },
-  { slug: "home-security", label: "Home Security Systems", icon: "/images/icons/cctv.webp", href: "/contact" },
-];
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Clock,
@@ -69,6 +45,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Award,
   Phone,
   Building2,
+  Lightbulb,
+  CalendarDays,
+  FileCheck,
 };
 
 /** Gradient divider between sections */
@@ -131,10 +110,6 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
     .map((slug) => getCityBySlug(slug))
     .filter((c): c is CityPage => c !== undefined);
 
-  // Split services: 2 hero cards (residential + commercial), rest in grid
-  const heroServices = services.filter(
-    (s) => s.slug === "residential" || s.slug === "commercial"
-  );
   return (
     <>
       {/* ============================================================ */}
@@ -198,11 +173,11 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
               >
                 <ShimmerButton href="/contact">Book Your $49 Assessment</ShimmerButton>
                 <a
-                  href="tel:+16478729954"
+                  href="tel:+19054528439"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-transparent px-8 py-4 font-body text-[15px] font-semibold uppercase tracking-[0.05em] text-white transition-all duration-300 hover:border-white/60 hover:bg-white/5"
                 >
                   <Phone className="w-5 h-5" />
-                  Call (647) 872-9954
+                  Call (905) 452-8439
                 </a>
               </motion.div>
             </div>
@@ -229,11 +204,11 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
           >
             <ShimmerButton href="/contact" className="w-full">Book Your $49 Assessment</ShimmerButton>
             <a
-              href="tel:+16478729954"
+              href="tel:+19054528439"
               className="flex items-center justify-center gap-2 w-full rounded-lg border-2 border-white/30 bg-transparent px-8 py-4 font-body text-[15px] font-semibold uppercase tracking-[0.05em] text-white transition-all duration-300 hover:border-white/60 hover:bg-white/5"
             >
               <Phone className="w-5 h-5" />
-              Call (647) 872-9954
+              Call (905) 452-8439
             </a>
           </motion.div>
 
@@ -372,175 +347,256 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       <SectionDivider />
 
       {/* ============================================================ */}
-      {/* SECTION 3 - LOCAL KNOWLEDGE AUTHORITY (light grey)            */}
+      {/* SECTION 3 - COMMON ELECTRICAL ISSUES (light grey)            */}
       {/* ============================================================ */}
-      <section className="bg-[#F7F7F7] py-24 md:py-32">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease }}
-            className="text-center mb-14"
-          >
-            <span className="eyebrow-label">Local Expertise</span>
-            <h2 className="font-heading font-semibold text-[38px] md:text-[56px] text-[#1C1C1E] leading-[1.1]">
-              Your {city.name} Electrical Experts
-            </h2>
-            <p className="font-body text-[16px] text-[#94a3b8] mt-3">
-              15+ years serving {city.name} homes and businesses
-            </p>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+      {city.localChallenges && city.localChallenges.length > 0 && (
+        <section className="bg-[#F7F7F7] py-24 md:py-32">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1, ease }}
+              transition={{ duration: 0.5, ease }}
+              className="text-center mb-14"
             >
-              <p className="font-body text-[17px] text-[#64748b] leading-[1.8]">
-                {city.housingContext}
-              </p>
-              <div className="mt-8">
-                <ShimmerButton href="/contact">Book a $49 Assessment</ShimmerButton>
-              </div>
+              <span className="eyebrow-label">Local Electrical Challenges</span>
+              <h2 className="font-heading font-semibold text-[38px] md:text-[56px] text-[#1C1C1E] leading-[1.1]">
+                Common Electrical Issues
+                <br />
+                <span className="text-[#E31837]">in {city.name}</span>
+              </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {city.landmarks.map((landmark, index) => (
-                <motion.div
-                  key={landmark.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.06, ease }}
-                >
-                  <div className="flex items-start gap-3 bg-white rounded-2xl p-5 shadow-[0_2px_16px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 h-full">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E31837]/12 to-[#E31837]/5 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <MapPin className="w-4 h-4 text-[#E31837]" />
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+              {city.localChallenges.map((challenge, index) => {
+                const ChallengeIcon = iconMap[challenge.icon] || Zap;
+                return (
+                  <motion.div
+                    key={challenge.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.08, ease }}
+                    className="bg-white rounded-2xl p-8 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500"
+                  >
+                    <div className="flex items-start gap-5">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#E31837] to-[#FF4D6A] flex items-center justify-center flex-shrink-0 shadow-[0_4px_15px_rgba(227,24,55,0.25)]">
+                        <ChallengeIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-heading font-bold text-[18px] md:text-[20px] text-[#1C1C1E] mb-3">
+                          {challenge.title}
+                        </h3>
+                        <p className="font-body text-[15px] text-[#64748b] leading-[1.8]">
+                          {challenge.description}
+                        </p>
+                        {challenge.relatedService && (
+                          <Link
+                            href={`/services/${challenge.relatedService}`}
+                            className="inline-flex items-center gap-1.5 mt-4 text-[#E31837] text-[14px] font-semibold font-body hover:underline"
+                          >
+                            Learn More
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-heading font-medium text-[#1C1C1E] text-[15px]">
-                        {landmark.name}
-                      </h3>
-                      <p className="font-body text-[#64748b] text-[13px] mt-1 leading-relaxed">
-                        {landmark.context}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      <SectionDivider />
 
       {/* ============================================================ */}
-      {/* SECTION 4 - SERVICES (WHITE - icon grid matching reference)  */}
+      {/* SECTION 4 - TOP SERVICES IN [CITY] (white)                   */}
       {/* ============================================================ */}
-      <section className="bg-white py-24 md:py-32">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease }}
-            className="text-center mb-14"
-          >
-            <span className="eyebrow-label">Electrical Services</span>
-            <h2 className="font-heading font-semibold text-[38px] md:text-[56px] text-[#1C1C1E] leading-[1.1]">
-              Electrical Services in {city.name}
-            </h2>
-            <p className="font-body text-[15px] text-[#94a3b8] mt-3">
-              ESA Licensed. ECRA #7014710. Every job inspected and certified.
-            </p>
-          </motion.div>
+      {city.topServicesLocal && city.topServicesLocal.length > 0 && (
+        <section className="bg-white py-24 md:py-32">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease }}
+              className="text-center mb-14"
+            >
+              <span className="eyebrow-label">Services in {city.name}</span>
+              <h2 className="font-heading font-semibold text-[38px] md:text-[56px] text-[#1C1C1E] leading-[1.1]">
+                Electrical Services
+                <br />
+                <span className="text-[#E31837]">Tailored for {city.name}</span>
+              </h2>
+              <p className="font-body text-[15px] text-[#94a3b8] mt-3">
+                ESA Licensed. ECRA #7014710. Every job inspected and certified.
+              </p>
+            </motion.div>
 
-          {/* Two large hero cards - Residential + Commercial */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {heroServices.map((svc, index) => (
-              <motion.div
-                key={svc.slug}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease }}
-              >
-                <Link
-                  href={`/services/${svc.slug}`}
-                  className="group relative block rounded-2xl overflow-hidden min-h-[220px] md:min-h-[280px] shadow-[0_4px_30px_rgba(0,0,0,0.10)]"
-                >
-                  <Image
-                    src={serviceHeroImages[svc.slug] || "/images/services/residential.webp"}
-                    alt={svc.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-8">
-                    <h3 className="font-heading font-semibold text-white text-2xl md:text-3xl uppercase mb-3">
-                      {svc.shortTitle}
-                    </h3>
-                    <span className="inline-flex items-center gap-2 bg-[#E31837] text-white text-[13px] font-semibold font-body uppercase tracking-wider px-5 py-2.5 rounded-lg w-fit group-hover:bg-[#FF4D6A] transition-colors duration-300">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* 16-service icon grid matching reference */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
-            {allGridServices.map((svc, index) => (
+            {/* First 2 cards side by side (larger) */}
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {city.topServicesLocal.slice(0, 2).map((svc, index) => (
                 <motion.div
                   key={svc.slug}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 + index * 0.04, ease }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease }}
                 >
-                  <Link
-                    href={svc.href}
-                    className="group block rounded-2xl p-5 md:p-6 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-500 h-full text-center"
-                  >
-                    <div className="flex justify-center mb-4">
-                      <Image
-                        src={svc.icon}
-                        alt={svc.label}
-                        width={52}
-                        height={52}
-                        className="opacity-80 group-hover:opacity-100 transition-opacity"
-                      />
+                  <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500 h-full border border-gray-100">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E31837]/12 to-[#E31837]/5 flex items-center justify-center mb-5">
+                      <Zap className="w-6 h-6 text-[#E31837]" />
                     </div>
-                    <h3 className="font-heading font-medium text-[#1C1C1E] text-[14px] md:text-[15px] leading-tight group-hover:text-[#E31837] transition-colors">
-                      {svc.label}
+                    <h3 className="font-heading font-semibold text-[20px] md:text-[22px] text-[#1C1C1E] mb-4">
+                      {svc.title}
                     </h3>
-                  </Link>
+                    <p className="font-body text-[15px] text-[#64748b] leading-[1.8] mb-6">
+                      {svc.localContext}
+                    </p>
+                    <Link
+                      href={`/services/${svc.slug}`}
+                      className="inline-flex items-center gap-2 bg-[#E31837] text-white text-[13px] font-semibold font-body uppercase tracking-wider px-5 py-2.5 rounded-lg hover:bg-[#FF4D6A] transition-colors duration-300"
+                    >
+                      Book This Service
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="text-center mt-14"
-          >
-            <p className="font-body text-[17px] text-[#94a3b8] mb-6">
-              Every service backed by ESA inspection + 1-year workmanship warranty.
-            </p>
-            <ShimmerButton href="/contact">Book a $49 Assessment</ShimmerButton>
-          </motion.div>
-        </div>
-      </section>
+            {/* Remaining 3 cards in a row */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {city.topServicesLocal.slice(2).map((svc, index) => (
+                <motion.div
+                  key={svc.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.08, ease }}
+                >
+                  <div className="bg-white rounded-2xl p-7 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500 h-full border border-gray-100">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E31837]/12 to-[#E31837]/5 flex items-center justify-center mb-4">
+                      <Zap className="w-5 h-5 text-[#E31837]" />
+                    </div>
+                    <h3 className="font-heading font-semibold text-[18px] text-[#1C1C1E] mb-3">
+                      {svc.title}
+                    </h3>
+                    <p className="font-body text-[15px] text-[#64748b] leading-[1.8] mb-5">
+                      {svc.localContext}
+                    </p>
+                    <Link
+                      href={`/services/${svc.slug}`}
+                      className="inline-flex items-center gap-2 text-[#E31837] text-[13px] font-semibold font-body hover:underline"
+                    >
+                      Book This Service
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3, ease }}
+              className="text-center mt-14"
+            >
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 font-body text-[#E31837] font-semibold text-[15px] hover:underline"
+              >
+                View All Services
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      <SectionDivider />
 
       {/* ============================================================ */}
-      {/* SECTION 4B - OUR RECENT WORK GALLERY (light grey)            */}
+      {/* SECTION 5 - HOUSING HISTORY TIMELINE (light grey)            */}
+      {/* ============================================================ */}
+      {city.housingEras && city.housingEras.length > 0 && (
+        <section className="bg-[#F7F7F7] py-24 md:py-32">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease }}
+              className="text-center mb-14"
+            >
+              <span className="eyebrow-label">{city.name} Housing Stock</span>
+              <h2 className="font-heading font-semibold text-[38px] md:text-[56px] text-[#1C1C1E] leading-[1.1]">
+                Your Home&apos;s
+                <br />
+                <span className="text-[#E31837]">Electrical History</span>
+              </h2>
+              <p className="font-body text-[16px] text-[#94a3b8] mt-3 max-w-2xl mx-auto">
+                Understanding your home&apos;s era helps us diagnose issues faster and recommend the right solutions.
+              </p>
+            </motion.div>
+
+            <div className="relative">
+              {/* Vertical red connecting line - desktop only */}
+              <div className="hidden md:block absolute left-[200px] top-4 bottom-4 w-px bg-gradient-to-b from-[#E31837]/40 via-[#E31837]/20 to-transparent" />
+
+              <div className="space-y-8 md:space-y-10">
+                {city.housingEras.map((era, index) => (
+                  <motion.div
+                    key={era.era}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease }}
+                    className="relative"
+                  >
+                    <div className="flex flex-col md:flex-row md:gap-12">
+                      {/* Left: era name + years badge */}
+                      <div className="md:w-[200px] flex-shrink-0 mb-4 md:mb-0 relative">
+                        {/* Red dot on connecting line */}
+                        <div className="hidden md:block absolute right-[-6px] top-3 w-3 h-3 rounded-full bg-[#E31837] shadow-[0_0_8px_rgba(227,24,55,0.4)]" />
+                        <h3 className="font-heading font-bold text-[18px] text-[#1C1C1E]">
+                          {era.era}
+                        </h3>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 mt-2 bg-[#E31837]/10 rounded-full text-[#E31837] text-[12px] font-semibold font-body">
+                          <CalendarDays className="w-3 h-3" />
+                          {era.years}
+                        </span>
+                      </div>
+
+                      {/* Right: description + electrical needs */}
+                      <div className="flex-1 bg-white rounded-2xl p-7 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
+                        <p className="font-body text-[15px] text-[#64748b] leading-[1.8] mb-5">
+                          {era.description}
+                        </p>
+                        <ul className="space-y-2.5">
+                          {era.electricalNeeds.map((need, needIndex) => (
+                            <li key={needIndex} className="flex items-start gap-2.5">
+                              <Check className="w-4 h-4 text-[#E31837] flex-shrink-0 mt-0.5" />
+                              <span className="font-body text-[14px] text-[#1C1C1E]">{need}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============================================================ */}
+      {/* SECTION 6 - OUR RECENT WORK GALLERY (light grey)             */}
       {/* ============================================================ */}
       <section className="bg-[#F7F7F7] py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -597,7 +653,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 5 - NEIGHBOURHOODS + GOOGLE MAPS (white)             */}
+      {/* SECTION 7 - NEIGHBOURHOODS + GOOGLE MAPS (white) - ENHANCED  */}
       {/* ============================================================ */}
       <section className="bg-white py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -641,21 +697,55 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
             )}
 
             <div>
-              <div className="flex flex-wrap gap-3">
-                {city.neighborhoods.map((neighborhood, index) => (
-                  <motion.span
-                    key={neighborhood}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.04, ease }}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#F7F7F7] rounded-full text-[#1C1C1E] text-[13px] font-semibold font-body shadow-sm hover:bg-[#E31837]/5 hover:shadow-md transition-all duration-300 cursor-default"
-                  >
-                    <MapPin className="w-3 h-3 text-[#E31837]" />
-                    {neighborhood}
-                  </motion.span>
-                ))}
-              </div>
+              {/* Neighbourhood Cluster Cards */}
+              {city.neighborhoodHighlights && city.neighborhoodHighlights.length > 0 ? (
+                <div className="space-y-4 max-h-[420px] overflow-y-auto pr-2">
+                  {city.neighborhoodHighlights.map((highlight, index) => (
+                    <motion.div
+                      key={highlight.cluster}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.08, ease }}
+                      className="bg-[#F7F7F7] rounded-2xl p-6 hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300"
+                    >
+                      <h3 className="font-heading font-bold text-[16px] text-[#1C1C1E] mb-3">
+                        {highlight.cluster}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {highlight.neighborhoods.map((n) => (
+                          <span
+                            key={n}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-[#1C1C1E] text-[12px] font-semibold font-body shadow-sm"
+                          >
+                            <MapPin className="w-2.5 h-2.5 text-[#E31837]" />
+                            {n}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="font-body text-[13px] text-[#64748b] leading-relaxed">
+                        {highlight.topService}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-3">
+                  {city.neighborhoods.map((neighborhood, index) => (
+                    <motion.span
+                      key={neighborhood}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.04, ease }}
+                      className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#F7F7F7] rounded-full text-[#1C1C1E] text-[13px] font-semibold font-body shadow-sm hover:bg-[#E31837]/5 hover:shadow-md transition-all duration-300 cursor-default"
+                    >
+                      <MapPin className="w-3 h-3 text-[#E31837]" />
+                      {neighborhood}
+                    </motion.span>
+                  ))}
+                </div>
+              )}
 
               {city.postalCodes && city.postalCodes.length > 0 && (
                 <motion.p
@@ -676,7 +766,120 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       <SectionDivider />
 
       {/* ============================================================ */}
-      {/* SECTION 6 - WHY SPE (light grey)                             */}
+      {/* SECTION 8 - PERMITS & REGULATIONS (white)                    */}
+      {/* ============================================================ */}
+      {city.permitInfo && (
+        <section className="bg-white py-24 md:py-32">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease }}
+              className="text-center mb-14"
+            >
+              <span className="eyebrow-label">Permits &amp; Compliance</span>
+              <h2 className="font-heading font-semibold text-[38px] md:text-[56px] text-[#1C1C1E] leading-[1.1]">
+                {city.name} Electrical
+                <br />
+                <span className="text-[#E31837]">Permits &amp; Regulations</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              {/* Left - Permit Note */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1, ease }}
+                className="bg-[#F7F7F7] rounded-2xl p-8"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E31837]/12 to-[#E31837]/5 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[#E31837]" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-[18px] text-[#1C1C1E]">
+                    Electrical Permits
+                  </h3>
+                </div>
+                <p className="font-body text-[15px] text-[#64748b] leading-[1.8]">
+                  {city.permitInfo.permitNote}
+                </p>
+              </motion.div>
+
+              {/* Right - Insurance Note */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease }}
+                className="bg-[#F7F7F7] rounded-2xl p-8"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E31837]/12 to-[#E31837]/5 flex items-center justify-center">
+                    <Home className="w-6 h-6 text-[#E31837]" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-[18px] text-[#1C1C1E]">
+                    Insurance &amp; Liability
+                  </h3>
+                </div>
+                <p className="font-body text-[15px] text-[#64748b] leading-[1.8]">
+                  {city.permitInfo.insuranceNote}
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Info pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3, ease }}
+              className="flex flex-wrap justify-center gap-4"
+            >
+              {[
+                { label: "Municipality", value: city.permitInfo.municipality, icon: Building2 },
+                { label: "ESA Office", value: city.permitInfo.esaOffice, icon: FileCheck },
+                { label: "Utility Provider", value: city.permitInfo.utilityProvider, icon: Zap },
+              ].map((pill) => (
+                <div
+                  key={pill.label}
+                  className="inline-flex items-center gap-3 px-5 py-3 bg-[#F7F7F7] rounded-xl"
+                >
+                  <pill.icon className="w-4 h-4 text-[#E31837]" />
+                  <div>
+                    <span className="font-body text-[11px] text-[#94a3b8] uppercase tracking-wider block">
+                      {pill.label}
+                    </span>
+                    <span className="font-body text-[14px] font-semibold text-[#1C1C1E]">
+                      {pill.value}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* ESA License callout */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4, ease }}
+              className="text-center mt-8"
+            >
+              <p className="font-body text-[13px] text-[#94a3b8]">
+                ESA Licensed - ECRA #7014710 - Fully Insured - Serving {city.permitInfo.region}
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      <SectionDivider />
+
+      {/* ============================================================ */}
+      {/* SECTION 9 - WHY SPE (light grey)                             */}
       {/* ============================================================ */}
       <section className="bg-[#F7F7F7] py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -727,7 +930,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 7 - STATS STRIP (white)                              */}
+      {/* SECTION 10 - STATS STRIP (white)                             */}
       {/* ============================================================ */}
       <section className="bg-white py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -766,14 +969,14 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 8 - UNIQUE SECTION (white)                           */}
+      {/* SECTION 11 - UNIQUE SECTION (white)                          */}
       {/* ============================================================ */}
       <UniqueSection city={city} />
 
       <SectionDivider />
 
       {/* ============================================================ */}
-      {/* SECTION 9 - TESTIMONIALS (light grey)                        */}
+      {/* SECTION 12 - TESTIMONIALS (light grey)                       */}
       {/* ============================================================ */}
       <section className="bg-[#F7F7F7] py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -866,7 +1069,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 10 - FAQ (white)                                     */}
+      {/* SECTION 13 - FAQ (white)                                     */}
       {/* ============================================================ */}
       {city.faqs.length > 0 && (
         <section className="bg-white py-24 md:py-32">
@@ -898,7 +1101,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       <SectionDivider />
 
       {/* ============================================================ */}
-      {/* SECTION 11 - RELATED CITIES (light grey)                     */}
+      {/* SECTION 14 - RELATED CITIES (light grey)                     */}
       {/* ============================================================ */}
       {relatedCitiesData.length > 0 && (
         <section className="bg-[#F7F7F7] py-24 md:py-32">
@@ -965,7 +1168,7 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
       )}
 
       {/* ============================================================ */}
-      {/* SECTION 12 - FINAL CTA (light grey)                          */}
+      {/* SECTION 15 - FINAL CTA (light grey)                          */}
       {/* ============================================================ */}
       <section className="relative bg-[#F7F7F7] py-24 md:py-32 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] opacity-[0.03] pointer-events-none" style={{ background: "radial-gradient(ellipse, #E31837, transparent 70%)" }} />
@@ -1004,11 +1207,11 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
           >
             <ShimmerButton href="/contact">Book Your $49 Assessment</ShimmerButton>
             <a
-              href="tel:+16478729954"
+              href="tel:+19054528439"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 font-body text-[15px] font-semibold uppercase tracking-[0.05em] text-[#1C1C1E] shadow-[0_2px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
-              Call (647) 872-9954
+              Call (905) 452-8439
             </a>
           </motion.div>
 
