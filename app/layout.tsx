@@ -38,12 +38,19 @@ export const metadata: Metadata = {
     description: `Licensed electricians serving Brampton, Mississauga, and the GTA. ESA ${business.esaLicense}. $49 assessment credited toward your project. Call ${business.phone}.`,
     images: [
       {
-        url: `${business.domain}/og-image.png`,
+        url: `${business.domain}/images/og-image.jpg`,
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: `${business.name} - Licensed Electricians in Brampton & GTA`,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${business.name} | Licensed Electricians in Brampton & GTA`,
+    description: `Licensed electricians serving Brampton, Mississauga, and the GTA. ESA ${business.esaLicense}. Call ${business.phone}.`,
+    images: [`${business.domain}/images/og-image.jpg`],
   },
   other: {
     "geo.region": "CA-ON",
