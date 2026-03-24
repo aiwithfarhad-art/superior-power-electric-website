@@ -143,66 +143,100 @@
   @media (max-width: 600px) {
     .features-grid { grid-template-columns: 1fr; }
 
-    .hero { padding: 40px 20px 36px; }
-    .hero p { font-size: 15px; }
+    .hero { padding: 44px 20px 40px; }
+    .hero p { font-size: 16px; }
 
-    .savings-bar { padding: 20px 16px; }
+    .savings-bar { padding: 24px 16px; }
     .savings-grid { gap: 12px; flex-direction: column; }
-    .savings-grid .vs { font-size: 12px; margin: -4px 0; }
-    .savings-item .price { font-size: 22px; }
-    .savings-item .desc { font-size: 11px; }
-    .savings-bar .amount { font-size: 28px; }
+    .savings-grid .vs { font-size: 13px; margin: -4px 0; }
+    .savings-item .price { font-size: 26px; }
+    .savings-item .desc { font-size: 13px; }
+    .savings-bar .amount { font-size: 32px; }
+    .savings-bar .label { font-size: 15px; }
 
     .container { padding: 0 16px; }
-    .section { padding: 28px 0; }
-    .section-title { font-size: 18px; }
+    .section { padding: 32px 0; }
+    .section-title { font-size: 22px; }
 
-    .feature-card { padding: 14px; }
-    .feature-card h3 { font-size: 13px; }
-    .feature-card p { font-size: 12px; }
+    .feature-card { padding: 16px; }
+    .feature-card .emoji { font-size: 26px; }
+    .feature-card h3 { font-size: 16px; }
+    .feature-card p { font-size: 14px; line-height: 1.6; }
 
     .rankings-section { padding: 16px; }
-    .rankings-caption { font-size: 12px; padding: 10px 12px; }
+    .rankings-caption { font-size: 14px; padding: 12px 14px; line-height: 1.7; }
 
-    /* Comparison table - card layout on mobile */
+    /* Comparison table - simple two-row cards on mobile */
     .comparison table { display: block; }
     .comparison thead { display: none; }
     .comparison tbody { display: block; }
     .comparison tr {
-      display: block;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
       background: white;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 8px;
+      border-radius: 12px;
+      padding: 0;
+      margin-bottom: 10px;
       border: 1px solid #e5e7eb;
+      overflow: hidden;
     }
     .comparison td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 0;
+      display: block;
+      padding: 0;
       border: none !important;
       background: none !important;
-      font-size: 13px;
-    }
-    .comparison td:first-child {
-      font-weight: 600;
       font-size: 14px;
-      margin-bottom: 6px;
-      display: block;
-      border-bottom: 1px solid #f1f5f9 !important;
-      padding-bottom: 8px !important;
+      text-align: center;
     }
-    .comparison td:nth-child(2)::before { content: 'Markate: '; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
-    .comparison td:nth-child(3)::before { content: 'ALG: '; font-size: 11px; color: #E31837; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-    .comparison td:nth-child(3) { color: #1C1C1E; }
+    /* Feature name - spans full width as header */
+    .comparison td:first-child {
+      grid-column: 1 / -1;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 16px 10px;
+      background: #f8fafc !important;
+      border-bottom: 1px solid #e5e7eb !important;
+    }
+    /* Markate column */
+    .comparison td:nth-child(2) {
+      padding: 10px 12px 12px;
+      border-right: 1px solid #f1f5f9 !important;
+    }
+    .comparison td:nth-child(2)::before {
+      content: 'Markate';
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    /* ALG column */
+    .comparison td:nth-child(3) {
+      padding: 10px 12px 12px;
+      background: rgba(227, 24, 55, 0.04) !important;
+    }
+    .comparison td:nth-child(3)::before {
+      content: 'ALG';
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      color: #E31837;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
 
-    .bottom-cta { padding: 36px 20px; }
-    .bottom-cta p { font-size: 14px; }
-    .cta-price { font-size: 24px; padding: 12px 32px; }
+    .bottom-cta { padding: 40px 20px; }
+    .bottom-cta h2 { font-size: 26px; }
+    .bottom-cta p { font-size: 16px; line-height: 1.7; }
+    .cta-price { font-size: 26px; padding: 14px 36px; }
+    .cta-note { font-size: 14px; }
 
-    .guarantee { flex-direction: column; text-align: center; padding: 14px; }
-    .guarantee p { text-align: center; font-size: 12px; }
+    .guarantee { flex-direction: column; text-align: center; padding: 16px; }
+    .guarantee p { text-align: center; font-size: 14px; line-height: 1.6; }
   }
   .feature-card {
     background: white;
@@ -228,13 +262,13 @@
   }
   
   .feature-card.highlight {
-    background: linear-gradient(135deg, #1C1C1E, #2a2a2e);
+    background: linear-gradient(135deg, #E31837 0%, #b81230 100%);
     color: white;
     border-color: #E31837;
     grid-column: 1 / -1;
   }
-  .feature-card.highlight p { color: #94a3b8; }
-  .feature-card.highlight h3 { color: #E31837; }
+  .feature-card.highlight p { color: rgba(255,255,255,0.85); }
+  .feature-card.highlight h3 { color: white; }
 
   .rankings-section {
     background: white;
