@@ -173,11 +173,11 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
               >
                 <ShimmerButton href="/contact">Book Your $49 Assessment</ShimmerButton>
                 <a
-                  href="tel:+19054528439"
+                  href="tel:+16478729954"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-transparent px-8 py-4 font-body text-[15px] font-semibold uppercase tracking-[0.05em] text-white transition-all duration-300 hover:border-white/60 hover:bg-white/5"
                 >
                   <Phone className="w-5 h-5" />
-                  Call (905) 452-8439
+                  Call (647) 872-9954
                 </a>
               </motion.div>
             </div>
@@ -204,11 +204,11 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
           >
             <ShimmerButton href="/contact" className="w-full">Book Your $49 Assessment</ShimmerButton>
             <a
-              href="tel:+19054528439"
+              href="tel:+16478729954"
               className="flex items-center justify-center gap-2 w-full rounded-lg border-2 border-white/30 bg-transparent px-8 py-4 font-body text-[15px] font-semibold uppercase tracking-[0.05em] text-white transition-all duration-300 hover:border-white/60 hover:bg-white/5"
             >
               <Phone className="w-5 h-5" />
-              Call (905) 452-8439
+              Call (647) 872-9954
             </a>
           </motion.div>
 
@@ -1207,11 +1207,11 @@ export function CityPageTemplate({ city }: CityPageTemplateProps) {
           >
             <ShimmerButton href="/contact">Book Your $49 Assessment</ShimmerButton>
             <a
-              href="tel:+19054528439"
+              href="tel:+16478729954"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 font-body text-[15px] font-semibold uppercase tracking-[0.05em] text-[#1C1C1E] shadow-[0_2px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
-              Call (905) 452-8439
+              Call (647) 872-9954
             </a>
           </motion.div>
 

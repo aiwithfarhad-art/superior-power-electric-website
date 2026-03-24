@@ -52,7 +52,7 @@ const marqueeItems = [
   "47 Five-Star Reviews",
   "Same-Day Service",
   "ESA #7014710",
-  "15+ Years Experience",
+  "Trusted Since 2020",
   "100% Licensed & Insured",
   "Brampton's Most Trusted",
   "Free Remote Estimates",
@@ -239,7 +239,7 @@ export default function HeroSection() {
               {[
                 { value: "500+", label: "Jobs Completed" },
                 { value: "47", label: "5-Star Reviews" },
-                { value: "15+", label: "Years Experience" },
+                { value: "15+", label: "Yrs in the Trade" },
                 { value: "100%", label: "Licensed & Insured" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">

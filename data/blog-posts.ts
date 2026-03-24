@@ -376,9 +376,9 @@ export const blogPosts: BlogPost[] = [
           "We recommend a professional inspection every 10 years for panels under 25 years old, and every 5 years for panels over 25 years old. If you notice any warning signs, get it checked immediately.",
       },
       {
-        question: "Are Federal Pacific panels dangerous?",
+        question: "Are Federal Pioneer panels dangerous?",
         answer:
-          "Federal Pacific Electric (FPE) Stab-Lok panels have been the subject of widespread safety concerns. Testing has shown that some FPE breakers fail to trip under overload conditions. If your home has an FPE panel, we recommend replacement.",
+          "Federal Pioneer Stab-Lok panels have been the subject of widespread safety concerns. Testing has shown that some Federal Pioneer breakers fail to trip under overload conditions. If your home has a Federal Pioneer panel, we recommend replacement.",
       },
       {
         question: "Can a bad electrical panel cause a fire?",

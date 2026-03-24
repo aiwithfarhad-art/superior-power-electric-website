@@ -74,68 +74,68 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 const heroBackgrounds: Record<string, string> = {
-  "panel-upgrades": "/images/services/panel-upgrade-hero.webp",
+  "panel-upgrades": "/images/projects/panel-upgrade-1.webp",
 };
 
 /** Service-specific "Our Work" gallery photos */
 const serviceGalleryPhotos: Record<string, { src: string; alt: string; label: string }[]> = {
   "pot-lights": [
-    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
-    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting with pot lights", label: "Kitchen Lighting" },
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/projects/pot-lights-1.webp", alt: "Pot light installation in Mississauga living room", label: "Living Room Pot Lights" },
+    { src: "/images/projects/pot-lights-2.webp", alt: "Pot light installation in Brampton home", label: "Bedroom Pot Lights" },
+    { src: "/images/projects/commercial-3.webp", alt: "Modern pendant lighting installation", label: "Modern Lighting" },
   ],
   "panel-upgrades": [
-    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
-    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/projects/panel-upgrade-1.webp", alt: "200A panel upgrade with SPE branding", label: "200A Panel Upgrade" },
+    { src: "/images/projects/panel-upgrade-2.webp", alt: "Siemens panel upgrade with labeled breakers", label: "Siemens Panel Install" },
+    { src: "/images/projects/panel-upgrade-3.webp", alt: "Full panel upgrade with junction box", label: "Panel & Junction Box" },
   ],
   lighting: [
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
-    { src: "/images/instagram/ig-4.webp", alt: "Commercial lighting installation", label: "Commercial Lighting" },
-    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting with pot lights", label: "Kitchen Lighting" },
+    { src: "/images/projects/commercial-3.webp", alt: "Modern geometric pendant lighting", label: "Pendant Lighting" },
+    { src: "/images/projects/pot-lights-1.webp", alt: "Recessed pot light installation", label: "Recessed Lighting" },
+    { src: "/images/projects/commercial-2.webp", alt: "Commercial LED panel lighting", label: "LED Panel Lights" },
   ],
   rewiring: [
-    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
-    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
-    { src: "/images/instagram/ig-4.webp", alt: "Commercial lighting installation", label: "Commercial Lighting" },
+    { src: "/images/projects/panel-upgrade-4.webp", alt: "Complete rewiring with new panel", label: "Full Rewire" },
+    { src: "/images/projects/panel-upgrade-5.webp", alt: "Panel upgrade during home rewire", label: "Panel Upgrade" },
+    { src: "/images/projects/exhaust-fan-install.webp", alt: "Exhaust fan wiring installation", label: "Fan Wiring" },
   ],
   "knob-and-tube": [
-    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
-    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting", label: "Kitchen Lighting" },
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/projects/panel-upgrade-2.webp", alt: "Modern panel replacing old wiring", label: "Panel Replacement" },
+    { src: "/images/projects/panel-upgrade-7.webp", alt: "New panel after knob and tube removal", label: "New Panel Install" },
+    { src: "/images/projects/pot-lights-1.webp", alt: "Modern pot lights replacing old fixtures", label: "Modern Lighting" },
   ],
   "hot-tub-electrical": [
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
-    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
-    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/projects/panel-upgrade-6.webp", alt: "Eaton panel with dedicated hot tub circuit", label: "Dedicated Circuit" },
+    { src: "/images/projects/panel-upgrade-5.webp", alt: "Panel upgrade for hot tub hookup", label: "Panel Upgrade" },
+    { src: "/images/projects/electric-fireplace.webp", alt: "Dedicated outlet installation", label: "Outlet Install" },
   ],
   "ev-charger": [
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
-    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
-    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
+    { src: "/images/projects/ev-charger-1.webp", alt: "Grizzl-E EV charger installation", label: "Grizzl-E Charger" },
+    { src: "/images/projects/ev-charger-2.webp", alt: "Audi EV charger garage installation", label: "Audi Charger Install" },
+    { src: "/images/projects/panel-upgrade-1.webp", alt: "Panel upgrade for EV charger circuit", label: "Panel for EV" },
   ],
   residential: [
-    { src: "/images/instagram/ig-1.webp", alt: "Kitchen pot light installation", label: "Kitchen Pot Lights" },
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
-    { src: "/images/instagram/ig-3.webp", alt: "Kitchen lighting", label: "Kitchen Lighting" },
+    { src: "/images/projects/pot-lights-1.webp", alt: "Living room pot light installation", label: "Pot Lights" },
+    { src: "/images/projects/panel-upgrade-2.webp", alt: "Residential panel upgrade", label: "Panel Upgrade" },
+    { src: "/images/projects/electric-fireplace.webp", alt: "Electric fireplace installation", label: "Fireplace Install" },
   ],
   commercial: [
-    { src: "/images/instagram/ig-4.webp", alt: "Commercial lighting installation", label: "Commercial Lighting" },
-    { src: "/images/instagram/ig-5.webp", alt: "Electrical panel upgrade", label: "Panel Upgrade" },
-    { src: "/images/instagram/ig-2.webp", alt: "Exterior home lighting", label: "Exterior Lighting" },
+    { src: "/images/projects/commercial-1.webp", alt: "Commercial barbershop electrical fit-out", label: "Barbershop Fit-Out" },
+    { src: "/images/projects/commercial-2.webp", alt: "Commercial LED lighting installation", label: "LED Lighting" },
+    { src: "/images/projects/commercial-3.webp", alt: "Modern pendant light in commercial space", label: "Pendant Lighting" },
   ],
 };
 
 const serviceImages: Record<string, string> = {
-  "panel-upgrades": "/images/services/panel-upgrade.webp",
-  "pot-lights": "/images/services/pot-lights.webp",
-  "ev-charger": "/images/services/ev-charger.jpg",
-  residential: "/images/services/residential.webp",
-  commercial: "/images/services/commercial.webp",
-  rewiring: "/images/services/rewiring.webp",
-  "hot-tub-electrical": "/images/services/hot-tub.webp",
-  lighting: "/images/services/lighting.webp",
-  "knob-and-tube": "/images/services/knob-tube.webp",
+  "panel-upgrades": "/images/projects/panel-upgrade-3.webp",
+  "pot-lights": "/images/projects/pot-lights-1.webp",
+  "ev-charger": "/images/projects/ev-charger-1.webp",
+  residential: "/images/projects/pot-lights-1.webp",
+  commercial: "/images/projects/commercial-1.webp",
+  rewiring: "/images/projects/panel-upgrade-4.webp",
+  "hot-tub-electrical": "/images/projects/panel-upgrade-6.webp",
+  lighting: "/images/projects/commercial-3.webp",
+  "knob-and-tube": "/images/projects/panel-upgrade-2.webp",
 };
 
 const slugToReviewService: Record<string, string> = {
@@ -1044,7 +1044,7 @@ export function ServicePageTemplate({
                   500+ Jobs Completed
                 </p>
                 <h3 className="font-heading text-xl md:text-2xl font-bold text-[#1C1C1E] uppercase tracking-tight mb-2">
-                  15+ Years Experience
+                  5+ Years in Business
                 </h3>
                 <p className="text-[#64748b] max-w-xs text-lg md:text-xl leading-relaxed">
                   Serving Brampton and the Greater Toronto Area since 2020 with consistent quality.
@@ -1445,6 +1445,39 @@ export function ServicePageTemplate({
           </div>
         </section>
       )}
+
+      {/* ============================================
+          12.5 FINANCING BANNER
+          ============================================ */}
+      <section className="py-12 md:py-16 bg-gradient-to-r from-[#E31837] to-[#C21430] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 20px, white 20px, white 21px)" }} />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                <Wallet className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-white uppercase tracking-tight">
+                  Financing Available
+                </h3>
+                <p className="text-white/80 text-sm md:text-base mt-1">
+                  Affordable monthly payments for panel upgrades, rewiring, and more. Apply online in minutes.
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://www.financeit.ca/s/ppv2rQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#E31837] rounded-lg font-heading text-sm font-bold uppercase tracking-wide hover:bg-white/90 transition-colors shrink-0"
+            >
+              Apply Now
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* ============================================
           13. FINAL CTA (dark bg)

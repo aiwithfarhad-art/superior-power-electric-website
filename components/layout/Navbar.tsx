@@ -279,9 +279,9 @@ const MegaContact = ({ onClose }: { onClose: () => void }) => (
             <Clock size={16} className="text-gray-400" />
           </div>
           <div className="text-[14px] text-gray-600 space-y-1">
-            <p>Mon - Fri: 8 AM - 6 PM</p>
-            <p>Sat: 9 AM - 3 PM</p>
-            <p className="text-gray-400">Sun: Closed</p>
+            <p>Mon - Fri: 8 AM - 5 PM</p>
+            <p>Sat - Sun: 9 AM - 5 PM</p>
+            <p className="text-[#E31837] font-medium">24/7 Emergency Calls</p>
           </div>
         </div>
       </div>

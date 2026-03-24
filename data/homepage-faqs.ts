@@ -17,7 +17,7 @@ export const homeFaqs = [
   {
     question: "Are your electricians licensed?",
     answer:
-      "Yes. Superior Power Electric holds ESA license #7014710 and is fully insured. Owner Shaun Pennant has over 15 years of experience as a licensed electrician.",
+      "Yes. Superior Power Electric holds ESA license #7014710 and is fully insured. Owner Shaun Pennant has over 15 years of hands-on experience in the electrical trade.",
   },
   {
     question: "What areas do you serve?",

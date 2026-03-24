@@ -48,6 +48,7 @@ const companyLinks = [
   { name: "Reviews", href: "https://share.google/rXefBgv7k6fmqcU5l" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
+  { name: "Financing", href: "https://www.financeit.ca/s/ppv2rQ" },
 ];
 
 const socialLinks = [

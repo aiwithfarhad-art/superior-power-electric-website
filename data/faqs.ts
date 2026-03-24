@@ -13,7 +13,7 @@ export const faqs = [
   },
   {
     q: "How much experience do you have?",
-    a: "We have over 15 years of industry expertise in both residential and commercial electrical work across the Greater Toronto Area.",
+    a: "Our owner Shaun Pennant brings over 15 years of hands-on electrical trade experience to every project across the Greater Toronto Area.",
   },
   {
     q: "How do your estimates work?",

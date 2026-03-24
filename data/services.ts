@@ -44,7 +44,7 @@ export const services: Service[] = [
       {
         heading: "Complete Home Electrical Services",
         content:
-          "Your home's electrical system is the backbone of everything. From the moment you flip a light switch to when you plug in your phone at night, you rely on safe, reliable wiring. Superior Power Electric provides complete residential electrical services for homeowners across Brampton, Mississauga, and the Greater Toronto Area. With over 15 years of experience and ESA/ECRA License #7014710, every job we complete meets or exceeds Ontario Electrical Safety Code standards.",
+          "Your home's electrical system is the backbone of everything. From the moment you flip a light switch to when you plug in your phone at night, you rely on safe, reliable wiring. Superior Power Electric provides complete residential electrical services for homeowners across Brampton, Mississauga, and the Greater Toronto Area. With ESA/ECRA License #7014710, every job we complete meets or exceeds Ontario Electrical Safety Code standards.",
       },
       {
         heading: "Our Residential Services",
@@ -54,7 +54,7 @@ export const services: Service[] = [
       {
         heading: "Why Brampton Homeowners Choose Us",
         content:
-          "With 47 five-star Google reviews and over 15 years serving the GTA, homeowners trust Superior Power Electric for one simple reason: we do the job right the first time. We are fully ESA/ECRA licensed (#7014710), which means every project is inspected and certified. Whether you need a single outlet replaced or a complete home rewire, you get the same level of care and professionalism.",
+          "With 47 five-star Google reviews and a team led by Shaun Pennant with over 15 years in the electrical trade, homeowners trust Superior Power Electric for one simple reason: we do the job right the first time. We are fully ESA/ECRA licensed (#7014710), which means every project is inspected and certified. Whether you need a single outlet replaced or a complete home rewire, you get the same level of care and professionalism.",
       },
     ],
     faqs: [

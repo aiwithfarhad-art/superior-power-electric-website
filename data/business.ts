@@ -13,7 +13,7 @@ export const business = {
     full: "59 Maisonneuve Blvd, Brampton, ON L6P 1Y7",
   },
   esaLicense: "#7014710",
-  yearsInBusiness: "15+",
+  yearsInBusiness: "5+",
   yearsInElectrical: "15+",
   companyFounded: 2020,
   googleReviews: {

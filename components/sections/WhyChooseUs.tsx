@@ -13,9 +13,9 @@ const reasons = [
   },
   {
     icon: Clock,
-    title: "15+ Years Experience",
+    title: "5+ Years in Business",
     description:
-      "Over 15 years serving Brampton and the GTA. We have seen it all and know how to handle any electrical challenge.",
+      "Serving Brampton and the GTA since 2020. 500+ jobs completed with a perfect 5-star rating on Google.",
   },
   {
     icon: Star,

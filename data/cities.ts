@@ -272,9 +272,9 @@ export const cities: CityPage[] = [
         era: "Heart Lake and Credit Valley Homes",
         years: "1975 - 1990",
         description:
-          "The subdivisions around Heart Lake Conservation Area and along Credit Valley were built during Brampton's first growth boom. Most have 100-amp panels with copper wiring, but the panels are now 35 to 50 years old and many are Federal Pacific or Zinsco brands known for breaker failure.",
+          "The subdivisions around Heart Lake Conservation Area and along Credit Valley were built during Brampton's first growth boom. Most have 100-amp panels with copper wiring, but the panels are now 35 to 50 years old and many are Federal Pioneer or Zinsco brands known for breaker failure.",
         electricalNeeds: [
-          "Federal Pacific or Zinsco panel replacement",
+          "Federal Pioneer or Zinsco panel replacement",
           "Kitchen and bathroom circuit upgrades for modern appliances",
           "Pot light retrofits replacing original flush-mount fixtures",
           "Dedicated home office circuits",
@@ -335,9 +335,9 @@ export const cities: CityPage[] = [
         relatedService: "ev-charger",
       },
       {
-        title: "Federal Pacific Panels Still in Service",
+        title: "Federal Pioneer Panels Still in Service",
         description:
-          "Homes built in the Heart Lake and Credit Valley areas during the late 1970s and 1980s often have Federal Pacific Stab-Lok panels. These panels have a documented history of breakers failing to trip during overloads. Insurance companies flag them during home inspections, and they should be replaced proactively before they cause a fire.",
+          "Homes built in the Heart Lake and Credit Valley areas during the late 1970s and 1980s often have Federal Pioneer Stab-Lok panels. These panels have a documented history of breakers failing to trip during overloads. Insurance companies flag them during home inspections, and they should be replaced proactively before they cause a fire.",
         icon: "Shield",
         relatedService: "panel-upgrades",
       },
@@ -615,9 +615,9 @@ export const cities: CityPage[] = [
           "A standard residential EV charger installation in Mississauga costs $1,000 to $2,500, including the dedicated 50-amp circuit, breaker, wiring to your garage, and ESA permit. Condo installations typically cost $2,000 to $4,000 due to longer wire runs and load management requirements. We provide a written quote before any work begins.",
       },
       {
-        question: "Do you replace Federal Pacific panels in Mississauga?",
+        question: "Do you replace Federal Pioneer panels in Mississauga?",
         answer:
-          "Yes. Federal Pacific Stab-Lok panels are common in Mississauga homes built in the late 1970s and 1980s, especially in Erin Mills, Meadowvale, and Cooksville. These panels have a documented history of breakers failing to trip during overloads. We replace them with modern 200-amp panels, including all breakers, ESA permit, and inspection. This is one of the most important safety upgrades a Mississauga homeowner can make.",
+          "Yes. Federal Pioneer Stab-Lok panels are common in Mississauga homes built in the late 1970s and 1980s, especially in Erin Mills, Meadowvale, and Cooksville. These panels have a documented history of breakers failing to trip during overloads. We replace them with modern 200-amp panels, including all breakers, ESA permit, and inspection. This is one of the most important safety upgrades a Mississauga homeowner can make.",
       },
       {
         question: "Can you wire a basement apartment to code in Mississauga?",
@@ -667,9 +667,9 @@ export const cities: CityPage[] = [
         era: "Erin Mills and Meadowvale Subdivisions",
         years: "1980s",
         description:
-          "Erin Mills was one of Canada's largest master-planned communities when it was developed in the 1980s. Meadowvale followed a similar pattern north of Highway 401. These homes have copper wiring and 100 or 200-amp panels, but the panels are now 35 to 45 years old. Federal Pacific and Zinsco panels are common in this era and should be replaced proactively.",
+          "Erin Mills was one of Canada's largest master-planned communities when it was developed in the 1980s. Meadowvale followed a similar pattern north of Highway 401. These homes have copper wiring and 100 or 200-amp panels, but the panels are now 35 to 45 years old. Federal Pioneer and Zinsco panels are common in this era and should be replaced proactively.",
         electricalNeeds: [
-          "Federal Pacific or Zinsco panel replacement",
+          "Federal Pioneer or Zinsco panel replacement",
           "EV charger circuit addition (panels often near capacity)",
           "Pot light retrofits from flush-mount fixtures",
           "Dedicated circuits for home offices and workshops",
@@ -711,7 +711,7 @@ export const cities: CityPage[] = [
       {
         title: "Aging Panels in Erin Mills and Meadowvale",
         description:
-          "The 1980s subdivisions of Erin Mills and Meadowvale represent Mississauga's largest concentration of aging electrical panels. Many homes have 100-amp panels that are now 35 to 45 years old. Adding an EV charger or a basement renovation to these homes often requires a full panel upgrade first. Federal Pacific Stab-Lok panels from this era are a known safety hazard.",
+          "The 1980s subdivisions of Erin Mills and Meadowvale represent Mississauga's largest concentration of aging electrical panels. Many homes have 100-amp panels that are now 35 to 45 years old. Adding an EV charger or a basement renovation to these homes often requires a full panel upgrade first. Federal Pioneer Stab-Lok panels from this era are a known safety hazard.",
         icon: "Shield",
         relatedService: "panel-upgrades",
       },
@@ -747,7 +747,7 @@ export const cities: CityPage[] = [
         slug: "panel-upgrades",
         title: "Electrical Panel Upgrades",
         localContext:
-          "Erin Mills and Meadowvale homes built in the 1980s represent the bulk of panel upgrade demand in Mississauga. Most have 100-amp panels that cannot support EV chargers, basement renovations, or modern kitchen loads. We also replace a high volume of Federal Pacific panels in these neighbourhoods, which are a documented fire hazard.",
+          "Erin Mills and Meadowvale homes built in the 1980s represent the bulk of panel upgrade demand in Mississauga. Most have 100-amp panels that cannot support EV chargers, basement renovations, or modern kitchen loads. We also replace a high volume of Federal Pioneer panels in these neighbourhoods, which are a documented fire hazard.",
       },
       {
         slug: "knob-and-tube",
@@ -798,7 +798,7 @@ export const cities: CityPage[] = [
       {
         cluster: "North Mississauga",
         neighborhoods: ["Meadowvale", "Lisgar", "Churchill Meadows", "Streetsville"],
-        topService: "Pot light installations and Federal Pacific panel replacements",
+        topService: "Pot light installations and Federal Pioneer panel replacements",
       },
       {
         cluster: "East Mississauga",
@@ -990,9 +990,9 @@ export const cities: CityPage[] = [
         era: "Thornhill West & Early Maple",
         years: "1985 - 1995",
         description:
-          "Thornhill West along Bathurst and Dufferin, plus early Maple developments near Keele and Major Mackenzie, brought larger homes with 150-amp service. These panels are now 30-plus years old and many are Federal Pacific or Zinsco brands that insurers flag as fire hazards.",
+          "Thornhill West along Bathurst and Dufferin, plus early Maple developments near Keele and Major Mackenzie, brought larger homes with 150-amp service. These panels are now 30-plus years old and many are Federal Pioneer or Zinsco brands that insurers flag as fire hazards.",
         electricalNeeds: [
-          "Federal Pacific or Zinsco panel replacement",
+          "Federal Pioneer or Zinsco panel replacement",
           "Pot light retrofits replacing outdated flush-mount fixtures",
           "Dedicated home office circuits",
           "Smoke and CO detector upgrades to interconnected units",
@@ -1051,9 +1051,9 @@ export const cities: CityPage[] = [
         relatedService: "rewiring",
       },
       {
-        title: "Federal Pacific Panels in Thornhill West",
+        title: "Federal Pioneer Panels in Thornhill West",
         description:
-          "Many Thornhill West and early Maple homes installed Federal Pacific Stab-Lok panels. These panels have a documented history of breakers failing to trip during overcurrent events. Most insurance providers now flag these panels during home sales or policy renewals and require replacement.",
+          "Many Thornhill West and early Maple homes installed Federal Pioneer Stab-Lok panels. These panels have a documented history of breakers failing to trip during overcurrent events. Most insurance providers now flag these panels during home sales or policy renewals and require replacement.",
         icon: "Home",
         relatedService: "panel-upgrades",
       },
@@ -1118,7 +1118,7 @@ export const cities: CityPage[] = [
       permitNote:
         "All electrical work in Vaughan requires an ESA permit. The City of Vaughan building department coordinates with ESA for inspections. For estate properties in Kleinburg that involve landscape lighting or outbuilding feeds, a separate permit may be required for each structure. Permit turnaround in York Region is typically 1 to 3 business days.",
       insuranceNote:
-        "Vaughan home insurance providers are increasingly requiring proof of updated electrical systems, especially for homes built before 1985. Aluminum wiring, Federal Pacific panels, and 60-amp service are common red flags that can result in policy cancellation or non-renewal. An ESA certificate of inspection after upgrades keeps your coverage intact.",
+        "Vaughan home insurance providers are increasingly requiring proof of updated electrical systems, especially for homes built before 1985. Aluminum wiring, Federal Pioneer panels, and 60-amp service are common red flags that can result in policy cancellation or non-renewal. An ESA certificate of inspection after upgrades keeps your coverage intact.",
       utilityProvider: "Alectra Utilities",
     },
     neighborhoodHighlights: [
@@ -1453,7 +1453,7 @@ export const cities: CityPage[] = [
       permitNote:
         "All electrical work in Oakville requires an ESA permit. The Town of Oakville building department is particularly thorough with heritage properties in Old Oakville - expect additional review time for work on designated heritage homes. Standard permit turnaround is 1 to 3 business days. For heritage properties, allow an extra 2 to 5 days for heritage review if structural changes are involved.",
       insuranceNote:
-        "Oakville home insurance premiums are among the highest in Ontario due to property values. Insurers are aggressive about flagging electrical deficiencies - aluminum wiring, old fuse boxes, and Federal Pacific panels are common reasons for policy non-renewal in Oakville. An ESA certificate of inspection after upgrades protects your coverage and can reduce premiums. We provide this certificate on every permitted job.",
+        "Oakville home insurance premiums are among the highest in Ontario due to property values. Insurers are aggressive about flagging electrical deficiencies - aluminum wiring, old fuse boxes, and Federal Pioneer panels are common reasons for policy non-renewal in Oakville. An ESA certificate of inspection after upgrades protects your coverage and can reduce premiums. We provide this certificate on every permitted job.",
       utilityProvider: "Oakville Hydro",
     },
     neighborhoodHighlights: [

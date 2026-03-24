@@ -38,11 +38,10 @@ import { CTASection } from "@/components/sections/CTASection";
 const ease = [0.625, 0.05, 0, 1] as const;
 
 const milestones = [
-  { year: "2010", title: "Founded in Brampton", description: "Shaun starts Superior Power Electric with one truck and a toolbox." },
-  { year: "2013", title: "First Commercial Client", description: "Expanded into commercial electrical for local businesses across the GTA." },
-  { year: "2015", title: "Fleet Expansion", description: "Added second and third service trucks as demand grew through referrals." },
-  { year: "2018", title: "500+ Jobs Milestone", description: "Completed over 500 residential and commercial electrical projects." },
-  { year: "2022", title: "EV Charger Specialist", description: "Added Level 2 EV charger installation as Ontario goes electric." },
+  { year: "2020", title: "Founded in Brampton", description: "Shaun starts Superior Power Electric with one truck and a toolbox. One rule: do the job right, or don't do it at all." },
+  { year: "2021", title: "First Commercial Client", description: "Expanded into commercial electrical for local businesses across the GTA. Reputation built entirely through referrals." },
+  { year: "2022", title: "EV Charger Specialist", description: "Added Level 2 EV charger installation as Ontario goes electric. One of the first in Brampton to specialize." },
+  { year: "2023", title: "200+ Jobs Milestone", description: "Completed over 200 residential and commercial electrical projects across the GTA." },
   { year: "2025", title: "47 Five-Star Reviews", description: "Maintained a perfect 5.0 Google rating with zero negative reviews." },
 ];
 
@@ -77,7 +76,7 @@ const values = [
 const statsData = [
   { value: 500, suffix: "+", label: "Jobs Completed" },
   { value: 47, suffix: "", label: "5-Star Reviews" },
-  { value: 15, suffix: "+", label: "Years Experience" },
+  { value: 5, suffix: "+", label: "Years in Business" },
   { value: 100, suffix: "%", label: "Licensed & Insured" },
 ];
 
@@ -103,7 +102,7 @@ const aboutFaqs = [
   { q: "Do you offer emergency service?", a: "Yes. We provide 24/7 emergency electrical service. Same-day response for urgent issues like power outages, sparking outlets, or tripped panels." },
   { q: "How does the $49 assessment work?", a: "A licensed electrician visits your home, inspects your electrical system, and provides a detailed report. If you proceed with the work, the $49 is credited toward your project." },
   { q: "Do you pull permits?", a: "Yes. When required by Ontario code, we handle all permits and coordinate ESA inspections. You never have to deal with paperwork." },
-  { q: "What payment methods do you accept?", a: "We accept e-transfer, credit card, debit, and cheque. Financing is available for larger projects like panel upgrades and full rewiring." },
+  { q: "What payment methods do you accept?", a: "We accept e-transfer, credit card, debit, and cheque. Financing is available through Financeit for larger projects like panel upgrades and full rewiring." },
   { q: "How long does a panel upgrade take?", a: "Most 100A to 200A panel upgrades are completed in a single day. Complex installations involving meter base replacement may take two days." },
   { q: "Do you provide warranties?", a: "Yes. All installations come with a workmanship warranty. We stand behind every connection, every wire, and every panel we install." },
 ];
@@ -429,7 +428,7 @@ export function AboutContent() {
 
               <div className="mt-6 space-y-4 font-body text-[#64748b] text-base md:text-lg leading-relaxed">
                 <p>In {business.foundedYear}, {business.owner} left a comfortable job to start Superior Power Electric out of his garage in Brampton. One truck. One toolbox. One commitment: every job done right the first time.</p>
-                <p>Word spread. Not through advertising - through referrals. One happy customer told their neighbor. That neighbor told theirs. Within five years, that one truck became a fleet of three.</p>
+                <p>Word spread. Not through advertising - through referrals. One happy customer told their neighbor. That neighbor told theirs. Five years later, that reputation speaks for itself.</p>
                 <p>Today, Superior Power Electric holds ESA License {business.esaLicense}, maintains a perfect {business.googleReviews.rating}-star rating across {business.googleReviews.count} Google reviews, and serves homeowners and businesses across the Greater Toronto Area.</p>
               </div>
 

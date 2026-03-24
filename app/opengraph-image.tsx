@@ -115,8 +115,8 @@ export default function OGImage() {
             </div>
             <div style={{ width: "1px", background: "rgba(255,255,255,0.2)" }} />
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", color: "white" }}>
-              <div style={{ fontSize: "24px", fontWeight: 700 }}>15+ Years</div>
-              <div style={{ fontSize: "14px", color: "#94a3b8" }}>Experience</div>
+              <div style={{ fontSize: "24px", fontWeight: 700 }}>Since 2020</div>
+              <div style={{ fontSize: "14px", color: "#94a3b8" }}>Trusted</div>
             </div>
             <div style={{ width: "1px", background: "rgba(255,255,255,0.2)" }} />
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", color: "white" }}>

@@ -4,7 +4,7 @@ export default function MarqueeTicker() {
     "47 Five-Star Reviews",
     "Same-Day Service",
     "ESA #7014710",
-    "15+ Years Experience",
+    "Trusted Since 2020",
     "100% Licensed & Insured",
     "Brampton's Most Trusted",
     "Free Remote Estimates",

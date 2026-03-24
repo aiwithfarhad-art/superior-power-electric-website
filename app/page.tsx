@@ -8,6 +8,7 @@ const ProcessSection = dynamic(() => import("@/components/sections/ProcessSectio
 const WhyUsSection = dynamic(() => import("@/components/sections/WhyUsSection"));
 const AboutSection = dynamic(() => import("@/components/sections/AboutSection"));
 const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection"));
+const FinancingSection = dynamic(() => import("@/components/sections/FinancingSection"));
 const InstagramSection = dynamic(() => import("@/components/sections/InstagramSection"));
 const BlogSection = dynamic(() => import("@/components/sections/BlogSection").then(m => ({ default: m.BlogSection })));
 const ServiceAreaSection = dynamic(() => import("@/components/sections/ServiceAreaSection").then(m => ({ default: m.ServiceAreaSection })));
@@ -55,6 +56,7 @@ export default function HomePage() {
       <WhyUsSection />
       <AboutSection />
       <TestimonialsSection />
+      <FinancingSection />
       <InstagramSection />
       <ServiceAreaSection />
       <BlogSection />

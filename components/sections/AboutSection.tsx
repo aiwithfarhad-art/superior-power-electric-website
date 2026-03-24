@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const badges = [
   { icon: Shield, text: "ESA #7014710" },
-  { icon: Clock, text: "15+ Years" },
+  { icon: Clock, text: "5+ Years" },
   { icon: Zap, text: "500+ Jobs" },
 ];
 
@@ -37,7 +37,7 @@ export default function AboutSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_-12px_rgba(0,0,0,0.15)]">
               <Image
                 src="/images/company-fleet.webp"
-                alt="Superior Power Electric fleet of three branded RAM trucks parked in front of the Toronto CN Tower skyline - licensed electricians serving Brampton and the GTA"
+                alt="Superior Power Electric service truck parked in front of the Toronto CN Tower skyline - licensed electricians serving Brampton and the GTA"
                 width={1200}
                 height={800}
                 className="w-full h-auto object-cover"
@@ -88,7 +88,7 @@ export default function AboutSection() {
                 One Truck. One Promise.
               </h2>
               <p className="font-heading font-semibold tracking-tight text-[#E31837] uppercase text-xl sm:text-2xl lg:text-[30px] leading-[1.1] mt-1">
-                15 Years. Same Standard.
+                Same Standard. Every Job.
               </p>
             </motion.div>
 
@@ -108,17 +108,16 @@ export default function AboutSection() {
               className="mt-6 space-y-4 font-body text-[#64748b] text-lg md:text-xl leading-[1.75]"
             >
               <p>
-                In 2010, Shaun Pennant started Superior Power Electric with one
+                In 2020, Shaun Pennant started Superior Power Electric with one
                 truck and a simple rule: do the job right, or don&apos;t do it
                 at all.
               </p>
               <p>
-                That one truck became three. That solo operation became
-                Brampton&apos;s go-to licensed electrician. Not because of
-                clever marketing. Because every panel upgrade, every pot light
-                install, every emergency call got the same treatment: show up on
-                time, explain everything, leave the place cleaner than you found
-                it.
+                That commitment turned into Brampton&apos;s go-to licensed
+                electrician. Not because of clever marketing. Because every
+                panel upgrade, every pot light install, every emergency call got
+                the same treatment: show up on time, explain everything, leave
+                the place cleaner than you found it.
               </p>
               <p className="text-[#1C1C1E] font-medium">
                 47 five-star reviews. Zero shortcuts. That is the whole story.

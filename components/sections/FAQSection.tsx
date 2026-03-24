@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "How much experience do you have?",
-    a: "We have over 15 years of industry expertise in both residential and commercial electrical work across the Greater Toronto Area.",
+    a: "Our owner Shaun Pennant brings over 15 years of hands-on electrical trade experience to every project across the Greater Toronto Area.",
   },
   {
     q: "How do your estimates work?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Do you offer financing for electrical work?",
-    a: "We can discuss payment options for larger projects like panel upgrades and rewiring. Contact us at (647) 872-9954 to discuss your project and we will work out a payment plan that fits your budget.",
+    a: "Yes. We offer financing through Financeit for larger projects like panel upgrades and rewiring. Apply online at financeit.ca or contact us at (647) 872-9954 to discuss your project.",
   },
   {
     q: "What is your $49 Project Assessment?",

@@ -13,7 +13,7 @@ interface Badge {
 const badges: Badge[] = [
   { icon: Shield, label: "ESA Licensed", desc: "ECRA #7014710" },
   { icon: Star, label: "Google 5.0\u2605", desc: "47 Verified Reviews" },
-  { icon: Clock, label: "15+ Years", desc: "Serving Brampton" },
+  { icon: Clock, label: "Since 2020", desc: "Serving Brampton" },
   { icon: ShieldCheck, label: "Fully Insured", desc: "Complete Coverage" },
   { icon: Zap, label: "Same-Day", desc: "Emergency Available" },
 ];
